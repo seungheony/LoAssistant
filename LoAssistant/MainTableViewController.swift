@@ -18,7 +18,13 @@ class MainTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-            performSegue(withIdentifier: "orehaCalculater", sender: nil)
+            guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "SecondVC") else {
+                return
+            }
+            self.navigationController?.pushViewController(uvc, animated: true)
+        }
+        else if indexPath.row == 1 {
+            
         }
     }
 }
