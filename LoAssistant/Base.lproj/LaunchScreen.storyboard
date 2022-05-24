@@ -16,8 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="LoAssistant" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c2S-o2-pf4">
-                                <rect key="frame" x="0.0" y="354" width="374" height="104"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LoAssistant" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c2S-o2-pf4">
+                                <rect key="frame" x="0.0" y="264" width="375" height="60"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -26,8 +26,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="c2S-o2-pf4" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Tcs-EQ-AkW"/>
-                            <constraint firstItem="c2S-o2-pf4" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="TkE-t0-rzu"/>
+                            <constraint firstItem="c2S-o2-pf4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="220" id="3yb-zc-2at"/>
+                            <constraint firstItem="c2S-o2-pf4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ww7-HK-kHs"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="c2S-o2-pf4" secondAttribute="trailing" id="s0T-pu-q4W"/>
                         </constraints>
                     </view>
                 </viewController>

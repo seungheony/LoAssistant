@@ -11,6 +11,8 @@ protocol MarketModelProtocol {
     func ancientRetrieved(ancient:[Pricechart])
     func rareRetrieved(rare:[Pricechart])
     func orehaRetrieved(oreha:[Pricechart])
+    func intermediateRetrieved(intermediate: [Pricechart])
+    func advancedRetrieved(advanced: [Pricechart])
 }
 
 class MarketModel {
@@ -39,27 +41,39 @@ class MarketModel {
                  // 9. try 문을 앞에 붙여서 JSON 데이터를 이전에 만들어준 ArticleService 모양의 swift 인스턴스로 파싱해줍니다.
                  let marketService = try decoder.decode(MarketService.self, from: data!)
                  // 10. 데이터를 성공적으로 받아왔다면 일전에 만들어놓은 ArticleModelProtocol의 articlesRetrieved 함수를 이용해서 articles를 ViewController에 보내줍니다. 여기서 주의하셔야 할 점은 ArticleModel의 getArticles 함수는 background thread에서 동작하고 있습니다. 하지만 ViewController에서 articles를 받아오면 바로 화면에 띄워줘야 하기 때문에, UI관련 로직은 많은 프로세스사양을 요구하므로 main thread에서 articlesRetrieved 함수를 동작시켜주어야 합니다. 때문에 DispatchQueue.main.async 구문을 써주었습니다.
-                 DispatchQueue.main.async {
-                     switch self.counter {
-                     case 0:
-                         self.delegate?.ancientRetrieved(ancient: marketService.pricechart)
+                 switch self.counter {
+                 case 0:
+                     DispatchQueue.main.async {
+                         self.delegate?.ancientRetrieved(ancient: marketService.pricechart!)
                          self.counter+=1
-                     case 1:
-                         self.delegate?.rareRetrieved(rare: marketService.pricechart)
+                    }
+                 case 1:
+                     DispatchQueue.main.async {
+                         self.delegate?.rareRetrieved(rare: marketService.pricechart!)
                          self.counter+=1
-                     case 2:
-                         self.delegate?.orehaRetrieved(oreha: marketService.pricechart)
+                    }
+                 case 2:
+                     DispatchQueue.main.async {
+                         self.delegate?.orehaRetrieved(oreha: marketService.pricechart!)
                          self.counter+=1
-                     default:
-                         // default
-                         self.counter = 0
-                     }
-                }
+                    }
+                 case 3:
+                     DispatchQueue.main.async {
+                         self.delegate?.intermediateRetrieved(intermediate:marketService.pricechart!)
+                         self.counter+=1
+                    }
+                 case 4:
+                     DispatchQueue.main.async {
+                         self.delegate?.advancedRetrieved(advanced: marketService.pricechart!)
+                         self.counter+=1
+                    }
+                 default:
+                     self.counter = 0
+                 }
             }
             catch {
                  print("Error parsing the json")
              }
-                 
         }
     }
          // 11. datatask 준비가 완료되었다면 datatask를 실행시켜줍니다.
