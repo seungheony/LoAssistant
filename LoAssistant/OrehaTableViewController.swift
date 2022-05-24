@@ -8,6 +8,9 @@
 import UIKit
 
 class OrehaTableViewController: UITableViewController {
+    var ancient: [Pricechart] = []
+    var rare: [Pricechart] = []
+    var oreha: [Pricechart] = []
     
     var ancientAve = 0
     var rareAve = 0
@@ -21,6 +24,10 @@ class OrehaTableViewController: UITableViewController {
         model.getMarkets(urlString: "http://152.70.248.4:5000/trade/6882701")
         model.getMarkets(urlString: "http://152.70.248.4:5000/trade/6882704")
         model.getMarkets(urlString: "http://152.70.248.4:5000/trade/6885708")
+        let price: Int = Int(ancient[0].price) ?? 0
+        let amount: Int = Int(ancient[0].amount) ?? 0
+        print(price)
+        print(amount)
 //        print(ancientAve)
 //        print(rareAve)
 //        print(orehaAve)
@@ -50,22 +57,11 @@ class OrehaTableViewController: UITableViewController {
 extension OrehaTableViewController:MarketModelProtocol {
     
     func ancientRetrieved(ancient: [Pricechart]) {
-        var total_amount: Int = 0
-        for i in 0...1 {
+        for i in 0...2 {
+            self.ancient = ancient
             print(i)
-            let str_price: String = ancient[i].price
-            let str_amount: String = ancient[i].amount
-//            print(ancient[i].price)
-//            print(str_price)
-            let price: Int = Int(str_price)!
-//            let amount: Int = Int(str_amount)!
-            print(price)
-//            print(amount)
-//            self.ancientAve+=price*(amount/100)
-//            total_amount+=(amount/100)
+            print(ancient[i].self)
         }
-//        self.ancientAve/=total_amount
-//        print(self.ancientAve)
     }
     
     func rareRetrieved(rare: [Pricechart]) {
