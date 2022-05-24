@@ -8,38 +8,35 @@
 import UIKit
 
 class OrehaTableViewController: UITableViewController {
-    var ancient: [Pricechart] = []
-    var rare: [Pricechart] = []
-    var oreha: [Pricechart] = []
+
+    var ancient = [Pricechart]()
+    var rare = [Pricechart]()
+    var oreha = [Pricechart]()
     
-    var intermediate_oreha: [Pricechart] = []
-    var advanced_oreha: [Pricechart] = []
-    
-    var ancientAve = 0
-    var rareAve = 0
-    var orehaAve = 0
+    var intermediate_oreha = [Pricechart]()
+    var advanced_oreha = [Pricechart]()
     
     var model = MarketModel()
     
+    let marketURL: [String] = ["http://152.70.248.4:5000/trade/6882701", "http://152.70.248.4:5000/trade/6882704",
+                               "http://152.70.248.4:5000/trade/6885708", "http://152.70.248.4:5000/trade/6861008",
+                               "http://152.70.248.4:5000/trade/6861009" ]
     override func viewDidLoad() {
         super.viewDidLoad()
         DispatchQueue.main.async {
-            self.model.delegate = self
-            self.model.getMarkets(urlString: "http://152.70.248.4:5000/trade/6882701")
-            self.model.getMarkets(urlString: "http://152.70.248.4:5000/trade/6882704")
-            self.model.getMarkets(urlString: "http://152.70.248.4:5000/trade/6885708")
             
-            self.model.getMarkets(urlString: "http://152.70.248.4:5000/trade/6861008")
-            self.model.getMarkets(urlString: "http://152.70.248.4:5000/trade/6861009")
         }
-//        let price: Int = Int(ancient[0].price) ?? 0
-//        let amount: Int = Int(ancient[0].amount) ?? 0
-//        print(price)
-//        print(amount)
-
-//        print(ancientAve)
-//        print(rareAve)
-//        print(orehaAve)
+        self.model.delegate = self
+        
+//        for i in 0...4 {
+//            self.model.getMarkets(urlString: marketURL[i])
+//        }
+        self.model.getMarkets(urlString: marketURL[0])
+//        self.model.getMarkets(urlString: marketURL[1])
+//        self.model.getMarkets(urlString: marketURL[2])
+//
+//        self.model.getMarkets(urlString: marketURL[3])
+//        self.model.getMarkets(urlString: marketURL[4])
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -67,41 +64,45 @@ extension OrehaTableViewController:MarketModelProtocol {
     
     func ancientRetrieved(ancient: [Pricechart]) {
         self.ancient = ancient
-//        print("ancientRetieved: ")
-//        for i in 0...2 {
-//            print(self.ancient[i].self)
-//        }
+        print("ancientRetieved: ")
+        for i in 0...ancient.count-1 {
+            print(self.ancient[i].self)
+        }
+        self.model.getMarkets(urlString: marketURL[1])
     }
     
     func rareRetrieved(rare: [Pricechart]) {
         self.rare = rare
-//        print("rareRetrieved")
-//        for i in 0...1 {
-//            print(self.rare[i].self)
-//        }
+        print("rareRetrieved")
+        for i in 0...rare.count-1 {
+            print(self.rare[i].self)
+        }
+        self.model.getMarkets(urlString: marketURL[2])
     }
     
     func orehaRetrieved(oreha: [Pricechart]) {
         self.oreha = oreha
-//        print("orehaRetrieved")
-//        for i in 0...1 {
-//            print(self.oreha[i].self)
-//        }
+        print("orehaRetrieved")
+        for i in 0...oreha.count-1 {
+            print(self.oreha[i].self)
+        }
+        self.model.getMarkets(urlString: self.marketURL[3])
     }
     
     func intermediateRetrieved(intermediate: [Pricechart]) {
         self.intermediate_oreha = intermediate
-//        print("intermediateRetrieved: ")
-//        for i in 0...2 {
-//            print(self.ancient[i].self)
-//        }
+        print("intermediateRetrieved: ")
+        for i in 0...intermediate.count-1 {
+            print(self.intermediate_oreha[i].self)
+        }
+        self.model.getMarkets(urlString: self.marketURL[4])
     }
     
     func advancedRetrieved(advanced: [Pricechart]) {
         self.advanced_oreha = advanced
-//        print("advancedRetrieved: ")
-//        for i in 0...2 {
-//            print(self.ancient[i].self)
-//        }
+        print("advancedRetrieved: ")
+        for i in 0...advanced.count-1 {
+            print(self.advanced_oreha[i].self)
+        }
     }
 }
