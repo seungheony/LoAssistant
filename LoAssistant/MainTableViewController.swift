@@ -12,7 +12,7 @@ class MainTableViewController: UITableViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        navigationController?.setNavigationBarHidden(false, animated: true)
         
     }
     

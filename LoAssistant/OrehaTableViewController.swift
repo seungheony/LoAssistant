@@ -18,9 +18,9 @@ class OrehaTableViewController: UITableViewController {
     
     var model = MarketModel()
     
-    let marketURL: [String] = ["http://152.70.248.4:5000/trade/6882701", "http://152.70.248.4:5000/trade/6882704",
-                               "http://152.70.248.4:5000/trade/6885708", "http://152.70.248.4:5000/trade/6861008",
-                               "http://152.70.248.4:5000/trade/6861009" ]
+    let marketURL: [String] = [ "http://152.70.248.4:5000/trade/6882701", "http://152.70.248.4:5000/trade/6882704",
+                                "http://152.70.248.4:5000/trade/6885708", "http://152.70.248.4:5000/trade/6861008",
+                                "http://152.70.248.4:5000/trade/6861009" ]
     override func viewDidLoad() {
         super.viewDidLoad()
         DispatchQueue.main.async {

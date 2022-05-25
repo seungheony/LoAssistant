@@ -41,40 +41,39 @@ class MarketModel {
                     // 9. try 문을 앞에 붙여서 JSON 데이터를 이전에 만들어준 ArticleService 모양의 swift 인스턴스로 파싱해줍니다.
                     let marketService = try decoder.decode(MarketService.self, from: data!)
                     // 10. 데이터를 성공적으로 받아왔다면 일전에 만들어놓은 ArticleModelProtocol의 articlesRetrieved 함수를 이용해서 articles를 ViewController에 보내줍니다. 여기서 주의하셔야 할 점은 ArticleModel의 getArticles 함수는 background thread에서 동작하고 있습니다. 하지만 ViewController에서 articles를 받아오면 바로 화면에 띄워줘야 하기 때문에, UI관련 로직은 많은 프로세스사양을 요구하므로 main thread에서 articlesRetrieved 함수를 동작시켜주어야 합니다. 때문에 DispatchQueue.main.async 구문을 써주었습니다.
-//                    DispatchQueue.main.async {
+                    DispatchQueue.main.async {
                         switch self.counter {
                         case 0:
-                             self.counter+=1
-                             print("counter : 0")
-                             self.delegate?.ancientRetrieved(ancient: marketService.pricechart!)
-                            
-                         case 1:
-                             self.counter+=1
-                             print("counter : 1")
-                             self.delegate?.rareRetrieved(rare: marketService.pricechart!)
-                         case 2:
-                             self.counter+=1
-                             print("counter : 2")
-                             self.delegate?.orehaRetrieved(oreha: marketService.pricechart!)
-                         case 3:
-                             self.counter+=1
-                             print("counter : 3")
-                             self.delegate?.intermediateRetrieved(intermediate:marketService.pricechart!)
-                         case 4:
-                             self.counter+=1
-                             print("counter : 4")
-                             self.delegate?.advancedRetrieved(advanced: marketService.pricechart!)
-                         default:
-                             self.counter = 0
-                         }
-//                     }
+                            self.counter+=1
+                            print("counter : 0")
+                            self.delegate?.ancientRetrieved(ancient: marketService.pricechart!)
+                        case 1:
+                            self.counter+=1
+                            print("counter : 1")
+                            self.delegate?.rareRetrieved(rare: marketService.pricechart!)
+                        case 2:
+                            self.counter+=1
+                            print("counter : 2")
+                            self.delegate?.orehaRetrieved(oreha: marketService.pricechart!)
+                        case 3:
+                            self.counter+=1
+                            print("counter : 3")
+                            self.delegate?.intermediateRetrieved(intermediate:marketService.pricechart!)
+                        case 4:
+                            self.counter+=1
+                            print("counter : 4")
+                            self.delegate?.advancedRetrieved(advanced: marketService.pricechart!)
+                        default:
+                            self.counter = 0
+                        }
+                    }
                 }
                 catch {
-                     print("Error parsing the json")
-                 }
+                    print("Error parsing the json")
+                }
+            }
         }
+        // 11. datatask 준비가 완료되었다면 datatask를 실행시켜줍니다.
+        datatask.resume()
     }
-         // 11. datatask 준비가 완료되었다면 datatask를 실행시켜줍니다.
-         datatask.resume()
-     }
- }
+}
