@@ -1,14 +1,14 @@
 //
-//  MarketService.swift
+//  MarketModel.swift
 //  LoAssistant
 //
-//  Created by 김승헌 on 2022/05/22.
+//  Created by 김승헌 on 2022/05/13.
 //
 
 import UIKit
 
-// MARK: - Welcome
-struct MarketService: Codable {
+// MARK: - MarketModel
+struct MarketModel: Codable {
     let name: String
     let pricechart: [Pricechart]?
     let result: String
@@ -29,4 +29,3 @@ struct Pricechart: Codable {
         case price = "Price"
     }
 }
-

@@ -9,6 +9,10 @@ import UIKit
 
 class OrehaTableViewController: UITableViewController {
 
+    @IBOutlet weak var ancientPrice: UILabel!
+    @IBOutlet weak var rarePrice: UILabel!
+    @IBOutlet weak var orehaPrice: UILabel!
+    
     var ancient = [Pricechart]()
     var rare = [Pricechart]()
     var oreha = [Pricechart]()
@@ -16,27 +20,18 @@ class OrehaTableViewController: UITableViewController {
     var intermediate_oreha = [Pricechart]()
     var advanced_oreha = [Pricechart]()
     
-    var model = MarketModel()
-    
+    var counter = 0
     let marketURL: [String] = [ "http://152.70.248.4:5000/trade/6882701", "http://152.70.248.4:5000/trade/6882704",
                                 "http://152.70.248.4:5000/trade/6885708", "http://152.70.248.4:5000/trade/6861008",
                                 "http://152.70.248.4:5000/trade/6861009" ]
     override func viewDidLoad() {
         super.viewDidLoad()
-        DispatchQueue.main.async {
-            
+        for i in marketURL {
+            parseData(url: i)
         }
-        self.model.delegate = self
         
-//        for i in 0...4 {
-//            self.model.getMarkets(urlString: marketURL[i])
-//        }
-        self.model.getMarkets(urlString: marketURL[0])
-//        self.model.getMarkets(urlString: marketURL[1])
-//        self.model.getMarkets(urlString: marketURL[2])
-//
-//        self.model.getMarkets(urlString: marketURL[3])
-//        self.model.getMarkets(urlString: marketURL[4])
+        
+        
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -46,10 +41,10 @@ class OrehaTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(section == 0){
-            return 0
+            return 3
         }
         else if(section == 1){
-            return 3
+            return 2
         }
         else if(section == 2){
             return 2
@@ -60,49 +55,56 @@ class OrehaTableViewController: UITableViewController {
     }
 }
 
-extension OrehaTableViewController:MarketModelProtocol {
+extension OrehaTableViewController {
     
-    func ancientRetrieved(ancient: [Pricechart]) {
-        self.ancient = ancient
-        print("ancientRetieved: ")
-        for i in 0...ancient.count-1 {
-            print(self.ancient[i].self)
-        }
-        self.model.getMarkets(urlString: marketURL[1])
-    }
-    
-    func rareRetrieved(rare: [Pricechart]) {
-        self.rare = rare
-        print("rareRetrieved")
-        for i in 0...rare.count-1 {
-            print(self.rare[i].self)
-        }
-        self.model.getMarkets(urlString: marketURL[2])
-    }
-    
-    func orehaRetrieved(oreha: [Pricechart]) {
-        self.oreha = oreha
-        print("orehaRetrieved")
-        for i in 0...oreha.count-1 {
-            print(self.oreha[i].self)
-        }
-        self.model.getMarkets(urlString: self.marketURL[3])
-    }
-    
-    func intermediateRetrieved(intermediate: [Pricechart]) {
-        self.intermediate_oreha = intermediate
-        print("intermediateRetrieved: ")
-        for i in 0...intermediate.count-1 {
-            print(self.intermediate_oreha[i].self)
-        }
-        self.model.getMarkets(urlString: self.marketURL[4])
-    }
-    
-    func advancedRetrieved(advanced: [Pricechart]) {
-        self.advanced_oreha = advanced
-        print("advancedRetrieved: ")
-        for i in 0...advanced.count-1 {
-            print(self.advanced_oreha[i].self)
+    func parseData(url: String) {
+        GetMarketDataService.shared.getMarketInfo(URL: url) { (response) in
+            // NetworkResult형 enum값을 이용해서 분기처리를 합니다.
+            switch(response) {
+            
+            // 성공할 경우에는 <T>형으로 데이터를 받아올 수 있다고 했기 때문에 Generic하게 아무 타입이나 가능하기 때문에
+            // 클로저에서 넘어오는 데이터를 let personData라고 정의합니다.
+            case .success(let marketData):
+                // personData를 Person형이라고 옵셔널 바인딩 해주고, 정상적으로 값을 data에 담아둡니다.
+                switch(self.counter) {
+                case 0:
+                    print(self.counter)
+                    self.ancient = marketData
+                    print(marketData.self)
+                    self.ancientPrice.text = self.ancient[0].price
+                    self.counter+=1
+                case 1:
+                    print(self.counter)
+                    self.rare = marketData
+                    print(marketData.self)
+                    self.rarePrice.text = self.rare[0].price
+                    self.counter+=1
+                case 2:
+                    print(self.counter)
+                    print(marketData.self)
+                    self.oreha = marketData
+                    self.orehaPrice.text = self.oreha[0].price
+                    self.counter+=1
+                case 3:
+                    print(self.counter)
+                    self.intermediate_oreha = marketData
+                    self.counter+=1
+                case 4:
+                    print(self.counter)
+                    self.advanced_oreha = marketData
+                default: break
+                }
+               
+            // 실패할 경우에 분기처리는 아래와 같이 합니다.
+            case .requestErr(let message) :
+                print("requestErr", message)
+            case .pathErr :
+                print("pathErr")
+            case .serverErr :
+                print("serveErr")
+            case .networkFail:
+                print("networkFail")
+            }
         }
     }
 }
