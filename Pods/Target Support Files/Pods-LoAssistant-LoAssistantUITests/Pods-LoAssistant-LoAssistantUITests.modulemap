@@ -1,0 +1,6 @@
+framework module Pods_LoAssistant_LoAssistantUITests {
+  umbrella header "Pods-LoAssistant-LoAssistantUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
