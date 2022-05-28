@@ -26,9 +26,10 @@ class OrehaTableViewController: UITableViewController {
                                 "http://152.70.248.4:5000/trade/6861009" ]
     override func viewDidLoad() {
         super.viewDidLoad()
-        for i in marketURL {
-            parseData(url: i)
-        }
+//        for i in marketURL {
+//            parseData(url: i)
+//        }
+        parseData(url: marketURL[0])
         
         
         
@@ -70,25 +71,23 @@ extension OrehaTableViewController {
                 case 0:
                     print(self.counter)
                     self.ancient = marketData
-                    print(marketData.self)
-                    self.ancientPrice.text = self.ancient[0].price
                     self.counter+=1
+                    self.parseData(url: self.marketURL[1])
                 case 1:
                     print(self.counter)
                     self.rare = marketData
-                    print(marketData.self)
-                    self.rarePrice.text = self.rare[0].price
                     self.counter+=1
+                    self.parseData(url: self.marketURL[2])
                 case 2:
                     print(self.counter)
                     print(marketData.self)
-                    self.oreha = marketData
-                    self.orehaPrice.text = self.oreha[0].price
                     self.counter+=1
+                    self.parseData(url: self.marketURL[3])
                 case 3:
                     print(self.counter)
                     self.intermediate_oreha = marketData
                     self.counter+=1
+                    self.parseData(url: self.marketURL[4])
                 case 4:
                     print(self.counter)
                     self.advanced_oreha = marketData
