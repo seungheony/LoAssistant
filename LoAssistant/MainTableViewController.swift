@@ -18,7 +18,7 @@ class MainTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-            guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "SecondVC") else {
+            guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "OrehaTable") else {
                 return
             }
             self.navigationController?.pushViewController(uvc, animated: true)

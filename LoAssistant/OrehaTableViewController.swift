@@ -9,10 +9,17 @@ import UIKit
 
 class OrehaTableViewController: UITableViewController {
 
+    
     @IBOutlet weak var ancientPrice: UILabel!
     @IBOutlet weak var rarePrice: UILabel!
     @IBOutlet weak var orehaPrice: UILabel!
     
+    @IBAction func orehaSetting(_ sender: Any) {
+        guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "OrehaSetting") else {
+            return
+        }
+        self.navigationController?.pushViewController(uvc, animated: true)
+    }
     var ancient = [Pricechart]()
     var rare = [Pricechart]()
     var oreha = [Pricechart]()
@@ -69,27 +76,22 @@ extension OrehaTableViewController {
                 // personData를 Person형이라고 옵셔널 바인딩 해주고, 정상적으로 값을 data에 담아둡니다.
                 switch(self.counter) {
                 case 0:
-                    print(self.counter)
                     self.ancient = marketData
                     self.counter+=1
                     self.parseData(url: self.marketURL[1])
                 case 1:
-                    print(self.counter)
                     self.rare = marketData
                     self.counter+=1
                     self.parseData(url: self.marketURL[2])
                 case 2:
-                    print(self.counter)
-                    print(marketData.self)
+                    self.oreha = marketData
                     self.counter+=1
                     self.parseData(url: self.marketURL[3])
                 case 3:
-                    print(self.counter)
                     self.intermediate_oreha = marketData
                     self.counter+=1
                     self.parseData(url: self.marketURL[4])
                 case 4:
-                    print(self.counter)
                     self.advanced_oreha = marketData
                 default: break
                 }

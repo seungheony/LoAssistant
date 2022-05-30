@@ -109,7 +109,7 @@
         <!--오레하 손익 계산기-->
         <scene sceneID="Hxq-ts-Usa">
             <objects>
-                <tableViewController storyboardIdentifier="SecondVC" id="fY9-aO-mMg" customClass="OrehaTableViewController" customModule="LoAssistant" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="OrehaTable" id="fY9-aO-mMg" customClass="OrehaTableViewController" customModule="LoAssistant" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="7Ye-28-TXF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -335,7 +335,13 @@
                             <outlet property="delegate" destination="fY9-aO-mMg" id="Pxp-UP-dUy"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="오레하 손익 계산기" largeTitleDisplayMode="always" id="SHd-Wo-Bdy"/>
+                    <navigationItem key="navigationItem" title="오레하 손익 계산기" largeTitleDisplayMode="always" id="SHd-Wo-Bdy">
+                        <barButtonItem key="rightBarButtonItem" image="gear" catalog="system" id="1Ma-5O-Vuw">
+                            <connections>
+                                <action selector="orehaSetting:" destination="fY9-aO-mMg" id="pJJ-1S-kDS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="ancientPrice" destination="TYi-KA-MZ5" id="6LG-8I-WbM"/>
@@ -346,6 +352,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JnC-F3-wiz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-13.043478260869566" y="1005.8035714285713"/>
+        </scene>
+        <!--Oreha Setting View Controller Table View Controller-->
+        <scene sceneID="kfm-gR-Vxb">
+            <objects>
+                <tableViewController storyboardIdentifier="OrehaSetting" id="4oK-sG-KL7" customClass="OrehaSettingViewControllerTableViewController" customModule="LoAssistant" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Ooo-FQ-emF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="oG0-K9-Ey7">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oG0-K9-Ey7" id="RCJ-V3-UL2">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="4oK-sG-KL7" id="vml-8p-oAW"/>
+                            <outlet property="delegate" destination="4oK-sG-KL7" id="zau-IS-DgD"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9ju-ZM-26s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="716" y="1006"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SgW-4l-Lx8">
@@ -367,6 +401,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="gear" catalog="system" width="128" height="119"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

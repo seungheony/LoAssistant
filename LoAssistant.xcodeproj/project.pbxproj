@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0940C46B513ECCAC5C2D15B9 /* Pods_LoAssistantTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CA49C1B43D2A17E9F8D8636 /* Pods_LoAssistantTests.framework */; };
 		1008CB5B283A1DC9000F6E0B /* MarketDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1008CB5A283A1DC9000F6E0B /* MarketDataService.swift */; };
+		103E53B228459141001199A9 /* OrehaSettingViewControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103E53B128459141001199A9 /* OrehaSettingViewControllerTableViewController.swift */; };
 		10AFD09827EDF058004CFAFB /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AFD09727EDF058004CFAFB /* MainTableViewController.swift */; };
 		10B502C727F01975000A0468 /* OrehaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B502C627F01975000A0468 /* OrehaTableViewController.swift */; };
 		10B589C1282E9DC400B11011 /* MarketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B589C0282E9DC400B11011 /* MarketModel.swift */; };
@@ -45,6 +46,7 @@
 /* Begin PBXFileReference section */
 		062528949B9FCA96BDEDB6D0 /* Pods-LoAssistant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoAssistant.release.xcconfig"; path = "Target Support Files/Pods-LoAssistant/Pods-LoAssistant.release.xcconfig"; sourceTree = "<group>"; };
 		1008CB5A283A1DC9000F6E0B /* MarketDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDataService.swift; sourceTree = "<group>"; };
+		103E53B128459141001199A9 /* OrehaSettingViewControllerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrehaSettingViewControllerTableViewController.swift; sourceTree = "<group>"; };
 		10AFD09727EDF058004CFAFB /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		10B502C627F01975000A0468 /* OrehaTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrehaTableViewController.swift; sourceTree = "<group>"; };
 		10B589C0282E9DC400B11011 /* MarketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketModel.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				10AFD09727EDF058004CFAFB /* MainTableViewController.swift */,
 				10F6462327EB2F8500E51BBB /* Main.storyboard */,
 				10B502C627F01975000A0468 /* OrehaTableViewController.swift */,
+				103E53B128459141001199A9 /* OrehaSettingViewControllerTableViewController.swift */,
 				10F6462627EB2F8600E51BBB /* Assets.xcassets */,
 				10F6462827EB2F8600E51BBB /* LaunchScreen.storyboard */,
 				10F6462B27EB2F8600E51BBB /* Info.plist */,
@@ -427,6 +430,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				10AFD09827EDF058004CFAFB /* MainTableViewController.swift in Sources */,
+				103E53B228459141001199A9 /* OrehaSettingViewControllerTableViewController.swift in Sources */,
 				10F6461E27EB2F8500E51BBB /* AppDelegate.swift in Sources */,
 				10B502C727F01975000A0468 /* OrehaTableViewController.swift in Sources */,
 				10F6462027EB2F8500E51BBB /* SceneDelegate.swift in Sources */,
