@@ -7,7 +7,7 @@ target 'LoAssistant' do
 
   # Pods for LoAssistant
 
-  pod 'Alamofire', '~> 5.3'
+  pod 'Alamofire', '~> 5.6'
 
   target 'LoAssistantTests' do
     inherit! :search_paths
