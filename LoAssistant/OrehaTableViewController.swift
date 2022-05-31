@@ -9,9 +9,12 @@ import UIKit
 
 class OrehaTableViewController: UITableViewController {
     
+    
     @IBOutlet weak var ancientPrice: UILabel!
     @IBOutlet weak var rarePrice: UILabel!
     @IBOutlet weak var orehaPrice: UILabel!
+    @IBOutlet weak var intermediatePrice: UILabel!
+    @IBOutlet weak var advancedPrice: UILabel!
     
     @IBAction func orehaSetting(_ sender: Any) {
         guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "OrehaSetting") as? OrehaSettingViewController else {
@@ -33,6 +36,7 @@ class OrehaTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad() 
         parseData(url: marketURL[0])
+        setRefreshControl()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -69,23 +73,30 @@ extension OrehaTableViewController {
                 // personData를 Person형이라고 옵셔널 바인딩 해주고, 정상적으로 값을 data에 담아둡니다.
                 switch(self.counter) {
                 case 0:
+                    print(self.counter)
                     self.ancient = marketData
                     self.counter+=1
                     self.parseData(url: self.marketURL[1])
                 case 1:
+                    print(self.counter)
                     self.rare = marketData
                     self.counter+=1
                     self.parseData(url: self.marketURL[2])
                 case 2:
+                    print(self.counter)
                     self.oreha = marketData
                     self.counter+=1
                     self.parseData(url: self.marketURL[3])
                 case 3:
+                    print(self.counter)
                     self.intermediate_oreha = marketData
                     self.counter+=1
                     self.parseData(url: self.marketURL[4])
                 case 4:
+                    print(self.counter)
                     self.advanced_oreha = marketData
+                    self.counter = 0
+                    self.setPrice()
                 default: break
                 }
                
@@ -100,5 +111,29 @@ extension OrehaTableViewController {
                 print("networkFail")
             }
         }
+    }
+    
+    func setPrice() {
+        ancientPrice.text = (self.ancient[0].price ?? "") + " 골드"
+        rarePrice.text = (self.rare[0].price ?? "") + " 골드"
+        orehaPrice.text = (self.oreha[0].price ?? "") + " 골드"
+        intermediatePrice.text = (self.intermediate_oreha[0].price ?? "") + " 골드"
+        advancedPrice.text = (self.advanced_oreha[0].price ?? "") + " 골드"
+        
+        // refreshing 종료
+        tableView.refreshControl?.endRefreshing()
+    }
+}
+
+extension OrehaTableViewController {
+    
+    func setRefreshControl() {
+        tableView.refreshControl = UIRefreshControl()
+        tableView.refreshControl?.addTarget(self, action: #selector(pullToRefresh(_:)), for: .valueChanged)
+    }
+    
+    @objc func pullToRefresh(_ sender: Any) {
+        // 테이블뷰에 입력되는 데이터를 갱신한다.
+        parseData(url: marketURL[0])
     }
 }
