@@ -35,7 +35,7 @@ class OrehaTableViewController: UITableViewController {
                                 "http://152.70.248.4:5000/trade/6861009" ]
     override func viewDidLoad() {
         super.viewDidLoad() 
-        parseData(url: marketURL[0])
+//        parseData(url: marketURL[0])
         setRefreshControl()
     }
     
