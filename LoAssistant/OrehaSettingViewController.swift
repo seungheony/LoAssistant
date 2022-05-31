@@ -16,6 +16,8 @@ class OrehaSettingViewController: UITableViewController {
     @IBOutlet weak var 여신의가호: UISwitch!
     @IBOutlet weak var 가림막: UISwitch!
     @IBOutlet weak var 자급자족: UISwitch!
+    @IBOutlet weak var 발전기: UISwitch!
+    @IBOutlet weak var 커피머신: UISwitch!
     @IBOutlet weak var 니나브: UISwitch!
     
     @IBOutlet weak var workshopLevel: UILabel!
@@ -47,6 +49,12 @@ class OrehaSettingViewController: UITableViewController {
     @IBAction func 자급자족(_ sender: UISwitch) {
         UserDefaults.standard.set(sender.isOn, forKey: "자급자족")
     }
+    @IBAction func 발전기(_ sender: UISwitch) {
+        UserDefaults.standard.set(sender.isOn, forKey: "발전기")
+    }
+    @IBAction func 커피머신(_ sender: UISwitch) {
+        UserDefaults.standard.set(sender.isOn, forKey: "커피머신")
+    }
     @IBAction func 니나브(_ sender: UISwitch) {
         UserDefaults.standard.set(sender.isOn, forKey: "니나브")
     }
@@ -60,36 +68,15 @@ class OrehaSettingViewController: UITableViewController {
         self.여신의가호.isOn = UserDefaults.standard.bool(forKey: "여신의가호")
         self.가림막.isOn = UserDefaults.standard.bool(forKey: "가림막")
         self.자급자족.isOn = UserDefaults.standard.bool(forKey: "자급자족")
+        self.발전기.isOn = UserDefaults.standard.bool(forKey: "발전기")
+        self.커피머신.isOn = UserDefaults.standard.bool(forKey: "커피머신")
         self.니나브.isOn = UserDefaults.standard.bool(forKey: "니나브")
         self.제작공방.value = UserDefaults.standard.float(forKey: "제작공방")
         self.workshopLevel.text = String(Int(UserDefaults.standard.float(forKey: "제작공방")))
     }
 
     // MARK: - Table view data source
-//
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 5
-    }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        if(section == 0){
-            return 3
-        }
-        else if(section == 1){
-            return 2
-        }
-        else if(section == 2){
-            return 2
-        }
-        else if(section == 3){
-            return 2
-        }
-        else {
-            return 1
-        }
-    }
 //  pop Action
 //    override func viewWillDisappear(_ animated: Bool) {
 //        super.viewWillDisappear(animated)

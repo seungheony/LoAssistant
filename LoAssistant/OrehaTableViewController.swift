@@ -123,6 +123,45 @@ extension OrehaTableViewController {
         // refreshing 종료
         tableView.refreshControl?.endRefreshing()
     }
+    
+    func calculator() {
+        var 설치물: Int = 0
+        var 의상: Int = 0
+        var 연구: Int = 0
+        
+        var 제작슬롯: Int = 0
+        
+        설치물 += Int(truncating: UserDefaults.standard.bool(forKey: "여신의가호") as NSNumber)
+        설치물 += Int(truncating: UserDefaults.standard.bool(forKey: "ASML") as NSNumber) * 4
+        
+        의상 += Int(truncating: UserDefaults.standard.bool(forKey: "페일린") as NSNumber) * 2
+        의상 += Int(truncating: UserDefaults.standard.bool(forKey: "니아") as NSNumber)
+        의상 += Int(truncating: UserDefaults.standard.bool(forKey: "실리안") as NSNumber)
+        
+        연구 += Int(truncating: UserDefaults.standard.bool(forKey: "가림막") as NSNumber)
+        연구 += Int(truncating: UserDefaults.standard.bool(forKey: "자급자족") as NSNumber)
+        연구 += Int(truncating: UserDefaults.standard.bool(forKey: "발전기") as NSNumber)
+        연구 += Int(truncating: UserDefaults.standard.bool(forKey: "커피머신") as NSNumber)
+        
+        제작슬롯 += Int(truncating: UserDefaults.standard.bool(forKey: "니나브") as NSNumber)
+        
+        if (제작슬롯 == 0 && 의상 == 4) {
+            의상 -= 1
+        }
+        
+        if Int(UserDefaults.standard.float(forKey: "제작공방")) >= 3 {
+            if Int(UserDefaults.standard.float(forKey: "제작공방")) >= 5 {
+                제작슬롯 = 2
+            } else {
+                제작슬롯 = 3
+            }
+        } else {
+            제작슬롯 = 1
+        }
+        
+        
+        
+    }
 }
 
 extension OrehaTableViewController {
