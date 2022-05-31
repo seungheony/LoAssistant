@@ -7,28 +7,43 @@
 
 import UIKit
 
-class OrehaSettingViewControllerTableViewController: UITableViewController {
+class OrehaSettingViewController: UITableViewController {
 
+    @IBOutlet weak var workshopLevel: UILabel!
+    @IBOutlet weak var slider: UISlider!
+    @IBAction func workshopSlider(_ sender: UISlider) {
+        let value: Int = Int(sender.value)
+        workshopLevel.text = String(value)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
-
+//
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 5
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        if(section == 0){
+            return 3
+        }
+        else if(section == 1){
+            return 2
+        }
+        else if(section == 2){
+            return 2
+        }
+        else if(section == 3){
+            return 2
+        }
+        else {
+            return 1
+        }
     }
 
     /*
