@@ -8,14 +8,13 @@
 import UIKit
 
 class OrehaTableViewController: UITableViewController {
-
     
     @IBOutlet weak var ancientPrice: UILabel!
     @IBOutlet weak var rarePrice: UILabel!
     @IBOutlet weak var orehaPrice: UILabel!
     
     @IBAction func orehaSetting(_ sender: Any) {
-        guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "OrehaSetting") else {
+        guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "OrehaSetting") as? OrehaSettingViewController else {
             return
         }
         self.navigationController?.pushViewController(uvc, animated: true)
@@ -32,14 +31,8 @@ class OrehaTableViewController: UITableViewController {
                                 "http://152.70.248.4:5000/trade/6885708", "http://152.70.248.4:5000/trade/6861008",
                                 "http://152.70.248.4:5000/trade/6861009" ]
     override func viewDidLoad() {
-        super.viewDidLoad()
-//        for i in marketURL {
-//            parseData(url: i)
-//        }
+        super.viewDidLoad() 
         parseData(url: marketURL[0])
-        
-        
-        
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {

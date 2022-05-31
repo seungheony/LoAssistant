@@ -8,16 +8,61 @@
 import UIKit
 
 class OrehaSettingViewController: UITableViewController {
-
+    
+    @IBOutlet weak var 페일린: UISwitch!
+    @IBOutlet weak var 니아: UISwitch!
+    @IBOutlet weak var 실리안: UISwitch!
+    @IBOutlet weak var ASML: UISwitch!
+    @IBOutlet weak var 여신의가호: UISwitch!
+    @IBOutlet weak var 가림막: UISwitch!
+    @IBOutlet weak var 자급자족: UISwitch!
+    @IBOutlet weak var 니나브: UISwitch!
+    
     @IBOutlet weak var workshopLevel: UILabel!
-    @IBOutlet weak var slider: UISlider!
+    @IBOutlet weak var 제작공방: UISlider!
+    
     @IBAction func workshopSlider(_ sender: UISlider) {
         let value: Int = Int(sender.value)
+        UserDefaults.standard.set(value, forKey: "제작공방")
         workshopLevel.text = String(value)
+    }
+    @IBAction func 페일린(_ sender: UISwitch) {
+        UserDefaults.standard.set(sender.isOn, forKey: "페일린")
+    }
+    @IBAction func 니아(_ sender: UISwitch) {
+        UserDefaults.standard.set(sender.isOn, forKey: "니아")
+    }
+    @IBAction func 실리안(_ sender: UISwitch) {
+        UserDefaults.standard.set(sender.isOn, forKey: "실리안")
+    }
+    @IBAction func ASML(_ sender: UISwitch) {
+        UserDefaults.standard.set(sender.isOn, forKey: "ASML")
+    }
+    @IBAction func 여신의가호(_ sender: UISwitch) {
+        UserDefaults.standard.set(sender.isOn, forKey: "여신의가호")
+    }
+    @IBAction func 가림막(_ sender: UISwitch) {
+        UserDefaults.standard.set(sender.isOn, forKey: "가림막")
+    }
+    @IBAction func 자급자족(_ sender: UISwitch) {
+        UserDefaults.standard.set(sender.isOn, forKey: "자급자족")
+    }
+    @IBAction func 니나브(_ sender: UISwitch) {
+        UserDefaults.standard.set(sender.isOn, forKey: "니나브")
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.페일린.isOn = UserDefaults.standard.bool(forKey: "페일린")
+        self.니아.isOn = UserDefaults.standard.bool(forKey: "니아")
+        self.실리안.isOn = UserDefaults.standard.bool(forKey: "실리안")
+        self.ASML.isOn = UserDefaults.standard.bool(forKey: "ASML")
+        self.여신의가호.isOn = UserDefaults.standard.bool(forKey: "여신의가호")
+        self.가림막.isOn = UserDefaults.standard.bool(forKey: "가림막")
+        self.자급자족.isOn = UserDefaults.standard.bool(forKey: "자급자족")
+        self.니나브.isOn = UserDefaults.standard.bool(forKey: "니나브")
+        self.제작공방.value = UserDefaults.standard.float(forKey: "제작공방")
+        self.workshopLevel.text = String(Int(UserDefaults.standard.float(forKey: "제작공방")))
     }
 
     // MARK: - Table view data source
@@ -45,60 +90,17 @@ class OrehaSettingViewController: UITableViewController {
             return 1
         }
     }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+//  pop Action
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//
+//        if self.isMovingFromParent {
+//            guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "OrehaTable") as? OrehaTableViewController else {
+//                return
+//            }
+//            uvc.setting = self.setting!
+//            print(uvc.setting.self)
+//        }
+//    }
 
 }

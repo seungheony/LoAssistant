@@ -22,6 +22,7 @@
 		10F6463F27EB2F8600E51BBB /* LoAssistantUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F6463E27EB2F8600E51BBB /* LoAssistantUITests.swift */; };
 		10F6464127EB2F8600E51BBB /* LoAssistantUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F6464027EB2F8600E51BBB /* LoAssistantUITestsLaunchTests.swift */; };
 		218EDF212840AFE800187C7F /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218EDF202840AFE800187C7F /* NetworkResult.swift */; };
+		218EDF292845D22400187C7F /* OrehaSettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218EDF282845D22400187C7F /* OrehaSettingModel.swift */; };
 		61BA331DEBE831395B0C22BF /* Pods_LoAssistant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA7F514429EF161DE676C3FB /* Pods_LoAssistant.framework */; };
 		86D3408F29F0C97CFBCEF021 /* Pods_LoAssistant_LoAssistantUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9972C500D97A3431C13E5BF9 /* Pods_LoAssistant_LoAssistantUITests.framework */; };
 /* End PBXBuildFile section */
@@ -63,6 +64,7 @@
 		10F6463E27EB2F8600E51BBB /* LoAssistantUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoAssistantUITests.swift; sourceTree = "<group>"; };
 		10F6464027EB2F8600E51BBB /* LoAssistantUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoAssistantUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		218EDF202840AFE800187C7F /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
+		218EDF282845D22400187C7F /* OrehaSettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrehaSettingModel.swift; sourceTree = "<group>"; };
 		5370F4672AC34A627B8FB3ED /* Pods-LoAssistantTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoAssistantTests.debug.xcconfig"; path = "Target Support Files/Pods-LoAssistantTests/Pods-LoAssistantTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9972C500D97A3431C13E5BF9 /* Pods_LoAssistant_LoAssistantUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LoAssistant_LoAssistantUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CA49C1B43D2A17E9F8D8636 /* Pods_LoAssistantTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LoAssistantTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,6 +135,7 @@
 				10F6462327EB2F8500E51BBB /* Main.storyboard */,
 				10B502C627F01975000A0468 /* OrehaTableViewController.swift */,
 				103E53B128459141001199A9 /* OrehaSettingViewController.swift */,
+				218EDF282845D22400187C7F /* OrehaSettingModel.swift */,
 				10F6462627EB2F8600E51BBB /* Assets.xcassets */,
 				10F6462827EB2F8600E51BBB /* LaunchScreen.storyboard */,
 				10F6462B27EB2F8600E51BBB /* Info.plist */,
@@ -437,6 +440,7 @@
 				10B589C1282E9DC400B11011 /* MarketModel.swift in Sources */,
 				1008CB5B283A1DC9000F6E0B /* MarketDataService.swift in Sources */,
 				218EDF212840AFE800187C7F /* NetworkResult.swift in Sources */,
+				218EDF292845D22400187C7F /* OrehaSettingModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
