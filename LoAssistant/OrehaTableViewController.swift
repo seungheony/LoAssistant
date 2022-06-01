@@ -16,6 +16,11 @@ class OrehaTableViewController: UITableViewController {
     @IBOutlet weak var intermediatePrice: UILabel!
     @IBOutlet weak var advancedPrice: UILabel!
     
+    @IBOutlet weak var intermediateProfit: UILabel!
+    @IBOutlet weak var advancedProfit: UILabel!
+    @IBOutlet weak var interExtraProfit: UILabel!
+    @IBOutlet weak var advExtraProfit: UILabel!
+    
     @IBAction func orehaSetting(_ sender: Any) {
         guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "OrehaSetting") as? OrehaSettingViewController else {
             return
@@ -119,7 +124,7 @@ extension OrehaTableViewController {
         orehaPrice.text = (self.oreha[0].price ?? "") + " 골드"
         intermediatePrice.text = (self.intermediate_oreha[0].price ?? "") + " 골드"
         advancedPrice.text = (self.advanced_oreha[0].price ?? "") + " 골드"
-        
+        calculator()
         // refreshing 종료
         tableView.refreshControl?.endRefreshing()
     }
@@ -129,7 +134,9 @@ extension OrehaTableViewController {
         var 의상: Int = 0
         var 연구: Int = 0
         
-        var 제작슬롯: Int = 0
+        var reduction: Int = 0
+        
+        var 제작슬롯: Int = 1
         
         설치물 += Int(truncating: UserDefaults.standard.bool(forKey: "여신의가호") as NSNumber)
         설치물 += Int(truncating: UserDefaults.standard.bool(forKey: "ASML") as NSNumber) * 4
@@ -143,24 +150,125 @@ extension OrehaTableViewController {
         연구 += Int(truncating: UserDefaults.standard.bool(forKey: "발전기") as NSNumber)
         연구 += Int(truncating: UserDefaults.standard.bool(forKey: "커피머신") as NSNumber)
         
-        제작슬롯 += Int(truncating: UserDefaults.standard.bool(forKey: "니나브") as NSNumber)
-        
-        if (제작슬롯 == 0 && 의상 == 4) {
+        if (UserDefaults.standard.bool(forKey: "니나브") && 의상 == 4) {
             의상 -= 1
         }
+        reduction = 설치물 + 의상 + 연구
         
-        if Int(UserDefaults.standard.float(forKey: "제작공방")) >= 3 {
-            if Int(UserDefaults.standard.float(forKey: "제작공방")) >= 5 {
-                제작슬롯 = 2
-            } else {
+        if Int(UserDefaults.standard.integer(forKey: "제작공방")) >= 3 {
+            if Int(UserDefaults.standard.integer(forKey: "제작공방")) >= 5 {
                 제작슬롯 = 3
+            } else {
+                제작슬롯 = 2
             }
         } else {
             제작슬롯 = 1
         }
+        제작슬롯 += Int(truncating: UserDefaults.standard.bool(forKey: "니나브") as NSNumber)
         
+        let inter_materialPrice = Int(trunc((get_ancientPrice()*0.64) + (get_rarePrice()*2.6) + (get_orehaPrice()*0.8)))
+        let advanced_materialPrice = Int(trunc((get_ancientPrice()*0.94) + (get_rarePrice()*2.9) + (get_orehaPrice()*1.6)))
         
+        print("중급 재료 : \(inter_materialPrice)")
+        print("상급 재료 : \(advanced_materialPrice)")
         
+        let inter_cost = 200 * (100-reduction) / 100
+        let advanced_cost = 250 * (100-reduction) / 100
+        
+        var total_cost = inter_materialPrice + inter_cost
+        print("total_cost : \(total_cost)")
+        print(get_interSalePrice())
+        intermediateProfit.text =  String((((get_interSalePrice()*30) - total_cost) * 10) * 제작슬롯) + " 골드"
+        interExtraProfit.text = String(get_interSalePrice()*30) + " 골드"
+        
+        total_cost = advanced_materialPrice + advanced_cost
+        print("total_cost : \(total_cost)")
+        print(get_advSalePrice())
+        advancedProfit.text =  String((((get_advSalePrice()*20) - total_cost) * 10) * 제작슬롯) + " 골드"
+        advExtraProfit.text = String((get_advSalePrice()*20)) + " 골드"
+        
+    }
+    
+    func get_ancientPrice() -> Double {
+        if self.ancient.count == 1 {
+            let price: Double = Double(self.ancient[0].price!)!
+            return price
+        } else {
+            if Int(self.ancient[0].amount ?? "0") ?? 0 < 5000 {
+                let price: Double = Double(self.ancient[1].price!)!
+                return price
+            } else {
+                let price: Double = Double(self.ancient[0].price!)!
+                return price
+            }
+        }
+    }
+    
+    func get_rarePrice() -> Double {
+        if self.rare.count == 1 {
+            let price: Double = Double(self.rare[0].price!)!
+            return price
+        } else {
+            if Int(self.rare[0].amount ?? "0") ?? 0 < 5000 {
+                let price: Double = Double(self.rare[1].price!)!
+                return price
+            } else {
+                let price: Double = Double(self.rare[0].price!)!
+                return price
+            }
+        }
+    }
+    
+    func get_orehaPrice() -> Double {
+        if self.oreha.count == 1 {
+            let price: Double = Double(self.oreha[0].price!)!
+            return price
+        } else {
+            if Int(self.oreha[0].amount ?? "0") ?? 0 < 2000 {
+                let price: Double = Double(self.oreha[1].price!)!
+                return price
+            } else {
+                let price: Double = Double(self.oreha[0].price!)!
+                return price
+            }
+        }
+    }
+    
+    func get_intermediatePrice() -> Double {
+        if self.intermediate_oreha.count == 1 {
+            let price: Double = Double(self.intermediate_oreha[0].price!)!
+            return price
+        } else {
+            if Int(self.intermediate_oreha[0].amount ?? "0") ?? 0 < 100000 {
+                let price: Double = Double(self.intermediate_oreha[1].price!)!
+                return price
+            } else {
+                let price: Double = Double(self.intermediate_oreha[0].price!)!
+                return price
+            }
+        }
+    }
+    func get_advancedPrice() -> Double {
+        if self.advanced_oreha.count == 1 {
+            let price: Double = Double(self.advanced_oreha[0].price!)!
+            return price
+        } else {
+            if Int(self.advanced_oreha[0].amount ?? "0") ?? 0 < 100000 {
+                let price: Double = Double(self.advanced_oreha[1].price!)!
+                return price
+            } else {
+                let price: Double = Double(self.advanced_oreha[0].price!)!
+                return price
+            }
+        }
+    }
+    func get_interSalePrice() -> Int {
+        let commission = Int(ceil(get_intermediatePrice() * 0.05))
+        return Int(get_intermediatePrice()) - commission
+    }
+    func get_advSalePrice() -> Int {
+        let commission = Int(ceil(get_advancedPrice() * 0.05))
+        return Int(get_advancedPrice()) - commission
     }
 }
 
