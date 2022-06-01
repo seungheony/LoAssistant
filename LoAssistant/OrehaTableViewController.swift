@@ -78,27 +78,22 @@ extension OrehaTableViewController {
                 // personData를 Person형이라고 옵셔널 바인딩 해주고, 정상적으로 값을 data에 담아둡니다.
                 switch(self.counter) {
                 case 0:
-                    print(self.counter)
                     self.ancient = marketData
                     self.counter+=1
                     self.parseData(url: self.marketURL[1])
                 case 1:
-                    print(self.counter)
                     self.rare = marketData
                     self.counter+=1
                     self.parseData(url: self.marketURL[2])
                 case 2:
-                    print(self.counter)
                     self.oreha = marketData
                     self.counter+=1
                     self.parseData(url: self.marketURL[3])
                 case 3:
-                    print(self.counter)
                     self.intermediate_oreha = marketData
                     self.counter+=1
                     self.parseData(url: self.marketURL[4])
                 case 4:
-                    print(self.counter)
                     self.advanced_oreha = marketData
                     self.counter = 0
                     self.setPrice()
@@ -119,11 +114,11 @@ extension OrehaTableViewController {
     }
     
     func setPrice() {
-        ancientPrice.text = (self.ancient[0].price ?? "") + " 골드"
-        rarePrice.text = (self.rare[0].price ?? "") + " 골드"
-        orehaPrice.text = (self.oreha[0].price ?? "") + " 골드"
-        intermediatePrice.text = (self.intermediate_oreha[0].price ?? "") + " 골드"
-        advancedPrice.text = (self.advanced_oreha[0].price ?? "") + " 골드"
+        ancientPrice.text = (self.ancient[0].price ?? "") + " G"
+        rarePrice.text = (self.rare[0].price ?? "") + " G"
+        orehaPrice.text = (self.oreha[0].price ?? "") + " G"
+        intermediatePrice.text = (self.intermediate_oreha[0].price ?? "") + " G"
+        advancedPrice.text = (self.advanced_oreha[0].price ?? "") + " G"
         calculator()
         // refreshing 종료
         tableView.refreshControl?.endRefreshing()
@@ -178,14 +173,14 @@ extension OrehaTableViewController {
         var total_cost = inter_materialPrice + inter_cost
         print("total_cost : \(total_cost)")
         print(get_interSalePrice())
-        intermediateProfit.text =  String((((get_interSalePrice()*30) - total_cost) * 10) * 제작슬롯) + " 골드"
-        interExtraProfit.text = String(get_interSalePrice()*30) + " 골드"
+        intermediateProfit.text =  String((((get_interSalePrice()*30) - total_cost) * 10) * 제작슬롯) + " G"
+        interExtraProfit.text = String(get_interSalePrice()*30) + " G"
         
         total_cost = advanced_materialPrice + advanced_cost
         print("total_cost : \(total_cost)")
         print(get_advSalePrice())
-        advancedProfit.text =  String((((get_advSalePrice()*20) - total_cost) * 10) * 제작슬롯) + " 골드"
-        advExtraProfit.text = String((get_advSalePrice()*20)) + " 골드"
+        advancedProfit.text =  String((((get_advSalePrice()*20) - total_cost) * 10) * 제작슬롯) + " G"
+        advExtraProfit.text = String((get_advSalePrice()*20)) + " G"
         
     }
     

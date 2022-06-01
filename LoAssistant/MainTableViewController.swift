@@ -19,25 +19,33 @@ class MainTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        if indexPath.section == 0 {
-//            if indexPath.row == 0 {
+        if indexPath.section == 0 {
+            if indexPath.row == 1 {
 //                guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "CrystalView") else {
 //                    return
 //                }
 //                self.navigationController?.pushViewController(uvc, animated: true)
-//            }
-//        }
-        if indexPath.section == 1 {
-            if indexPath.row == 0 {
+            }
+            else if indexPath.row == 2 {
                 guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "OrehaTable") else {
                     return
                 }
                 self.navigationController?.pushViewController(uvc, animated: true)
             }
-            else if indexPath.row == 1 {
-                
-            }
         }
+//        if indexPath.section == 1 {
+//
+//        }
+    }
+    
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        if indexPath.section == 0 {
+            if indexPath.row == 0 {
+                return nil
+            }
+            return indexPath
+        }
+        return indexPath
     }
 }
 
@@ -51,7 +59,7 @@ extension MainTableViewController {
             // 클로저에서 넘어오는 데이터를 let personData라고 정의합니다.
             case .success(let crystalData):
                 // personData를 Person형이라고 옵셔널 바인딩 해주고, 정상적으로 값을 data에 담아둡니다.
-                self.crystalPrice.text = crystalData + " 골드"
+                self.crystalPrice.text = crystalData + " G"
             // 실패할 경우에 분기처리는 아래와 같이 합니다.
             case .requestErr(let message) :
                 print("requestErr", message)
