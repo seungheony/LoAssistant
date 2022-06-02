@@ -77,9 +77,6 @@
                                                 <constraint firstAttribute="bottom" secondItem="vN1-Ic-rIO" secondAttribute="bottom" constant="10" id="th1-we-37O"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="ssc-XU-KGO" kind="presentation" id="9B7-kT-Hkw"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="f0B-Be-4c7">
                                         <rect key="frame" x="20" y="224" width="374" height="41.5"/>
@@ -192,9 +189,9 @@
         <!--Table View Controller-->
         <scene sceneID="Aud-mw-UNI">
             <objects>
-                <tableViewController id="ssc-XU-KGO" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="CrystalView" id="ssc-XU-KGO" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="6Qk-Co-PMo">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                         <sections>
@@ -290,6 +287,78 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JQJ-lb-aB4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-13" y="1810"/>
+        </scene>
+        <!--오레하 손익 계산기-->
+        <scene sceneID="RWC-wO-UeW">
+            <objects>
+                <tableViewController storyboardIdentifier="OrehaTableTest" id="gTC-6J-YBi" customClass="TestTableViewController" customModule="LoAssistant" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="Nfs-mX-JjD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TestCell" id="wDS-pu-uXp" customClass="OrehaTableViewCell" customModule="LoAssistant" customModuleProvider="target">
+                                <rect key="frame" x="20" y="49.5" width="374" height="40.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wDS-pu-uXp" id="tfQ-DE-3VA">
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="40.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ESl-Kt-UxH">
+                                            <rect key="frame" x="50" y="10" width="42" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="do6-wj-0Eu">
+                                            <rect key="frame" x="10" y="5" width="30" height="30.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="rl8-QF-TmP"/>
+                                                <constraint firstAttribute="width" constant="30" id="uYB-06-wwC"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cdg-8I-rQL">
+                                            <rect key="frame" x="312" y="10" width="42" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="Cdg-8I-rQL" secondAttribute="trailing" constant="20" id="Cka-af-Hfh"/>
+                                        <constraint firstItem="do6-wj-0Eu" firstAttribute="leading" secondItem="tfQ-DE-3VA" secondAttribute="leading" constant="10" id="FtV-kU-mmQ"/>
+                                        <constraint firstItem="Cdg-8I-rQL" firstAttribute="top" secondItem="tfQ-DE-3VA" secondAttribute="top" constant="10" id="MyP-DZ-vn5"/>
+                                        <constraint firstItem="do6-wj-0Eu" firstAttribute="top" secondItem="tfQ-DE-3VA" secondAttribute="top" constant="5" id="Wcw-pR-lO5"/>
+                                        <constraint firstAttribute="bottom" secondItem="ESl-Kt-UxH" secondAttribute="bottom" constant="10" id="n75-48-WnA"/>
+                                        <constraint firstItem="ESl-Kt-UxH" firstAttribute="top" secondItem="tfQ-DE-3VA" secondAttribute="top" constant="10" id="oik-3q-JBX"/>
+                                        <constraint firstItem="ESl-Kt-UxH" firstAttribute="leading" secondItem="do6-wj-0Eu" secondAttribute="trailing" constant="10" id="pEl-Or-67u"/>
+                                        <constraint firstAttribute="bottom" secondItem="Cdg-8I-rQL" secondAttribute="bottom" constant="10" id="pG9-Sj-88d"/>
+                                        <constraint firstAttribute="bottom" secondItem="do6-wj-0Eu" secondAttribute="bottom" constant="5" id="uPi-BD-6P0"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="goldLabel" destination="Cdg-8I-rQL" id="wjz-Ai-q7Z"/>
+                                    <outlet property="itemImage" destination="do6-wj-0Eu" id="HGy-a1-Kop"/>
+                                    <outlet property="itemLabel" destination="ESl-Kt-UxH" id="Kmv-fi-40a"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="gTC-6J-YBi" id="d5b-B2-1kC"/>
+                            <outlet property="delegate" destination="gTC-6J-YBi" id="J9E-hA-cnc"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="오레하 손익 계산기" largeTitleDisplayMode="always" id="WXm-aQ-ysO">
+                        <barButtonItem key="rightBarButtonItem" image="gearshape" catalog="system" id="paE-cA-nOF">
+                            <connections>
+                                <action selector="settingButton:" destination="gTC-6J-YBi" id="ySx-oI-pGt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9ea-GM-u4h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-917.39130434782612" y="1005.8035714285713"/>
         </scene>
         <!--오레하 손익 계산기-->
         <scene sceneID="Hxq-ts-Usa">
@@ -1177,10 +1246,11 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="L8C-Jv-IiV"/>
+        <segue reference="YbJ-kz-z3K"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="gear" catalog="system" width="128" height="119"/>
+        <image name="gearshape" catalog="system" width="128" height="121"/>
         <systemColor name="systemFillColor">
             <color red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

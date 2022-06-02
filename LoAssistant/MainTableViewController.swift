@@ -21,10 +21,9 @@ class MainTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
             if indexPath.row == 1 {
-//                guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "CrystalView") else {
-//                    return
-//                }
-//                self.navigationController?.pushViewController(uvc, animated: true)
+                guard let nextVC = self.storyboard?.instantiateViewController(identifier: "CrystalView") else {return}
+                        
+                        self.present(nextVC, animated: true)
             }
             else if indexPath.row == 2 {
                 guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "OrehaTable") else {
@@ -35,7 +34,7 @@ class MainTableViewController: UITableViewController {
         }
         if indexPath.section == 1 {
             if indexPath.row == 0 {
-                guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "PriceTable") else {
+                guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "OrehaTableTest") else {
                     return
                 }
                 self.navigationController?.pushViewController(uvc, animated: true)
