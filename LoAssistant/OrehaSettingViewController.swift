@@ -22,12 +22,29 @@ class OrehaSettingViewController: UITableViewController {
     
     @IBOutlet weak var workshopLevel: UILabel!
     @IBOutlet weak var 제작공방: UISlider!
-    
     @IBAction func workshopSlider(_ sender: UISlider) {
         let value: Int = Int(sender.value)
         UserDefaults.standard.set(value, forKey: "제작공방")
         workshopLevel.text = String(value)
     }
+    
+    @IBOutlet weak var minInterOreha: UILabel!
+    @IBOutlet weak var minInterSlider: UISlider!
+    @IBAction func minInterSlider(_ sender: UISlider) {
+        let value: Int = Int(sender.value)
+        UserDefaults.standard.set(value, forKey: "중급기준")
+        minInterOreha.text = String(value * 1000)
+    }
+    
+    @IBOutlet weak var minAdvOreha: UILabel!
+    @IBOutlet weak var minAdvSlider: UISlider!
+    @IBAction func minAdvSlider(_ sender: UISlider) {
+        let value: Int = Int(sender.value)
+        UserDefaults.standard.set(value, forKey: "상급기준")
+        minAdvOreha.text = String(value * 1000)
+    }
+    
+
     @IBAction func 페일린(_ sender: UISwitch) {
         UserDefaults.standard.set(sender.isOn, forKey: "페일린")
     }
@@ -58,6 +75,7 @@ class OrehaSettingViewController: UITableViewController {
     @IBAction func 니나브(_ sender: UISwitch) {
         UserDefaults.standard.set(sender.isOn, forKey: "니나브")
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -73,6 +91,12 @@ class OrehaSettingViewController: UITableViewController {
         self.니나브.isOn = UserDefaults.standard.bool(forKey: "니나브")
         self.제작공방.value = UserDefaults.standard.float(forKey: "제작공방")
         self.workshopLevel.text = String(Int(UserDefaults.standard.float(forKey: "제작공방")))
+        
+        self.minInterSlider.value = UserDefaults.standard.float(forKey: "중급기준")
+        self.minInterOreha.text = String(Int(UserDefaults.standard.float(forKey: "중급기준")) * 1000)
+        
+        self.minAdvSlider.value = UserDefaults.standard.float(forKey: "상급기준")
+        self.minAdvOreha.text = String(Int(UserDefaults.standard.float(forKey: "상급기준")) * 1000)
     }
 
     // MARK: - Table view data source

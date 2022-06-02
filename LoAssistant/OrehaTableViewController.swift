@@ -234,7 +234,7 @@ extension OrehaTableViewController {
             let price: Double = Double(self.intermediate_oreha[0].price!)!
             return price
         } else {
-            if Int(self.intermediate_oreha[0].amount ?? "0") ?? 0 < 100000 {
+            if Int(self.intermediate_oreha[0].amount ?? "0") ?? 0 < Int(truncating: UserDefaults.standard.bool(forKey: "중급기준") as NSNumber) * 1000 {
                 let price: Double = Double(self.intermediate_oreha[1].price!)!
                 return price
             } else {
@@ -248,7 +248,7 @@ extension OrehaTableViewController {
             let price: Double = Double(self.advanced_oreha[0].price!)!
             return price
         } else {
-            if Int(self.advanced_oreha[0].amount ?? "0") ?? 0 < 100000 {
+            if Int(self.advanced_oreha[0].amount ?? "0") ?? 0 < Int(truncating: UserDefaults.standard.bool(forKey: "상급기준") as NSNumber) * 1000 {
                 let price: Double = Double(self.advanced_oreha[1].price!)!
                 return price
             } else {
