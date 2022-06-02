@@ -97,6 +97,7 @@ class OrehaTableViewController: UITableViewController {
             dest.advanced_oreha = self.advanced_oreha
         }
     }
+    
 }
 
 extension OrehaTableViewController {
@@ -221,48 +222,18 @@ extension OrehaTableViewController {
     }
     
     func get_ancientPrice() -> Double {
-        if self.ancient.count == 1 {
-            let price: Double = Double(self.ancient[0].price!)!
-            return price
-        } else {
-            if Int(self.ancient[0].amount ?? "0") ?? 0 < 5000 {
-                let price: Double = Double(self.ancient[1].price!)!
-                return price
-            } else {
-                let price: Double = Double(self.ancient[0].price!)!
-                return price
-            }
-        }
+        let price: Double = Double(self.ancient[0].price!)!
+        return price
     }
     
     func get_rarePrice() -> Double {
-        if self.rare.count == 1 {
-            let price: Double = Double(self.rare[0].price!)!
-            return price
-        } else {
-            if Int(self.rare[0].amount ?? "0") ?? 0 < 5000 {
-                let price: Double = Double(self.rare[1].price!)!
-                return price
-            } else {
-                let price: Double = Double(self.rare[0].price!)!
-                return price
-            }
-        }
+        let price: Double = Double(self.rare[0].price!)!
+        return price
     }
     
     func get_orehaPrice() -> Double {
-        if self.oreha.count == 1 {
-            let price: Double = Double(self.oreha[0].price!)!
-            return price
-        } else {
-            if Int(self.oreha[0].amount ?? "0") ?? 0 < 2000 {
-                let price: Double = Double(self.oreha[1].price!)!
-                return price
-            } else {
-                let price: Double = Double(self.oreha[0].price!)!
-                return price
-            }
-        }
+        let price: Double = Double(self.oreha[0].price!)!
+        return price
     }
     
     func get_intermediatePrice() -> Double {
@@ -270,8 +241,8 @@ extension OrehaTableViewController {
             let price: Double = Double(self.intermediate_oreha[0].price!)!
             return price
         } else {
-            if Int(self.intermediate_oreha[0].amount ?? "0") ?? 0 < (Int(truncating: UserDefaults.standard.float(forKey: "중급기준") as NSNumber) * 1000) {
-                let price: Double = Double(self.intermediate_oreha[1].price!)!
+            if Int(self.intermediate_oreha[0].amount!) ?? 0 < (Int(truncating: UserDefaults.standard.float(forKey: "중급기준") as NSNumber) * 1000) {
+                let price: Double = Double(self.intermediate_oreha[self.intermediate_oreha.count-1].price!)!
                 print("중급 가격 : \(price)")
                 return price
             } else {
@@ -285,8 +256,8 @@ extension OrehaTableViewController {
             let price: Double = Double(self.advanced_oreha[0].price!)!
             return price
         } else {
-            if Int(self.advanced_oreha[0].amount ?? "0") ?? 0 < (Int(truncating: UserDefaults.standard.float(forKey: "상급기준") as NSNumber) * 1000) {
-                let price: Double = Double(self.advanced_oreha[1].price!)!
+            if Int(self.advanced_oreha[0].amount!) ?? 0 < (Int(truncating: UserDefaults.standard.float(forKey: "상급기준") as NSNumber) * 1000) {
+                let price: Double = Double(self.advanced_oreha[self.advanced_oreha.count-1].price!)!
                 print("상급 가격 : \(price)")
                 return price
             } else {

@@ -29,9 +29,9 @@ class PriceTableViewController: UITableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         if isMaterial == true {
-            return 3
+            return 4
         } else if isMaterial == false {
-            return 2
+            return 3
         }
         return 0
     }
@@ -40,20 +40,26 @@ class PriceTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         if isMaterial == true {
             if section == 0 {
-                return ancient.count
+                return 0
             }
             if section == 1 {
-                return rare.count
+                return ancient.count
             }
             if section == 2 {
+                return rare.count
+            }
+            if section == 3 {
                 return oreha.count
             }
             
         } else if isMaterial == false {
             if section == 0 {
-                return intermediate_oreha.count
+                return 0
             }
             if section == 1 {
+                return intermediate_oreha.count
+            }
+            if section == 2 {
                 return advanced_oreha.count
             }
         }
@@ -66,25 +72,25 @@ class PriceTableViewController: UITableViewController {
 
         // Configure the cell...
         if isMaterial == true {
-            if indexPath.section == 0 {
-                cell.amountLabel.text = ancient[indexPath.row].amount! + " [100개 단위]"
+            if indexPath.section == 1 {
+                cell.amountLabel.text = ancient[indexPath.row].amount!
                 cell.priceLabel.text = ancient[indexPath.row].price! + "G"
             }
-            if indexPath.section == 1 {
-                cell.amountLabel.text = rare[indexPath.row].amount! + " [10개 단위]"
+            if indexPath.section == 2 {
+                cell.amountLabel.text = rare[indexPath.row].amount!
                 cell.priceLabel.text = rare[indexPath.row].price! + "G"
             }
-            if indexPath.section == 2 {
-                cell.amountLabel.text = oreha[indexPath.row].amount! + " [10개 단위]"
+            if indexPath.section == 3 {
+                cell.amountLabel.text = oreha[indexPath.row].amount!
                 cell.priceLabel.text = oreha[indexPath.row].price! + "G"
             }
         }
         else if isMaterial == false {
-            if indexPath.section == 0 {
+            if indexPath.section == 1 {
                 cell.amountLabel.text = intermediate_oreha[indexPath.row].amount!
                 cell.priceLabel.text = intermediate_oreha[indexPath.row].price! + "G"
             }
-            if indexPath.section == 1 {
+            if indexPath.section == 2 {
                 cell.amountLabel.text = advanced_oreha[indexPath.row].amount!
                 cell.priceLabel.text = advanced_oreha[indexPath.row].price! + "G"
             }
@@ -93,18 +99,18 @@ class PriceTableViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if isMaterial == true {
-            if section == 0 {
-                return "고대 유물"
-            } else if section == 1 {
-                return "희귀한 유물"
+            if section == 1 {
+                return "고대 유물 [100개 단위]"
             } else if section == 2 {
-                return "오레하 유물"
+                return "희귀한 유물 [10개 단위]"
+            } else if section == 3 {
+                return "오레하 유물 [10개 단위]"
             }
         }
         if isMaterial == false {
-            if section == 0 {
+            if section == 1 {
                 return "중급 오레하 융화 재료"
-            } else if section == 1 {
+            } else if section == 2 {
                 return "상급 오레하 융화 재료"
             }
         }
