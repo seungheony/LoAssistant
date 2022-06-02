@@ -34,10 +34,10 @@ class MainTableViewController: UITableViewController {
         }
         if indexPath.section == 1 {
             if indexPath.row == 0 {
-                guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "OrehaTableTest") else {
-                    return
-                }
-                self.navigationController?.pushViewController(uvc, animated: true)
+//                guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "OrehaTableTest") else {
+//                    return
+//                }
+//                self.navigationController?.pushViewController(uvc, animated: true)
             }
         }
     }

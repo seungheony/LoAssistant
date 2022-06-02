@@ -1,27 +1,23 @@
 //
-//  OrehaTableViewController.swift
+//  TestTableViewController.swift
 //  LoAssistant
 //
-//  Created by 김승헌 on 2022/03/27.
+//  Created by 김승헌 on 2022/06/02.
 //
 
 import UIKit
 
 class OrehaTableViewController: UITableViewController {
+    let itemList: [String] = ["고대 유물", "희귀한 유물", "오레하 유물", "중급 오레하 융화 재료", "상급 오레하 융화 재료"]
     
+    let imageList: [String] = ["ancient.png", "rare.png", "oreha.png", "intermediate.png", "advanced.png"]
+    let sysImageList: [String] = ["g.circle.fill", "g.circle.fill", "plus", "plus"]
     
-    @IBOutlet weak var ancientPrice: UILabel!
-    @IBOutlet weak var rarePrice: UILabel!
-    @IBOutlet weak var orehaPrice: UILabel!
-    @IBOutlet weak var intermediatePrice: UILabel!
-    @IBOutlet weak var advancedPrice: UILabel!
+    let marketURL: [String] = [ "http://152.70.248.4:5000/trade/6882701", "http://152.70.248.4:5000/trade/6882704",
+                                "http://152.70.248.4:5000/trade/6885708", "http://152.70.248.4:5000/trade/6861008",
+                                "http://152.70.248.4:5000/trade/6861009" ]
     
-    @IBOutlet weak var intermediateProfit: UILabel!
-    @IBOutlet weak var advancedProfit: UILabel!
-    @IBOutlet weak var interExtraProfit: UILabel!
-    @IBOutlet weak var advExtraProfit: UILabel!
-    
-    @IBAction func orehaSetting(_ sender: Any) {
+    @IBAction func settingButton(_ sender: Any) {
         guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "OrehaSetting") as? OrehaSettingViewController else {
             return
         }
@@ -34,70 +30,130 @@ class OrehaTableViewController: UITableViewController {
     var intermediate_oreha = [Pricechart]()
     var advanced_oreha = [Pricechart]()
     
+    var intermediateProfit: String = ""
+    var interExtraProfit: String = ""
+    
+    var advancedProfit: String = ""
+    var advExtraProfit: String = ""
+    
     var counter = 0
-    let marketURL: [String] = [ "http://152.70.248.4:5000/trade/6882701", "http://152.70.248.4:5000/trade/6882704",
-                                "http://152.70.248.4:5000/trade/6885708", "http://152.70.248.4:5000/trade/6861008",
-                                "http://152.70.248.4:5000/trade/6861009" ]
+    var firstLoad = true
+    
     override func viewDidLoad() {
-        super.viewDidLoad() 
-//        parseData(url: marketURL[0])
+        super.viewDidLoad()
         setRefreshControl()
     }
-    
+
+    // MARK: - Table view data source
+
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 4
+        return 6
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if(section == 0){
+        // #warning Incomplete implementation, return the number of rows
+        if section == 0 {
+            return 0
+        } else if section == 1 {
             return 3
-        }
-        else if(section == 1){
+        } else if section == 2 {
+            return 2
+        } else if section == 4 {
+            return 2
+        } else if section == 5 {
             return 2
         }
-        else if(section == 2){
-            return 2
-        }
-        else {
-            return 2
-        }
+        
+        return 0
     }
     
-    override func prepare(for segue:UIStoryboardSegue, sender:Any?) {
-        if segue.identifier == "ancient",
-           let dest = segue.destination as? PriceTableViewController {
-            dest.ancient = self.ancient
-            dest.rare = self.rare
-            dest.oreha = self.oreha
-            dest.isMaterial = true
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 1 {
+            return "고고학 재료 시세"
+        } else if section == 2 {
+            return "오레하 융화 재료 시세"
+        } else if section == 4 {
+            return "사이클당 순수익"
+        } else if section == 5 {
+            return "대성공시 추가 이득"
         }
-        else if segue.identifier == "rare",
-           let dest = segue.destination as? PriceTableViewController {
-            dest.ancient = self.ancient
-            dest.rare = self.rare
-            dest.oreha = self.oreha
-            dest.isMaterial = true
+        return ""
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TestCell", for: indexPath) as! OrehaTableViewCell
+
+        if indexPath.section == 1 {
+            cell.itemImage.image = UIImage(named: imageList[indexPath.row])
+            cell.itemLabel.text = itemList[indexPath.row]
+            if firstLoad == false {
+                if indexPath.row == 0 {
+                    cell.goldLabel.text = (self.ancient[0].price ?? "0") + " G"
+                } else if indexPath.row == 1 {
+                    cell.goldLabel.text = (self.rare[0].price ?? "0") + " G"
+                } else if indexPath.row == 2 {
+                    cell.goldLabel.text = (self.oreha[0].price ?? "0") + " G"
+                }
+            }
+            
+        } else if indexPath.section == 2 {
+            cell.itemImage.image = UIImage(named: imageList[indexPath.row + 3])
+            cell.itemLabel.text = itemList[indexPath.row + 3]
+            if firstLoad == false {
+                if indexPath.row == 0 {
+                    cell.goldLabel.text = String(Int(get_intermediatePrice())) + " G"
+                } else if indexPath.row == 1 {
+                    cell.goldLabel.text = String(Int(get_advancedPrice())) + " G"
+                }
+            }
+        } else if indexPath.section == 4 {
+            cell.itemImage.image = UIImage(systemName: sysImageList[indexPath.row])
+            cell.itemLabel.text = itemList[indexPath.row + 3]
+            if firstLoad == false {
+                if indexPath.row == 0 {
+                    cell.goldLabel.text = intermediateProfit
+                } else if indexPath.row == 1 {
+                    cell.goldLabel.text = advancedProfit
+                }
+            }
+        } else if indexPath.section == 5 {
+            cell.itemImage.image = UIImage(systemName: sysImageList[indexPath.row + 2])
+            cell.itemLabel.text = itemList[indexPath.row + 3]
+            if firstLoad == false {
+                if indexPath.row == 0 {
+                    cell.goldLabel.text = interExtraProfit
+                } else if indexPath.row == 1 {
+                    cell.goldLabel.text = advExtraProfit
+                }
+            }
         }
-        else if segue.identifier == "oreha",
-           let dest = segue.destination as? PriceTableViewController {
-            dest.ancient = self.ancient
-            dest.rare = self.rare
-            dest.oreha = self.oreha
-            dest.isMaterial = true
+        return cell
+    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 1 {
+            guard let nextVC = self.storyboard?.instantiateViewController(identifier: "PriceTable") as? PriceTableViewController else {return}
+            nextVC.isMaterial = true
+            nextVC.ancient = ancient
+            nextVC.rare = rare
+            nextVC.oreha = oreha
+            self.present(nextVC, animated: true)
         }
-        else if segue.identifier == "intermediate",
-           let dest = segue.destination as? PriceTableViewController {
-            dest.intermediate_oreha = self.intermediate_oreha
-            dest.advanced_oreha = self.advanced_oreha
-        }
-        else if segue.identifier == "advanced",
-           let dest = segue.destination as? PriceTableViewController {
-            dest.intermediate_oreha = self.intermediate_oreha
-            dest.advanced_oreha = self.advanced_oreha
+        if indexPath.section == 2 {
+            guard let nextVC = self.storyboard?.instantiateViewController(identifier: "PriceTable") as? PriceTableViewController else {return}
+            nextVC.intermediate_oreha = intermediate_oreha
+            nextVC.advanced_oreha = advanced_oreha
+            self.present(nextVC, animated: true)
         }
     }
-    
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        if indexPath.section == 4 {
+            return nil
+        } else if indexPath.section == 5 {
+            return nil
+        }
+        return indexPath
+    }
 }
 
 extension OrehaTableViewController {
@@ -113,22 +169,27 @@ extension OrehaTableViewController {
                 // personData를 Person형이라고 옵셔널 바인딩 해주고, 정상적으로 값을 data에 담아둡니다.
                 switch(self.counter) {
                 case 0:
+                    print(self.counter)
                     self.ancient = marketData
                     self.counter+=1
                     self.parseData(url: self.marketURL[1])
                 case 1:
+                    print(self.counter)
                     self.rare = marketData
                     self.counter+=1
                     self.parseData(url: self.marketURL[2])
                 case 2:
+                    print(self.counter)
                     self.oreha = marketData
                     self.counter+=1
                     self.parseData(url: self.marketURL[3])
                 case 3:
+                    print(self.counter)
                     self.intermediate_oreha = marketData
                     self.counter+=1
                     self.parseData(url: self.marketURL[4])
                 case 4:
+                    print(self.counter)
                     self.advanced_oreha = marketData
                     self.counter = 0
                     self.setPrice()
@@ -149,13 +210,7 @@ extension OrehaTableViewController {
     }
     
     func setPrice() {
-        ancientPrice.text = String(Int(get_ancientPrice())) + " G"
-        rarePrice.text = String(Int(get_rarePrice())) + " G"
-        orehaPrice.text = String(Int(get_orehaPrice())) + " G"
-        intermediatePrice.text = String(Int(get_intermediatePrice())) + " G"
-        advancedPrice.text = String(Int(get_advancedPrice())) + " G"
         calculator()
-        // refreshing 종료
         tableView.refreshControl?.endRefreshing()
     }
     
@@ -199,26 +254,17 @@ extension OrehaTableViewController {
         let inter_materialPrice = Int(trunc((get_ancientPrice()*0.64) + (get_rarePrice()*2.6) + (get_orehaPrice()*0.8)))
         let advanced_materialPrice = Int(trunc((get_ancientPrice()*0.94) + (get_rarePrice()*2.9) + (get_orehaPrice()*1.6)))
         
-        print("중급 재료 : \(inter_materialPrice)")
-        print("상급 재료 : \(advanced_materialPrice)")
-        
         let inter_cost = 200 * (100-reduction) / 100
         let advanced_cost = 250 * (100-reduction) / 100
         
         var total_cost = inter_materialPrice + inter_cost
-        print("total_cost : \(total_cost)")
-        print(get_interSalePrice())
-        print(Int(truncating: UserDefaults.standard.float(forKey: "중급기준") as NSNumber) * 1000)
-        intermediateProfit.text =  String((((get_interSalePrice()*30) - total_cost) * 10) * 제작슬롯) + " G"
-        interExtraProfit.text = String(get_interSalePrice()*30) + " G"
+        intermediateProfit =  String((((get_interSalePrice()*30) - total_cost) * 10) * 제작슬롯) + " G"
+        interExtraProfit = String(get_interSalePrice()*30) + " G"
         
         total_cost = advanced_materialPrice + advanced_cost
-        print("total_cost : \(total_cost)")
-        print(get_advSalePrice())
-        print(Int(truncating: UserDefaults.standard.float(forKey: "상급기준") as NSNumber) * 1000)
-        advancedProfit.text =  String((((get_advSalePrice()*20) - total_cost) * 10) * 제작슬롯) + " G"
-        advExtraProfit.text = String((get_advSalePrice()*20)) + " G"
-        
+        advancedProfit =  String((((get_advSalePrice()*20) - total_cost) * 10) * 제작슬롯) + " G"
+        advExtraProfit = String((get_advSalePrice()*20)) + " G"
+        self.tableView.reloadData()
     }
     
     func get_ancientPrice() -> Double {
@@ -243,7 +289,6 @@ extension OrehaTableViewController {
         } else {
             if Int(self.intermediate_oreha[0].amount!) ?? 0 < (Int(truncating: UserDefaults.standard.float(forKey: "중급기준") as NSNumber) * 1000) {
                 let price: Double = Double(self.intermediate_oreha[self.intermediate_oreha.count-1].price!)!
-                print("중급 가격 : \(price)")
                 return price
             } else {
                 let price: Double = Double(self.intermediate_oreha[0].price!)!
@@ -258,7 +303,6 @@ extension OrehaTableViewController {
         } else {
             if Int(self.advanced_oreha[0].amount!) ?? 0 < (Int(truncating: UserDefaults.standard.float(forKey: "상급기준") as NSNumber) * 1000) {
                 let price: Double = Double(self.advanced_oreha[self.advanced_oreha.count-1].price!)!
-                print("상급 가격 : \(price)")
                 return price
             } else {
                 let price: Double = Double(self.advanced_oreha[0].price!)!
@@ -279,12 +323,15 @@ extension OrehaTableViewController {
 extension OrehaTableViewController {
     
     func setRefreshControl() {
+        
         tableView.refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self, action: #selector(pullToRefresh(_:)), for: .valueChanged)
     }
     
     @objc func pullToRefresh(_ sender: Any) {
         // 테이블뷰에 입력되는 데이터를 갱신한다.
+        firstLoad = false
         parseData(url: marketURL[0])
     }
 }
+
