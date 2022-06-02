@@ -33,9 +33,14 @@ class MainTableViewController: UITableViewController {
                 self.navigationController?.pushViewController(uvc, animated: true)
             }
         }
-//        if indexPath.section == 1 {
-//
-//        }
+        if indexPath.section == 1 {
+            if indexPath.row == 0 {
+                guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "PriceTable") else {
+                    return
+                }
+                self.navigationController?.pushViewController(uvc, animated: true)
+            }
+        }
     }
     
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {

@@ -25,7 +25,7 @@ class OrehaSettingViewController: UITableViewController {
     @IBAction func workshopSlider(_ sender: UISlider) {
         let value: Int = Int(sender.value)
         UserDefaults.standard.set(value, forKey: "제작공방")
-        workshopLevel.text = String(value)
+        workshopLevel.text = String(value) + " 레벨"
     }
     
     @IBOutlet weak var minInterOreha: UILabel!
@@ -33,7 +33,7 @@ class OrehaSettingViewController: UITableViewController {
     @IBAction func minInterSlider(_ sender: UISlider) {
         let value: Int = Int(sender.value)
         UserDefaults.standard.set(value, forKey: "중급기준")
-        minInterOreha.text = String(value * 1000)
+        minInterOreha.text = String(value * 1000) + "개"
     }
     
     @IBOutlet weak var minAdvOreha: UILabel!
@@ -41,7 +41,7 @@ class OrehaSettingViewController: UITableViewController {
     @IBAction func minAdvSlider(_ sender: UISlider) {
         let value: Int = Int(sender.value)
         UserDefaults.standard.set(value, forKey: "상급기준")
-        minAdvOreha.text = String(value * 1000)
+        minAdvOreha.text = String(value * 1000) + "개"
     }
     
 
@@ -90,13 +90,13 @@ class OrehaSettingViewController: UITableViewController {
         self.커피머신.isOn = UserDefaults.standard.bool(forKey: "커피머신")
         self.니나브.isOn = UserDefaults.standard.bool(forKey: "니나브")
         self.제작공방.value = UserDefaults.standard.float(forKey: "제작공방")
-        self.workshopLevel.text = String(Int(UserDefaults.standard.float(forKey: "제작공방")))
+        self.workshopLevel.text = String(Int(UserDefaults.standard.float(forKey: "제작공방"))) + " 레벨"
         
         self.minInterSlider.value = UserDefaults.standard.float(forKey: "중급기준")
-        self.minInterOreha.text = String(Int(UserDefaults.standard.float(forKey: "중급기준")) * 1000)
+        self.minInterOreha.text = String(Int(UserDefaults.standard.float(forKey: "중급기준")) * 1000) + "개"
         
         self.minAdvSlider.value = UserDefaults.standard.float(forKey: "상급기준")
-        self.minAdvOreha.text = String(Int(UserDefaults.standard.float(forKey: "상급기준")) * 1000)
+        self.minAdvOreha.text = String(Int(UserDefaults.standard.float(forKey: "상급기준")) * 1000) + "개"
     }
 
     // MARK: - Table view data source

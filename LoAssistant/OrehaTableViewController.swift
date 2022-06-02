@@ -63,6 +63,40 @@ class OrehaTableViewController: UITableViewController {
             return 2
         }
     }
+    
+    override func prepare(for segue:UIStoryboardSegue, sender:Any?) {
+        if segue.identifier == "ancient",
+           let dest = segue.destination as? PriceTableViewController {
+            dest.ancient = self.ancient
+            dest.rare = self.rare
+            dest.oreha = self.oreha
+            dest.isMaterial = true
+        }
+        else if segue.identifier == "rare",
+           let dest = segue.destination as? PriceTableViewController {
+            dest.ancient = self.ancient
+            dest.rare = self.rare
+            dest.oreha = self.oreha
+            dest.isMaterial = true
+        }
+        else if segue.identifier == "oreha",
+           let dest = segue.destination as? PriceTableViewController {
+            dest.ancient = self.ancient
+            dest.rare = self.rare
+            dest.oreha = self.oreha
+            dest.isMaterial = true
+        }
+        else if segue.identifier == "intermediate",
+           let dest = segue.destination as? PriceTableViewController {
+            dest.intermediate_oreha = self.intermediate_oreha
+            dest.advanced_oreha = self.advanced_oreha
+        }
+        else if segue.identifier == "advanced",
+           let dest = segue.destination as? PriceTableViewController {
+            dest.intermediate_oreha = self.intermediate_oreha
+            dest.advanced_oreha = self.advanced_oreha
+        }
+    }
 }
 
 extension OrehaTableViewController {
@@ -114,11 +148,11 @@ extension OrehaTableViewController {
     }
     
     func setPrice() {
-        ancientPrice.text = (self.ancient[0].price ?? "") + " G"
-        rarePrice.text = (self.rare[0].price ?? "") + " G"
-        orehaPrice.text = (self.oreha[0].price ?? "") + " G"
-        intermediatePrice.text = (self.intermediate_oreha[0].price ?? "") + " G"
-        advancedPrice.text = (self.advanced_oreha[0].price ?? "") + " G"
+        ancientPrice.text = String(Int(get_ancientPrice())) + " G"
+        rarePrice.text = String(Int(get_rarePrice())) + " G"
+        orehaPrice.text = String(Int(get_orehaPrice())) + " G"
+        intermediatePrice.text = String(Int(get_intermediatePrice())) + " G"
+        advancedPrice.text = String(Int(get_advancedPrice())) + " G"
         calculator()
         // refreshing 종료
         tableView.refreshControl?.endRefreshing()
@@ -173,12 +207,14 @@ extension OrehaTableViewController {
         var total_cost = inter_materialPrice + inter_cost
         print("total_cost : \(total_cost)")
         print(get_interSalePrice())
+        print(Int(truncating: UserDefaults.standard.float(forKey: "중급기준") as NSNumber) * 1000)
         intermediateProfit.text =  String((((get_interSalePrice()*30) - total_cost) * 10) * 제작슬롯) + " G"
         interExtraProfit.text = String(get_interSalePrice()*30) + " G"
         
         total_cost = advanced_materialPrice + advanced_cost
         print("total_cost : \(total_cost)")
         print(get_advSalePrice())
+        print(Int(truncating: UserDefaults.standard.float(forKey: "상급기준") as NSNumber) * 1000)
         advancedProfit.text =  String((((get_advSalePrice()*20) - total_cost) * 10) * 제작슬롯) + " G"
         advExtraProfit.text = String((get_advSalePrice()*20)) + " G"
         
@@ -234,8 +270,9 @@ extension OrehaTableViewController {
             let price: Double = Double(self.intermediate_oreha[0].price!)!
             return price
         } else {
-            if Int(self.intermediate_oreha[0].amount ?? "0") ?? 0 < Int(truncating: UserDefaults.standard.bool(forKey: "중급기준") as NSNumber) * 1000 {
+            if Int(self.intermediate_oreha[0].amount ?? "0") ?? 0 < (Int(truncating: UserDefaults.standard.float(forKey: "중급기준") as NSNumber) * 1000) {
                 let price: Double = Double(self.intermediate_oreha[1].price!)!
+                print("중급 가격 : \(price)")
                 return price
             } else {
                 let price: Double = Double(self.intermediate_oreha[0].price!)!
@@ -248,8 +285,9 @@ extension OrehaTableViewController {
             let price: Double = Double(self.advanced_oreha[0].price!)!
             return price
         } else {
-            if Int(self.advanced_oreha[0].amount ?? "0") ?? 0 < Int(truncating: UserDefaults.standard.bool(forKey: "상급기준") as NSNumber) * 1000 {
+            if Int(self.advanced_oreha[0].amount ?? "0") ?? 0 < (Int(truncating: UserDefaults.standard.float(forKey: "상급기준") as NSNumber) * 1000) {
                 let price: Double = Double(self.advanced_oreha[1].price!)!
+                print("상급 가격 : \(price)")
                 return price
             } else {
                 let price: Double = Double(self.advanced_oreha[0].price!)!
