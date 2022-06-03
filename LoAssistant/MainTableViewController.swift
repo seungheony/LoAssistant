@@ -21,15 +21,16 @@ class MainTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
             if indexPath.row == 1 {
-                guard let nextVC = self.storyboard?.instantiateViewController(identifier: "CrystalView") else {return}
-                        
-                        self.present(nextVC, animated: true)
-            }
-            else if indexPath.row == 2 {
-                guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "OrehaTable") else {
+                guard let nextVC = self.storyboard?.instantiateViewController(identifier: "PheonView") else {
                     return
                 }
-                self.navigationController?.pushViewController(uvc, animated: true)
+                self.navigationController?.pushViewController(nextVC, animated: true)
+            }
+            else if indexPath.row == 2 {
+                guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "OrehaTable") else {
+                    return
+                }
+                self.navigationController?.pushViewController(nextVC, animated: true)
             }
         }
         if indexPath.section == 1 {

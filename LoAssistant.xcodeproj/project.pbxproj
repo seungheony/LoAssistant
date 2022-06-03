@@ -26,6 +26,9 @@
 		10F6464127EB2F8600E51BBB /* LoAssistantUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F6464027EB2F8600E51BBB /* LoAssistantUITestsLaunchTests.swift */; };
 		210961E428485A0700FDBC60 /* PriceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210961E328485A0700FDBC60 /* PriceTableViewController.swift */; };
 		210961E728485A6800FDBC60 /* PriceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210961E628485A6800FDBC60 /* PriceTableViewCell.swift */; };
+		210961EB2849999500FDBC60 /* PheonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210961EA2849999500FDBC60 /* PheonTableViewCell.swift */; };
+		210961ED284999DE00FDBC60 /* PheonTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210961EC284999DE00FDBC60 /* PheonTableViewController.swift */; };
+		21096263284A01DB00FDBC60 /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096262284A01DB00FDBC60 /* ResultTableViewCell.swift */; };
 		218EDF212840AFE800187C7F /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218EDF202840AFE800187C7F /* NetworkResult.swift */; };
 		61BA331DEBE831395B0C22BF /* Pods_LoAssistant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA7F514429EF161DE676C3FB /* Pods_LoAssistant.framework */; };
 		86D3408F29F0C97CFBCEF021 /* Pods_LoAssistant_LoAssistantUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9972C500D97A3431C13E5BF9 /* Pods_LoAssistant_LoAssistantUITests.framework */; };
@@ -72,6 +75,9 @@
 		10F6464027EB2F8600E51BBB /* LoAssistantUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoAssistantUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		210961E328485A0700FDBC60 /* PriceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceTableViewController.swift; sourceTree = "<group>"; };
 		210961E628485A6800FDBC60 /* PriceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceTableViewCell.swift; sourceTree = "<group>"; };
+		210961EA2849999500FDBC60 /* PheonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PheonTableViewCell.swift; sourceTree = "<group>"; };
+		210961EC284999DE00FDBC60 /* PheonTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PheonTableViewController.swift; sourceTree = "<group>"; };
+		21096262284A01DB00FDBC60 /* ResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTableViewCell.swift; sourceTree = "<group>"; };
 		218EDF202840AFE800187C7F /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		5370F4672AC34A627B8FB3ED /* Pods-LoAssistantTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoAssistantTests.debug.xcconfig"; path = "Target Support Files/Pods-LoAssistantTests/Pods-LoAssistantTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9972C500D97A3431C13E5BF9 /* Pods_LoAssistant_LoAssistantUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LoAssistant_LoAssistantUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,6 +151,8 @@
 		10F6461C27EB2F8500E51BBB /* LoAssistant */ = {
 			isa = PBXGroup;
 			children = (
+				210961E92849997D00FDBC60 /* PheonTable */,
+				210961E82849996200FDBC60 /* OrehaTable */,
 				210961E528485A4900FDBC60 /* PriceTable */,
 				103E53B328477663001199A9 /* CrystalDataService */,
 				218EDF222840B69000187C7F /* MarketDataService */,
@@ -152,9 +160,6 @@
 				10F6461F27EB2F8500E51BBB /* SceneDelegate.swift */,
 				10AFD09727EDF058004CFAFB /* MainTableViewController.swift */,
 				10F6462327EB2F8500E51BBB /* Main.storyboard */,
-				103E53BA2848DD47001199A9 /* OrehaTableViewCell.swift */,
-				103E53BC2848E205001199A9 /* OrehaTableViewController.swift */,
-				103E53B128459141001199A9 /* OrehaSettingViewController.swift */,
 				10F6462627EB2F8600E51BBB /* Assets.xcassets */,
 				10F6462827EB2F8600E51BBB /* LaunchScreen.storyboard */,
 				10F6462B27EB2F8600E51BBB /* Info.plist */,
@@ -186,6 +191,26 @@
 				210961E628485A6800FDBC60 /* PriceTableViewCell.swift */,
 			);
 			path = PriceTable;
+			sourceTree = "<group>";
+		};
+		210961E82849996200FDBC60 /* OrehaTable */ = {
+			isa = PBXGroup;
+			children = (
+				103E53BA2848DD47001199A9 /* OrehaTableViewCell.swift */,
+				21096262284A01DB00FDBC60 /* ResultTableViewCell.swift */,
+				103E53BC2848E205001199A9 /* OrehaTableViewController.swift */,
+				103E53B128459141001199A9 /* OrehaSettingViewController.swift */,
+			);
+			path = OrehaTable;
+			sourceTree = "<group>";
+		};
+		210961E92849997D00FDBC60 /* PheonTable */ = {
+			isa = PBXGroup;
+			children = (
+				210961EA2849999500FDBC60 /* PheonTableViewCell.swift */,
+				210961EC284999DE00FDBC60 /* PheonTableViewController.swift */,
+			);
+			path = PheonTable;
 			sourceTree = "<group>";
 		};
 		218EDF222840B69000187C7F /* MarketDataService */ = {
@@ -466,9 +491,12 @@
 				103E53BB2848DD47001199A9 /* OrehaTableViewCell.swift in Sources */,
 				103E53B52847768A001199A9 /* CrystalModel.swift in Sources */,
 				103E53BD2848E205001199A9 /* OrehaTableViewController.swift in Sources */,
+				21096263284A01DB00FDBC60 /* ResultTableViewCell.swift in Sources */,
+				210961EB2849999500FDBC60 /* PheonTableViewCell.swift in Sources */,
 				10F6461E27EB2F8500E51BBB /* AppDelegate.swift in Sources */,
 				210961E728485A6800FDBC60 /* PriceTableViewCell.swift in Sources */,
 				10F6462027EB2F8500E51BBB /* SceneDelegate.swift in Sources */,
+				210961ED284999DE00FDBC60 /* PheonTableViewController.swift in Sources */,
 				10B589C1282E9DC400B11011 /* MarketModel.swift in Sources */,
 				210961E428485A0700FDBC60 /* PriceTableViewController.swift in Sources */,
 				1008CB5B283A1DC9000F6E0B /* MarketDataService.swift in Sources */,

@@ -82,7 +82,7 @@ class OrehaTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TestCell", for: indexPath) as! OrehaTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "OrehaCell", for: indexPath) as! OrehaTableViewCell
 
         if indexPath.section == 1 {
             cell.itemImage.image = UIImage(named: imageList[indexPath.row])
