@@ -9,6 +9,11 @@ import UIKit
 
 class ResultTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var interImage: UIImageView!
+    @IBOutlet weak var interPrice: UILabel!
+    @IBOutlet weak var advImage: UIImageView!
+    @IBOutlet weak var advPrice: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

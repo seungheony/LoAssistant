@@ -60,9 +60,9 @@ class OrehaTableViewController: UITableViewController {
         } else if section == 2 {
             return 2
         } else if section == 4 {
-            return 2
+            return 1
         } else if section == 5 {
-            return 2
+            return 1
         }
         
         return 0
@@ -82,53 +82,57 @@ class OrehaTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "OrehaCell", for: indexPath) as! OrehaTableViewCell
+        let orehaCell = tableView.dequeueReusableCell(withIdentifier: "OrehaCell", for: indexPath) as! OrehaTableViewCell
+        let resultCell = tableView.dequeueReusableCell(withIdentifier: "ResultCell", for: indexPath) as! ResultTableViewCell
 
         if indexPath.section == 1 {
-            cell.itemImage.image = UIImage(named: imageList[indexPath.row])
-            cell.itemLabel.text = itemList[indexPath.row]
+            orehaCell.itemImage.image = UIImage(named: imageList[indexPath.row])
+            orehaCell.itemLabel.text = itemList[indexPath.row]
             if firstLoad == false {
                 if indexPath.row == 0 {
-                    cell.goldLabel.text = (self.ancient[0].price ?? "0") + " G"
+                    orehaCell.goldLabel.text = (self.ancient[0].price ?? "0") + " G"
                 } else if indexPath.row == 1 {
-                    cell.goldLabel.text = (self.rare[0].price ?? "0") + " G"
+                    orehaCell.goldLabel.text = (self.rare[0].price ?? "0") + " G"
                 } else if indexPath.row == 2 {
-                    cell.goldLabel.text = (self.oreha[0].price ?? "0") + " G"
+                    orehaCell.goldLabel.text = (self.oreha[0].price ?? "0") + " G"
                 }
             }
-            
+            return orehaCell
         } else if indexPath.section == 2 {
-            cell.itemImage.image = UIImage(named: imageList[indexPath.row + 3])
-            cell.itemLabel.text = itemList[indexPath.row + 3]
+            orehaCell.itemImage.image = UIImage(named: imageList[indexPath.row + 3])
+            orehaCell.itemLabel.text = itemList[indexPath.row + 3]
             if firstLoad == false {
                 if indexPath.row == 0 {
-                    cell.goldLabel.text = String(Int(get_intermediatePrice())) + " G"
+                    orehaCell.goldLabel.text = String(Int(get_intermediatePrice())) + " G"
                 } else if indexPath.row == 1 {
-                    cell.goldLabel.text = String(Int(get_advancedPrice())) + " G"
+                    orehaCell.goldLabel.text = String(Int(get_advancedPrice())) + " G"
                 }
             }
+            return orehaCell
         } else if indexPath.section == 4 {
-            cell.itemImage.image = UIImage(systemName: sysImageList[indexPath.row])
-            cell.itemLabel.text = itemList[indexPath.row + 3]
+            resultCell.interImage.image = UIImage(named: imageList[3])
+            resultCell.advImage.image = UIImage(named: imageList[4])
             if firstLoad == false {
                 if indexPath.row == 0 {
-                    cell.goldLabel.text = intermediateProfit
+                    resultCell.interPrice.text = intermediateProfit
                 } else if indexPath.row == 1 {
-                    cell.goldLabel.text = advancedProfit
+                    resultCell.advPrice.text = advancedProfit
                 }
             }
+            return resultCell
         } else if indexPath.section == 5 {
-            cell.itemImage.image = UIImage(systemName: sysImageList[indexPath.row + 2])
-            cell.itemLabel.text = itemList[indexPath.row + 3]
+            resultCell.interImage.image = UIImage(named: imageList[3])
+            resultCell.advImage.image = UIImage(named: imageList[4])
             if firstLoad == false {
                 if indexPath.row == 0 {
-                    cell.goldLabel.text = interExtraProfit
+                    resultCell.interPrice.text = interExtraProfit
                 } else if indexPath.row == 1 {
-                    cell.goldLabel.text = advExtraProfit
+                    resultCell.advPrice.text = advExtraProfit
                 }
             }
+            return resultCell
         }
-        return cell
+        return orehaCell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1 {
