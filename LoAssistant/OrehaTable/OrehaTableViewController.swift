@@ -115,7 +115,6 @@ class OrehaTableViewController: UITableViewController {
             if firstLoad == false {
                 if indexPath.row == 0 {
                     resultCell.interPrice.text = intermediateProfit
-                } else if indexPath.row == 1 {
                     resultCell.advPrice.text = advancedProfit
                 }
             }
@@ -126,7 +125,6 @@ class OrehaTableViewController: UITableViewController {
             if firstLoad == false {
                 if indexPath.row == 0 {
                     resultCell.interPrice.text = interExtraProfit
-                } else if indexPath.row == 1 {
                     resultCell.advPrice.text = advExtraProfit
                 }
             }

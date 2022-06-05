@@ -11,6 +11,8 @@ class MainTableViewController: UITableViewController {
     
     @IBOutlet weak var crystalPrice: UILabel!
    
+    var crystal: Double = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.parseData(url: "http://152.70.248.4:5000/crystal/")
@@ -19,27 +21,29 @@ class MainTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 0 {
-            if indexPath.row == 1 {
-                guard let nextVC = self.storyboard?.instantiateViewController(identifier: "PheonView") else {
+        if indexPath.section == 1 {
+            if indexPath.row == 0 {
+                guard let nextVC = self.storyboard?.instantiateViewController(identifier: "PheonView") as? PheonViewController else {
                     return
                 }
+                nextVC.crystal = self.crystal
                 self.navigationController?.pushViewController(nextVC, animated: true)
             }
-            else if indexPath.row == 2 {
+            else if indexPath.row == 1 {
                 guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "OrehaTable") else {
                     return
                 }
                 self.navigationController?.pushViewController(nextVC, animated: true)
             }
         }
-        if indexPath.section == 1 {
-            if indexPath.row == 0 {
-//                guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "OrehaTableTest") else {
+        if indexPath.section == 2 {
+//            if indexPath.row == 0 {
+//                guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "test") as? PheonViewController else {
 //                    return
 //                }
+//                uvc.crystal = self.crystal
 //                self.navigationController?.pushViewController(uvc, animated: true)
-            }
+//            }
         }
     }
     
@@ -48,7 +52,6 @@ class MainTableViewController: UITableViewController {
             if indexPath.row == 0 {
                 return nil
             }
-            return indexPath
         }
         return indexPath
     }
@@ -65,6 +68,7 @@ extension MainTableViewController {
             case .success(let crystalData):
                 // personData를 Person형이라고 옵셔널 바인딩 해주고, 정상적으로 값을 data에 담아둡니다.
                 self.crystalPrice.text = crystalData + " G"
+                self.crystal = Double(crystalData)!
             // 실패할 경우에 분기처리는 아래와 같이 합니다.
             case .requestErr(let message) :
                 print("requestErr", message)
