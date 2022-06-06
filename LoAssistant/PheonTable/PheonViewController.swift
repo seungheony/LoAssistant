@@ -14,8 +14,11 @@ class PheonViewController: UIViewController {
     @IBOutlet weak var button30: UIButton!
     @IBOutlet weak var button100: UIButton!
     
+    @IBOutlet weak var calculate: UIButton!
+    
     @IBOutlet weak var goldPerPheon: UILabel!
     @IBOutlet weak var result: UILabel!
+    
     
     var pheonCount: Int = 0
     var crystal: Double = 0
@@ -30,6 +33,7 @@ class PheonViewController: UIViewController {
         button1.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
         button30.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
         button100.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
+        calculate.titleLabel?.font = UIFont.boldSystemFont(ofSize: 30)
         // Do any additional setup after loading the view.
     }
     
@@ -45,16 +49,35 @@ class PheonViewController: UIViewController {
         sender.isSelected = true
     }
     @IBAction func calculate(_ sender: Any) {
+        pheonAmount.endEditing(true)
+        
         let pheon = pheonAmount.text!
         // bill이 empty가 아니라면 실행
         if pheon != "" {
+            if button1.isSelected {
+                pheonCount = Int(pheon)!
+                
+                goldPerPheon.text = String(pheonCount) + " 페온당"
+                let gold = crystal / 19 * 2
+                result.text = String(Int(gold)*pheonCount) + " G"
+            }
+            else if button30.isSelected {
+                pheonCount = Int(pheon)!
+                
+                goldPerPheon.text = String(pheonCount) + " 페온당"
+                let gold = crystal / 19 * 54 / 30
+                result.text = String(Int(gold)*pheonCount) + " G"
+            }
+            else if button100.isSelected {
+                pheonCount = Int(pheon)!
+                
+                goldPerPheon.text = String(pheonCount) + " 페온당"
+                let gold = crystal / 19 * 170 / 100
+                result.text = String(Int(gold)*pheonCount) + " G"
+
+            }
             //String타입의 bill을 Double타입으로 변경
-            pheonCount = Int(pheon)!
             
-            goldPerPheon.text = String(pheonCount) + "페온당 골드"
-            let gold = crystal / 19 * 170 / 100
-            result.text = String(Int(gold)*pheonCount) + " G"
-            print(Int(gold)*pheonCount)
             
 //            5크리스탈 당 골드
 //            -> 골드 / 19 * 170 = 100페온당 골드 / 100 -> 1페온당 골드
