@@ -8,7 +8,8 @@ target 'LoAssistant' do
   # Pods for LoAssistant
 
   pod 'Alamofire', '~> 5.6'
-
+  pod 'SwiftyJSON', '~> 4.0'
+  
   target 'LoAssistantTests' do
     inherit! :search_paths
     # Pods for testing

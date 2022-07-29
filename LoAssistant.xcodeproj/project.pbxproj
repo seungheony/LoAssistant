@@ -11,8 +11,6 @@
 		1008CB5B283A1DC9000F6E0B /* MarketDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1008CB5A283A1DC9000F6E0B /* MarketDataService.swift */; };
 		1021B20C284C3EAC00331EA5 /* PheonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1021B20B284C3EAC00331EA5 /* PheonViewController.swift */; };
 		103E53B228459141001199A9 /* OrehaSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103E53B128459141001199A9 /* OrehaSettingViewController.swift */; };
-		103E53B52847768A001199A9 /* CrystalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103E53B42847768A001199A9 /* CrystalModel.swift */; };
-		103E53B7284776FF001199A9 /* CrystalDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103E53B6284776FF001199A9 /* CrystalDataService.swift */; };
 		103E53BB2848DD47001199A9 /* OrehaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103E53BA2848DD47001199A9 /* OrehaTableViewCell.swift */; };
 		103E53BD2848E205001199A9 /* OrehaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103E53BC2848E205001199A9 /* OrehaTableViewController.swift */; };
 		10AFD09827EDF058004CFAFB /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AFD09727EDF058004CFAFB /* MainTableViewController.swift */; };
@@ -25,6 +23,7 @@
 		10F6463527EB2F8600E51BBB /* LoAssistantTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F6463427EB2F8600E51BBB /* LoAssistantTests.swift */; };
 		10F6463F27EB2F8600E51BBB /* LoAssistantUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F6463E27EB2F8600E51BBB /* LoAssistantUITests.swift */; };
 		10F6464127EB2F8600E51BBB /* LoAssistantUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F6464027EB2F8600E51BBB /* LoAssistantUITestsLaunchTests.swift */; };
+		1E52D85C2893CBB3002ED70E /* MainViewDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52D85B2893CBB3002ED70E /* MainViewDataService.swift */; };
 		210961E428485A0700FDBC60 /* PriceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210961E328485A0700FDBC60 /* PriceTableViewController.swift */; };
 		210961E728485A6800FDBC60 /* PriceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210961E628485A6800FDBC60 /* PriceTableViewCell.swift */; };
 		21096263284A01DB00FDBC60 /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096262284A01DB00FDBC60 /* ResultTableViewCell.swift */; };
@@ -55,8 +54,6 @@
 		1008CB5A283A1DC9000F6E0B /* MarketDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDataService.swift; sourceTree = "<group>"; };
 		1021B20B284C3EAC00331EA5 /* PheonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PheonViewController.swift; path = LoAssistant/PheonTable/PheonViewController.swift; sourceTree = SOURCE_ROOT; };
 		103E53B128459141001199A9 /* OrehaSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrehaSettingViewController.swift; sourceTree = "<group>"; };
-		103E53B42847768A001199A9 /* CrystalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrystalModel.swift; sourceTree = "<group>"; };
-		103E53B6284776FF001199A9 /* CrystalDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrystalDataService.swift; sourceTree = "<group>"; };
 		103E53BA2848DD47001199A9 /* OrehaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrehaTableViewCell.swift; sourceTree = "<group>"; };
 		103E53BC2848E205001199A9 /* OrehaTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrehaTableViewController.swift; sourceTree = "<group>"; };
 		10AFD09727EDF058004CFAFB /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +70,7 @@
 		10F6463A27EB2F8600E51BBB /* LoAssistantUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoAssistantUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		10F6463E27EB2F8600E51BBB /* LoAssistantUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoAssistantUITests.swift; sourceTree = "<group>"; };
 		10F6464027EB2F8600E51BBB /* LoAssistantUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoAssistantUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1E52D85B2893CBB3002ED70E /* MainViewDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewDataService.swift; sourceTree = "<group>"; };
 		210961E328485A0700FDBC60 /* PriceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceTableViewController.swift; sourceTree = "<group>"; };
 		210961E628485A6800FDBC60 /* PriceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceTableViewCell.swift; sourceTree = "<group>"; };
 		21096262284A01DB00FDBC60 /* ResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTableViewCell.swift; sourceTree = "<group>"; };
@@ -115,15 +113,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		103E53B328477663001199A9 /* CrystalDataService */ = {
-			isa = PBXGroup;
-			children = (
-				103E53B42847768A001199A9 /* CrystalModel.swift */,
-				103E53B6284776FF001199A9 /* CrystalDataService.swift */,
-			);
-			path = CrystalDataService;
-			sourceTree = "<group>";
-		};
 		10F6461127EB2F8500E51BBB = {
 			isa = PBXGroup;
 			children = (
@@ -152,11 +141,11 @@
 				210961E92849997D00FDBC60 /* PheonTable */,
 				210961E82849996200FDBC60 /* OrehaTable */,
 				210961E528485A4900FDBC60 /* PriceTable */,
-				103E53B328477663001199A9 /* CrystalDataService */,
 				218EDF222840B69000187C7F /* MarketDataService */,
 				10F6461D27EB2F8500E51BBB /* AppDelegate.swift */,
 				10F6461F27EB2F8500E51BBB /* SceneDelegate.swift */,
 				10AFD09727EDF058004CFAFB /* MainTableViewController.swift */,
+				1E52D85B2893CBB3002ED70E /* MainViewDataService.swift */,
 				10F6462327EB2F8500E51BBB /* Main.storyboard */,
 				10F6462627EB2F8600E51BBB /* Assets.xcassets */,
 				10F6462827EB2F8600E51BBB /* LaunchScreen.storyboard */,
@@ -484,15 +473,14 @@
 			files = (
 				10AFD09827EDF058004CFAFB /* MainTableViewController.swift in Sources */,
 				103E53B228459141001199A9 /* OrehaSettingViewController.swift in Sources */,
-				103E53B7284776FF001199A9 /* CrystalDataService.swift in Sources */,
 				103E53BB2848DD47001199A9 /* OrehaTableViewCell.swift in Sources */,
-				103E53B52847768A001199A9 /* CrystalModel.swift in Sources */,
 				103E53BD2848E205001199A9 /* OrehaTableViewController.swift in Sources */,
 				21096263284A01DB00FDBC60 /* ResultTableViewCell.swift in Sources */,
 				1021B20C284C3EAC00331EA5 /* PheonViewController.swift in Sources */,
 				10F6461E27EB2F8500E51BBB /* AppDelegate.swift in Sources */,
 				210961E728485A6800FDBC60 /* PriceTableViewCell.swift in Sources */,
 				10F6462027EB2F8500E51BBB /* SceneDelegate.swift in Sources */,
+				1E52D85C2893CBB3002ED70E /* MainViewDataService.swift in Sources */,
 				10B589C1282E9DC400B11011 /* MarketModel.swift in Sources */,
 				210961E428485A0700FDBC60 /* PriceTableViewController.swift in Sources */,
 				1008CB5B283A1DC9000F6E0B /* MarketDataService.swift in Sources */,
