@@ -10,18 +10,14 @@ import Alamofire
 import SwiftyJSON
 
 extension MainTableViewController {
-    func parseCrystalData(url: String) {
-        AF.request(url).responseJSON {
-            response in
-
+    func parseCrystalData(url: String, handler: @escaping (JSON) -> Void) {
+        let request = AF.request(url)
+        request.responseJSON { response in
             switch response.result {
             case .success(let value):
-                let json = JSON(value)
-                let crystal = json["Buy"].doubleValue
-                self.crystalJSON = json
-                self.crystal = crystal
-            default:
-                return
+                handler(JSON(value))
+            case .failure(let error):
+                print(error.localizedDescription)
             }
         }
     }

@@ -18,9 +18,11 @@ class MainTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        parseCrystalData(url: crystalURL)
-        self.crystalPrice.text = crystalJSON!["Buy"].stringValue + " G"
-        
+//        parseCrystalData(url: crystalURL)
+        parseCrystalData(url: crystalURL) { (data) in
+            self.crystalJSON = data
+            self.crystalPrice.text = self.crystalJSON!["Buy"].stringValue + " G"
+        }
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
