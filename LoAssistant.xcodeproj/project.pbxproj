@@ -140,7 +140,6 @@
 			children = (
 				210961E92849997D00FDBC60 /* PheonTable */,
 				210961E82849996200FDBC60 /* OrehaTable */,
-				210961E528485A4900FDBC60 /* PriceTable */,
 				218EDF222840B69000187C7F /* MarketDataService */,
 				10F6461D27EB2F8500E51BBB /* AppDelegate.swift */,
 				10F6461F27EB2F8500E51BBB /* SceneDelegate.swift */,
@@ -183,10 +182,12 @@
 		210961E82849996200FDBC60 /* OrehaTable */ = {
 			isa = PBXGroup;
 			children = (
+				210961E528485A4900FDBC60 /* PriceTable */,
 				103E53BA2848DD47001199A9 /* OrehaTableViewCell.swift */,
 				21096262284A01DB00FDBC60 /* ResultTableViewCell.swift */,
 				103E53BC2848E205001199A9 /* OrehaTableViewController.swift */,
 				103E53B128459141001199A9 /* OrehaSettingViewController.swift */,
+				1008CB5A283A1DC9000F6E0B /* MarketDataService.swift */,
 			);
 			path = OrehaTable;
 			sourceTree = "<group>";
@@ -204,7 +205,6 @@
 			children = (
 				10B589C0282E9DC400B11011 /* MarketModel.swift */,
 				218EDF202840AFE800187C7F /* NetworkResult.swift */,
-				1008CB5A283A1DC9000F6E0B /* MarketDataService.swift */,
 			);
 			path = MarketDataService;
 			sourceTree = "<group>";

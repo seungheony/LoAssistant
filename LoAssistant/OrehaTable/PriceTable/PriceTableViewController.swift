@@ -6,17 +6,18 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class PriceTableViewController: UITableViewController {
 
     var isMaterial: Bool = false
     
-    var ancient = [Pricechart]()
-    var rare = [Pricechart]()
-    var oreha = [Pricechart]()
+    var ancient = JSON()
+    var rare = JSON()
+    var oreha = JSON()
     
-    var intermediate_oreha = [Pricechart]()
-    var advanced_oreha = [Pricechart]()
+    var intermediate_oreha = JSON()
+    var advanced_oreha = JSON()
     
     
     override func viewDidLoad() {
@@ -69,30 +70,30 @@ class PriceTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "priceCell", for: indexPath) as! PriceTableViewCell
-
+        
         // Configure the cell...
         if isMaterial == true {
             if indexPath.section == 1 {
-                cell.amountLabel.text = ancient[indexPath.row].amount!
-                cell.priceLabel.text = ancient[indexPath.row].price! + "G"
+                cell.amountLabel.text = ancient["Pricechart"].array![indexPath.row]["Amount"].stringValue
+                cell.priceLabel.text = ancient["Pricechart"].array![indexPath.row]["Price"].stringValue + "G"
             }
             if indexPath.section == 2 {
-                cell.amountLabel.text = rare[indexPath.row].amount!
-                cell.priceLabel.text = rare[indexPath.row].price! + "G"
+                cell.amountLabel.text = rare["Pricechart"].array![indexPath.row]["Amount"].stringValue
+                cell.priceLabel.text = rare["Pricechart"].array![indexPath.row]["Price"].stringValue + "G"
             }
             if indexPath.section == 3 {
-                cell.amountLabel.text = oreha[indexPath.row].amount!
-                cell.priceLabel.text = oreha[indexPath.row].price! + "G"
+                cell.amountLabel.text = oreha["Pricechart"].array![indexPath.row]["Amount"].stringValue
+                cell.priceLabel.text = oreha["Pricechart"].array![indexPath.row]["Price"].stringValue + "G"
             }
         }
         else if isMaterial == false {
             if indexPath.section == 1 {
-                cell.amountLabel.text = intermediate_oreha[indexPath.row].amount!
-                cell.priceLabel.text = intermediate_oreha[indexPath.row].price! + "G"
+                cell.amountLabel.text = intermediate_oreha["Pricechart"].array![indexPath.row]["Amount"].stringValue
+                cell.priceLabel.text = intermediate_oreha["Pricechart"].array![indexPath.row]["Price"].stringValue + "G"
             }
             if indexPath.section == 2 {
-                cell.amountLabel.text = advanced_oreha[indexPath.row].amount!
-                cell.priceLabel.text = advanced_oreha[indexPath.row].price! + "G"
+                cell.amountLabel.text = advanced_oreha["Pricechart"].array![indexPath.row]["Amount"].stringValue
+                cell.priceLabel.text = advanced_oreha["Pricechart"].array![indexPath.row]["Price"].stringValue + "G"
             }
         }
         return cell
