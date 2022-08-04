@@ -62,7 +62,10 @@ class OrehaTableViewController: UITableViewController {
         parseMarketData(url: marketURL[4]) { (data) in
             self.advanced_oreha = data
             self.setRefreshControl()
+            print("데이터 파싱 완료")
             LoadingHUD.hide()
+            self.tableView.reloadData()
+            
             // viewDidLoad에서 데이터 파싱하고 refreshControl 세팅도 같이 한다.
         }
     }
@@ -77,7 +80,9 @@ class OrehaTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if section == 0 {
-            return 0
+            if firstLoad == true {
+                return 1
+            }
         } else if section == 1 {
             return 3
         } else if section == 2 {
@@ -107,8 +112,19 @@ class OrehaTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let orehaCell = tableView.dequeueReusableCell(withIdentifier: "OrehaCell", for: indexPath) as! OrehaTableViewCell
         let resultCell = tableView.dequeueReusableCell(withIdentifier: "ResultCell", for: indexPath) as! ResultTableViewCell
-
+        
+        if firstLoad == true {
+            if indexPath.section == 0 {
+                let howToUseCell = tableView.dequeueReusableCell(withIdentifier: "HowToUseCell", for: indexPath) as! HowToUseTableViewCell
+                if indexPath.row == 0 {
+                    return howToUseCell
+                }
+                return howToUseCell
+            }
+        }
+        
         if indexPath.section == 1 {
+            print("셀 생성 시작")
             orehaCell.itemImage.image = UIImage(named: imageList[indexPath.row])
             orehaCell.itemLabel.text = itemList[indexPath.row]
             if firstLoad == false {
