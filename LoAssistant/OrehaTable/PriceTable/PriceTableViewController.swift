@@ -44,13 +44,13 @@ class PriceTableViewController: UITableViewController {
                 return 0
             }
             if section == 1 {
-                return ancient.count
+                return ancient["Pricechart"].array!.count
             }
             if section == 2 {
-                return rare.count
+                return rare["Pricechart"].array!.count
             }
             if section == 3 {
-                return oreha.count
+                return oreha["Pricechart"].array!.count
             }
             
         } else if isMaterial == false {
@@ -58,19 +58,17 @@ class PriceTableViewController: UITableViewController {
                 return 0
             }
             if section == 1 {
-                return intermediate_oreha.count
+                return intermediate_oreha["Pricechart"].array!.count
             }
             if section == 2 {
-                return advanced_oreha.count
+                return advanced_oreha["Pricechart"].array!.count
             }
         }
         return 0
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "priceCell", for: indexPath) as! PriceTableViewCell
-        
         // Configure the cell...
         if isMaterial == true {
             if indexPath.section == 1 {

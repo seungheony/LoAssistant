@@ -14,9 +14,9 @@ class OrehaTableViewController: UITableViewController {
     let imageList: [String] = ["ancient.png", "rare.png", "oreha.png", "intermediate.png", "advanced.png"]
     let sysImageList: [String] = ["g.circle.fill", "g.circle.fill", "plus", "plus"]
     
-    let marketURL: [String] = [ "http://152.70.248.4:5000/trade/6882701", "http://152.70.248.4:5000/trade/6882704",
-                                "http://152.70.248.4:5000/trade/6885708", "http://152.70.248.4:5000/trade/6861008",
-                                "http://152.70.248.4:5000/trade/6861009" ]
+    let marketURL: [String] = [ "https://lostarkapi.ga/trade/6882701", "https://lostarkapi.ga/trade/6882704",
+                                "https://lostarkapi.ga/trade/6885708", "https://lostarkapi.ga/trade/6861008",
+                                "https://lostarkapi.ga/trade/6861009" ]
     
     // 가격 데이터 변수
     var ancient = JSON()
@@ -45,6 +45,8 @@ class OrehaTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        LoadingHUD.show()
+        
         parseMarketData(url: marketURL[0]) { (data) in
             self.ancient = data
         }
@@ -60,6 +62,7 @@ class OrehaTableViewController: UITableViewController {
         parseMarketData(url: marketURL[4]) { (data) in
             self.advanced_oreha = data
             self.setRefreshControl()
+            LoadingHUD.hide()
             // viewDidLoad에서 데이터 파싱하고 refreshControl 세팅도 같이 한다.
         }
     }
@@ -180,7 +183,7 @@ class OrehaTableViewController: UITableViewController {
 
 extension OrehaTableViewController {
     func setPrice() {
-//        calculator()
+        calculator()
         tableView.refreshControl?.endRefreshing()
     }
     
@@ -271,7 +274,7 @@ extension OrehaTableViewController {
             let price: Double = Double(self.advanced_oreha["Pricechart"].array![0]["Price"].stringValue)!
             return price
         } else {
-            if Int(self.advanced_oreha["Pricechart"].array![0]["Amount"].stringValue)! < (Int(truncating: UserDefaults.standard.float(forKey: "상급기준") as NSNumber) * 1000) {
+            if Int(self.advanced_oreha["Pricechart"].array![0]["Amount"].stringValue) ?? 0 < (Int(truncating: UserDefaults.standard.float(forKey: "상급기준") as NSNumber) * 1000) {
                 let price: Double = Double(self.advanced_oreha["Pricechart"].array![1]["Price"].stringValue)!
                 return price
             } else {
@@ -300,6 +303,7 @@ extension OrehaTableViewController {
     
     @objc func pullToRefresh(_ sender: Any) {
         // 테이블뷰에 입력되는 데이터를 갱신한다.
+        print("refresh")
         firstLoad = false
 //        parseData(url: marketURL[0])
         
@@ -317,8 +321,8 @@ extension OrehaTableViewController {
         }
         parseMarketData(url: marketURL[4]) { (data) in
             self.advanced_oreha = data
+            self.setPrice()
         }
-        setPrice()
     }
 }
 

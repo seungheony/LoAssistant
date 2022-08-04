@@ -14,14 +14,15 @@ class MainTableViewController: UITableViewController {
     @IBOutlet weak var crystalPrice: UILabel!
     var crystalJSON: JSON?
     var crystal: Double = 0
-    let crystalURL = "http://152.70.248.4:5000/crystal/"
+    let crystalURL = "https://lostarkapi.ga/crystal/"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        parseCrystalData(url: crystalURL)
+        LoadingHUD.show()
         parseCrystalData(url: crystalURL) { (data) in
             self.crystalJSON = data
             self.crystalPrice.text = self.crystalJSON!["Buy"].stringValue + " G"
+            LoadingHUD.hide()
         }
         navigationController?.setNavigationBarHidden(false, animated: true)
     }

@@ -24,6 +24,7 @@
 		10F6463F27EB2F8600E51BBB /* LoAssistantUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F6463E27EB2F8600E51BBB /* LoAssistantUITests.swift */; };
 		10F6464127EB2F8600E51BBB /* LoAssistantUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F6464027EB2F8600E51BBB /* LoAssistantUITestsLaunchTests.swift */; };
 		1E52D85C2893CBB3002ED70E /* MainViewDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52D85B2893CBB3002ED70E /* MainViewDataService.swift */; };
+		1EE94AF7289B9ED6006E3963 /* LoadingHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE94AF6289B9ED6006E3963 /* LoadingHUD.swift */; };
 		210961E428485A0700FDBC60 /* PriceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210961E328485A0700FDBC60 /* PriceTableViewController.swift */; };
 		210961E728485A6800FDBC60 /* PriceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210961E628485A6800FDBC60 /* PriceTableViewCell.swift */; };
 		21096263284A01DB00FDBC60 /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096262284A01DB00FDBC60 /* ResultTableViewCell.swift */; };
@@ -71,6 +72,7 @@
 		10F6463E27EB2F8600E51BBB /* LoAssistantUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoAssistantUITests.swift; sourceTree = "<group>"; };
 		10F6464027EB2F8600E51BBB /* LoAssistantUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoAssistantUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1E52D85B2893CBB3002ED70E /* MainViewDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewDataService.swift; sourceTree = "<group>"; };
+		1EE94AF6289B9ED6006E3963 /* LoadingHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingHUD.swift; sourceTree = "<group>"; };
 		210961E328485A0700FDBC60 /* PriceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceTableViewController.swift; sourceTree = "<group>"; };
 		210961E628485A6800FDBC60 /* PriceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceTableViewCell.swift; sourceTree = "<group>"; };
 		21096262284A01DB00FDBC60 /* ResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTableViewCell.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				10F6461F27EB2F8500E51BBB /* SceneDelegate.swift */,
 				10AFD09727EDF058004CFAFB /* MainTableViewController.swift */,
 				1E52D85B2893CBB3002ED70E /* MainViewDataService.swift */,
+				1EE94AF6289B9ED6006E3963 /* LoadingHUD.swift */,
 				10F6462327EB2F8500E51BBB /* Main.storyboard */,
 				10F6462627EB2F8600E51BBB /* Assets.xcassets */,
 				10F6462827EB2F8600E51BBB /* LaunchScreen.storyboard */,
@@ -475,6 +478,7 @@
 				103E53B228459141001199A9 /* OrehaSettingViewController.swift in Sources */,
 				103E53BB2848DD47001199A9 /* OrehaTableViewCell.swift in Sources */,
 				103E53BD2848E205001199A9 /* OrehaTableViewController.swift in Sources */,
+				1EE94AF7289B9ED6006E3963 /* LoadingHUD.swift in Sources */,
 				21096263284A01DB00FDBC60 /* ResultTableViewCell.swift in Sources */,
 				1021B20C284C3EAC00331EA5 /* PheonViewController.swift in Sources */,
 				10F6461E27EB2F8500E51BBB /* AppDelegate.swift in Sources */,
