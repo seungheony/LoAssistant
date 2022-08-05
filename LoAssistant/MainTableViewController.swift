@@ -22,6 +22,7 @@ class MainTableViewController: UITableViewController {
         parseCrystalData(url: crystalURL) { (data) in
             self.crystalJSON = data
             self.crystalPrice.text = self.crystalJSON!["Buy"].stringValue + " G"
+            self.crystal = Double(self.crystalJSON!["Buy"].stringValue) ?? 0.0
             LoadingHUD.hide()
         }
         navigationController?.setNavigationBarHidden(false, animated: true)

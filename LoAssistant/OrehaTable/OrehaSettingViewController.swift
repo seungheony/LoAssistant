@@ -12,13 +12,21 @@ class OrehaSettingViewController: UITableViewController {
     @IBOutlet weak var 페일린: UISwitch!
     @IBOutlet weak var 니아: UISwitch!
     @IBOutlet weak var 실리안: UISwitch!
+    
     @IBOutlet weak var ASML: UISwitch!
     @IBOutlet weak var 여신의가호: UISwitch!
     @IBOutlet weak var 가림막: UISwitch!
+    
     @IBOutlet weak var 자급자족: UISwitch!
     @IBOutlet weak var 발전기: UISwitch!
     @IBOutlet weak var 커피머신: UISwitch!
     @IBOutlet weak var 니나브: UISwitch!
+    
+    @IBOutlet weak var 노동요: UISwitch!
+    @IBOutlet weak var 손놀림: UISwitch!
+    @IBOutlet weak var 자동기계: UISwitch!
+    @IBOutlet weak var 제작설계도: UISwitch!
+    
     
     @IBOutlet weak var workshopLevel: UILabel!
     @IBOutlet weak var 제작공방: UISlider!
@@ -72,6 +80,20 @@ class OrehaSettingViewController: UITableViewController {
     @IBAction func 커피머신(_ sender: UISwitch) {
         UserDefaults.standard.set(sender.isOn, forKey: "커피머신")
     }
+    
+    @IBAction func 노동요(_ sender: UISwitch) {
+        UserDefaults.standard.set(sender.isOn, forKey: "노동요")
+    }
+    @IBAction func 손놀림(_ sender: UISwitch) {
+        UserDefaults.standard.set(sender.isOn, forKey: "손놀림")
+    }
+    @IBAction func 자동기계(_ sender: UISwitch) {
+        UserDefaults.standard.set(sender.isOn, forKey: "자동기계")
+    }
+    @IBAction func 제작설계도(_ sender: UISwitch) {
+        UserDefaults.standard.set(sender.isOn, forKey: "제작설계도")
+    }
+    
     @IBAction func 니나브(_ sender: UISwitch) {
         UserDefaults.standard.set(sender.isOn, forKey: "니나브")
     }
@@ -88,6 +110,12 @@ class OrehaSettingViewController: UITableViewController {
         self.자급자족.isOn = UserDefaults.standard.bool(forKey: "자급자족")
         self.발전기.isOn = UserDefaults.standard.bool(forKey: "발전기")
         self.커피머신.isOn = UserDefaults.standard.bool(forKey: "커피머신")
+        
+        self.노동요.isOn = UserDefaults.standard.bool(forKey: "노동요")
+        self.손놀림.isOn = UserDefaults.standard.bool(forKey: "손놀림")
+        self.자동기계.isOn = UserDefaults.standard.bool(forKey: "자동기계")
+        self.제작설계도.isOn = UserDefaults.standard.bool(forKey: "제작설계도")
+        
         self.니나브.isOn = UserDefaults.standard.bool(forKey: "니나브")
         self.제작공방.value = UserDefaults.standard.float(forKey: "제작공방")
         self.workshopLevel.text = String(Int(UserDefaults.standard.float(forKey: "제작공방"))) + " 레벨"
