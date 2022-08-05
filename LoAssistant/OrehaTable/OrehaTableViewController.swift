@@ -74,7 +74,7 @@ class OrehaTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 6
+        return 7
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -90,6 +90,8 @@ class OrehaTableViewController: UITableViewController {
         } else if section == 4 {
             return 1
         } else if section == 5 {
+            return 1
+        } else if section == 6 {
             return 1
         }
         
@@ -168,6 +170,12 @@ class OrehaTableViewController: UITableViewController {
                 }
             }
             return resultCell
+        } else if indexPath.section == 6 {
+            let timerCell = tableView.dequeueReusableCell(withIdentifier: "TimerCell", for: indexPath) as! TimerTableViewCell
+            if indexPath.row == 0 {
+                return timerCell
+            }
+            return timerCell
         }
         return orehaCell
     }

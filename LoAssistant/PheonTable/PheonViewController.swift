@@ -25,8 +25,7 @@ class PheonViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(crystal
-        )
+
         pheonAmount.keyboardType = .numberPad
         pheonAmount.endEditing(true)
         
@@ -34,7 +33,6 @@ class PheonViewController: UIViewController {
         button30.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
         button100.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
         calculate.titleLabel?.font = UIFont.boldSystemFont(ofSize: 30)
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func priceButton(_ sender: UIButton) {
