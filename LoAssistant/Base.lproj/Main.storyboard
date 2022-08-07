@@ -566,44 +566,30 @@
                                     <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L25-bP-WBM">
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="L25-bP-WBM">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uo0-Y8-y83">
-                                                    <rect key="frame" x="0.0" y="0.0" width="187" height="60"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="182" height="60"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="60" id="kFT-vL-hQf"/>
                                                     </constraints>
                                                     <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="tinted">
-                                                        <attributedString key="attributedTitle">
-                                                            <fragment content="중급 제작 시작">
-                                                                <attributes>
-                                                                    <font key="NSFont" size="20" name="AppleSDGothicNeo-Bold"/>
-                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                                </attributes>
-                                                            </fragment>
-                                                        </attributedString>
+                                                    <buttonConfiguration key="configuration" style="tinted" title="중급 제작 시작">
+                                                        <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
                                                     </buttonConfiguration>
                                                     <connections>
                                                         <action selector="interTimerTapped:" destination="fNE-My-rgQ" eventType="touchUpInside" id="Cfu-ww-jf0"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2td-OW-inO">
-                                                    <rect key="frame" x="187" y="0.0" width="187" height="60"/>
+                                                    <rect key="frame" x="192" y="0.0" width="182" height="60"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="60" id="QIz-tf-OFo"/>
                                                     </constraints>
                                                     <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="tinted">
-                                                        <attributedString key="attributedTitle">
-                                                            <fragment content="상급 제작 시작">
-                                                                <attributes>
-                                                                    <font key="NSFont" size="20" name="AppleSDGothicNeo-Bold"/>
-                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                                </attributes>
-                                                            </fragment>
-                                                        </attributedString>
+                                                    <buttonConfiguration key="configuration" style="tinted" title="상급 제작 시작">
+                                                        <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
                                                     </buttonConfiguration>
                                                     <connections>
                                                         <action selector="advTimerTapped:" destination="fNE-My-rgQ" eventType="touchUpInside" id="IHb-cR-TlQ"/>
