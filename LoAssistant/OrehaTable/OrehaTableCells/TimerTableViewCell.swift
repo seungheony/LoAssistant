@@ -138,17 +138,19 @@ extension TimerTableViewCell {
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (t) in
             //남은 시간(초)에서 1초 빼기
             self.secondsLeft -= 1
+            // 남은 시간
+            let hours = self.secondsLeft / 60 / 60
             //남은 분
-            let minutes = self.secondsLeft / 60
+            let minutes = self.secondsLeft / 60 % 60
             //그러고도 남은 초
-            let seconds = self.secondsLeft % 60
+            let seconds = self.secondsLeft % 60 % 60
 
             //남은 시간(초)가 0보다 크면
             if self.secondsLeft > 0 {
                 if item == "inter" {
-                    self.advTimerButton.setTitle("남은 시간: \(minutes):\(seconds)", for: .normal)
+                    self.advTimerButton.setTitle("남은 시간: \(hours):\(minutes):\(seconds)", for: .normal)
                 } else if item == "adv" {
-                    self.interTimerButton.setTitle("남은 시간: \(minutes):\(seconds)", for: .normal)
+                    self.interTimerButton.setTitle("남은 시간: \(hours):\(minutes):\(seconds)", for: .normal)
                 }
             } else {
                 if item == "inter" {
@@ -169,11 +171,11 @@ extension TimerTableViewCell {
         reduction += 제작공방 * 0.5
         
         if item == "inter" {
-            let inter_time = Int(45 * 60 * (100-reduction) / 100)
+            let inter_time = Int(45 * 60 * (100-reduction) / 100) * 10
             expectedTime = Date(timeIntervalSinceNow: TimeInterval(inter_time))
             UserDefaults.standard.set(expectedTime, forKey: "제작완료시간")
         } else if item == "adv" {
-            let adv_time = Int(60 * 60 * (100-reduction) / 100)
+            let adv_time = Int(60 * 60 * (100-reduction) / 100) * 10
             expectedTime = Date(timeIntervalSinceNow: TimeInterval(adv_time))
             UserDefaults.standard.set(expectedTime, forKey: "제작완료시간")
         }
