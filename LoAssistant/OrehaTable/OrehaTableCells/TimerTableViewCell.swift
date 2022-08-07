@@ -23,7 +23,7 @@ class TimerTableViewCell: UITableViewCell {
             interTimerButton.isSelected = true
             advTimerButton.isEnabled = false
             interTimerButton.setTitle("알림 재설정", for: .normal)
-            UserDefaults.standard.set(true, forKey: "isSettedTimer")
+            UserDefaults.standard.set("inter", forKey: "isSettedTimer")
             
             setTimer(item: "inter")
             startTiemr(item: "inter")
@@ -33,7 +33,7 @@ class TimerTableViewCell: UITableViewCell {
             interTimerButton.isSelected = false
             advTimerButton.isEnabled = true
             UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-            UserDefaults.standard.set(false, forKey: "isSettedTimer")
+            UserDefaults.standard.set("none", forKey: "isSettedTimer")
             timer?.invalidate()
             interTimerButton.setTitle("중급 제작 시작", for: .normal)
             advTimerButton.setTitle("상급 제작 시작", for: .normal)
@@ -45,7 +45,7 @@ class TimerTableViewCell: UITableViewCell {
             advTimerButton.isSelected = true
             interTimerButton.isEnabled = false
             advTimerButton.setTitle("알림 재설정", for: .normal)
-            UserDefaults.standard.set(true, forKey: "isSettedTimer")
+            UserDefaults.standard.set("adv", forKey: "isSettedTimer")
             
             setTimer(item: "adv")
             startTiemr(item: "adv")
@@ -55,7 +55,7 @@ class TimerTableViewCell: UITableViewCell {
             advTimerButton.isSelected = false
             interTimerButton.isEnabled = true
             UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-            UserDefaults.standard.set(false, forKey: "isSettedTimer")
+            UserDefaults.standard.set("none", forKey: "isSettedTimer")
             timer?.invalidate()
             advTimerButton.setTitle("상급 제작 시작", for: .normal)
             interTimerButton.setTitle("중급 제작 시작", for: .normal)
@@ -69,9 +69,19 @@ class TimerTableViewCell: UITableViewCell {
         advTimerButton.setTitle("상급 제작 시작", for: .normal)
         
         // 여기서부터 앱 재부팅 후 타이머 출력 구현
-//        if UserDefaults.standard.bool(forKey: "isSettedTimer") == true {
-//
-//        }
+        if UserDefaults.standard.string(forKey: "isSettedTimer") == "inter" {
+            expectedTime = UserDefaults.standard.object(forKey: "제작완료시간") as! Date
+            interTimerButton.isSelected = true
+            advTimerButton.isEnabled = false
+            interTimerButton.setTitle("알림 재설정", for: .normal)
+            startTiemr(item: "inter")
+        } else if UserDefaults.standard.string(forKey: "isSettedTimer") == "adv" {
+            expectedTime = UserDefaults.standard.object(forKey: "제작완료시간") as! Date
+            advTimerButton.isSelected = true
+            interTimerButton.isEnabled = false
+            advTimerButton.setTitle("알림 재설정", for: .normal)
+            startTiemr(item: "adv")
+        }
         
     }
 
@@ -167,7 +177,6 @@ extension TimerTableViewCell {
             expectedTime = Date(timeIntervalSinceNow: TimeInterval(adv_time))
             UserDefaults.standard.set(expectedTime, forKey: "제작완료시간")
         }
-        
-        
+        reduction = 0
     }
 }
