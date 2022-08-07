@@ -272,7 +272,7 @@ extension OrehaTableViewController {
     }
     
     func get_intermediatePrice() -> Double {
-        if self.intermediate_oreha.count == 1 {
+        if self.intermediate_oreha["Pricechart"].array!.count == 1 {
             let price: Double = Double(self.intermediate_oreha["Pricechart"].array![0]["Price"].stringValue)!
             return price
         } else {
@@ -286,7 +286,7 @@ extension OrehaTableViewController {
         }
     }
     func get_advancedPrice() -> Double {
-        if self.advanced_oreha.count == 1 {
+        if self.advanced_oreha["Pricechart"].array!.count == 1 {
             let price: Double = Double(self.advanced_oreha["Pricechart"].array![0]["Price"].stringValue)!
             return price
         } else {
