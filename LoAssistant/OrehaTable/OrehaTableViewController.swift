@@ -17,7 +17,6 @@ class OrehaTableViewController: UITableViewController {
     let marketURL: [String] = [ "https://lostarkapi.ga/trade/6882701", "https://lostarkapi.ga/trade/6882704",
                                 "https://lostarkapi.ga/trade/6885708", "https://lostarkapi.ga/trade/6861008",
                                 "https://lostarkapi.ga/trade/6861009" ]
-    
     // 가격 데이터 변수
     var ancient = JSON()
     var rare = JSON()
@@ -74,7 +73,7 @@ class OrehaTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 6
+        return 7
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -91,6 +90,8 @@ class OrehaTableViewController: UITableViewController {
             return 1
         } else if section == 5 {
             return 1
+        } else if section == 6 {
+            return 1
         }
         
         return 0
@@ -105,6 +106,8 @@ class OrehaTableViewController: UITableViewController {
             return "사이클당 순수익"
         } else if section == 5 {
             return "대성공시 추가 이득"
+        } else if section == 6 {
+            return "제작 완료 알리미"
         }
         return ""
     }
@@ -168,6 +171,12 @@ class OrehaTableViewController: UITableViewController {
                 }
             }
             return resultCell
+        } else if indexPath.section == 6 {
+            let timerCell = tableView.dequeueReusableCell(withIdentifier: "TimerCell", for: indexPath) as! TimerTableViewCell
+            if indexPath.row == 0 {
+                return timerCell
+            }
+            return timerCell
         }
         return orehaCell
     }
@@ -188,9 +197,13 @@ class OrehaTableViewController: UITableViewController {
         }
     }
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        if indexPath.section == 4 {
+        if indexPath.section == 0 {
+            return nil
+        } else if indexPath.section == 4 {
             return nil
         } else if indexPath.section == 5 {
+            return nil
+        } else if indexPath.section == 6 {
             return nil
         }
         return indexPath
@@ -229,8 +242,8 @@ extension OrehaTableViewController {
         }
         reduction = 설치물 + 의상 + 연구
         
-        if Int(UserDefaults.standard.integer(forKey: "제작공방")) >= 3 {
-            if Int(UserDefaults.standard.integer(forKey: "제작공방")) >= 5 {
+        if UserDefaults.standard.integer(forKey: "제작공방") >= 3 {
+            if UserDefaults.standard.integer(forKey: "제작공방") >= 5 {
                 제작슬롯 = 3
             } else {
                 제작슬롯 = 2
@@ -321,7 +334,6 @@ extension OrehaTableViewController {
         // 테이블뷰에 입력되는 데이터를 갱신한다.
         print("refresh")
         firstLoad = false
-//        parseData(url: marketURL[0])
         
         parseMarketData(url: marketURL[0]) { (data) in
             self.ancient = data
