@@ -38,8 +38,17 @@ class MainTableViewController: UITableViewController {
                 guard let nextVC = self.storyboard?.instantiateViewController(identifier: "PheonView") as? PheonViewController else {
                     return
                 }
-                nextVC.crystal = self.crystal
-                self.navigationController?.pushViewController(nextVC, animated: true)
+                if crystal == 0.0 {
+                    let alert = UIAlertController(title: "오류 발생", message: "크리스탈 데이터를 가져올 수 없습니다", preferredStyle: UIAlertController.Style.alert)
+                    let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                                
+                    }
+                    alert.addAction(okAction)
+                    self.present(alert, animated: false, completion: nil)
+                } else {
+                    nextVC.crystal = self.crystal
+                    self.navigationController?.pushViewController(nextVC, animated: true)
+                }
             }
             else if indexPath.row == 1 {
                 guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "OrehaTable") else {
