@@ -44,29 +44,31 @@ class OrehaTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        LoadingHUD.show()
-        
-        parseMarketData(url: marketURL[0]) { (data) in
-            self.ancient = data
-        }
-        parseMarketData(url: marketURL[1]) { (data) in
-            self.rare = data
-        }
-        parseMarketData(url: marketURL[2]) { (data) in
-            self.oreha = data
-        }
-        parseMarketData(url: marketURL[3]) { (data) in
-            self.intermediate_oreha = data
-        }
-        parseMarketData(url: marketURL[4]) { (data) in
-            self.advanced_oreha = data
-            self.setRefreshControl()
-            print("데이터 파싱 완료")
-            LoadingHUD.hide()
-            self.tableView.reloadData()
-            
-            // viewDidLoad에서 데이터 파싱하고 refreshControl 세팅도 같이 한다.
-        }
+        self.setRefreshControl()
+//        LoadingHUD.show()
+//
+//        parseMarketData(url: marketURL[0]) { (data) in
+//            self.ancient = data
+//        }
+//        parseMarketData(url: marketURL[1]) { (data) in
+//            self.rare = data
+//        }
+//        parseMarketData(url: marketURL[2]) { (data) in
+//            self.oreha = data
+//        }
+//        parseMarketData(url: marketURL[3]) { (data) in
+//            self.intermediate_oreha = data
+//        }
+//        parseMarketData(url: marketURL[4]) { (data) in
+//            self.advanced_oreha = data
+//            self.setRefreshControl()
+//            print("데이터 파싱 완료")
+//            LoadingHUD.hide()
+//            self.tableView.reloadData()
+//
+//            // viewDidLoad에서 데이터 파싱하고
+//            // refreshControl 세팅도 같이 하고 싶었지만.... 어케 하누...
+//        }
     }
 
     // MARK: - Table view data source
@@ -337,19 +339,30 @@ extension OrehaTableViewController {
         
         parseMarketData(url: marketURL[0]) { (data) in
             self.ancient = data
-        }
-        parseMarketData(url: marketURL[1]) { (data) in
-            self.rare = data
-        }
-        parseMarketData(url: marketURL[2]) { (data) in
-            self.oreha = data
-        }
-        parseMarketData(url: marketURL[3]) { (data) in
-            self.intermediate_oreha = data
-        }
-        parseMarketData(url: marketURL[4]) { (data) in
-            self.advanced_oreha = data
-            self.setPrice()
+            print(data["Result"].stringValue)
+            if data["Result"].stringValue == "Failed" {
+                let alert = UIAlertController(title: "오류 발생", message: data["Reason"].stringValue, preferredStyle: UIAlertController.Style.alert)
+                let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                            
+                }
+                alert.addAction(okAction)
+                self.present(alert, animated: false, completion: nil)
+                self.tableView.refreshControl?.endRefreshing()
+            } else {
+                self.parseMarketData(url: self.marketURL[1]) { (data) in
+                    self.rare = data
+                }
+                self.parseMarketData(url: self.marketURL[2]) { (data) in
+                    self.oreha = data
+                }
+                self.parseMarketData(url: self.marketURL[3]) { (data) in
+                    self.intermediate_oreha = data
+                }
+                self.parseMarketData(url: self.marketURL[4]) { (data) in
+                    self.advanced_oreha = data
+                    self.setPrice()
+                }
+            }
         }
     }
 }
