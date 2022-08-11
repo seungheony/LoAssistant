@@ -22,20 +22,12 @@ class TimerTableViewCell: UITableViewCell {
         if interTimerButton.isSelected == false {
             self.interTimerButton.isSelected = true
             self.advTimerButton.isEnabled = false
-            self.interTimerButton.setTitle("알림 재설정", for: .normal)
+            self.interTimerButton.setTitle("타이머 재설정", for: .normal)
             UserDefaults.standard.set("inter", forKey: "isSettedTimer")
             
             self.setTimer(item: "inter")
             self.startTiemr(item: "inter")
-            UNUserNotificationCenter.current().getNotificationSettings { settings in
-                if settings.authorizationStatus == UNAuthorizationStatus.authorized {
-                    // 알림 허용
-                    self.authorizeTimer(item: "inter")
-                } else {
-                    
-                }
-            }
-            
+            self.authorizeTimer(item: "inter")
             
         } else {
             interTimerButton.isSelected = false
@@ -52,19 +44,12 @@ class TimerTableViewCell: UITableViewCell {
         if advTimerButton.isSelected == false {
             self.advTimerButton.isSelected = true
             self.interTimerButton.isEnabled = false
-            self.advTimerButton.setTitle("알림 재설정", for: .normal)
+            self.advTimerButton.setTitle("타이머 재설정", for: .normal)
             UserDefaults.standard.set("adv", forKey: "isSettedTimer")
             
             self.setTimer(item: "adv")
             self.startTiemr(item: "adv")
-            UNUserNotificationCenter.current().getNotificationSettings { settings in
-                if settings.authorizationStatus == UNAuthorizationStatus.authorized {
-                    // 알림 허용
-                    self.authorizeTimer(item: "adv")
-                } else {
-                    
-                }
-            }
+            self.authorizeTimer(item: "adv")
             
         } else {
             advTimerButton.isSelected = false
