@@ -22,6 +22,8 @@
 		10F6463527EB2F8600E51BBB /* LoAssistantTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F6463427EB2F8600E51BBB /* LoAssistantTests.swift */; };
 		10F6463F27EB2F8600E51BBB /* LoAssistantUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F6463E27EB2F8600E51BBB /* LoAssistantUITests.swift */; };
 		10F6464127EB2F8600E51BBB /* LoAssistantUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F6464027EB2F8600E51BBB /* LoAssistantUITestsLaunchTests.swift */; };
+		1E2BC8B628A4FEB400170EAD /* CharacterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2BC8B528A4FEB400170EAD /* CharacterTableViewController.swift */; };
+		1E2BC8B828A4FF8400170EAD /* CharacterDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2BC8B728A4FF8300170EAD /* CharacterDataService.swift */; };
 		1E422008289CBAA80080C7E5 /* TimerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E422007289CBAA80080C7E5 /* TimerTableViewCell.swift */; };
 		1E52D85C2893CBB3002ED70E /* MainViewDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52D85B2893CBB3002ED70E /* MainViewDataService.swift */; };
 		1E806FFC289BB81100000851 /* HowToUseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E806FFB289BB81100000851 /* HowToUseTableViewCell.swift */; };
@@ -70,6 +72,8 @@
 		10F6463A27EB2F8600E51BBB /* LoAssistantUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoAssistantUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		10F6463E27EB2F8600E51BBB /* LoAssistantUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoAssistantUITests.swift; sourceTree = "<group>"; };
 		10F6464027EB2F8600E51BBB /* LoAssistantUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoAssistantUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1E2BC8B528A4FEB400170EAD /* CharacterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewController.swift; sourceTree = "<group>"; };
+		1E2BC8B728A4FF8300170EAD /* CharacterDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDataService.swift; sourceTree = "<group>"; };
 		1E422007289CBAA80080C7E5 /* TimerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerTableViewCell.swift; sourceTree = "<group>"; };
 		1E52D85B2893CBB3002ED70E /* MainViewDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewDataService.swift; sourceTree = "<group>"; };
 		1E806FFB289BB81100000851 /* HowToUseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToUseTableViewCell.swift; sourceTree = "<group>"; };
@@ -140,6 +144,7 @@
 		10F6461C27EB2F8500E51BBB /* LoAssistant */ = {
 			isa = PBXGroup;
 			children = (
+				1E2BC8B428A4FE8F00170EAD /* WeekyCheckList */,
 				210961E92849997D00FDBC60 /* PheonTable */,
 				210961E82849996200FDBC60 /* OrehaTable */,
 				10F6461D27EB2F8500E51BBB /* AppDelegate.swift */,
@@ -170,6 +175,15 @@
 				10F6464027EB2F8600E51BBB /* LoAssistantUITestsLaunchTests.swift */,
 			);
 			path = LoAssistantUITests;
+			sourceTree = "<group>";
+		};
+		1E2BC8B428A4FE8F00170EAD /* WeekyCheckList */ = {
+			isa = PBXGroup;
+			children = (
+				1E2BC8B528A4FEB400170EAD /* CharacterTableViewController.swift */,
+				1E2BC8B728A4FF8300170EAD /* CharacterDataService.swift */,
+			);
+			path = WeekyCheckList;
 			sourceTree = "<group>";
 		};
 		1E422006289CBA940080C7E5 /* OrehaTableCells */ = {
@@ -479,9 +493,11 @@
 				1E422008289CBAA80080C7E5 /* TimerTableViewCell.swift in Sources */,
 				103E53BB2848DD47001199A9 /* OrehaTableViewCell.swift in Sources */,
 				103E53BD2848E205001199A9 /* OrehaTableViewController.swift in Sources */,
+				1E2BC8B628A4FEB400170EAD /* CharacterTableViewController.swift in Sources */,
 				1EE94AF7289B9ED6006E3963 /* LoadingHUD.swift in Sources */,
 				21096263284A01DB00FDBC60 /* ResultTableViewCell.swift in Sources */,
 				1021B20C284C3EAC00331EA5 /* PheonViewController.swift in Sources */,
+				1E2BC8B828A4FF8400170EAD /* CharacterDataService.swift in Sources */,
 				1E806FFC289BB81100000851 /* HowToUseTableViewCell.swift in Sources */,
 				10F6461E27EB2F8500E51BBB /* AppDelegate.swift in Sources */,
 				210961E728485A6800FDBC60 /* PriceTableViewCell.swift in Sources */,

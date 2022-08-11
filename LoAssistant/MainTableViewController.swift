@@ -59,13 +59,12 @@ class MainTableViewController: UITableViewController {
             }
         }
         if indexPath.section == 2 {
-//            if indexPath.row == 0 {
-//                guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "test") as? PheonViewController else {
-//                    return
-//                }
-//                uvc.crystal = self.crystal
-//                self.navigationController?.pushViewController(uvc, animated: true)
-//            }
+            if indexPath.row == 0 {
+                guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "Character Table") as? CharacterTableViewController else {
+                    return
+                }
+                self.navigationController?.pushViewController(uvc, animated: true)
+            }
         }
     }
     
