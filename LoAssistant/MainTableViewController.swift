@@ -25,14 +25,15 @@ class MainTableViewController: UITableViewController {
             } else {
                 self.crystalJSON = data
                 self.crystalPrice.text = self.crystalJSON!["Buy"].stringValue + " G"
+                self.crystal = Double(self.crystalJSON!["Buy"].stringValue)!
             }
-            self.crystal = Double(self.crystalJSON!["Buy"].stringValue) ?? 0.0
             LoadingHUD.hide()
         }
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         if indexPath.section == 1 {
             if indexPath.row == 0 {
                 guard let nextVC = self.storyboard?.instantiateViewController(identifier: "PheonView") as? PheonViewController else {

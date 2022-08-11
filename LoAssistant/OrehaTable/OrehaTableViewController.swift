@@ -183,7 +183,8 @@ class OrehaTableViewController: UITableViewController {
         return orehaCell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 1 {
+        tableView.deselectRow(at: indexPath, animated: true)
+        if indexPath.section == 1 && !firstLoad {
             guard let nextVC = self.storyboard?.instantiateViewController(identifier: "PriceTable") as? PriceTableViewController else {return}
             nextVC.isMaterial = true
             nextVC.ancient = ancient
@@ -191,7 +192,7 @@ class OrehaTableViewController: UITableViewController {
             nextVC.oreha = oreha
             self.present(nextVC, animated: true)
         }
-        if indexPath.section == 2 {
+        if indexPath.section == 2 && !firstLoad {
             guard let nextVC = self.storyboard?.instantiateViewController(identifier: "PriceTable") as? PriceTableViewController else {return}
             nextVC.intermediate_oreha = intermediate_oreha
             nextVC.advanced_oreha = advanced_oreha
@@ -351,16 +352,16 @@ extension OrehaTableViewController {
             } else {
                 self.parseMarketData(url: self.marketURL[1]) { (data) in
                     self.rare = data
-                }
-                self.parseMarketData(url: self.marketURL[2]) { (data) in
-                    self.oreha = data
-                }
-                self.parseMarketData(url: self.marketURL[3]) { (data) in
-                    self.intermediate_oreha = data
-                }
-                self.parseMarketData(url: self.marketURL[4]) { (data) in
-                    self.advanced_oreha = data
-                    self.setPrice()
+                    self.parseMarketData(url: self.marketURL[2]) { (data) in
+                        self.oreha = data
+                        self.parseMarketData(url: self.marketURL[3]) { (data) in
+                            self.intermediate_oreha = data
+                            self.parseMarketData(url: self.marketURL[4]) { (data) in
+                                self.advanced_oreha = data
+                                self.setPrice()
+                            }
+                        }
+                    }
                 }
             }
         }
