@@ -49,20 +49,14 @@ class CharacterTableViewController: UITableViewController {
         print(levelString[startIdx...])
         
         let level: Float = Float(levelString[startIdx...].components(separatedBy: [","]).joined())!
-        if level >= 1415 {
-            if level >= 1430 {
-                if level >= 1445 {
-                    if level >= 1460 {
-                        if level >= 1475 {
-                            return 3
-                        }
-                        return 2
-                    }
-                    return 2
-                }
-                return 2
-            }
-            return 1
+        if level >= 1490 {
+            return 6
+        } else if level >= 1475 {
+            return 6
+        } else if level >= 1430 {
+            return 4
+        } else if level >= 1415 {
+            return 3
         }
         return 0
     }
@@ -82,6 +76,10 @@ class CharacterTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         print("view will appear")
         self.tableView.reloadData()
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     /*
     // Override to support conditional editing of the table view.

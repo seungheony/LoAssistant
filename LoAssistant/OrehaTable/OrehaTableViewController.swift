@@ -351,15 +351,15 @@ extension OrehaTableViewController {
             } else {
                 self.parseMarketData(url: self.marketURL[1]) { (data) in
                     self.rare = data
-                    self.parseMarketData(url: self.marketURL[2]) { (data) in
-                        self.oreha = data
-                        self.parseMarketData(url: self.marketURL[3]) { (data) in
-                            self.intermediate_oreha = data
-                            self.parseMarketData(url: self.marketURL[4]) { (data) in
-                                self.advanced_oreha = data
-                                self.setPrice()
-                            }
-                        }
+                }
+                self.parseMarketData(url: self.marketURL[2]) { (data) in
+                    self.oreha = data
+                }
+                self.parseMarketData(url: self.marketURL[3]) { (data) in
+                    self.intermediate_oreha = data
+                    self.parseMarketData(url: self.marketURL[4]) { (data) in
+                        self.advanced_oreha = data
+                        self.setPrice()
                     }
                 }
             }
