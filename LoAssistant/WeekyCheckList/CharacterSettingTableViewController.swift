@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class CharacterSettingTableViewController: UITableViewController, UITextFieldDelegate {
 
@@ -23,6 +24,21 @@ class CharacterSettingTableViewController: UITableViewController, UITextFieldDel
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
+    @IBAction func dataParseBtn(_ sender: Any) {
+        LoadingHUD.show()
+        let userInfoURL = "https://lostarkapi.ga/userinfo/" + UserDefaults.standard.string(forKey: "캐릭터")!
+        parseCaracterData(url: userInfoURL) { (data) in
+            if data["Result"].stringValue == "Failed" {
+                print(data["Reason"].stringValue);
+            } else {
+                UserDefaults.standard.setValue(data["CharacterList"].object, forKey: "체크리스트")
+//                let data = UserDefaults.standard.object(forKey: "체크리스트")
+//                let json = JSON(data)
+//                print(json)
+                LoadingHUD.hide()
+            }
+        }
+    }
     
     // MARK: - Table view data source
 
@@ -33,7 +49,7 @@ class CharacterSettingTableViewController: UITableViewController, UITextFieldDel
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return 2
     }
 
     /*

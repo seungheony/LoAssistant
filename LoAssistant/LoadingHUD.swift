@@ -35,7 +35,7 @@ class LoadingHUD {
             window.addSubview(loadingLabel)
             
             backgroundView.frame = CGRect(x: 0, y: 0, width: window.frame.maxX, height: window.frame.maxY)
-            backgroundView.backgroundColor = UIColor.systemGroupedBackground
+            backgroundView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
             
             popupView.center = window.center
             popupView.startAnimating()

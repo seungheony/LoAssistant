@@ -15,15 +15,7 @@ class CharacterTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        userInfoURL = "https://lostarkapi.ga/userinfo/" + UserDefaults.standard.string(forKey: "캐릭터")!
-        parseCaracterData(url: userInfoURL!) { (data) in
-            if data["Result"].stringValue == "Failed" {
-                print(data["Reason"].stringValue);
-            } else {
-                self.characterList = data
-                print(data["CharacterList"])
-            }
-        }
+        
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -42,19 +34,49 @@ class CharacterTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        let data = JSON(UserDefaults.standard.object(forKey: "체크리스트"))
+        return data.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 2
+        let data = JSON(UserDefaults.standard.object(forKey: "체크리스트"))
+//        let level = Float(data[section]["Level"].stringValue.index(after: 3))
+//        print(data[section]["Level"].stringValue)
+        
+        let levelString = data[section]["Level"].stringValue
+        let startIdx:String.Index = levelString.index(levelString.startIndex, offsetBy: 3)
+        print(levelString[startIdx...])
+        
+        let level: Float = Float(levelString[startIdx...].components(separatedBy: [","]).joined())!
+        if level >= 1415 {
+            if level >= 1430 {
+                if level >= 1445 {
+                    if level >= 1460 {
+                        if level >= 1475 {
+                            return 3
+                        }
+                        return 2
+                    }
+                    return 2
+                }
+                return 2
+            }
+            return 1
+        }
+        return 0
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "InfoCell", for: indexPath) as? InfoTableViewCell
-        cell!.charNameLabel.text = UserDefaults.standard.string(forKey: "캐릭터")!
-        return cell!
+        let InfoCell = tableView.dequeueReusableCell(withIdentifier: "InfoCell", for: indexPath) as? InfoTableViewCell
+        let CheckCell = tableView.dequeueReusableCell(withIdentifier: "CheckListCell", for: indexPath) as? CheckListTableViewCell
+        if indexPath.row == 0 {
+            let charName: String = JSON(UserDefaults.standard.object(forKey: "체크리스트"))[indexPath.section]["Name"].stringValue
+            InfoCell!.charNameLabel.text = charName
+            return InfoCell!
+        }
+        return CheckCell!
     }
 
     override func viewWillAppear(_ animated: Bool) {

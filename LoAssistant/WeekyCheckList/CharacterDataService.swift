@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-extension CharacterTableViewController {
+extension CharacterSettingTableViewController {
     func parseCaracterData(url: String, handler: @escaping (JSON) -> Void) {
         let request = AF.request(encodeURL(url: url))
         request.responseJSON { response in
