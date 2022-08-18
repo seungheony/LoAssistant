@@ -60,7 +60,7 @@ class MainTableViewController: UITableViewController {
         }
         if indexPath.section == 2 {
             if indexPath.row == 0 {
-                guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "Character Table") as? CharacterTableViewController else {
+                guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "Character Table") else {
                     return
                 }
                 self.navigationController?.pushViewController(uvc, animated: true)

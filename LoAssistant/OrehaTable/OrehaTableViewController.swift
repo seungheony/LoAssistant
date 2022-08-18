@@ -129,7 +129,6 @@ class OrehaTableViewController: UITableViewController {
         }
         
         if indexPath.section == 1 {
-            print("셀 생성 시작")
             orehaCell.itemImage.image = UIImage(named: imageList[indexPath.row])
             orehaCell.itemLabel.text = itemList[indexPath.row]
             if firstLoad == false {

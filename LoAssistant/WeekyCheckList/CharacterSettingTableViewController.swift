@@ -1,29 +1,20 @@
 //
-//  CharacterTableViewController.swift
+//  CharacterSettingTableViewController.swift
 //  LoAssistant
 //
-//  Created by shkim on 2022/08/11.
+//  Created by 김승헌 on 2022/08/18.
 //
 
 import UIKit
-import SwiftyJSON
 
-class CharacterTableViewController: UITableViewController {
-    
-    var characterList = JSON()
-    var userInfoURL: String?
-    
+class CharacterSettingTableViewController: UITableViewController, UITextFieldDelegate {
+
+    @IBOutlet weak var charName: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        userInfoURL = "https://lostarkapi.ga/userinfo/" + UserDefaults.standard.string(forKey: "캐릭터")!
-        parseCaracterData(url: userInfoURL!) { (data) in
-            if data["Result"].stringValue == "Failed" {
-                print(data["Reason"].stringValue);
-            } else {
-                self.characterList = data
-                print(data["CharacterList"])
-            }
-        }
+        charName.delegate = self
+        charName.text = UserDefaults.standard.string(forKey: "캐릭터")
+        self.hideKeyboardWhenTappedAround()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -32,35 +23,29 @@ class CharacterTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
-    @IBAction func settingBtn(_ sender: Any) {
-        guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "CharacterSetting") as? CharacterSettingTableViewController else {
-            return
-        }
-        self.navigationController?.pushViewController(uvc, animated: true)
-    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 2
+        return 1
     }
 
-    
+    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "InfoCell", for: indexPath) as? InfoTableViewCell
-        cell!.charNameLabel.text = UserDefaults.standard.string(forKey: "캐릭터")!
-        return cell!
-    }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
-    override func viewWillAppear(_ animated: Bool) {
-        print("view will appear")
-        self.tableView.reloadData()
+        // Configure the cell...
+
+        return cell
     }
+    */
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -105,5 +90,20 @@ class CharacterTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        UserDefaults.standard.set(charName.text, forKey: "캐릭터")
+        return true
+    }
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(CharacterSettingTableViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        UserDefaults.standard.set(charName.text, forKey: "캐릭터")
+        view.endEditing(true)
+    }
 }
