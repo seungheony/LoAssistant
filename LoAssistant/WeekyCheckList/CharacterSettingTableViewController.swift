@@ -9,12 +9,14 @@ import UIKit
 import SwiftyJSON
 
 class CharacterSettingTableViewController: UITableViewController, UITextFieldDelegate {
+    
+    var checkList: [CheckList] = []
 
     @IBOutlet weak var charName: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         charName.delegate = self
-        charName.text = UserDefaults.standard.string(forKey: "캐릭터")
+        charName.text = UserDefaults.standard.string(forKey: "CharacterName")
         self.hideKeyboardWhenTappedAround()
         
         // Uncomment the following line to preserve selection between presentations
@@ -26,16 +28,38 @@ class CharacterSettingTableViewController: UITableViewController, UITextFieldDel
 
     @IBAction func dataParseBtn(_ sender: Any) {
         LoadingHUD.show()
-        let userInfoURL = "https://lostarkapi.ga/userinfo/" + UserDefaults.standard.string(forKey: "캐릭터")!
-        parseCaracterData(url: userInfoURL) { (data) in
-            if data["Result"].stringValue == "Failed" {
-                print(data["Reason"].stringValue);
-            } else {
-                UserDefaults.standard.setValue(data["CharacterList"].object, forKey: "체크리스트")
-//                let data = UserDefaults.standard.object(forKey: "체크리스트")
-//                let json = JSON(data)
-//                print(json)
-                LoadingHUD.hide()
+        if UserDefaults.standard.string(forKey: "CharacterName") == charName.text {
+            // 체크리스트 구조체 업데이트
+            LoadingHUD.hide()
+        } else {
+            // 체크리스트 구조체 생성
+            let userInfoURL = "https://lostarkapi.ga/userinfo/" + charName.text!
+            parseCaracterData(url: userInfoURL) { (data) in
+                if data["Result"].stringValue == "Failed" {
+                    print(data["Reason"].stringValue);
+                } else {
+                    print(data["CharacterList"].count)
+                    for i in 0...data["CharacterList"].count-1 {
+                        let char_name = data["CharacterList"][i]["Name"].stringValue
+                        
+                        let levelString = data["CharacterList"][i]["Level"].stringValue
+                        let startIdx:String.Index = levelString.index(levelString.startIndex, offsetBy: 3)
+                        let char_level: Float = Float(levelString[startIdx...].components(separatedBy: [","]).joined())!
+                        
+                        let char_class = data["CharacterList"][i]["Class"].stringValue
+                        
+                        let list: CheckList = CheckList(char_name: char_name, char_level: char_level, char_class: char_class, 아르고스: false, 발탄노말: false, 비아키스노말: false, 발탄하드: false, 비아키스하드: false, 쿠크세이튼: false, 카양겔노말: false, 아브12노말: false, 아브34노말: false, 아브56노말: false, 카양겔하드1: false, 아브12하드: false, 아브34하드: false, 아브56하드: false, 카양겔하드2: false, 카양겔하드3: false)
+                        self.checkList.append(list)
+                    }
+                    print(self.checkList)
+                    
+                    let encoder = JSONEncoder()
+                    if let encoded = try? encoder.encode(self.checkList) {
+                        UserDefaults.standard.setValue(encoded, forKey: "CharacterList")
+                    }
+                    LoadingHUD.hide()
+                    UserDefaults.standard.set(self.charName.text, forKey: "CharacterName")
+                }
             }
         }
     }
@@ -109,7 +133,6 @@ class CharacterSettingTableViewController: UITableViewController, UITextFieldDel
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        UserDefaults.standard.set(charName.text, forKey: "캐릭터")
         return true
     }
     func hideKeyboardWhenTappedAround() {
@@ -119,7 +142,6 @@ class CharacterSettingTableViewController: UITableViewController, UITextFieldDel
     }
     
     @objc func dismissKeyboard() {
-        UserDefaults.standard.set(charName.text, forKey: "캐릭터")
         view.endEditing(true)
     }
 }

@@ -10,9 +10,6 @@ import SwiftyJSON
 
 class CharacterTableViewController: UITableViewController {
     
-    var characterList = JSON()
-    var userInfoURL: String?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,21 +31,27 @@ class CharacterTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        let data = JSON(UserDefaults.standard.object(forKey: "체크리스트"))
-        return data.count
+        if let savedData = UserDefaults.standard.object(forKey: "CharacterList") as? Data {
+            let decoder = JSONDecoder()
+            if let savedObject = try? decoder.decode([CheckList].self, from: savedData) {
+                print(savedObject.count)
+                return savedObject.count
+            }
+        }
+        return 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        let data = JSON(UserDefaults.standard.object(forKey: "체크리스트"))
-//        let level = Float(data[section]["Level"].stringValue.index(after: 3))
-//        print(data[section]["Level"].stringValue)
+        var level = Float()
         
-        let levelString = data[section]["Level"].stringValue
-        let startIdx:String.Index = levelString.index(levelString.startIndex, offsetBy: 3)
-        print(levelString[startIdx...])
+        if let savedData = UserDefaults.standard.object(forKey: "CharacterList") as? Data {
+            let decoder = JSONDecoder()
+            if let savedObject = try? decoder.decode([CheckList].self, from: savedData) {
+                level = savedObject[section].char_level
+            }
+        }
         
-        let level: Float = Float(levelString[startIdx...].components(separatedBy: [","]).joined())!
         if level >= 1490 {
             return 6
         } else if level >= 1475 {
@@ -66,8 +69,14 @@ class CharacterTableViewController: UITableViewController {
         let InfoCell = tableView.dequeueReusableCell(withIdentifier: "InfoCell", for: indexPath) as? InfoTableViewCell
         let CheckCell = tableView.dequeueReusableCell(withIdentifier: "CheckListCell", for: indexPath) as? CheckListTableViewCell
         if indexPath.row == 0 {
-            let charName: String = JSON(UserDefaults.standard.object(forKey: "체크리스트"))[indexPath.section]["Name"].stringValue
-            InfoCell!.charNameLabel.text = charName
+//            let data = UserDefaults.standard.array(forKey: "CharacterList") as? [CheckList] ?? [CheckList]()
+//            let charName: String = data[indexPath.section].char_name
+            if let savedData = UserDefaults.standard.object(forKey: "CharacterList") as? Data {
+                let decoder = JSONDecoder()
+                if let savedObject = try? decoder.decode([CheckList].self, from: savedData) {
+                    InfoCell!.charNameLabel.text = savedObject[indexPath.section].char_name
+                }
+            }
             return InfoCell!
         }
         return CheckCell!
