@@ -10,6 +10,9 @@ import UIKit
 class InfoTableViewCell: UITableViewCell {
 
     @IBOutlet weak var charNameLabel: UILabel!
+    @IBOutlet weak var charClassImage: UIImageView!
+    @IBOutlet weak var charLevelLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

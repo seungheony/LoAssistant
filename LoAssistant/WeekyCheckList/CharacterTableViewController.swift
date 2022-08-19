@@ -7,8 +7,11 @@
 
 import UIKit
 import SwiftyJSON
+import CoreImage
 
 class CharacterTableViewController: UITableViewController {
+    
+    var checkList: [CheckList] = [CheckList]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,26 +34,14 @@ class CharacterTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        if let savedData = UserDefaults.standard.object(forKey: "CharacterList") as? Data {
-            let decoder = JSONDecoder()
-            if let savedObject = try? decoder.decode([CheckList].self, from: savedData) {
-                print(savedObject.count)
-                return savedObject.count
-            }
-        }
-        return 0
+
+        return self.checkList.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        var level = Float()
         
-        if let savedData = UserDefaults.standard.object(forKey: "CharacterList") as? Data {
-            let decoder = JSONDecoder()
-            if let savedObject = try? decoder.decode([CheckList].self, from: savedData) {
-                level = savedObject[section].char_level
-            }
-        }
+        let level = self.checkList[section].char_level
         
         if level >= 1490 {
             return 6
@@ -69,14 +60,11 @@ class CharacterTableViewController: UITableViewController {
         let InfoCell = tableView.dequeueReusableCell(withIdentifier: "InfoCell", for: indexPath) as? InfoTableViewCell
         let CheckCell = tableView.dequeueReusableCell(withIdentifier: "CheckListCell", for: indexPath) as? CheckListTableViewCell
         if indexPath.row == 0 {
-//            let data = UserDefaults.standard.array(forKey: "CharacterList") as? [CheckList] ?? [CheckList]()
-//            let charName: String = data[indexPath.section].char_name
-            if let savedData = UserDefaults.standard.object(forKey: "CharacterList") as? Data {
-                let decoder = JSONDecoder()
-                if let savedObject = try? decoder.decode([CheckList].self, from: savedData) {
-                    InfoCell!.charNameLabel.text = savedObject[indexPath.section].char_name
-                }
-            }
+            InfoCell!.charNameLabel.text = self.checkList[indexPath.section].char_name
+            InfoCell!.charLevelLabel.text = "Lv." + String(self.checkList[indexPath.section].char_level)
+            InfoCell!.charClassImage.image = UIImage(named: self.checkList[indexPath.section].char_class + ".png")
+            let invertFilter = CIFilter(name: "CIColorInvert")
+            invertFilter?.setValue(InfoCell!.charClassImage.image, forKey: kCIInputImageKey)
             return InfoCell!
         }
         return CheckCell!
@@ -84,6 +72,12 @@ class CharacterTableViewController: UITableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         print("view will appear")
+        if let savedData = UserDefaults.standard.object(forKey: "CharacterList") as? Data {
+            let decoder = JSONDecoder()
+            if let savedObject = try? decoder.decode([CheckList].self, from: savedData) {
+                self.checkList = savedObject
+            }
+        }
         self.tableView.reloadData()
     }
     
