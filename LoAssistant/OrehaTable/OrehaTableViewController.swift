@@ -45,30 +45,7 @@ class OrehaTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setRefreshControl()
-//        LoadingHUD.show()
-//
-//        parseMarketData(url: marketURL[0]) { (data) in
-//            self.ancient = data
-//        }
-//        parseMarketData(url: marketURL[1]) { (data) in
-//            self.rare = data
-//        }
-//        parseMarketData(url: marketURL[2]) { (data) in
-//            self.oreha = data
-//        }
-//        parseMarketData(url: marketURL[3]) { (data) in
-//            self.intermediate_oreha = data
-//        }
-//        parseMarketData(url: marketURL[4]) { (data) in
-//            self.advanced_oreha = data
-//            self.setRefreshControl()
-//            print("데이터 파싱 완료")
-//            LoadingHUD.hide()
-//            self.tableView.reloadData()
-//
-//            // viewDidLoad에서 데이터 파싱하고
-//            // refreshControl 세팅도 같이 하고 싶었지만.... 어케 하누...
-//        }
+
     }
 
     // MARK: - Table view data source

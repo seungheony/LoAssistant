@@ -22,10 +22,20 @@ class PheonViewController: UIViewController {
     
     var pheonCount: Int = 0
     var crystal: Double = 0
+    let crystalURL = "https://lostarkapi.ga/crystal/"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        LoadingHUD.show()
+        parseCrystalData(url: crystalURL) { (data) in
+            if data["Result"].stringValue == "Failed" {
+                // 실패 시
+            } else {
+                self.crystal = Double(data["Buy"].stringValue)!
+            }
+            LoadingHUD.hide()
+        }
         pheonAmount.keyboardType = .numberPad
         pheonAmount.endEditing(true)
         

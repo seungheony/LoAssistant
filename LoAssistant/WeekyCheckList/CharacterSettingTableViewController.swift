@@ -75,7 +75,13 @@ class CharacterSettingTableViewController: UITableViewController, UITextFieldDel
         // #warning Incomplete implementation, return the number of rows
         return 2
     }
-
+    
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        if indexPath.section == 0 {
+            return nil
+        }
+        return indexPath
+    }
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
