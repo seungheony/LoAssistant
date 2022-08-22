@@ -1295,7 +1295,7 @@
                                         <constraint firstItem="V6g-2R-Hlr" firstAttribute="top" secondItem="5hi-YV-Tgn" secondAttribute="top" constant="10" id="y1N-wb-7yE"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <color key="backgroundColor" systemColor="systemGray3Color"/>
                                 <connections>
                                     <outlet property="charClassImage" destination="V6g-2R-Hlr" id="BSM-sn-Rm8"/>
                                     <outlet property="charLevelLabel" destination="g2q-E8-Sq6" id="8O7-GO-SHm"/>
@@ -1303,25 +1303,44 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CheckListCell" id="n40-Nd-Yr9" customClass="CheckListTableViewCell" customModule="LoAssistant" customModuleProvider="target">
-                                <rect key="frame" x="20" y="99.5" width="374" height="43.5"/>
+                                <rect key="frame" x="20" y="99.5" width="374" height="43"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="n40-Nd-Yr9" id="ZOr-Qa-mMT">
-                                    <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="체크리스트 샘플" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R4e-gT-FFQ">
-                                            <rect key="frame" x="20" y="11" width="108" height="21.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아브렐슈드" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R4e-gT-FFQ">
+                                            <rect key="frame" x="20" y="11" width="75" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="75" id="u8M-Bm-Ueq"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="PEN-bz-lWf">
+                                            <rect key="frame" x="170" y="5" width="189" height="34"/>
+                                            <segments>
+                                                <segment title="First"/>
+                                                <segment title="Second"/>
+                                                <segment title=""/>
+                                            </segments>
+                                        </segmentedControl>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="R4e-gT-FFQ" firstAttribute="leading" secondItem="ZOr-Qa-mMT" secondAttribute="leadingMargin" id="5Xr-ZA-jQQ"/>
+                                        <constraint firstItem="PEN-bz-lWf" firstAttribute="top" secondItem="ZOr-Qa-mMT" secondAttribute="top" constant="5" id="QdU-Xs-rUV"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="R4e-gT-FFQ" secondAttribute="bottom" id="U7A-G3-icd"/>
+                                        <constraint firstAttribute="bottom" secondItem="PEN-bz-lWf" secondAttribute="bottom" constant="5" id="aXc-2D-bnV"/>
+                                        <constraint firstAttribute="trailing" secondItem="PEN-bz-lWf" secondAttribute="trailing" constant="15" id="jSF-1M-NTs"/>
+                                        <constraint firstItem="PEN-bz-lWf" firstAttribute="leading" secondItem="R4e-gT-FFQ" secondAttribute="trailing" constant="75" id="u6Z-Ry-sv1"/>
                                         <constraint firstItem="R4e-gT-FFQ" firstAttribute="top" secondItem="ZOr-Qa-mMT" secondAttribute="topMargin" id="wWQ-3t-RzZ"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="raidGateWayControl" destination="PEN-bz-lWf" id="5nJ-vH-PQk"/>
+                                    <outlet property="raidNameLabel" destination="R4e-gT-FFQ" id="TSO-Zj-F89"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -1482,8 +1501,8 @@
         <systemColor name="systemFillColor">
             <color red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
-        <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

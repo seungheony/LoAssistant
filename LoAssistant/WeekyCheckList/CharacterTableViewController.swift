@@ -67,6 +67,7 @@ class CharacterTableViewController: UITableViewController {
             invertFilter?.setValue(InfoCell!.charClassImage.image, forKey: kCIInputImageKey)
             return InfoCell!
         }
+        
         return CheckCell!
     }
 

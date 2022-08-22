@@ -9,8 +9,17 @@ import UIKit
 
 class CheckListTableViewCell: UITableViewCell {
 
+    var 관문수: Int = 0
+    
+    @IBOutlet weak var raidNameLabel: UILabel!
+    @IBOutlet weak var raidGateWayControl: UISegmentedControl!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        for i in 0...관문수 {
+            raidGateWayControl.setTitle("\(i+1)", forSegmentAt: i)
+        }
+        
         // Initialization code
     }
 
