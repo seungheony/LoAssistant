@@ -1389,7 +1389,6 @@
                                         <constraint firstItem="V6g-2R-Hlr" firstAttribute="top" secondItem="5hi-YV-Tgn" secondAttribute="top" constant="10" id="y1N-wb-7yE"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="charClassImage" destination="V6g-2R-Hlr" id="BSM-sn-Rm8"/>
                                     <outlet property="charLevelLabel" destination="g2q-E8-Sq6" id="8O7-GO-SHm"/>
@@ -1397,14 +1396,14 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CheckListCell" id="n40-Nd-Yr9" customClass="CheckListTableViewCell" customModule="LoAssistant" customModuleProvider="target">
-                                <rect key="frame" x="20" y="99.5" width="374" height="43.5"/>
+                                <rect key="frame" x="20" y="99.5" width="374" height="43"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="n40-Nd-Yr9" id="ZOr-Qa-mMT">
-                                    <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아브렐슈드" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R4e-gT-FFQ">
-                                            <rect key="frame" x="20" y="11" width="75" height="21.5"/>
+                                            <rect key="frame" x="20" y="11" width="75" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="75" id="u8M-Bm-Ueq"/>
                                             </constraints>
@@ -1413,7 +1412,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="PEN-bz-lWf">
-                                            <rect key="frame" x="170" y="5" width="189" height="34.5"/>
+                                            <rect key="frame" x="170" y="5" width="189" height="34"/>
                                             <segments>
                                                 <segment title="First"/>
                                                 <segment title="Second"/>
