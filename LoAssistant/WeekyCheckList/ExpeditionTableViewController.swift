@@ -38,7 +38,8 @@ class ExpeditionTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "expeditionCell", for: indexPath) as! ExpeditionTableViewCell
         cell.charNameLabel.text = self.checkList[indexPath.row].char_name
 //        cell.charLevelLabel.text = "Lv." + String(self.checkList[indexPath.section].char_level)
-        cell.charClassImage.image = UIImage(named: self.checkList[indexPath.row].char_class + ".png")
+        let className: String = getEngClassName(kor: self.checkList[indexPath.row].char_class)
+        cell.charClassImage.image = UIImage(named: className)
         cell.selectionStyle = .none
         
         return cell
@@ -113,5 +114,54 @@ class ExpeditionTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    func getEngClassName(kor: String) -> String {
+        if kor == "기상술사" {
+            return "aeromancer"
+        } else if kor == "아르카나" {
+            return "arcana"
+        } else if kor == "블래스터" {
+            return "artillerist"
+        } else if kor == "도화가" {
+            return "artist"
+        } else if kor == "바드" {
+            return "bard"
+        } else if kor == "버서커" {
+            return "berserker"
+        } else if kor == "데빌헌터" {
+            return "deadeye"
+        } else if kor == "블레이드" {
+            return "deathblade"
+        } else if kor == "디스트로이어" {
+            return "destroyer"
+        } else if kor == "창술사" {
+            return "glaivier"
+        } else if kor == "워로드" {
+            return "gunlancer"
+        } else if kor == "건슬링어" {
+            return "gunslinger"
+        } else if kor == "홀리나이트" {
+            return "paladin"
+        } else if kor == "리퍼" {
+            return "reaper"
+        } else if kor == "스카우터" {
+            return "scouter"
+        } else if kor == "인파이터" {
+            return "scrapper"
+        } else if kor == "데모닉" {
+            return "shadowhunter"
+        } else if kor == "호크아이" {
+            return "sharpshooter"
+        } else if kor == "소서리스" {
+            return "sorceress"
+        } else if kor == "기공사" {
+            return "soulfist"
+        } else if kor == "스트라이커" {
+            return "striker"
+        } else if kor == "서머너" {
+            return "summoner"
+        } else if kor == "배틀마스터" {
+            return "wardancer"
+        }
+        return ""
+    }
 }

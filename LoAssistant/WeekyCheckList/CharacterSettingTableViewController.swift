@@ -15,12 +15,12 @@ class CharacterSettingTableViewController: UITableViewController, UITextFieldDel
     @IBOutlet weak var charName: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let savedData = UserDefaults.standard.object(forKey: "CharacterList") as? Data {
-            let decoder = JSONDecoder()
-            if let savedObject = try? decoder.decode([CheckList].self, from: savedData) {
-                self.checkList = savedObject
-            }
-        }
+//        if let savedData = UserDefaults.standard.object(forKey: "CharacterList") as? Data {
+//            let decoder = JSONDecoder()
+//            if let savedObject = try? decoder.decode([CheckList].self, from: savedData) {
+//                self.checkList = savedObject
+//            }
+//        }
         charName.delegate = self
         charName.text = UserDefaults.standard.string(forKey: "CharacterName")
         self.hideKeyboardWhenTappedAround()
@@ -30,44 +30,6 @@ class CharacterSettingTableViewController: UITableViewController, UITextFieldDel
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-    }
-
-    @IBAction func dataParseBtn(_ sender: Any) {
-        LoadingHUD.show()
-        if UserDefaults.standard.string(forKey: "CharacterName") == charName.text {
-            // 체크리스트 구조체 업데이트
-            LoadingHUD.hide()
-        } else {
-            // 체크리스트 구조체 생성
-            let userInfoURL = "https://lostarkapi.ga/userinfo/" + charName.text!
-            parseCaracterData(url: userInfoURL) { (data) in
-                if data["Result"].stringValue == "Failed" {
-                    print(data["Reason"].stringValue);
-                } else {
-                    print(data["CharacterList"].count)
-                    for i in 0...data["CharacterList"].count-1 {
-                        let char_name = data["CharacterList"][i]["Name"].stringValue
-                        
-                        let levelString = data["CharacterList"][i]["Level"].stringValue
-                        let startIdx:String.Index = levelString.index(levelString.startIndex, offsetBy: 3)
-                        let char_level: Float = Float(levelString[startIdx...].components(separatedBy: [","]).joined())!
-                        
-                        let char_class = data["CharacterList"][i]["Class"].stringValue
-                        
-                        let list: CheckList = CheckList(earnGold: false, changeability: true, char_name: char_name, char_level: char_level, char_class: char_class, 아르고스: false, 발탄노말: false, 비아키스노말: false, 발탄하드: false, 비아키스하드: false, 쿠크세이튼: false, 카양겔노말: false, 아브12노말: false, 아브34노말: false, 아브56노말: false, 카양겔하드1: false, 아브12하드: false, 아브34하드: false, 아브56하드: false, 카양겔하드2: false, 카양겔하드3: false)
-                        self.checkList.append(list)
-                    }
-                    print(self.checkList)
-                    
-                    let encoder = JSONEncoder()
-                    if let encoded = try? encoder.encode(self.checkList) {
-                        UserDefaults.standard.setValue(encoded, forKey: "CharacterList")
-                    }
-                    LoadingHUD.hide()
-                    UserDefaults.standard.set(self.charName.text, forKey: "CharacterName")
-                }
-            }
-        }
     }
     
     // MARK: - Table view data source
@@ -80,14 +42,14 @@ class CharacterSettingTableViewController: UITableViewController, UITextFieldDel
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if section == 0 {
-            return 3
+            return 2
         }
         return 2
     }
     
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         if indexPath.section == 0 {
-            if indexPath.row == 2 {
+            if indexPath.row == 1 {
                 return indexPath
             }
             return nil
@@ -98,7 +60,7 @@ class CharacterSettingTableViewController: UITableViewController, UITextFieldDel
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if indexPath.section == 0 {
-            if indexPath.row == 2 {
+            if indexPath.row == 1 {
                 guard let nextVC = self.storyboard?.instantiateViewController(identifier: "ExpeditionSetting") as? ExpeditionTableViewController else {
                     return
                 }
@@ -162,6 +124,7 @@ class CharacterSettingTableViewController: UITableViewController, UITextFieldDel
     */
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        getData()
         textField.resignFirstResponder()
         return true
     }
@@ -172,6 +135,45 @@ class CharacterSettingTableViewController: UITableViewController, UITextFieldDel
     }
     
     @objc func dismissKeyboard() {
+        getData()
         view.endEditing(true)
+    }
+    
+    func getData() {
+        LoadingHUD.show()
+        if UserDefaults.standard.string(forKey: "CharacterName") == charName.text {
+            // 체크리스트 구조체 업데이트
+            LoadingHUD.hide()
+        } else {
+            // 체크리스트 구조체 생성
+            let userInfoURL = "https://lostarkapi.ga/userinfo/" + charName.text!
+            parseCaracterData(url: userInfoURL) { (data) in
+                if data["Result"].stringValue == "Failed" {
+                    print(data["Reason"].stringValue);
+                } else {
+                    print(data["CharacterList"].count)
+                    for i in 0...data["CharacterList"].count-1 {
+                        let char_name = data["CharacterList"][i]["Name"].stringValue
+                        
+                        let levelString = data["CharacterList"][i]["Level"].stringValue
+                        let startIdx:String.Index = levelString.index(levelString.startIndex, offsetBy: 3)
+                        let char_level: Float = Float(levelString[startIdx...].components(separatedBy: [","]).joined())!
+                        
+                        let char_class = data["CharacterList"][i]["Class"].stringValue
+                        
+                        let list: CheckList = CheckList(earnGold: false, changeability: true, char_name: char_name, char_level: char_level, char_class: char_class, 아르고스: false, 발탄노말: false, 비아키스노말: false, 발탄하드: false, 비아키스하드: false, 쿠크세이튼: false, 카양겔노말: false, 아브12노말: false, 아브34노말: false, 아브56노말: false, 카양겔하드1: false, 아브12하드: false, 아브34하드: false, 아브56하드: false, 카양겔하드2: false, 카양겔하드3: false)
+                        self.checkList.append(list)
+                    }
+                    print(self.checkList)
+                    
+                    let encoder = JSONEncoder()
+                    if let encoded = try? encoder.encode(self.checkList) {
+                        UserDefaults.standard.setValue(encoded, forKey: "CharacterList")
+                    }
+                    LoadingHUD.hide()
+                    UserDefaults.standard.set(self.charName.text, forKey: "CharacterName")
+                }
+            }
+        }
     }
 }
