@@ -8,11 +8,10 @@
 import UIKit
 
 class ResultTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var interImage: UIImageView!
-    @IBOutlet weak var interPrice: UILabel!
-    @IBOutlet weak var advImage: UIImageView!
-    @IBOutlet weak var advPrice: UILabel!
+    
+    @IBOutlet weak var profitPerCycle: UILabel!
+    @IBOutlet weak var extraProfit: UILabel!
+    @IBOutlet weak var profitPerMinute: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

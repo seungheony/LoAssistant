@@ -18,7 +18,7 @@ class PriceTableViewController: UITableViewController {
     
     var intermediate_oreha = JSON()
     var advanced_oreha = JSON()
-    
+    var uppermost_oreha = JSON()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +32,7 @@ class PriceTableViewController: UITableViewController {
         if isMaterial == true {
             return 4
         } else if isMaterial == false {
-            return 3
+            return 4
         }
         return 0
     }
@@ -62,6 +62,9 @@ class PriceTableViewController: UITableViewController {
             }
             if section == 2 {
                 return advanced_oreha["Pricechart"].array!.count
+            }
+            if section == 3 {
+                return uppermost_oreha["Pricechart"].array!.count
             }
         }
         return 0
@@ -93,6 +96,11 @@ class PriceTableViewController: UITableViewController {
                 cell.amountLabel.text = advanced_oreha["Pricechart"].array![indexPath.row]["Amount"].stringValue
                 cell.priceLabel.text = advanced_oreha["Pricechart"].array![indexPath.row]["Price"].stringValue + "G"
             }
+            if indexPath.section == 3 {
+                cell.amountLabel.text = uppermost_oreha["Pricechart"].array![indexPath.row]["Amount"].stringValue
+                cell.priceLabel.text = uppermost_oreha["Pricechart"].array![indexPath.row]["Price"].stringValue + "G"
+            }
+            
         }
         return cell
     }
@@ -111,6 +119,8 @@ class PriceTableViewController: UITableViewController {
                 return "중급 오레하 융화 재료"
             } else if section == 2 {
                 return "상급 오레하 융화 재료"
+            } else if section == 3 {
+                return "최상급 오레하 융화 재료"
             }
         }
         return ""

@@ -14,7 +14,12 @@ class CharacterTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        if let savedData = UserDefaults.standard.object(forKey: "CharacterList") as? Data {
+            let decoder = JSONDecoder()
+            if let savedObject = try? decoder.decode([CheckList].self, from: savedData) {
+                self.checkList = savedObject
+            }
+        }
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

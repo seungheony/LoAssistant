@@ -52,7 +52,14 @@ class OrehaSettingViewController: UITableViewController {
         minAdvOreha.text = String(value * 1000) + "개"
     }
     
-
+    @IBOutlet weak var minUpperOreha: UILabel!
+    @IBOutlet weak var minUpperSlider: UISlider!
+    @IBAction func minUpperSlider(_ sender: UISlider) {
+        let value: Int = Int(sender.value)
+        UserDefaults.standard.set(value, forKey: "최상급기준")
+        minUpperOreha.text = String(value * 1000) + "개"
+    }
+    
     @IBAction func 페일린(_ sender: UISwitch) {
         UserDefaults.standard.set(sender.isOn, forKey: "페일린")
     }
@@ -125,6 +132,9 @@ class OrehaSettingViewController: UITableViewController {
         
         self.minAdvSlider.value = UserDefaults.standard.float(forKey: "상급기준")
         self.minAdvOreha.text = String(Int(UserDefaults.standard.float(forKey: "상급기준")) * 1000) + "개"
+        
+        self.minUpperSlider.value = UserDefaults.standard.float(forKey: "최상급기준")
+        self.minUpperOreha.text = String(Int(UserDefaults.standard.float(forKey: "최상급기준")) * 1000) + "개"
     }
 
     // MARK: - Table view data source

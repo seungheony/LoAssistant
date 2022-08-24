@@ -9,14 +9,14 @@ import UIKit
 import SwiftyJSON
 
 class OrehaTableViewController: UITableViewController {
-    let itemList: [String] = ["고대 유물", "희귀한 유물", "오레하 유물", "중급 오레하 융화 재료", "상급 오레하 융화 재료"]
+    let itemList: [String] = ["고대 유물", "희귀한 유물", "오레하 유물", "중급 오레하 융화 재료", "상급 오레하 융화 재료", "최상급 오레하 융화 재료"]
     
-    let imageList: [String] = ["ancient.png", "rare.png", "oreha.png", "intermediate.png", "advanced.png"]
+    let imageList: [String] = ["ancient.png", "rare.png", "oreha.png", "intermediate.png", "advanced.png", "uppermost.png"]
     let sysImageList: [String] = ["g.circle.fill", "g.circle.fill", "plus", "plus"]
     
     let marketURL: [String] = [ "https://lostarkapi.ga/trade/6882701", "https://lostarkapi.ga/trade/6882704",
                                 "https://lostarkapi.ga/trade/6885708", "https://lostarkapi.ga/trade/6861008",
-                                "https://lostarkapi.ga/trade/6861009" ]
+                                "https://lostarkapi.ga/trade/6861009", "https://lostarkapi.ga/trade/6861011" ]
     // 가격 데이터 변수
     var ancient = JSON()
     var rare = JSON()
@@ -24,6 +24,7 @@ class OrehaTableViewController: UITableViewController {
     
     var intermediate_oreha = JSON()
     var advanced_oreha = JSON()
+    var uppermost_oreha = JSON()
     
     // 이득 데이터 변수
     var intermediateProfit: String = ""
@@ -31,6 +32,9 @@ class OrehaTableViewController: UITableViewController {
     
     var advancedProfit: String = ""
     var advExtraProfit: String = ""
+    
+    var uppermostProfit: String = ""
+    var upperExtraProfit: String = ""
     
     var counter = 0
     var firstLoad = true
@@ -44,7 +48,6 @@ class OrehaTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("---View Did Load---")
         self.setRefreshControl()
 
     }
@@ -65,11 +68,11 @@ class OrehaTableViewController: UITableViewController {
         } else if section == 1 {
             return 3
         } else if section == 3 {
-            return 3
+            return 2
         } else if section == 4 {
-            return 3
+            return 2
         } else if section == 5 {
-            return 3
+            return 2
         } else if section == 6 {
             return 1
         }
@@ -126,6 +129,11 @@ class OrehaTableViewController: UITableViewController {
                 }
             return orehaCell
             }
+            else {
+                resultCell.profitPerCycle.text = intermediateProfit
+                resultCell.extraProfit.text = interExtraProfit
+                return resultCell
+            }
         } else if indexPath.section == 4 {
             if indexPath.row == 0 {
                 orehaCell.orehaImage.image = UIImage(named: imageList[4])
@@ -135,8 +143,29 @@ class OrehaTableViewController: UITableViewController {
                     print("_____________________adv")
                     orehaCell.orehaPriceLabel.text = String(Int(get_advancedPrice())) + " G"
                 }
+                return orehaCell
             }
-            return orehaCell
+            else {
+                resultCell.profitPerCycle.text = advancedProfit
+                resultCell.extraProfit.text = advExtraProfit
+                return resultCell
+            }
+        } else if indexPath.section == 5 {
+            if indexPath.row == 0 {
+                orehaCell.orehaImage.image = UIImage(named: imageList[5])
+                orehaCell.orehaNameLabel.text = itemList[5]
+//                orehaCell.timeTakenLabel.text = getTimeTaken(item: 1)
+                if firstLoad == false {
+                    print("_____________________upper")
+                    orehaCell.orehaPriceLabel.text = String(Int(get_uppermostPrice())) + " G"
+                }
+                return orehaCell
+            }
+            else {
+                resultCell.profitPerCycle.text = uppermostProfit
+                resultCell.extraProfit.text = upperExtraProfit
+                return resultCell
+            }
         }
 //        else if indexPath.section == 4 {
 //            resultCell.interImage.image = UIImage(named: imageList[3])
@@ -170,27 +199,31 @@ class OrehaTableViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if indexPath.section == 1 && !firstLoad {
-            guard let nextVC = self.storyboard?.instantiateViewController(identifier: "PriceTable") as? PriceTableViewController else {return}
-            nextVC.isMaterial = true
-            nextVC.ancient = ancient
-            nextVC.rare = rare
-            nextVC.oreha = oreha
-            self.present(nextVC, animated: true)
+        if !firstLoad {
+            if indexPath.section == 1 {
+                guard let nextVC = self.storyboard?.instantiateViewController(identifier: "PriceTable") as? PriceTableViewController else {return}
+                nextVC.isMaterial = true
+                nextVC.ancient = ancient
+                nextVC.rare = rare
+                nextVC.oreha = oreha
+                self.present(nextVC, animated: true)
+            }
+
+            if indexPath.row == 0 {
+                if indexPath.section >= 3 && indexPath.section <= 5 {
+                    guard let nextVC = self.storyboard?.instantiateViewController(identifier: "PriceTable") as? PriceTableViewController else {return}
+                    nextVC.intermediate_oreha = intermediate_oreha
+                    nextVC.advanced_oreha = advanced_oreha
+                    nextVC.uppermost_oreha = uppermost_oreha
+                    self.present(nextVC, animated: true)
+                }
+            }
         }
-        if indexPath.section == 2 && !firstLoad {
-            guard let nextVC = self.storyboard?.instantiateViewController(identifier: "PriceTable") as? PriceTableViewController else {return}
-            nextVC.intermediate_oreha = intermediate_oreha
-            nextVC.advanced_oreha = advanced_oreha
-            self.present(nextVC, animated: true)
-        }
+        
+        
     }
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         if indexPath.section == 0 {
-            return nil
-        } else if indexPath.section == 4 {
-            return nil
-        } else if indexPath.section == 5 {
             return nil
         } else if indexPath.section == 6 {
             return nil
@@ -244,9 +277,11 @@ extension OrehaTableViewController {
         
         let inter_materialPrice = Int(trunc((get_ancientPrice()*0.64) + (get_rarePrice()*2.6) + (get_orehaPrice()*0.8)))
         let advanced_materialPrice = Int(trunc((get_ancientPrice()*0.94) + (get_rarePrice()*2.9) + (get_orehaPrice()*1.6)))
+        let uppermost_materialPrice = Int(trunc((get_ancientPrice()*1.07) + (get_rarePrice()*5.1) + (get_orehaPrice()*5.2)))
         
         let inter_cost = 200 * (100-reduction) / 100
         let advanced_cost = 250 * (100-reduction) / 100
+        let uppermost_cost = 300 * (100-reduction) / 100
         
         var total_cost = inter_materialPrice + inter_cost
         intermediateProfit =  String((((get_interSalePrice()*30) - total_cost) * 10) * 제작슬롯) + " G"
@@ -255,6 +290,14 @@ extension OrehaTableViewController {
         total_cost = advanced_materialPrice + advanced_cost
         advancedProfit =  String((((get_advSalePrice()*20) - total_cost) * 10) * 제작슬롯) + " G"
         advExtraProfit = String((get_advSalePrice()*20)) + " G"
+        
+        total_cost = uppermost_materialPrice + uppermost_cost
+        print(total_cost)
+        print(get_upperSalePrice()*15)
+        uppermostProfit =  String((((get_upperSalePrice()*15) - total_cost) * 10) * 제작슬롯) + " G"
+        print(uppermostProfit)
+        upperExtraProfit = String((get_upperSalePrice()*15)) + " G"
+
         self.tableView.reloadData()
     }
     
@@ -301,6 +344,20 @@ extension OrehaTableViewController {
             }
         }
     }
+    func get_uppermostPrice() -> Double {
+        if self.uppermost_oreha["Pricechart"].array!.count == 1 {
+            let price: Double = Double(self.uppermost_oreha["Pricechart"].array![0]["Price"].stringValue)!
+            return price
+        } else {
+            if Int(self.uppermost_oreha["Pricechart"].array![0]["Amount"].stringValue) ?? 0 < (Int(truncating: UserDefaults.standard.float(forKey: "최상급기준") as NSNumber) * 1000) {
+                let price: Double = Double(self.uppermost_oreha["Pricechart"].array![1]["Price"].stringValue)!
+                return price
+            } else {
+                let price: Double = Double(self.uppermost_oreha["Pricechart"].array![0]["Price"].stringValue)!
+                return price
+            }
+        }
+    }
     func get_interSalePrice() -> Int {
         let commission = Int(ceil(get_intermediatePrice() * 0.05))
         return Int(get_intermediatePrice()) - commission
@@ -308,6 +365,10 @@ extension OrehaTableViewController {
     func get_advSalePrice() -> Int {
         let commission = Int(ceil(get_advancedPrice() * 0.05))
         return Int(get_advancedPrice()) - commission
+    }
+    func get_upperSalePrice() -> Int {
+        let commission = Int(ceil(get_uppermostPrice() * 0.05))
+        return Int(get_uppermostPrice()) - commission
     }
     
     func getTimeTaken(item: Int) -> String {
@@ -336,6 +397,20 @@ extension OrehaTableViewController {
             
         } else if item == 1 {
             let adv_time = Int(60 * 60 * (100-reduction) / 100) * 10
+            let expectedTime = Date(timeIntervalSinceNow: TimeInterval(adv_time))
+            let currentDate = Date()
+            let secondsLeft = Int((expectedTime.timeIntervalSince(currentDate)))
+            // 남은 시간
+            let hours = secondsLeft / 60 / 60
+            //남은 분
+            let minutes = secondsLeft / 60 % 60
+            //그러고도 남은 초
+            let seconds = secondsLeft % 60 % 60
+            
+            return "제작 시간 \(hours):\(minutes):\(seconds)"
+            
+        } else if item == 2 {
+            let adv_time = Int(75 * 60 * (100-reduction) / 100) * 10
             let expectedTime = Date(timeIntervalSinceNow: TimeInterval(adv_time))
             let currentDate = Date()
             let secondsLeft = Int((expectedTime.timeIntervalSince(currentDate)))
@@ -389,12 +464,18 @@ extension OrehaTableViewController {
                         self.parseMarketData(url: self.marketURL[3]) { (data) in
                             self.intermediate_oreha = data
                             print(data["Result"].stringValue)
+                            
                             self.parseMarketData(url: self.marketURL[4]) { (data) in
                                 self.advanced_oreha = data
                                 print(data["Result"].stringValue)
-                                print("-- 세팅 끝 --")
-                                self.firstLoad = false
-                                self.setPrice()
+                                
+                                self.parseMarketData(url: self.marketURL[5]) { (data) in
+                                    self.uppermost_oreha = data
+                                    print(data["Result"].stringValue)
+                                    print("-- 세팅 끝 --")
+                                    self.firstLoad = false
+                                    self.setPrice()
+                                }
                             }
                         }
                     }
