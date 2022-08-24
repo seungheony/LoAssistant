@@ -44,6 +44,7 @@ class OrehaTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("---View Did Load---")
         self.setRefreshControl()
 
     }
@@ -63,28 +64,23 @@ class OrehaTableViewController: UITableViewController {
             }
         } else if section == 1 {
             return 3
-        } else if section == 2 {
-            return 2
+        } else if section == 3 {
+            return 3
         } else if section == 4 {
-            return 1
+            return 3
         } else if section == 5 {
-            return 1
+            return 3
         } else if section == 6 {
             return 1
         }
-        
         return 0
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 1 {
             return "고고학 재료 시세"
-        } else if section == 2 {
-            return "오레하 융화 재료 시세"
-        } else if section == 4 {
-            return "사이클당 순수익"
-        } else if section == 5 {
-            return "대성공시 추가 이득"
+        } else if section == 3 {
+            return "순수익 계산 결과"
         } else if section == 6 {
             return "제작 완료 알리미"
         }
@@ -92,6 +88,7 @@ class OrehaTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let ingredientCell = tableView.dequeueReusableCell(withIdentifier: "IngredientCell", for: indexPath) as! IngredientTableViewCell
         let orehaCell = tableView.dequeueReusableCell(withIdentifier: "OrehaCell", for: indexPath) as! OrehaTableViewCell
         let resultCell = tableView.dequeueReusableCell(withIdentifier: "ResultCell", for: indexPath) as! ResultTableViewCell
         
@@ -106,57 +103,70 @@ class OrehaTableViewController: UITableViewController {
         }
         
         if indexPath.section == 1 {
-            orehaCell.itemImage.image = UIImage(named: imageList[indexPath.row])
-            orehaCell.itemLabel.text = itemList[indexPath.row]
+            ingredientCell.itemImage.image = UIImage(named: imageList[indexPath.row])
+            ingredientCell.itemLabel.text = itemList[indexPath.row]
             if firstLoad == false {
                 if indexPath.row == 0 {
-                    orehaCell.goldLabel.text = (self.ancient["Pricechart"].array![0]["Price"].stringValue) + " G"
+                    ingredientCell.goldLabel.text = (self.ancient["Pricechart"].array![0]["Price"].stringValue) + " G"
                 } else if indexPath.row == 1 {
-                    orehaCell.goldLabel.text = (self.rare["Pricechart"].array![0]["Price"].stringValue) + " G"
+                    ingredientCell.goldLabel.text = (self.rare["Pricechart"].array![0]["Price"].stringValue) + " G"
                 } else if indexPath.row == 2 {
-                    orehaCell.goldLabel.text = (self.oreha["Pricechart"].array![0]["Price"].stringValue) + " G"
+                    ingredientCell.goldLabel.text = (self.oreha["Pricechart"].array![0]["Price"].stringValue) + " G"
                 }
             }
-            return orehaCell
-        } else if indexPath.section == 2 {
-            orehaCell.itemImage.image = UIImage(named: imageList[indexPath.row + 3])
-            orehaCell.itemLabel.text = itemList[indexPath.row + 3]
-            if firstLoad == false {
-                if indexPath.row == 0 {
-                    orehaCell.goldLabel.text = String(Int(get_intermediatePrice())) + " G"
-                } else if indexPath.row == 1 {
-                    orehaCell.goldLabel.text = String(Int(get_advancedPrice())) + " G"
+            return ingredientCell
+        } else if indexPath.section == 3 {
+            if indexPath.row == 0 {
+                orehaCell.orehaImage.image = UIImage(named: imageList[3])
+                orehaCell.orehaNameLabel.text = itemList[3]
+//                orehaCell.timeTakenLabel.text = getTimeTaken(item: 0)
+                if firstLoad == false {
+                    print("_____________________inter")
+                    orehaCell.orehaPriceLabel.text = String(Int(get_intermediatePrice())) + " G"
                 }
-            }
             return orehaCell
+            }
         } else if indexPath.section == 4 {
-            resultCell.interImage.image = UIImage(named: imageList[3])
-            resultCell.advImage.image = UIImage(named: imageList[4])
-            if firstLoad == false {
-                if indexPath.row == 0 {
-                    resultCell.interPrice.text = intermediateProfit
-                    resultCell.advPrice.text = advancedProfit
+            if indexPath.row == 0 {
+                orehaCell.orehaImage.image = UIImage(named: imageList[4])
+                orehaCell.orehaNameLabel.text = itemList[4]
+//                orehaCell.timeTakenLabel.text = getTimeTaken(item: 1)
+                if firstLoad == false {
+                    print("_____________________adv")
+                    orehaCell.orehaPriceLabel.text = String(Int(get_advancedPrice())) + " G"
                 }
             }
-            return resultCell
-        } else if indexPath.section == 5 {
-            resultCell.interImage.image = UIImage(named: imageList[3])
-            resultCell.advImage.image = UIImage(named: imageList[4])
-            if firstLoad == false {
-                if indexPath.row == 0 {
-                    resultCell.interPrice.text = interExtraProfit
-                    resultCell.advPrice.text = advExtraProfit
-                }
-            }
-            return resultCell
-        } else if indexPath.section == 6 {
+            return orehaCell
+        }
+//        else if indexPath.section == 4 {
+//            resultCell.interImage.image = UIImage(named: imageList[3])
+//            resultCell.advImage.image = UIImage(named: imageList[4])
+//            if firstLoad == false {
+//                if indexPath.row == 0 {
+//                    resultCell.interPrice.text = intermediateProfit
+//                    resultCell.advPrice.text = advancedProfit
+//                }
+//            }
+//            return resultCell
+//        } else if indexPath.section == 5 {
+//            resultCell.interImage.image = UIImage(named: imageList[3])
+//            resultCell.advImage.image = UIImage(named: imageList[4])
+//            if firstLoad == false {
+//                if indexPath.row == 0 {
+//                    resultCell.interPrice.text = interExtraProfit
+//                    resultCell.advPrice.text = advExtraProfit
+//                }
+//            }
+//            return resultCell
+//        }
+        else if indexPath.section == 6 {
             let timerCell = tableView.dequeueReusableCell(withIdentifier: "TimerCell", for: indexPath) as! TimerTableViewCell
             if indexPath.row == 0 {
                 return timerCell
             }
             return timerCell
         }
-        return orehaCell
+        return ingredientCell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -299,6 +309,47 @@ extension OrehaTableViewController {
         let commission = Int(ceil(get_advancedPrice() * 0.05))
         return Int(get_advancedPrice()) - commission
     }
+    
+    func getTimeTaken(item: Int) -> String {
+        var reduction = 0.0
+        
+        reduction += Double(truncating: UserDefaults.standard.bool(forKey: "노동요") as NSNumber)
+        reduction += Double(truncating: UserDefaults.standard.bool(forKey: "손놀림") as NSNumber)
+        reduction += Double(truncating: UserDefaults.standard.bool(forKey: "자동기계") as NSNumber)
+        reduction += Double(truncating: UserDefaults.standard.bool(forKey: "제작설계도") as NSNumber)
+        let 제작공방 = Double(UserDefaults.standard.integer(forKey: "제작공방")/2)
+        reduction += 제작공방 * 0.5
+        
+        if item == 0 {
+            let inter_time = Int(45 * 60 * (100-reduction) / 100) * 10
+            let expectedTime = Date(timeIntervalSinceNow: TimeInterval(inter_time))
+            let currentDate = Date()
+            let secondsLeft = Int((expectedTime.timeIntervalSince(currentDate)))
+            // 남은 시간
+            let hours = secondsLeft / 60 / 60
+            //남은 분
+            let minutes = secondsLeft / 60 % 60
+            //그러고도 남은 초
+            let seconds = secondsLeft % 60 % 60
+            
+            return "제작 시간 \(hours):\(minutes):\(seconds)"
+            
+        } else if item == 1 {
+            let adv_time = Int(60 * 60 * (100-reduction) / 100) * 10
+            let expectedTime = Date(timeIntervalSinceNow: TimeInterval(adv_time))
+            let currentDate = Date()
+            let secondsLeft = Int((expectedTime.timeIntervalSince(currentDate)))
+            // 남은 시간
+            let hours = secondsLeft / 60 / 60
+            //남은 분
+            let minutes = secondsLeft / 60 % 60
+            //그러고도 남은 초
+            let seconds = secondsLeft % 60 % 60
+            
+            return "제작 시간 \(hours):\(minutes):\(seconds)"
+        }
+        return ""
+    }
 }
 
 extension OrehaTableViewController {
@@ -310,33 +361,42 @@ extension OrehaTableViewController {
     }
     
     @objc func pullToRefresh(_ sender: Any) {
+
         // 테이블뷰에 입력되는 데이터를 갱신한다.
-        print("refresh")
-        firstLoad = false
-        
-        parseMarketData(url: marketURL[0]) { (data) in
-            self.ancient = data
-            print(data["Result"].stringValue)
-            if data["Result"].stringValue == "Failed" {
-                let alert = UIAlertController(title: "오류 발생", message: data["Reason"].stringValue, preferredStyle: UIAlertController.Style.alert)
-                let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
-                            
-                }
-                alert.addAction(okAction)
-                self.present(alert, animated: false, completion: nil)
-                self.tableView.refreshControl?.endRefreshing()
-            } else {
-                self.parseMarketData(url: self.marketURL[1]) { (data) in
-                    self.rare = data
-                }
-                self.parseMarketData(url: self.marketURL[2]) { (data) in
-                    self.oreha = data
-                }
-                self.parseMarketData(url: self.marketURL[3]) { (data) in
-                    self.intermediate_oreha = data
-                    self.parseMarketData(url: self.marketURL[4]) { (data) in
-                        self.advanced_oreha = data
-                        self.setPrice()
+        DispatchQueue.global().sync { [self] in
+            print("_____________________refresh")
+            parseMarketData(url: self.marketURL[0]) { (data) in
+                self.ancient = data
+                print(data["Result"].stringValue)
+                if data["Result"].stringValue == "Failed" {
+                    let alert = UIAlertController(title: "오류 발생", message: data["Reason"].stringValue, preferredStyle: UIAlertController.Style.alert)
+                    let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                                
+                    }
+                    alert.addAction(okAction)
+                    self.present(alert, animated: false, completion: nil)
+                    self.tableView.refreshControl?.endRefreshing()
+                } else {
+                    DispatchQueue.global().sync {
+                        self.parseMarketData(url: self.marketURL[1]) { (data) in
+                            self.rare = data
+                            print(data["Result"].stringValue)
+                        }
+                        self.parseMarketData(url: self.marketURL[2]) { (data) in
+                            self.oreha = data
+                            print(data["Result"].stringValue)
+                        }
+                        self.parseMarketData(url: self.marketURL[3]) { (data) in
+                            self.intermediate_oreha = data
+                            print(data["Result"].stringValue)
+                            self.parseMarketData(url: self.marketURL[4]) { (data) in
+                                self.advanced_oreha = data
+                                print(data["Result"].stringValue)
+                                print("-- 세팅 끝 --")
+                                self.firstLoad = false
+                                self.setPrice()
+                            }
+                        }
                     }
                 }
             }

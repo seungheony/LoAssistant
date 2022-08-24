@@ -370,7 +370,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="OrehaCell" id="wDS-pu-uXp" customClass="OrehaTableViewCell" customModule="LoAssistant" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="IngredientCell" id="wDS-pu-uXp" customClass="IngredientTableViewCell" customModule="LoAssistant" customModuleProvider="target">
                                 <rect key="frame" x="20" y="49.5" width="374" height="40.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wDS-pu-uXp" id="tfQ-DE-3VA">
@@ -415,8 +415,53 @@
                                     <outlet property="itemLabel" destination="ESl-Kt-UxH" id="Kmv-fi-40a"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="OrehaCell" id="9u0-Jb-PgB" customClass="OrehaTableViewCell" customModule="LoAssistant" customModuleProvider="target">
+                                <rect key="frame" x="20" y="90" width="374" height="40.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9u0-Jb-PgB" id="UhA-iL-QsB">
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="40.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EO3-fk-I63">
+                                            <rect key="frame" x="50" y="10" width="41.5" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xhX-CV-Wat">
+                                            <rect key="frame" x="354" y="10" width="0.0" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <color key="textColor" systemColor="systemYellowColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dxZ-vJ-Ou8">
+                                            <rect key="frame" x="10" y="5" width="30" height="30.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="30" id="1Ox-u4-rsc"/>
+                                                <constraint firstAttribute="height" constant="30" id="oih-oh-QnF"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="EO3-fk-I63" firstAttribute="leading" secondItem="dxZ-vJ-Ou8" secondAttribute="trailing" constant="10" id="JsT-lW-AMK"/>
+                                        <constraint firstItem="EO3-fk-I63" firstAttribute="top" secondItem="UhA-iL-QsB" secondAttribute="top" constant="10" id="MFT-we-DmI"/>
+                                        <constraint firstItem="xhX-CV-Wat" firstAttribute="top" secondItem="UhA-iL-QsB" secondAttribute="top" constant="10" id="X6k-fP-sbe"/>
+                                        <constraint firstAttribute="trailing" secondItem="xhX-CV-Wat" secondAttribute="trailing" constant="20" id="Xo5-7L-ZyX"/>
+                                        <constraint firstAttribute="bottom" secondItem="EO3-fk-I63" secondAttribute="bottom" constant="10" id="Zxs-nA-5J4"/>
+                                        <constraint firstItem="dxZ-vJ-Ou8" firstAttribute="leading" secondItem="UhA-iL-QsB" secondAttribute="leading" constant="10" id="dAW-X1-FqW"/>
+                                        <constraint firstAttribute="bottom" secondItem="dxZ-vJ-Ou8" secondAttribute="bottom" constant="5" id="elW-de-NB5"/>
+                                        <constraint firstAttribute="bottom" secondItem="xhX-CV-Wat" secondAttribute="bottom" constant="10" id="uNT-fu-xhe"/>
+                                        <constraint firstItem="dxZ-vJ-Ou8" firstAttribute="top" secondItem="UhA-iL-QsB" secondAttribute="top" constant="5" id="v6M-gY-cXw"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="orehaImage" destination="dxZ-vJ-Ou8" id="VhJ-dx-SKe"/>
+                                    <outlet property="orehaNameLabel" destination="EO3-fk-I63" id="BZH-zw-ogp"/>
+                                    <outlet property="orehaPriceLabel" destination="xhX-CV-Wat" id="zPV-fs-qpk"/>
+                                </connections>
+                            </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ResultCell" id="al7-F7-Acv" customClass="ResultTableViewCell" customModule="LoAssistant" customModuleProvider="target">
-                                <rect key="frame" x="20" y="90" width="374" height="60.5"/>
+                                <rect key="frame" x="20" y="130.5" width="374" height="60.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="al7-F7-Acv" id="A23-bR-Zb1">
                                     <rect key="frame" x="0.0" y="0.0" width="374" height="60.5"/>
@@ -498,7 +543,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="HowToUseCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HowToUseCell" id="6Nl-AV-adv" customClass="HowToUseTableViewCell" customModule="LoAssistant" customModuleProvider="target">
-                                <rect key="frame" x="20" y="150.5" width="374" height="42"/>
+                                <rect key="frame" x="20" y="191" width="374" height="42"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6Nl-AV-adv" id="1nn-Ub-J7n">
                                     <rect key="frame" x="0.0" y="0.0" width="374" height="42"/>
@@ -524,7 +569,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="TimerCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TimerCell" rowHeight="60" id="fNE-My-rgQ" customClass="TimerTableViewCell" customModule="LoAssistant" customModuleProvider="target">
-                                <rect key="frame" x="20" y="192.5" width="374" height="60"/>
+                                <rect key="frame" x="20" y="233" width="374" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fNE-My-rgQ" id="lK7-I7-thS">
                                     <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
