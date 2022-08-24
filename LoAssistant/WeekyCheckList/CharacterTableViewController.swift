@@ -7,7 +7,6 @@
 
 import UIKit
 import SwiftyJSON
-import CoreImage
 
 class CharacterTableViewController: UITableViewController {
     
@@ -63,8 +62,6 @@ class CharacterTableViewController: UITableViewController {
             InfoCell!.charNameLabel.text = self.checkList[indexPath.section].char_name
             InfoCell!.charLevelLabel.text = "Lv." + String(self.checkList[indexPath.section].char_level)
             InfoCell!.charClassImage.image = UIImage(named: self.checkList[indexPath.section].char_class + ".png")
-            let invertFilter = CIFilter(name: "CIColorInvert")
-            invertFilter?.setValue(InfoCell!.charClassImage.image, forKey: kCIInputImageKey)
             return InfoCell!
         }
         

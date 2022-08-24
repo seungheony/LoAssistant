@@ -28,6 +28,8 @@
 		1E52D85C2893CBB3002ED70E /* PheonViewDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52D85B2893CBB3002ED70E /* PheonViewDataService.swift */; };
 		1E806FFC289BB81100000851 /* HowToUseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E806FFB289BB81100000851 /* HowToUseTableViewCell.swift */; };
 		1EE94AF7289B9ED6006E3963 /* LoadingHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE94AF6289B9ED6006E3963 /* LoadingHUD.swift */; };
+		2107F22B28B4C705005605F5 /* ExpeditionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107F22A28B4C705005605F5 /* ExpeditionTableViewController.swift */; };
+		2107F22D28B4C71B005605F5 /* ExpeditionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107F22C28B4C71B005605F5 /* ExpeditionTableViewCell.swift */; };
 		210961E428485A0700FDBC60 /* PriceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210961E328485A0700FDBC60 /* PriceTableViewController.swift */; };
 		210961E728485A6800FDBC60 /* PriceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210961E628485A6800FDBC60 /* PriceTableViewCell.swift */; };
 		21096263284A01DB00FDBC60 /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096262284A01DB00FDBC60 /* ResultTableViewCell.swift */; };
@@ -82,6 +84,8 @@
 		1E52D85B2893CBB3002ED70E /* PheonViewDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PheonViewDataService.swift; sourceTree = "<group>"; };
 		1E806FFB289BB81100000851 /* HowToUseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToUseTableViewCell.swift; sourceTree = "<group>"; };
 		1EE94AF6289B9ED6006E3963 /* LoadingHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingHUD.swift; sourceTree = "<group>"; };
+		2107F22A28B4C705005605F5 /* ExpeditionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpeditionTableViewController.swift; sourceTree = "<group>"; };
+		2107F22C28B4C71B005605F5 /* ExpeditionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpeditionTableViewCell.swift; sourceTree = "<group>"; };
 		210961E328485A0700FDBC60 /* PriceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceTableViewController.swift; sourceTree = "<group>"; };
 		210961E628485A6800FDBC60 /* PriceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceTableViewCell.swift; sourceTree = "<group>"; };
 		21096262284A01DB00FDBC60 /* ResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTableViewCell.swift; sourceTree = "<group>"; };
@@ -190,6 +194,7 @@
 				217FF48A28ADBA7B0012B949 /* CharacterTableCells */,
 				1E2BC8B528A4FEB400170EAD /* CharacterTableViewController.swift */,
 				217FF48F28ADBF6B0012B949 /* CharacterSettingTableViewController.swift */,
+				2107F22A28B4C705005605F5 /* ExpeditionTableViewController.swift */,
 				1E2BC8B728A4FF8300170EAD /* CharacterDataService.swift */,
 				217FF49128AE357F0012B949 /* CheckListData.swift */,
 			);
@@ -241,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				217FF48B28ADBAAD0012B949 /* InfoTableViewCell.swift */,
+				2107F22C28B4C71B005605F5 /* ExpeditionTableViewCell.swift */,
 				217FF48D28ADBABD0012B949 /* CheckListTableViewCell.swift */,
 			);
 			path = CharacterTableCells;
@@ -516,8 +522,10 @@
 				217FF48E28ADBABD0012B949 /* CheckListTableViewCell.swift in Sources */,
 				217FF48C28ADBAAD0012B949 /* InfoTableViewCell.swift in Sources */,
 				103E53BB2848DD47001199A9 /* OrehaTableViewCell.swift in Sources */,
+				2107F22D28B4C71B005605F5 /* ExpeditionTableViewCell.swift in Sources */,
 				103E53BD2848E205001199A9 /* OrehaTableViewController.swift in Sources */,
 				1E2BC8B628A4FEB400170EAD /* CharacterTableViewController.swift in Sources */,
+				2107F22B28B4C705005605F5 /* ExpeditionTableViewController.swift in Sources */,
 				1EE94AF7289B9ED6006E3963 /* LoadingHUD.swift in Sources */,
 				21096263284A01DB00FDBC60 /* ResultTableViewCell.swift in Sources */,
 				1021B20C284C3EAC00331EA5 /* PheonViewController.swift in Sources */,

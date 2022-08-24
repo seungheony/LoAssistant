@@ -8,6 +8,9 @@
 import Foundation
 
 struct CheckList: Codable {
+    var earnGold: Bool
+    var changeability: Bool
+    
     var char_name: String
     var char_level: Float
     var char_class: String

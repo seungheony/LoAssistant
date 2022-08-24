@@ -19,8 +19,6 @@ class CheckListTableViewCell: UITableViewCell {
         for i in 0...관문수 {
             raidGateWayControl.setTitle("\(i+1)", forSegmentAt: i)
         }
-        
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
