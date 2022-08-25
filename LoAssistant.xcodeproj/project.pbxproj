@@ -44,7 +44,6 @@
 		21E7461728B71A6900A80772 /* IlliakanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E7461628B71A6900A80772 /* IlliakanTableViewCell.swift */; };
 		21E7461928B71ABA00A80772 /* KayangelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E7461828B71ABA00A80772 /* KayangelTableViewCell.swift */; };
 		21E7461B28B71AF800A80772 /* ArgosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E7461A28B71AF800A80772 /* ArgosTableViewCell.swift */; };
-		21E7461F28B71CFA00A80772 /* Difficulty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E7461E28B71CFA00A80772 /* Difficulty.swift */; };
 		21E7462128B71D3C00A80772 /* Abrelshud_56TableViewCell copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E7462028B71D3C00A80772 /* Abrelshud_56TableViewCell copy.swift */; };
 		21E7462328B71D4000A80772 /* Abrelshud_34TableViewCell copy 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E7462228B71D4000A80772 /* Abrelshud_34TableViewCell copy 2.swift */; };
 		61BA331DEBE831395B0C22BF /* Pods_LoAssistant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA7F514429EF161DE676C3FB /* Pods_LoAssistant.framework */; };
@@ -110,7 +109,6 @@
 		21E7461628B71A6900A80772 /* IlliakanTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IlliakanTableViewCell.swift; sourceTree = "<group>"; };
 		21E7461828B71ABA00A80772 /* KayangelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KayangelTableViewCell.swift; sourceTree = "<group>"; };
 		21E7461A28B71AF800A80772 /* ArgosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArgosTableViewCell.swift; sourceTree = "<group>"; };
-		21E7461E28B71CFA00A80772 /* Difficulty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Difficulty.swift; sourceTree = "<group>"; };
 		21E7462028B71D3C00A80772 /* Abrelshud_56TableViewCell copy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Abrelshud_56TableViewCell copy.swift"; sourceTree = "<group>"; };
 		21E7462228B71D4000A80772 /* Abrelshud_34TableViewCell copy 2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Abrelshud_34TableViewCell copy 2.swift"; sourceTree = "<group>"; };
 		5370F4672AC34A627B8FB3ED /* Pods-LoAssistantTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoAssistantTests.debug.xcconfig"; path = "Target Support Files/Pods-LoAssistantTests/Pods-LoAssistantTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -285,7 +283,6 @@
 				21E7461628B71A6900A80772 /* IlliakanTableViewCell.swift */,
 				21E7461828B71ABA00A80772 /* KayangelTableViewCell.swift */,
 				21E7461A28B71AF800A80772 /* ArgosTableViewCell.swift */,
-				21E7461E28B71CFA00A80772 /* Difficulty.swift */,
 			);
 			path = CheckListCells;
 			sourceTree = "<group>";
@@ -583,7 +580,6 @@
 				10F6462027EB2F8500E51BBB /* SceneDelegate.swift in Sources */,
 				1E52D85C2893CBB3002ED70E /* PheonViewDataService.swift in Sources */,
 				210961E428485A0700FDBC60 /* PriceTableViewController.swift in Sources */,
-				21E7461F28B71CFA00A80772 /* Difficulty.swift in Sources */,
 				1008CB5B283A1DC9000F6E0B /* MarketDataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -775,7 +771,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.61;
+				MARKETING_VERSION = 0.70;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Seungheon-Kim.LoAssistant";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -805,7 +801,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.61;
+				MARKETING_VERSION = 0.70;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Seungheon-Kim.LoAssistant";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

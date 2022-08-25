@@ -8,8 +8,6 @@
 import UIKit
 
 class Kouku_SatonTableViewCell: UITableViewCell {
-    
-    var difficulty :Difficulty = Difficulty.normal
 
     @IBOutlet weak var geteSegment: UISegmentedControl!
     

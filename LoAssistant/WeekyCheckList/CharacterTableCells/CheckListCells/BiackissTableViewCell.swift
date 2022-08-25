@@ -8,8 +8,6 @@
 import UIKit
 
 class BiackissTableViewCell: UITableViewCell {
-    
-    var difficulty :Difficulty = Difficulty.normal
 
     @IBOutlet weak var difficultyLabel: UILabel!
     @IBOutlet weak var geteSegment: UISegmentedControl!
