@@ -9,8 +9,16 @@ import UIKit
 
 class IlliakanTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var difficultyLabel: UILabel!
+    @IBOutlet weak var raidNameLabel: UILabel!
     @IBOutlet weak var geteSegment: UISegmentedControl!
+    
+    @IBAction func checkGate(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 3 {
+            raidNameLabel.attributedText = raidNameLabel.text?.strikeThrough()
+        } else {
+            raidNameLabel.attributedText = raidNameLabel.text?.removeStrikeThrough()
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

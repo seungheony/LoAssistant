@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0940C46B513ECCAC5C2D15B9 /* Pods_LoAssistantTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CA49C1B43D2A17E9F8D8636 /* Pods_LoAssistantTests.framework */; };
+		10036DD028B7865B00C65E49 /* StringExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10036DCF28B7865B00C65E49 /* StringExtention.swift */; };
 		1008CB5B283A1DC9000F6E0B /* MarketDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1008CB5A283A1DC9000F6E0B /* MarketDataService.swift */; };
 		1021B20C284C3EAC00331EA5 /* PheonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1021B20B284C3EAC00331EA5 /* PheonViewController.swift */; };
 		103E53B228459141001199A9 /* OrehaSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103E53B128459141001199A9 /* OrehaSettingViewController.swift */; };
@@ -69,6 +70,7 @@
 
 /* Begin PBXFileReference section */
 		062528949B9FCA96BDEDB6D0 /* Pods-LoAssistant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoAssistant.release.xcconfig"; path = "Target Support Files/Pods-LoAssistant/Pods-LoAssistant.release.xcconfig"; sourceTree = "<group>"; };
+		10036DCF28B7865B00C65E49 /* StringExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtention.swift; sourceTree = "<group>"; };
 		1008CB5A283A1DC9000F6E0B /* MarketDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDataService.swift; sourceTree = "<group>"; };
 		1021B20B284C3EAC00331EA5 /* PheonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PheonViewController.swift; path = LoAssistant/PheonTable/PheonViewController.swift; sourceTree = SOURCE_ROOT; };
 		103E53B128459141001199A9 /* OrehaSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrehaSettingViewController.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				10F6461F27EB2F8500E51BBB /* SceneDelegate.swift */,
 				10AFD09727EDF058004CFAFB /* MainTableViewController.swift */,
 				1EE94AF6289B9ED6006E3963 /* LoadingHUD.swift */,
+				10036DCF28B7865B00C65E49 /* StringExtention.swift */,
 				10F6462327EB2F8500E51BBB /* Main.storyboard */,
 				10F6462627EB2F8600E51BBB /* Assets.xcassets */,
 				10F6462827EB2F8600E51BBB /* LaunchScreen.storyboard */,
@@ -571,6 +574,7 @@
 				21096263284A01DB00FDBC60 /* ResultTableViewCell.swift in Sources */,
 				1021B20C284C3EAC00331EA5 /* PheonViewController.swift in Sources */,
 				21E7461328B71A4F00A80772 /* Kouku_SatonTableViewCell.swift in Sources */,
+				10036DD028B7865B00C65E49 /* StringExtention.swift in Sources */,
 				1E2BC8B828A4FF8400170EAD /* CharacterDataService.swift in Sources */,
 				1E806FFC289BB81100000851 /* HowToUseTableViewCell.swift in Sources */,
 				10F6461E27EB2F8500E51BBB /* AppDelegate.swift in Sources */,
