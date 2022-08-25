@@ -34,10 +34,19 @@
 		210961E728485A6800FDBC60 /* PriceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210961E628485A6800FDBC60 /* PriceTableViewCell.swift */; };
 		21096263284A01DB00FDBC60 /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21096262284A01DB00FDBC60 /* ResultTableViewCell.swift */; };
 		217FF48C28ADBAAD0012B949 /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217FF48B28ADBAAD0012B949 /* InfoTableViewCell.swift */; };
-		217FF48E28ADBABD0012B949 /* CheckListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217FF48D28ADBABD0012B949 /* CheckListTableViewCell.swift */; };
 		217FF49028ADBF6B0012B949 /* CharacterSettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217FF48F28ADBF6B0012B949 /* CharacterSettingTableViewController.swift */; };
 		217FF49228AE357F0012B949 /* CheckListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217FF49128AE357F0012B949 /* CheckListData.swift */; };
 		21E7460C28B5E37300A80772 /* OrehaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E7460B28B5E37300A80772 /* OrehaTableViewCell.swift */; };
+		21E7460F28B71A1700A80772 /* ValtanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E7460E28B71A1700A80772 /* ValtanTableViewCell.swift */; };
+		21E7461128B71A3500A80772 /* BiackissTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E7461028B71A3500A80772 /* BiackissTableViewCell.swift */; };
+		21E7461328B71A4F00A80772 /* Kouku_SatonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E7461228B71A4F00A80772 /* Kouku_SatonTableViewCell.swift */; };
+		21E7461528B71A5E00A80772 /* Abrelshud_12TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E7461428B71A5E00A80772 /* Abrelshud_12TableViewCell.swift */; };
+		21E7461728B71A6900A80772 /* IlliakanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E7461628B71A6900A80772 /* IlliakanTableViewCell.swift */; };
+		21E7461928B71ABA00A80772 /* KayangelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E7461828B71ABA00A80772 /* KayangelTableViewCell.swift */; };
+		21E7461B28B71AF800A80772 /* ArgosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E7461A28B71AF800A80772 /* ArgosTableViewCell.swift */; };
+		21E7461F28B71CFA00A80772 /* Difficulty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E7461E28B71CFA00A80772 /* Difficulty.swift */; };
+		21E7462128B71D3C00A80772 /* Abrelshud_56TableViewCell copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E7462028B71D3C00A80772 /* Abrelshud_56TableViewCell copy.swift */; };
+		21E7462328B71D4000A80772 /* Abrelshud_34TableViewCell copy 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E7462228B71D4000A80772 /* Abrelshud_34TableViewCell copy 2.swift */; };
 		61BA331DEBE831395B0C22BF /* Pods_LoAssistant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA7F514429EF161DE676C3FB /* Pods_LoAssistant.framework */; };
 		86D3408F29F0C97CFBCEF021 /* Pods_LoAssistant_LoAssistantUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9972C500D97A3431C13E5BF9 /* Pods_LoAssistant_LoAssistantUITests.framework */; };
 /* End PBXBuildFile section */
@@ -91,10 +100,19 @@
 		210961E628485A6800FDBC60 /* PriceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceTableViewCell.swift; sourceTree = "<group>"; };
 		21096262284A01DB00FDBC60 /* ResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTableViewCell.swift; sourceTree = "<group>"; };
 		217FF48B28ADBAAD0012B949 /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
-		217FF48D28ADBABD0012B949 /* CheckListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListTableViewCell.swift; sourceTree = "<group>"; };
 		217FF48F28ADBF6B0012B949 /* CharacterSettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSettingTableViewController.swift; sourceTree = "<group>"; };
 		217FF49128AE357F0012B949 /* CheckListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListData.swift; sourceTree = "<group>"; };
 		21E7460B28B5E37300A80772 /* OrehaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrehaTableViewCell.swift; sourceTree = "<group>"; };
+		21E7460E28B71A1700A80772 /* ValtanTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValtanTableViewCell.swift; sourceTree = "<group>"; };
+		21E7461028B71A3500A80772 /* BiackissTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiackissTableViewCell.swift; sourceTree = "<group>"; };
+		21E7461228B71A4F00A80772 /* Kouku_SatonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kouku_SatonTableViewCell.swift; sourceTree = "<group>"; };
+		21E7461428B71A5E00A80772 /* Abrelshud_12TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Abrelshud_12TableViewCell.swift; sourceTree = "<group>"; };
+		21E7461628B71A6900A80772 /* IlliakanTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IlliakanTableViewCell.swift; sourceTree = "<group>"; };
+		21E7461828B71ABA00A80772 /* KayangelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KayangelTableViewCell.swift; sourceTree = "<group>"; };
+		21E7461A28B71AF800A80772 /* ArgosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArgosTableViewCell.swift; sourceTree = "<group>"; };
+		21E7461E28B71CFA00A80772 /* Difficulty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Difficulty.swift; sourceTree = "<group>"; };
+		21E7462028B71D3C00A80772 /* Abrelshud_56TableViewCell copy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Abrelshud_56TableViewCell copy.swift"; sourceTree = "<group>"; };
+		21E7462228B71D4000A80772 /* Abrelshud_34TableViewCell copy 2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Abrelshud_34TableViewCell copy 2.swift"; sourceTree = "<group>"; };
 		5370F4672AC34A627B8FB3ED /* Pods-LoAssistantTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoAssistantTests.debug.xcconfig"; path = "Target Support Files/Pods-LoAssistantTests/Pods-LoAssistantTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9972C500D97A3431C13E5BF9 /* Pods_LoAssistant_LoAssistantUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LoAssistant_LoAssistantUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CA49C1B43D2A17E9F8D8636 /* Pods_LoAssistantTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LoAssistantTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -248,11 +266,28 @@
 		217FF48A28ADBA7B0012B949 /* CharacterTableCells */ = {
 			isa = PBXGroup;
 			children = (
+				21E7460D28B7195400A80772 /* CheckListCells */,
 				217FF48B28ADBAAD0012B949 /* InfoTableViewCell.swift */,
 				2107F22C28B4C71B005605F5 /* ExpeditionTableViewCell.swift */,
-				217FF48D28ADBABD0012B949 /* CheckListTableViewCell.swift */,
 			);
 			path = CharacterTableCells;
+			sourceTree = "<group>";
+		};
+		21E7460D28B7195400A80772 /* CheckListCells */ = {
+			isa = PBXGroup;
+			children = (
+				21E7460E28B71A1700A80772 /* ValtanTableViewCell.swift */,
+				21E7461028B71A3500A80772 /* BiackissTableViewCell.swift */,
+				21E7461228B71A4F00A80772 /* Kouku_SatonTableViewCell.swift */,
+				21E7461428B71A5E00A80772 /* Abrelshud_12TableViewCell.swift */,
+				21E7462228B71D4000A80772 /* Abrelshud_34TableViewCell copy 2.swift */,
+				21E7462028B71D3C00A80772 /* Abrelshud_56TableViewCell copy.swift */,
+				21E7461628B71A6900A80772 /* IlliakanTableViewCell.swift */,
+				21E7461828B71ABA00A80772 /* KayangelTableViewCell.swift */,
+				21E7461A28B71AF800A80772 /* ArgosTableViewCell.swift */,
+				21E7461E28B71CFA00A80772 /* Difficulty.swift */,
+			);
+			path = CheckListCells;
 			sourceTree = "<group>";
 		};
 		337B470AC47370BBBEBC324F /* Pods */ = {
@@ -517,29 +552,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21E7461B28B71AF800A80772 /* ArgosTableViewCell.swift in Sources */,
 				10AFD09827EDF058004CFAFB /* MainTableViewController.swift in Sources */,
 				103E53B228459141001199A9 /* OrehaSettingViewController.swift in Sources */,
 				217FF49028ADBF6B0012B949 /* CharacterSettingTableViewController.swift in Sources */,
 				1E422008289CBAA80080C7E5 /* TimerTableViewCell.swift in Sources */,
 				217FF49228AE357F0012B949 /* CheckListData.swift in Sources */,
-				217FF48E28ADBABD0012B949 /* CheckListTableViewCell.swift in Sources */,
 				217FF48C28ADBAAD0012B949 /* InfoTableViewCell.swift in Sources */,
 				103E53BB2848DD47001199A9 /* IngredientTableViewCell.swift in Sources */,
 				2107F22D28B4C71B005605F5 /* ExpeditionTableViewCell.swift in Sources */,
 				103E53BD2848E205001199A9 /* OrehaTableViewController.swift in Sources */,
+				21E7460F28B71A1700A80772 /* ValtanTableViewCell.swift in Sources */,
 				1E2BC8B628A4FEB400170EAD /* CharacterTableViewController.swift in Sources */,
+				21E7462128B71D3C00A80772 /* Abrelshud_56TableViewCell copy.swift in Sources */,
+				21E7461528B71A5E00A80772 /* Abrelshud_12TableViewCell.swift in Sources */,
+				21E7461128B71A3500A80772 /* BiackissTableViewCell.swift in Sources */,
 				2107F22B28B4C705005605F5 /* ExpeditionTableViewController.swift in Sources */,
 				1EE94AF7289B9ED6006E3963 /* LoadingHUD.swift in Sources */,
+				21E7461728B71A6900A80772 /* IlliakanTableViewCell.swift in Sources */,
 				21E7460C28B5E37300A80772 /* OrehaTableViewCell.swift in Sources */,
 				21096263284A01DB00FDBC60 /* ResultTableViewCell.swift in Sources */,
 				1021B20C284C3EAC00331EA5 /* PheonViewController.swift in Sources */,
+				21E7461328B71A4F00A80772 /* Kouku_SatonTableViewCell.swift in Sources */,
 				1E2BC8B828A4FF8400170EAD /* CharacterDataService.swift in Sources */,
 				1E806FFC289BB81100000851 /* HowToUseTableViewCell.swift in Sources */,
 				10F6461E27EB2F8500E51BBB /* AppDelegate.swift in Sources */,
 				210961E728485A6800FDBC60 /* PriceTableViewCell.swift in Sources */,
+				21E7461928B71ABA00A80772 /* KayangelTableViewCell.swift in Sources */,
+				21E7462328B71D4000A80772 /* Abrelshud_34TableViewCell copy 2.swift in Sources */,
 				10F6462027EB2F8500E51BBB /* SceneDelegate.swift in Sources */,
 				1E52D85C2893CBB3002ED70E /* PheonViewDataService.swift in Sources */,
 				210961E428485A0700FDBC60 /* PriceTableViewController.swift in Sources */,
+				21E7461F28B71CFA00A80772 /* Difficulty.swift in Sources */,
 				1008CB5B283A1DC9000F6E0B /* MarketDataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

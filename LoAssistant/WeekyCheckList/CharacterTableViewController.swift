@@ -39,22 +39,72 @@ class CharacterTableViewController: UITableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
 
-        return self.checkList.count
+        return self.checkList.count * 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         
-        let level = self.checkList[section].char_level
+        let level = self.checkList[section/2].char_level
         
-        if level >= 1490 {
-            return 6
-        } else if level >= 1475 {
-            return 6
-        } else if level >= 1430 {
-            return 4
-        } else if level >= 1415 {
-            return 3
+        // 군단장
+        if section % 2 == 0 {
+            if level >= 1600 {
+                return 8
+            } else if level >= 1580 {
+                return 8
+            } else if level >= 1560 {
+                return 7
+            } else if level >= 1550 {
+                return 7
+            } else if level >= 1540 {
+                return 7
+            } else if level >= 1520 {
+                return 7
+            } else if level >= 1500 {
+                return 6
+            } else if level >= 1490 {
+                return 5
+            } else if level >= 1475 {
+                return 4
+            } else if level >= 1460 {
+                return 3
+            } else if level >= 1445 {
+                return 3
+            } else if level >= 1430 {
+                return 3
+            } else if level >= 1415 {
+                return 2
+            }
+        // 어비스
+        } else {
+            if level >= 1600 {
+                return 2
+            } else if level >= 1580 {
+                return 2
+            } else if level >= 1560 {
+                return 2
+            } else if level >= 1550 {
+                return 2
+            } else if level >= 1540 {
+                return 2
+            } else if level >= 1520 {
+                return 2
+            } else if level >= 1500 {
+                return 2
+            } else if level >= 1490 {
+                return 2
+            } else if level >= 1475 {
+                return 2
+            } else if level >= 1460 {
+                return 1
+            } else if level >= 1445 {
+                return 1
+            } else if level >= 1430 {
+                return 1
+            } else if level >= 1415 {
+                return 1
+            }
         }
         return 0
     }
@@ -62,16 +112,17 @@ class CharacterTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let InfoCell = tableView.dequeueReusableCell(withIdentifier: "InfoCell", for: indexPath) as? InfoTableViewCell
-        let CheckCell = tableView.dequeueReusableCell(withIdentifier: "CheckListCell", for: indexPath) as? CheckListTableViewCell
-        if indexPath.row == 0 {
-            InfoCell!.charNameLabel.text = self.checkList[indexPath.section].char_name
-            InfoCell!.charLevelLabel.text = "Lv." + String(self.checkList[indexPath.section].char_level)
-            let className: String = getEngClassName(kor: self.checkList[indexPath.section].char_class)
-            InfoCell!.charClassImage.image = UIImage(named: className)
-            return InfoCell!
+        if indexPath.section % 2 == 0 {
+            if indexPath.row == 0 {
+                InfoCell!.charNameLabel.text = self.checkList[indexPath.section/2].char_name
+                InfoCell!.charLevelLabel.text = "Lv." + String(self.checkList[indexPath.section/2].char_level)
+                let className: String = getEngClassName(kor: self.checkList[indexPath.section/2].char_class)
+                InfoCell!.charClassImage.image = UIImage(named: className)
+                return InfoCell!
+            }
         }
+        return setCheckListCell(index: indexPath)
         
-        return CheckCell!
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -132,6 +183,304 @@ class CharacterTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    func setCheckListCell(index: IndexPath) -> UITableViewCell {
+        let level = self.checkList[index.section/2].char_level
+        // 군단장
+        if index.section % 2 == 0 {
+            if level >= 1600 {
+                if index.row == 1 {
+                    let IlliakanCell = tableView.dequeueReusableCell(withIdentifier: "IlliakanCell", for: index) as! IlliakanTableViewCell
+                    IlliakanCell.difficultyLabel.text = "Hard"
+                    return IlliakanCell
+                } else if index.row == 2 {
+                    let Abrelshud_12Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_12Cell", for: index) as! Abrelshud_12TableViewCell
+                    Abrelshud_12Cell.difficultyLabel.text = "Hard"
+                    return Abrelshud_12Cell
+                } else if index.row == 3 {
+                    let Abrelshud_34Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_34Cell", for: index) as! Abrelshud_34TableViewCell
+                    Abrelshud_34Cell.difficultyLabel.text = "Hard"
+                    return Abrelshud_34Cell
+                } else if index.row == 4 {
+                    let Abrelshud_56Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_56Cell", for: index) as! Abrelshud_56TableViewCell
+                    Abrelshud_56Cell.difficultyLabel.text = "Hard"
+                    return Abrelshud_56Cell
+                } else if index.row == 5 {
+                    let Kouku_SatonCell = tableView.dequeueReusableCell(withIdentifier: "Kouku_SatonCell", for: index) as! Kouku_SatonTableViewCell
+                    return Kouku_SatonCell
+                } else if index.row == 6 {
+                    let BiackissCell = tableView.dequeueReusableCell(withIdentifier: "BiackissCell", for: index) as! BiackissTableViewCell
+                    BiackissCell.difficultyLabel.text = "Hard"
+                    return BiackissCell
+                } else if index.row == 7 {
+                    let ValtanCell = tableView.dequeueReusableCell(withIdentifier: "ValtanCell", for: index) as! ValtanTableViewCell
+                    ValtanCell.difficultyLabel.text = "Hard"
+                    return ValtanCell
+                }
+            } else if level >= 1580 {
+                if index.row == 1 {
+                    let IlliakanCell = tableView.dequeueReusableCell(withIdentifier: "IlliakanCell", for: index) as! IlliakanTableViewCell
+                    IlliakanCell.difficultyLabel.text = "Normal"
+                    return IlliakanCell
+                } else if index.row == 2 {
+                    let Abrelshud_12Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_12Cell", for: index) as! Abrelshud_12TableViewCell
+                    Abrelshud_12Cell.difficultyLabel.text = "Hard"
+                    return Abrelshud_12Cell
+                } else if index.row == 3 {
+                    let Abrelshud_34Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_34Cell", for: index) as! Abrelshud_34TableViewCell
+                    Abrelshud_34Cell.difficultyLabel.text = "Hard"
+                    return Abrelshud_34Cell
+                } else if index.row == 4 {
+                    let Abrelshud_56Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_56Cell", for: index) as! Abrelshud_56TableViewCell
+                    Abrelshud_56Cell.difficultyLabel.text = "Hard"
+                    return Abrelshud_56Cell
+                } else if index.row == 5 {
+                    let Kouku_SatonCell = tableView.dequeueReusableCell(withIdentifier: "Kouku_SatonCell", for: index) as! Kouku_SatonTableViewCell
+                    return Kouku_SatonCell
+                } else if index.row == 6 {
+                    let BiackissCell = tableView.dequeueReusableCell(withIdentifier: "BiackissCell", for: index) as! BiackissTableViewCell
+                    BiackissCell.difficultyLabel.text = "Hard"
+                    return BiackissCell
+                } else if index.row == 7 {
+                    let ValtanCell = tableView.dequeueReusableCell(withIdentifier: "ValtanCell", for: index) as! ValtanTableViewCell
+                    ValtanCell.difficultyLabel.text = "Hard"
+                    return ValtanCell
+                }
+            } else if level >= 1560 {
+                if index.row == 1 {
+                    let Abrelshud_12Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_12Cell", for: index) as! Abrelshud_12TableViewCell
+                    Abrelshud_12Cell.difficultyLabel.text = "Hard"
+                    return Abrelshud_12Cell
+                } else if index.row == 2 {
+                    let Abrelshud_34Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_34Cell", for: index) as! Abrelshud_34TableViewCell
+                    Abrelshud_34Cell.difficultyLabel.text = "Hard"
+                    return Abrelshud_34Cell
+                } else if index.row == 3 {
+                    let Abrelshud_56Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_56Cell", for: index) as! Abrelshud_56TableViewCell
+                    Abrelshud_56Cell.difficultyLabel.text = "Hard"
+                    return Abrelshud_56Cell
+                } else if index.row == 4 {
+                    let Kouku_SatonCell = tableView.dequeueReusableCell(withIdentifier: "Kouku_SatonCell", for: index) as! Kouku_SatonTableViewCell
+                    return Kouku_SatonCell
+                } else if index.row == 5 {
+                    let BiackissCell = tableView.dequeueReusableCell(withIdentifier: "BiackissCell", for: index) as! BiackissTableViewCell
+                    BiackissCell.difficultyLabel.text = "Hard"
+                    return BiackissCell
+                } else if index.row == 6 {
+                    let ValtanCell = tableView.dequeueReusableCell(withIdentifier: "ValtanCell", for: index) as! ValtanTableViewCell
+                    ValtanCell.difficultyLabel.text = "Hard"
+                    return ValtanCell
+                }
+            } else if level >= 1550 {
+                if index.row == 1 {
+                    let Abrelshud_12Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_12Cell", for: index) as! Abrelshud_12TableViewCell
+                    Abrelshud_12Cell.difficultyLabel.text = "Hard"
+                    return Abrelshud_12Cell
+                } else if index.row == 2 {
+                    let Abrelshud_34Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_34Cell", for: index) as! Abrelshud_34TableViewCell
+                    Abrelshud_34Cell.difficultyLabel.text = "Hard"
+                    return Abrelshud_34Cell
+                } else if index.row == 3 {
+                    let Abrelshud_56Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_56Cell", for: index) as! Abrelshud_56TableViewCell
+                    Abrelshud_56Cell.difficultyLabel.text = "Normal"
+                    return Abrelshud_56Cell
+                } else if index.row == 4 {
+                    let Kouku_SatonCell = tableView.dequeueReusableCell(withIdentifier: "Kouku_SatonCell", for: index) as! Kouku_SatonTableViewCell
+                    return Kouku_SatonCell
+                } else if index.row == 5 {
+                    let BiackissCell = tableView.dequeueReusableCell(withIdentifier: "BiackissCell", for: index) as! BiackissTableViewCell
+                    BiackissCell.difficultyLabel.text = "Hard"
+                    return BiackissCell
+                } else if index.row == 6 {
+                    let ValtanCell = tableView.dequeueReusableCell(withIdentifier: "ValtanCell", for: index) as! ValtanTableViewCell
+                    ValtanCell.difficultyLabel.text = "Hard"
+                    return ValtanCell
+                }
+            } else if level >= 1540 {
+                if index.row == 1 {
+                    let Abrelshud_12Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_12Cell", for: index) as! Abrelshud_12TableViewCell
+                    Abrelshud_12Cell.difficultyLabel.text = "Hard"
+                    return Abrelshud_12Cell
+                } else if index.row == 2 {
+                    let Abrelshud_34Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_34Cell", for: index) as! Abrelshud_34TableViewCell
+                    Abrelshud_34Cell.difficultyLabel.text = "Normal"
+                    return Abrelshud_34Cell
+                } else if index.row == 3 {
+                    let Abrelshud_56Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_56Cell", for: index) as! Abrelshud_56TableViewCell
+                    Abrelshud_56Cell.difficultyLabel.text = "Normal"
+                    return Abrelshud_56Cell
+                } else if index.row == 4 {
+                    let Kouku_SatonCell = tableView.dequeueReusableCell(withIdentifier: "Kouku_SatonCell", for: index) as! Kouku_SatonTableViewCell
+                    return Kouku_SatonCell
+                } else if index.row == 5 {
+                    let BiackissCell = tableView.dequeueReusableCell(withIdentifier: "BiackissCell", for: index) as! BiackissTableViewCell
+                    BiackissCell.difficultyLabel.text = "Hard"
+                    return BiackissCell
+                } else if index.row == 6 {
+                    let ValtanCell = tableView.dequeueReusableCell(withIdentifier: "ValtanCell", for: index) as! ValtanTableViewCell
+                    ValtanCell.difficultyLabel.text = "Hard"
+                    return ValtanCell
+                }
+            } else if level >= 1520 {
+                if index.row == 1 {
+                    let Abrelshud_12Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_12Cell", for: index) as! Abrelshud_12TableViewCell
+                    Abrelshud_12Cell.difficultyLabel.text = "Normal"
+                    return Abrelshud_12Cell
+                } else if index.row == 2 {
+                    let Abrelshud_34Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_34Cell", for: index) as! Abrelshud_34TableViewCell
+                    Abrelshud_34Cell.difficultyLabel.text = "Normal"
+                    return Abrelshud_34Cell
+                } else if index.row == 3 {
+                    let Abrelshud_56Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_56Cell", for: index) as! Abrelshud_56TableViewCell
+                    Abrelshud_56Cell.difficultyLabel.text = "Normal"
+                    return Abrelshud_56Cell
+                } else if index.row == 4 {
+                    let Kouku_SatonCell = tableView.dequeueReusableCell(withIdentifier: "Kouku_SatonCell", for: index) as! Kouku_SatonTableViewCell
+                    return Kouku_SatonCell
+                } else if index.row == 5 {
+                    let BiackissCell = tableView.dequeueReusableCell(withIdentifier: "BiackissCell", for: index) as! BiackissTableViewCell
+                    BiackissCell.difficultyLabel.text = "Hard"
+                    return BiackissCell
+                } else if index.row == 6 {
+                    let ValtanCell = tableView.dequeueReusableCell(withIdentifier: "ValtanCell", for: index) as! ValtanTableViewCell
+                    ValtanCell.difficultyLabel.text = "Hard"
+                    return ValtanCell
+                }
+            } else if level >= 1500 {
+                if index.row == 1 {
+                    let Abrelshud_12Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_12Cell", for: index) as! Abrelshud_12TableViewCell
+                    Abrelshud_12Cell.difficultyLabel.text = "Normal"
+                    return Abrelshud_12Cell
+                } else if index.row == 2 {
+                    let Abrelshud_34Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_34Cell", for: index) as! Abrelshud_34TableViewCell
+                    Abrelshud_34Cell.difficultyLabel.text = "Normal"
+                    return Abrelshud_34Cell
+                } else if index.row == 3 {
+                    let Kouku_SatonCell = tableView.dequeueReusableCell(withIdentifier: "Kouku_SatonCell", for: index) as! Kouku_SatonTableViewCell
+                    return Kouku_SatonCell
+                } else if index.row == 4 {
+                    let BiackissCell = tableView.dequeueReusableCell(withIdentifier: "BiackissCell", for: index) as! BiackissTableViewCell
+                    BiackissCell.difficultyLabel.text = "Hard"
+                    return BiackissCell
+                } else if index.row == 5 {
+                    let ValtanCell = tableView.dequeueReusableCell(withIdentifier: "ValtanCell", for: index) as! ValtanTableViewCell
+                    ValtanCell.difficultyLabel.text = "Hard"
+                    return ValtanCell
+                }
+            } else if level >= 1490 {
+                if index.row == 1 {
+                    let Abrelshud_12Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_12Cell", for: index) as! Abrelshud_12TableViewCell
+                    Abrelshud_12Cell.difficultyLabel.text = "Normal"
+                    return Abrelshud_12Cell
+                } else if index.row == 2 {
+                    let Kouku_SatonCell = tableView.dequeueReusableCell(withIdentifier: "Kouku_SatonCell", for: index) as! Kouku_SatonTableViewCell
+                    return Kouku_SatonCell
+                } else if index.row == 3 {
+                    let BiackissCell = tableView.dequeueReusableCell(withIdentifier: "BiackissCell", for: index) as! BiackissTableViewCell
+                    BiackissCell.difficultyLabel.text = "Hard"
+                    return BiackissCell
+                } else if index.row == 4 {
+                    let ValtanCell = tableView.dequeueReusableCell(withIdentifier: "ValtanCell", for: index) as! ValtanTableViewCell
+                    ValtanCell.difficultyLabel.text = "Hard"
+                    return ValtanCell
+                }
+            } else if level >= 1475 {
+                if index.row == 1 {
+                    let Kouku_SatonCell = tableView.dequeueReusableCell(withIdentifier: "Kouku_SatonCell", for: index) as! Kouku_SatonTableViewCell
+                    return Kouku_SatonCell
+                } else if index.row == 2 {
+                    let BiackissCell = tableView.dequeueReusableCell(withIdentifier: "BiackissCell", for: index) as! BiackissTableViewCell
+                    BiackissCell.difficultyLabel.text = "Hard"
+                    return BiackissCell
+                } else if index.row == 3 {
+                    let ValtanCell = tableView.dequeueReusableCell(withIdentifier: "ValtanCell", for: index) as! ValtanTableViewCell
+                    ValtanCell.difficultyLabel.text = "Hard"
+                    return ValtanCell
+                }
+            } else if level >= 1460 {
+                if index.row == 1 {
+                    let BiackissCell = tableView.dequeueReusableCell(withIdentifier: "BiackissCell", for: index) as! BiackissTableViewCell
+                    BiackissCell.difficultyLabel.text = "Hard"
+                    return BiackissCell
+                } else if index.row == 2 {
+                    let ValtanCell = tableView.dequeueReusableCell(withIdentifier: "ValtanCell", for: index) as! ValtanTableViewCell
+                    ValtanCell.difficultyLabel.text = "Hard"
+                    return ValtanCell
+                }
+            } else if level >= 1445 {
+                if index.row == 1 {
+                    let ValtanCell = tableView.dequeueReusableCell(withIdentifier: "ValtanCell", for: index) as! ValtanTableViewCell
+                    ValtanCell.difficultyLabel.text = "Hard"
+                    return ValtanCell
+                } else if index.row == 2 {
+                    let BiackissCell = tableView.dequeueReusableCell(withIdentifier: "BiackissCell", for: index) as! BiackissTableViewCell
+                    BiackissCell.difficultyLabel.text = "Normal"
+                    return BiackissCell
+                }
+            } else if level >= 1430 {
+                if index.row == 1 {
+                    let BiackissCell = tableView.dequeueReusableCell(withIdentifier: "BiackissCell", for: index) as! BiackissTableViewCell
+                    BiackissCell.difficultyLabel.text = "Normal"
+                    return BiackissCell
+                } else if index.row == 2 {
+                    let ValtanCell = tableView.dequeueReusableCell(withIdentifier: "ValtanCell", for: index) as! ValtanTableViewCell
+                    ValtanCell.difficultyLabel.text = "Normal"
+                    return ValtanCell
+                }
+            } else if level >= 1415 {
+                if index.row == 1 {
+                    let ValtanCell = tableView.dequeueReusableCell(withIdentifier: "ValtanCell", for: index) as! ValtanTableViewCell
+                    ValtanCell.difficultyLabel.text = "Normal"
+                    return ValtanCell
+                }
+            }
+        // 어비스
+        } else {
+            if level >= 1580 {
+                if index.row == 0 {
+                    let KayangelCell = tableView.dequeueReusableCell(withIdentifier: "KayangelCell", for: index) as! KayangelTableViewCell
+                    KayangelCell.difficultyLabel.text = "Hard-3"
+                    return KayangelCell
+                } else if index.row == 1 {
+                    let ArgosCell = tableView.dequeueReusableCell(withIdentifier: "ArgosCell", for: index) as! ArgosTableViewCell
+                    return ArgosCell
+                }
+            } else if level >= 1560 {
+                if index.row == 0 {
+                    let KayangelCell = tableView.dequeueReusableCell(withIdentifier: "KayangelCell", for: index) as! KayangelTableViewCell
+                    KayangelCell.difficultyLabel.text = "Hard-2"
+                    return KayangelCell
+                } else if index.row == 1 {
+                    let ArgosCell = tableView.dequeueReusableCell(withIdentifier: "ArgosCell", for: index) as! ArgosTableViewCell
+                    return ArgosCell
+                }
+            } else if level >= 1520 {
+                if index.row == 0 {
+                    let KayangelCell = tableView.dequeueReusableCell(withIdentifier: "KayangelCell", for: index) as! KayangelTableViewCell
+                    KayangelCell.difficultyLabel.text = "Hard-1"
+                    return KayangelCell
+                } else if index.row == 1 {
+                    let ArgosCell = tableView.dequeueReusableCell(withIdentifier: "ArgosCell", for: index) as! ArgosTableViewCell
+                    return ArgosCell
+                }
+            } else if level >= 1475 {
+                if index.row == 0 {
+                    let KayangelCell = tableView.dequeueReusableCell(withIdentifier: "KayangelCell", for: index) as! KayangelTableViewCell
+                    KayangelCell.difficultyLabel.text = "Normal"
+                    return KayangelCell
+                } else if index.row == 1 {
+                    let ArgosCell = tableView.dequeueReusableCell(withIdentifier: "ArgosCell", for: index) as! ArgosTableViewCell
+                    return ArgosCell
+                }
+            } else if level >= 1370 {
+                if index.row == 0 {
+                    let ArgosCell = tableView.dequeueReusableCell(withIdentifier: "ArgosCell", for: index) as! ArgosTableViewCell
+                    return ArgosCell
+                }
+            }
+        }
+        return UITableViewCell()
+    }
+    
     func getEngClassName(kor: String) -> String {
         if kor == "기상술사" {
             return "aeromancer"
