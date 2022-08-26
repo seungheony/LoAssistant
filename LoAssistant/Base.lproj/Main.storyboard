@@ -1987,8 +1987,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="gate1Button" destination="LHW-Pn-6JS" id="6WH-E7-wPI"/>
-                                    <outlet property="gate2Button" destination="beO-dm-4B2" id="pi3-lm-PjV"/>
+                                    <outlet property="gate3Button" destination="LHW-Pn-6JS" id="lR8-4g-m4d"/>
+                                    <outlet property="gate4Button" destination="beO-dm-4B2" id="VVk-xs-Tg0"/>
                                     <outlet property="raidNameLabel" destination="kkj-6C-NRv" id="CZI-6z-Tn8"/>
                                 </connections>
                             </tableViewCell>

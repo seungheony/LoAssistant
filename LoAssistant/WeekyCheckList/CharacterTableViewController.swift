@@ -122,7 +122,7 @@ class CharacterTableViewController: UITableViewController {
                 InfoCell.charClassImage.image = UIImage(named: className)
                 
                 if self.checkList[indexPath.section/2].earnGold == true {
-                    InfoCell.charNameLabel.textColor = UIColor.link
+                    InfoCell.charNameLabel.textColor = UIColor.systemPink
                 }
                 return InfoCell
             }
@@ -373,7 +373,6 @@ class CharacterTableViewController: UITableViewController {
         let illiakanCell = tableView.dequeueReusableCell(withIdentifier: "IlliakanCell", for: index) as! IlliakanTableViewCell
         illiakanCell.level = level
         illiakanCell.charIndex = index.section/2
-        illiakanCell.gateSegment.selectedSegmentIndex = checkList[index.section/2].illiakan
         
         if level >= 1600 {
             illiakanCell.raidNameLabel.attributedText = illiakanCell.raidNameLabel.text?.setRaidNameAtAttributesStr(add: "하드")
@@ -386,7 +385,6 @@ class CharacterTableViewController: UITableViewController {
         let abrelshud_12Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_12Cell", for: index) as! Abrelshud_12TableViewCell
         abrelshud_12Cell.level = level
         abrelshud_12Cell.charIndex = index.section/2
-        abrelshud_12Cell.gateSegment.selectedSegmentIndex = checkList[index.section/2].abrelshud_12
         
         if level >= 1540 {
             abrelshud_12Cell.raidNameLabel.attributedText = abrelshud_12Cell.raidNameLabel.text?.setRaidNameAtAttributesStr(add: "하드")
@@ -399,7 +397,6 @@ class CharacterTableViewController: UITableViewController {
         let abrelshud_34Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_34Cell", for: index) as! Abrelshud_34TableViewCell
         abrelshud_34Cell.level = level
         abrelshud_34Cell.charIndex = index.section/2
-        abrelshud_34Cell.gateSegment.selectedSegmentIndex = checkList[index.section/2].abrelshud_34
         
         if level >= 1550 {
             abrelshud_34Cell.raidNameLabel.attributedText = abrelshud_34Cell.raidNameLabel.text?.setRaidNameAtAttributesStr(add: "하드")
@@ -412,7 +409,6 @@ class CharacterTableViewController: UITableViewController {
         let abrelshud_56Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_56Cell", for: index) as! Abrelshud_56TableViewCell
         abrelshud_56Cell.level = level
         abrelshud_56Cell.charIndex = index.section/2
-        abrelshud_56Cell.gateSegment.selectedSegmentIndex = checkList[index.section/2].abrelshud_56
         
         if level >= 1560 {
             abrelshud_56Cell.raidNameLabel.attributedText = abrelshud_56Cell.raidNameLabel.text?.setRaidNameAtAttributesStr(add: "하드")
@@ -424,7 +420,6 @@ class CharacterTableViewController: UITableViewController {
     func get_kouku_satonCell(index: IndexPath) -> Kouku_SatonTableViewCell {
         let kouku_satonCell = tableView.dequeueReusableCell(withIdentifier: "Kouku_SatonCell", for: index) as! Kouku_SatonTableViewCell
         kouku_satonCell.charIndex = index.section/2
-        kouku_satonCell.gateSegment.selectedSegmentIndex = checkList[index.section/2].kouku_saton
         
         return kouku_satonCell
     }
@@ -432,7 +427,6 @@ class CharacterTableViewController: UITableViewController {
         let biackissCell = tableView.dequeueReusableCell(withIdentifier: "BiackissCell", for: index) as! BiackissTableViewCell
         biackissCell.level = level
         biackissCell.charIndex = index.section/2
-        biackissCell.gateSegment.selectedSegmentIndex = checkList[index.section/2].biakiss
         
         if level >= 1460 {
             biackissCell.raidNameLabel.attributedText = biackissCell.raidNameLabel.text?.setRaidNameAtAttributesStr(add: "하드")
@@ -445,7 +439,6 @@ class CharacterTableViewController: UITableViewController {
         let valtanCell = tableView.dequeueReusableCell(withIdentifier: "ValtanCell", for: index) as! ValtanTableViewCell
         valtanCell.level = level
         valtanCell.charIndex = index.section/2
-        valtanCell.gateSegment.selectedSegmentIndex = checkList[index.section/2].valtan
         
         if level >= 1445 {
             valtanCell.raidNameLabel.attributedText = valtanCell.raidNameLabel.text?.setRaidNameAtAttributesStr(add: "하드")
@@ -459,7 +452,6 @@ class CharacterTableViewController: UITableViewController {
         let kayangelCell = tableView.dequeueReusableCell(withIdentifier: "KayangelCell", for: index) as! KayangelTableViewCell
         kayangelCell.level = level
         kayangelCell.charIndex = index.section/2
-        kayangelCell.gateSegment.selectedSegmentIndex = checkList[index.section/2].kayangel
         
         if level >= 1580 {
             kayangelCell.raidNameLabel.attributedText = kayangelCell.raidNameLabel.text?.setRaidNameAtAttributesStr(add: "하드-3")
@@ -475,7 +467,6 @@ class CharacterTableViewController: UITableViewController {
     func get_argosCell(index: IndexPath) -> ArgosTableViewCell {
         let argosCell = tableView.dequeueReusableCell(withIdentifier: "ArgosCell", for: index) as! ArgosTableViewCell
         argosCell.charIndex = index.section/2
-        argosCell.gateSegment.selectedSegmentIndex = checkList[index.section/2].argos
         
         return argosCell
     }

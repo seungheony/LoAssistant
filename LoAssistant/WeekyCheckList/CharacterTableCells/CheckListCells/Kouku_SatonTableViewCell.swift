@@ -38,8 +38,6 @@ class Kouku_SatonTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        self.gateSegment.addTarget(self, action: #selector(didChangeValue(segment:)), for: .valueChanged)
-        self.didChangeValue(segment: self.gateSegment)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

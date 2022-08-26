@@ -13,7 +13,6 @@ class KayangelTableViewCell: UITableViewCell {
     var charIndex: Int = Int()
     
     @IBOutlet weak var raidNameLabel: UILabel!
-    @IBOutlet weak var gateSegment: UISegmentedControl!
     
 //    @IBAction func checkGate(_ sender: UISegmentedControl) {
 //        
@@ -44,8 +43,6 @@ class KayangelTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        self.gateSegment.addTarget(self, action: #selector(didChangeValue(segment:)), for: .valueChanged)
-        self.didChangeValue(segment: self.gateSegment)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

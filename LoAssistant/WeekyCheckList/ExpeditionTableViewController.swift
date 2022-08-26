@@ -10,6 +10,7 @@ import UIKit
 class ExpeditionTableViewController: UITableViewController {
 
     var checkList: [CheckList] = []
+    var counter: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,8 +43,10 @@ class ExpeditionTableViewController: UITableViewController {
         cell.charClassImage.image = UIImage(named: className)
         
         if self.checkList[indexPath.row].earnGold == true {
+            counter += 1
             cell.accessoryType = .checkmark
-            cell.charNameLabel.textColor = UIColor.link
+            cell.charNameLabel.textColor = UIColor.systemPink
+            print(counter)
         }
         
         return cell
@@ -52,17 +55,26 @@ class ExpeditionTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if let cell = tableView.cellForRow(at: indexPath as IndexPath) as? ExpeditionTableViewCell {
-            
             if cell.accessoryType == .checkmark {
                 cell.accessoryType = .none
                 // 체크 해제
+                counter -= 1
                 cell.charNameLabel.textColor = UIColor.label
                 self.checkList[indexPath.row].earnGold = false
             } else {
-                cell.accessoryType = .checkmark
                 // 체크
-                cell.charNameLabel.textColor = UIColor.link
-                self.checkList[indexPath.row].earnGold = true
+                if counter == 6 {
+                    let alert = UIAlertController(title: "더 이상 추가할 수 없습니다", message: "골드 획득은 최대 6 캐릭터만 가능합니다", preferredStyle: UIAlertController.Style.alert)
+                    let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                    }
+                    alert.addAction(okAction)
+                    self.present(alert, animated: false, completion: nil)
+                } else {
+                    counter += 1
+                    cell.accessoryType = .checkmark
+                    cell.charNameLabel.textColor = UIColor.systemPink
+                    self.checkList[indexPath.row].earnGold = true
+                }
             }
             let encoder = JSONEncoder()
             if let encoded = try? encoder.encode(self.checkList) {
