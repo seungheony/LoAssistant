@@ -11,6 +11,7 @@ class Abrelshud_34TableViewCell: UITableViewCell {
     
     var level: Float = 0.0
     var charIndex: Int = Int()
+    var delegate: GateButtonTappedDelegate?
     
     @IBOutlet weak var raidNameLabel: UILabel!
     
@@ -51,6 +52,7 @@ class Abrelshud_34TableViewCell: UITableViewCell {
     }
     
     @IBAction func gate3ButtonTapped(_ sender: Any) {
+        delegate?.gateButtonTapped()
     }
     @IBAction func gate4ButtonTapped(_ sender: Any) {
     }

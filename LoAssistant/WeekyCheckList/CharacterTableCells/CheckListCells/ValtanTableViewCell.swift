@@ -12,6 +12,8 @@ class ValtanTableViewCell: UITableViewCell {
     var level: Float = 0.0
     var charIndex: Int = Int()
     
+    var delegate: GateButtonTappedDelegate?
+    
     @IBOutlet weak var raidNameLabel: UILabel!
     
     @IBOutlet weak var gate1Button: UIButton!
@@ -33,6 +35,7 @@ class ValtanTableViewCell: UITableViewCell {
     }
     
     @IBAction func gate1ButtonTapped(_ sender: Any) {
+        delegate?.gateButtonTapped()
     }
     @IBAction func gate2ButtonTapped(_ sender: Any) {
     }

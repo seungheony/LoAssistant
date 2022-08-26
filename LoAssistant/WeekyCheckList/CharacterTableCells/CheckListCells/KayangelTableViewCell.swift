@@ -11,8 +11,11 @@ class KayangelTableViewCell: UITableViewCell {
     
     var level: Float = 0.0
     var charIndex: Int = Int()
+    var delegate: GateButtonTappedDelegate?
     
     @IBOutlet weak var raidNameLabel: UILabel!
+    @IBOutlet weak var gate1Button: UIButton!
+    @IBOutlet weak var gate2Button: UIButton!
     
 //    @IBAction func checkGate(_ sender: UISegmentedControl) {
 //        
@@ -50,6 +53,13 @@ class KayangelTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    @IBAction func gate1ButtonTapped(_ sender: Any) {
+        delegate?.gateButtonTapped()
+    }
+    @IBAction func gate2ButtonTapped(_ sender: Any) {
+    }
+    
     @objc private func didChangeValue(segment: UISegmentedControl) {
         DispatchQueue.global().sync {
             var checkList: [CheckList] = [CheckList]()

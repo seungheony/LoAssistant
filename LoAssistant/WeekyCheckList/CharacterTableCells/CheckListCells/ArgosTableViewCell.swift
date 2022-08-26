@@ -10,9 +10,12 @@ import UIKit
 class ArgosTableViewCell: UITableViewCell {
     
     var charIndex: Int = Int()
+    var delegate: GateButtonTappedDelegate?
     
     @IBOutlet weak var raidNameLabel: UILabel!
-    @IBOutlet weak var gateSegment: UISegmentedControl!
+    @IBOutlet weak var gate1Button: UIButton!
+    @IBOutlet weak var gate2Button: UIButton!
+    @IBOutlet weak var gate3Button: UIButton!
     
 //    @IBAction func checkGate(_ sender: UISegmentedControl) {
 //        
@@ -41,6 +44,15 @@ class ArgosTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    @IBAction func gate1ButtonTapped(_ sender: Any) {
+        delegate?.gateButtonTapped()
+    }
+    @IBAction func gate2ButtonTapped(_ sender: Any) {
+    }
+    @IBAction func gate3ButtonTapped(_ sender: Any) {
+    }
+    
     @objc private func didChangeValue(segment: UISegmentedControl) {
         DispatchQueue.global().sync {
             var checkList: [CheckList] = [CheckList]()

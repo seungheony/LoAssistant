@@ -1426,6 +1426,9 @@
                                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
                                                             </state>
                                                             <state key="selected" image="checkmark.circle.fill" catalog="system"/>
+                                                            <connections>
+                                                                <action selector="gate1ButtonTapped:" destination="n40-Nd-Yr9" eventType="touchUpInside" id="nPV-2Q-18g"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                 </stackView>
@@ -1445,6 +1448,9 @@
                                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
                                                             </state>
                                                             <state key="selected" image="checkmark.circle.fill" catalog="system"/>
+                                                            <connections>
+                                                                <action selector="gate2ButtonTapped:" destination="n40-Nd-Yr9" eventType="touchUpInside" id="dOg-dT-SN6"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                 </stackView>
@@ -1464,6 +1470,9 @@
                                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
                                                             </state>
                                                             <state key="selected" image="checkmark.circle.fill" catalog="system"/>
+                                                            <connections>
+                                                                <action selector="gate3ButtonTapped:" destination="n40-Nd-Yr9" eventType="touchUpInside" id="3D6-u4-gOw"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                 </stackView>
@@ -1480,6 +1489,9 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="gate1Button" destination="p3O-fi-c7f" id="KuE-qW-XPV"/>
+                                    <outlet property="gate2Button" destination="KC6-zY-dAA" id="q5h-8F-B8t"/>
+                                    <outlet property="gate3Button" destination="55Y-RW-u9Y" id="Kp4-Bd-hhG"/>
                                     <outlet property="raidNameLabel" destination="R4e-gT-FFQ" id="EZn-gS-L1k"/>
                                 </connections>
                             </tableViewCell>
@@ -1518,6 +1530,9 @@
                                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
                                                             </state>
                                                             <state key="selected" image="checkmark.circle.fill" catalog="system"/>
+                                                            <connections>
+                                                                <action selector="gate1ButtonTapped:" destination="Siv-JS-ITY" eventType="touchUpInside" id="3Mi-pn-4aI"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                 </stackView>
@@ -1537,6 +1552,9 @@
                                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
                                                             </state>
                                                             <state key="selected" image="checkmark.circle.fill" catalog="system"/>
+                                                            <connections>
+                                                                <action selector="gate2ButtonTapped:" destination="Siv-JS-ITY" eventType="touchUpInside" id="V86-YR-ly6"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                 </stackView>
@@ -1553,6 +1571,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="gate1Button" destination="U8L-XF-0cN" id="BsD-Xn-ZZc"/>
+                                    <outlet property="gate2Button" destination="Q4W-GN-kCB" id="V5J-gt-Ixk"/>
                                     <outlet property="raidNameLabel" destination="Cdg-OK-lLF" id="hT6-9J-irk"/>
                                 </connections>
                             </tableViewCell>

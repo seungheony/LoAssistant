@@ -11,6 +11,7 @@ class IlliakanTableViewCell: UITableViewCell {
 
     var level: Float = 0.0
     var charIndex: Int = Int()
+    var delegate: GateButtonTappedDelegate?
     
     @IBOutlet weak var raidNameLabel: UILabel!
     
@@ -51,6 +52,7 @@ class IlliakanTableViewCell: UITableViewCell {
     }
     
     @IBAction func gate1ButtonTapped(_ sender: Any) {
+        delegate?.gateButtonTapped()
     }
     @IBAction func gate2ButtonTapped(_ sender: Any) {
     }
