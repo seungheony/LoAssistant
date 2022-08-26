@@ -1365,13 +1365,13 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lv.1551.51" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g2q-E8-Sq6">
-                                            <rect key="frame" x="294" y="15" width="72.5" height="20"/>
+                                            <rect key="frame" x="293.5" y="15.5" width="72.5" height="19.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="캐릭터이름은최대열두글자" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V6m-0y-rts">
-                                            <rect key="frame" x="55" y="11" width="229" height="28"/>
+                                            <rect key="frame" x="55" y="11" width="228.5" height="28"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -1395,393 +1395,779 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ArgosCell" id="n40-Nd-Yr9" customClass="ArgosTableViewCell" customModule="LoAssistant" customModuleProvider="target">
-                                <rect key="frame" x="20" y="99.5" width="374" height="41.5"/>
+                                <rect key="frame" x="20" y="99.5" width="374" height="51"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="n40-Nd-Yr9" id="ZOr-Qa-mMT">
-                                    <rect key="frame" x="0.0" y="0.0" width="374" height="41.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="51"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아르고스" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R4e-gT-FFQ">
-                                            <rect key="frame" x="20" y="11" width="59" height="19.5"/>
+                                            <rect key="frame" x="20" y="11" width="59" height="29"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="PEN-bz-lWf">
-                                            <rect key="frame" x="230" y="5" width="124" height="32.5"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="124" id="lxx-5U-E7E"/>
-                                                <constraint firstAttribute="height" constant="31" id="pe9-rA-mvE"/>
-                                            </constraints>
-                                            <segments>
-                                                <segment title="-"/>
-                                                <segment title="1"/>
-                                                <segment title="2"/>
-                                                <segment title="3"/>
-                                            </segments>
-                                            <connections>
-                                                <action selector="checkGate:" destination="n40-Nd-Yr9" eventType="valueChanged" id="siM-Fw-OSJ"/>
-                                            </connections>
-                                        </segmentedControl>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Or9-Nu-nKj">
+                                            <rect key="frame" x="247.5" y="5" width="106.5" height="41"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Jqf-F0-wcI">
+                                                    <rect key="frame" x="0.0" y="0.0" width="28" height="41"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 관문" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aun-Wj-lnR">
+                                                            <rect key="frame" x="0.0" y="0.0" width="28" height="13.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p3O-fi-c7f">
+                                                            <rect key="frame" x="0.0" y="13.5" width="28" height="27.5"/>
+                                                            <color key="tintColor" systemColor="systemPinkColor"/>
+                                                            <state key="normal" image="circle" catalog="system">
+                                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
+                                                            </state>
+                                                            <state key="selected" image="checkmark.circle.fill" catalog="system"/>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="auq-Eb-GIO">
+                                                    <rect key="frame" x="38" y="0.0" width="29" height="41"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 관문" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tBU-wT-7RE">
+                                                            <rect key="frame" x="0.0" y="0.0" width="29" height="13.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KC6-zY-dAA">
+                                                            <rect key="frame" x="0.0" y="13.5" width="29" height="27.5"/>
+                                                            <color key="tintColor" systemColor="systemPinkColor"/>
+                                                            <state key="normal" image="circle" catalog="system">
+                                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
+                                                            </state>
+                                                            <state key="selected" image="checkmark.circle.fill" catalog="system"/>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gJA-5m-Tfe">
+                                                    <rect key="frame" x="77" y="0.0" width="29.5" height="41"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 관문" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SK1-cu-QzE">
+                                                            <rect key="frame" x="0.0" y="0.0" width="29.5" height="13.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="55Y-RW-u9Y">
+                                                            <rect key="frame" x="0.0" y="13.5" width="29.5" height="27.5"/>
+                                                            <color key="tintColor" systemColor="systemPinkColor"/>
+                                                            <state key="normal" image="circle" catalog="system">
+                                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
+                                                            </state>
+                                                            <state key="selected" image="checkmark.circle.fill" catalog="system"/>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="PEN-bz-lWf" secondAttribute="trailing" constant="20" id="CBO-Nb-UvC"/>
+                                        <constraint firstAttribute="trailing" secondItem="Or9-Nu-nKj" secondAttribute="trailing" constant="20" id="6k2-5Y-jvB"/>
                                         <constraint firstItem="R4e-gT-FFQ" firstAttribute="leading" secondItem="ZOr-Qa-mMT" secondAttribute="leadingMargin" id="EDz-5H-4VN"/>
-                                        <constraint firstItem="PEN-bz-lWf" firstAttribute="top" secondItem="ZOr-Qa-mMT" secondAttribute="top" constant="5" id="Hgn-5f-vmG"/>
+                                        <constraint firstAttribute="bottom" secondItem="Or9-Nu-nKj" secondAttribute="bottom" constant="5" id="V5T-YV-Dqy"/>
                                         <constraint firstItem="R4e-gT-FFQ" firstAttribute="bottom" secondItem="ZOr-Qa-mMT" secondAttribute="bottomMargin" id="dfQ-GM-DEU"/>
                                         <constraint firstItem="R4e-gT-FFQ" firstAttribute="top" secondItem="ZOr-Qa-mMT" secondAttribute="topMargin" id="g8O-J2-hHC"/>
-                                        <constraint firstAttribute="bottom" secondItem="PEN-bz-lWf" secondAttribute="bottom" constant="5" id="unl-Yd-YzH"/>
+                                        <constraint firstItem="Or9-Nu-nKj" firstAttribute="top" secondItem="ZOr-Qa-mMT" secondAttribute="top" constant="5" id="vHN-2W-FiA"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="geteSegment" destination="PEN-bz-lWf" id="9mb-Mi-KwX"/>
                                     <outlet property="raidNameLabel" destination="R4e-gT-FFQ" id="EZn-gS-L1k"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="KayangelCell" id="Siv-JS-ITY" customClass="KayangelTableViewCell" customModule="LoAssistant" customModuleProvider="target">
-                                <rect key="frame" x="20" y="141" width="374" height="41.5"/>
+                                <rect key="frame" x="20" y="150.5" width="374" height="51"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Siv-JS-ITY" id="kG2-vQ-NzZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="374" height="41.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="51"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="카양겔" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cdg-OK-lLF">
-                                            <rect key="frame" x="20" y="11" width="45" height="19.5"/>
+                                            <rect key="frame" x="20" y="11" width="44.5" height="29"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="YeE-8I-NA6">
-                                            <rect key="frame" x="209" y="5" width="145" height="32.5"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="145" id="DQu-Ug-HIQ"/>
-                                                <constraint firstAttribute="height" constant="31" id="FLM-nw-GIO"/>
-                                            </constraints>
-                                            <segments>
-                                                <segment title="-" width="31"/>
-                                                <segment title="넬라시아"/>
-                                                <segment title="빛의 요람"/>
-                                            </segments>
-                                            <connections>
-                                                <action selector="checkGate:" destination="Siv-JS-ITY" eventType="valueChanged" id="Y8g-WO-deU"/>
-                                            </connections>
-                                        </segmentedControl>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="RrJ-U1-ncH">
+                                            <rect key="frame" x="262.5" y="5" width="91.5" height="41"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="FzC-2v-YeR">
+                                                    <rect key="frame" x="0.0" y="0.0" width="40" height="41"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="넬라시아" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PA8-Zh-4ag">
+                                                            <rect key="frame" x="0.0" y="0.0" width="40" height="13.5"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="40" id="cCm-ds-xk9"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U8L-XF-0cN">
+                                                            <rect key="frame" x="0.0" y="13.5" width="40" height="27.5"/>
+                                                            <color key="tintColor" systemColor="systemPinkColor"/>
+                                                            <state key="normal" image="circle" catalog="system">
+                                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
+                                                            </state>
+                                                            <state key="selected" image="checkmark.circle.fill" catalog="system"/>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mO1-Dw-Mve">
+                                                    <rect key="frame" x="50" y="0.0" width="41.5" height="41"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="빛의 요람" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nXG-na-PJR">
+                                                            <rect key="frame" x="0.0" y="0.0" width="41.5" height="13.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q4W-GN-kCB">
+                                                            <rect key="frame" x="0.0" y="13.5" width="41.5" height="27.5"/>
+                                                            <color key="tintColor" systemColor="systemPinkColor"/>
+                                                            <state key="normal" image="circle" catalog="system">
+                                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
+                                                            </state>
+                                                            <state key="selected" image="checkmark.circle.fill" catalog="system"/>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="RrJ-U1-ncH" firstAttribute="top" secondItem="kG2-vQ-NzZ" secondAttribute="top" constant="5" id="CgI-9N-3YP"/>
                                         <constraint firstItem="Cdg-OK-lLF" firstAttribute="top" secondItem="kG2-vQ-NzZ" secondAttribute="topMargin" id="KW0-HI-ueD"/>
-                                        <constraint firstAttribute="bottom" secondItem="YeE-8I-NA6" secondAttribute="bottom" constant="5" id="b88-IA-VkW"/>
-                                        <constraint firstAttribute="trailing" secondItem="YeE-8I-NA6" secondAttribute="trailing" constant="20" id="bF7-ul-Btg"/>
+                                        <constraint firstAttribute="bottom" secondItem="RrJ-U1-ncH" secondAttribute="bottom" constant="5" id="M98-Mz-gQO"/>
+                                        <constraint firstAttribute="trailing" secondItem="RrJ-U1-ncH" secondAttribute="trailing" constant="20" id="TTJ-V0-43J"/>
                                         <constraint firstItem="Cdg-OK-lLF" firstAttribute="bottom" secondItem="kG2-vQ-NzZ" secondAttribute="bottomMargin" id="cha-Sz-vU3"/>
-                                        <constraint firstItem="YeE-8I-NA6" firstAttribute="top" secondItem="kG2-vQ-NzZ" secondAttribute="top" constant="5" id="ciT-yI-yqC"/>
                                         <constraint firstItem="Cdg-OK-lLF" firstAttribute="leading" secondItem="kG2-vQ-NzZ" secondAttribute="leadingMargin" id="ipF-Ut-8fa"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="geteSegment" destination="YeE-8I-NA6" id="wZw-wZ-xel"/>
                                     <outlet property="raidNameLabel" destination="Cdg-OK-lLF" id="hT6-9J-irk"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ValtanCell" id="BdU-H3-gHb" customClass="ValtanTableViewCell" customModule="LoAssistant" customModuleProvider="target">
-                                <rect key="frame" x="20" y="182.5" width="374" height="41.5"/>
+                                <rect key="frame" x="20" y="201.5" width="374" height="51"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BdU-H3-gHb" id="NNF-cT-bcd">
-                                    <rect key="frame" x="0.0" y="0.0" width="374" height="41.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="51"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="발탄" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="naI-kh-PPI">
-                                            <rect key="frame" x="20" y="11" width="29.5" height="19.5"/>
+                                            <rect key="frame" x="20" y="11" width="29.5" height="29"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="wvp-UD-huL">
-                                            <rect key="frame" x="261" y="5" width="93" height="32.5"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="93" id="Jue-dv-d5V"/>
-                                                <constraint firstAttribute="height" constant="31" id="Q0u-ft-llj"/>
-                                            </constraints>
-                                            <segments>
-                                                <segment title="-"/>
-                                                <segment title="1"/>
-                                                <segment title="2"/>
-                                            </segments>
-                                            <connections>
-                                                <action selector="checkGate:" destination="BdU-H3-gHb" eventType="valueChanged" id="i5U-Uo-pZ0"/>
-                                            </connections>
-                                        </segmentedControl>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ccP-t5-3ua">
+                                            <rect key="frame" x="287" y="5" width="67" height="41"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="W6a-S7-QSL">
+                                                    <rect key="frame" x="0.0" y="0.0" width="28" height="41"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 관문" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vv6-nH-444">
+                                                            <rect key="frame" x="0.0" y="0.0" width="28" height="13.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="npU-UL-6sd">
+                                                            <rect key="frame" x="0.0" y="13.5" width="28" height="27.5"/>
+                                                            <color key="tintColor" systemColor="systemPinkColor"/>
+                                                            <state key="normal" image="circle" catalog="system">
+                                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
+                                                            </state>
+                                                            <state key="selected" image="checkmark.circle.fill" catalog="system"/>
+                                                            <connections>
+                                                                <action selector="gate1ButtonTapped:" destination="BdU-H3-gHb" eventType="touchUpInside" id="Wel-5D-bpd"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="WtK-fv-dVW">
+                                                    <rect key="frame" x="38" y="0.0" width="29" height="41"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 관문" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jZI-xp-l8L">
+                                                            <rect key="frame" x="0.0" y="0.0" width="29" height="13.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9MW-Tk-FuR">
+                                                            <rect key="frame" x="0.0" y="13.5" width="29" height="27.5"/>
+                                                            <color key="tintColor" systemColor="systemPinkColor"/>
+                                                            <state key="normal" image="circle" catalog="system">
+                                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
+                                                            </state>
+                                                            <state key="selected" image="checkmark.circle.fill" catalog="system"/>
+                                                            <connections>
+                                                                <action selector="gate2ButtonTapped:" destination="BdU-H3-gHb" eventType="touchUpInside" id="Nc0-Ga-6f8"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="wvp-UD-huL" secondAttribute="bottom" constant="5" id="BpX-y1-mhH"/>
+                                        <constraint firstAttribute="trailing" secondItem="ccP-t5-3ua" secondAttribute="trailing" constant="20" id="7CR-a9-geD"/>
+                                        <constraint firstAttribute="bottom" secondItem="ccP-t5-3ua" secondAttribute="bottom" constant="5" id="Ez0-Ml-BI9"/>
                                         <constraint firstItem="naI-kh-PPI" firstAttribute="bottom" secondItem="NNF-cT-bcd" secondAttribute="bottomMargin" id="IuL-Si-QaZ"/>
                                         <constraint firstItem="naI-kh-PPI" firstAttribute="leading" secondItem="NNF-cT-bcd" secondAttribute="leadingMargin" id="TNq-xa-78N"/>
-                                        <constraint firstItem="wvp-UD-huL" firstAttribute="top" secondItem="NNF-cT-bcd" secondAttribute="top" constant="5" id="aun-ik-gjR"/>
-                                        <constraint firstAttribute="trailing" secondItem="wvp-UD-huL" secondAttribute="trailing" constant="20" id="khN-Sm-wVv"/>
+                                        <constraint firstItem="ccP-t5-3ua" firstAttribute="top" secondItem="NNF-cT-bcd" secondAttribute="top" constant="5" id="lke-Hy-ssS"/>
                                         <constraint firstItem="naI-kh-PPI" firstAttribute="top" secondItem="NNF-cT-bcd" secondAttribute="topMargin" id="mfG-KI-uqj"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="geteSegment" destination="wvp-UD-huL" id="ehk-zK-fHv"/>
+                                    <outlet property="gate1Button" destination="npU-UL-6sd" id="g9b-aG-DiC"/>
+                                    <outlet property="gate2Button" destination="9MW-Tk-FuR" id="dc1-2c-0Ay"/>
                                     <outlet property="raidNameLabel" destination="naI-kh-PPI" id="VdP-RA-QTa"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BiackissCell" id="viy-Bx-2jU" customClass="BiackissTableViewCell" customModule="LoAssistant" customModuleProvider="target">
-                                <rect key="frame" x="20" y="224" width="374" height="41.5"/>
+                                <rect key="frame" x="20" y="252.5" width="374" height="51"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="viy-Bx-2jU" id="As3-JQ-Y25">
-                                    <rect key="frame" x="0.0" y="0.0" width="374" height="41.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="51"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비아키스" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8nu-DY-b4K">
-                                            <rect key="frame" x="20" y="11" width="59" height="19.5"/>
+                                            <rect key="frame" x="20" y="11" width="59" height="29"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5Jd-98-jXb">
-                                            <rect key="frame" x="230" y="5" width="124" height="32.5"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="31" id="Ekg-h3-rym"/>
-                                                <constraint firstAttribute="width" constant="124" id="eQm-Qz-IR6"/>
-                                            </constraints>
-                                            <segments>
-                                                <segment title="-"/>
-                                                <segment title="1"/>
-                                                <segment title="2"/>
-                                                <segment title="3"/>
-                                            </segments>
-                                            <connections>
-                                                <action selector="checkGate:" destination="viy-Bx-2jU" eventType="valueChanged" id="qJV-cL-OmP"/>
-                                            </connections>
-                                        </segmentedControl>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="wAD-dA-oFZ">
+                                            <rect key="frame" x="247.5" y="5" width="106.5" height="41"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="EaF-mG-NN6">
+                                                    <rect key="frame" x="0.0" y="0.0" width="28" height="41"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 관문" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O9e-aA-vlB">
+                                                            <rect key="frame" x="0.0" y="0.0" width="28" height="13.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S7n-TN-f3a">
+                                                            <rect key="frame" x="0.0" y="13.5" width="28" height="27.5"/>
+                                                            <color key="tintColor" systemColor="systemPinkColor"/>
+                                                            <state key="normal" image="circle" catalog="system">
+                                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
+                                                            </state>
+                                                            <state key="selected" image="checkmark.circle.fill" catalog="system"/>
+                                                            <connections>
+                                                                <action selector="gate1ButtonTapped:" destination="viy-Bx-2jU" eventType="touchUpInside" id="xWi-QV-sqx"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1Cl-dO-Tby">
+                                                    <rect key="frame" x="38" y="0.0" width="29" height="41"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 관문" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4og-vF-pWW">
+                                                            <rect key="frame" x="0.0" y="0.0" width="29" height="13.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3kO-xK-3rB">
+                                                            <rect key="frame" x="0.0" y="13.5" width="29" height="27.5"/>
+                                                            <color key="tintColor" systemColor="systemPinkColor"/>
+                                                            <state key="normal" image="circle" catalog="system">
+                                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
+                                                            </state>
+                                                            <state key="selected" image="checkmark.circle.fill" catalog="system"/>
+                                                            <connections>
+                                                                <action selector="gate2ButtonTapped:" destination="viy-Bx-2jU" eventType="touchUpInside" id="qTD-hq-CR5"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="kCk-gu-xeI">
+                                                    <rect key="frame" x="77" y="0.0" width="29.5" height="41"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 관문" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qVC-v3-6Ue">
+                                                            <rect key="frame" x="0.0" y="0.0" width="29.5" height="13.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ckJ-3U-Ahi">
+                                                            <rect key="frame" x="0.0" y="13.5" width="29.5" height="27.5"/>
+                                                            <color key="tintColor" systemColor="systemPinkColor"/>
+                                                            <state key="normal" image="circle" catalog="system">
+                                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
+                                                            </state>
+                                                            <state key="selected" image="checkmark.circle.fill" catalog="system"/>
+                                                            <connections>
+                                                                <action selector="gate3ButtonTapped:" destination="viy-Bx-2jU" eventType="touchUpInside" id="m2l-6n-9S7"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="wAD-dA-oFZ" secondAttribute="bottom" constant="5" id="2nb-K9-SNx"/>
                                         <constraint firstItem="8nu-DY-b4K" firstAttribute="bottom" secondItem="As3-JQ-Y25" secondAttribute="bottomMargin" id="U0n-0C-CVZ"/>
                                         <constraint firstItem="8nu-DY-b4K" firstAttribute="top" secondItem="As3-JQ-Y25" secondAttribute="topMargin" id="X7D-V8-mdU"/>
-                                        <constraint firstItem="5Jd-98-jXb" firstAttribute="top" secondItem="As3-JQ-Y25" secondAttribute="top" constant="5" id="YrA-KT-1Sd"/>
-                                        <constraint firstAttribute="trailing" secondItem="5Jd-98-jXb" secondAttribute="trailing" constant="20" id="fkE-QJ-y33"/>
-                                        <constraint firstAttribute="bottom" secondItem="5Jd-98-jXb" secondAttribute="bottom" constant="5" id="jSl-zN-4M6"/>
+                                        <constraint firstItem="wAD-dA-oFZ" firstAttribute="top" secondItem="As3-JQ-Y25" secondAttribute="top" constant="5" id="xfl-sf-kiF"/>
+                                        <constraint firstAttribute="trailing" secondItem="wAD-dA-oFZ" secondAttribute="trailing" constant="20" id="yvO-Rn-Pgz"/>
                                         <constraint firstItem="8nu-DY-b4K" firstAttribute="leading" secondItem="As3-JQ-Y25" secondAttribute="leadingMargin" id="zG2-OX-7BH"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="geteSegment" destination="5Jd-98-jXb" id="4Vr-ca-uCV"/>
+                                    <outlet property="gate1Button" destination="S7n-TN-f3a" id="SIN-1F-wdz"/>
+                                    <outlet property="gate2Button" destination="3kO-xK-3rB" id="3ZJ-Ut-cen"/>
+                                    <outlet property="gate3Button" destination="ckJ-3U-Ahi" id="tb8-fj-8eo"/>
                                     <outlet property="raidNameLabel" destination="8nu-DY-b4K" id="Roi-8o-hOU"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Kouku_SatonCell" id="mKf-rm-G2S" customClass="Kouku_SatonTableViewCell" customModule="LoAssistant" customModuleProvider="target">
-                                <rect key="frame" x="20" y="265.5" width="374" height="41.5"/>
+                                <rect key="frame" x="20" y="303.5" width="374" height="51"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mKf-rm-G2S" id="fVe-aF-iZ2">
-                                    <rect key="frame" x="0.0" y="0.0" width="374" height="41.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="51"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="쿠크세이튼" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rQ0-xY-GHm">
-                                            <rect key="frame" x="20" y="11" width="74" height="19.5"/>
+                                            <rect key="frame" x="20" y="11" width="74" height="29"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Iih-Lv-GT9">
-                                            <rect key="frame" x="230" y="5" width="124" height="32.5"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="31" id="O2Q-SP-PK3"/>
-                                                <constraint firstAttribute="width" constant="124" id="kGa-BI-tId"/>
-                                            </constraints>
-                                            <segments>
-                                                <segment title="-"/>
-                                                <segment title="1"/>
-                                                <segment title="2"/>
-                                                <segment title="3"/>
-                                            </segments>
-                                            <connections>
-                                                <action selector="checkGate:" destination="mKf-rm-G2S" eventType="valueChanged" id="Wdh-ZR-S8q"/>
-                                            </connections>
-                                        </segmentedControl>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="r3I-5h-Jnn">
+                                            <rect key="frame" x="247.5" y="5" width="106.5" height="41"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="kgG-qb-EKP">
+                                                    <rect key="frame" x="0.0" y="0.0" width="28" height="41"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 관문" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kOw-CI-cVa">
+                                                            <rect key="frame" x="0.0" y="0.0" width="28" height="13.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="894-HH-5dL">
+                                                            <rect key="frame" x="0.0" y="13.5" width="28" height="27.5"/>
+                                                            <color key="tintColor" systemColor="systemPinkColor"/>
+                                                            <state key="normal" image="circle" catalog="system">
+                                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
+                                                            </state>
+                                                            <state key="selected" image="checkmark.circle.fill" catalog="system"/>
+                                                            <connections>
+                                                                <action selector="gate1ButtonTapped:" destination="mKf-rm-G2S" eventType="touchUpInside" id="1Og-l7-3cG"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="MCp-1A-SBb">
+                                                    <rect key="frame" x="38" y="0.0" width="29" height="41"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 관문" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="973-yZ-VDS">
+                                                            <rect key="frame" x="0.0" y="0.0" width="29" height="13.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qpr-Iq-G8M">
+                                                            <rect key="frame" x="0.0" y="13.5" width="29" height="27.5"/>
+                                                            <color key="tintColor" systemColor="systemPinkColor"/>
+                                                            <state key="normal" image="circle" catalog="system">
+                                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
+                                                            </state>
+                                                            <state key="selected" image="checkmark.circle.fill" catalog="system"/>
+                                                            <connections>
+                                                                <action selector="gate2ButtonTapped:" destination="mKf-rm-G2S" eventType="touchUpInside" id="TYh-ft-dJR"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ysj-Rp-PkX">
+                                                    <rect key="frame" x="77" y="0.0" width="29.5" height="41"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 관문" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4PA-Q5-VMf">
+                                                            <rect key="frame" x="0.0" y="0.0" width="29.5" height="13.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PFB-Ef-SXZ">
+                                                            <rect key="frame" x="0.0" y="13.5" width="29.5" height="27.5"/>
+                                                            <color key="tintColor" systemColor="systemPinkColor"/>
+                                                            <state key="normal" image="circle" catalog="system">
+                                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
+                                                            </state>
+                                                            <state key="selected" image="checkmark.circle.fill" catalog="system"/>
+                                                            <connections>
+                                                                <action selector="gate3ButtonTapped:" destination="mKf-rm-G2S" eventType="touchUpInside" id="j1I-lQ-n36"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="rQ0-xY-GHm" firstAttribute="bottom" secondItem="fVe-aF-iZ2" secondAttribute="bottomMargin" id="0Mc-cZ-KfW"/>
-                                        <constraint firstItem="Iih-Lv-GT9" firstAttribute="top" secondItem="fVe-aF-iZ2" secondAttribute="top" constant="5" id="CUx-5t-a1D"/>
+                                        <constraint firstAttribute="trailing" secondItem="r3I-5h-Jnn" secondAttribute="trailing" constant="20" id="3vP-nd-TLr"/>
                                         <constraint firstItem="rQ0-xY-GHm" firstAttribute="top" secondItem="fVe-aF-iZ2" secondAttribute="topMargin" id="FEG-Lm-X4k"/>
-                                        <constraint firstAttribute="bottom" secondItem="Iih-Lv-GT9" secondAttribute="bottom" constant="5" id="Jpn-Kp-B92"/>
                                         <constraint firstItem="rQ0-xY-GHm" firstAttribute="leading" secondItem="fVe-aF-iZ2" secondAttribute="leadingMargin" id="Vqr-fh-C5U"/>
-                                        <constraint firstAttribute="trailing" secondItem="Iih-Lv-GT9" secondAttribute="trailing" constant="20" id="sst-eY-zGH"/>
+                                        <constraint firstItem="r3I-5h-Jnn" firstAttribute="top" secondItem="fVe-aF-iZ2" secondAttribute="top" constant="5" id="xjd-zN-thV"/>
+                                        <constraint firstAttribute="bottom" secondItem="r3I-5h-Jnn" secondAttribute="bottom" constant="5" id="zj8-EG-jaD"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="geteSegment" destination="Iih-Lv-GT9" id="i0q-2D-KOa"/>
+                                    <outlet property="gate1Button" destination="894-HH-5dL" id="jaj-He-dV8"/>
+                                    <outlet property="gate2Button" destination="Qpr-Iq-G8M" id="udq-0k-act"/>
+                                    <outlet property="gate3Button" destination="PFB-Ef-SXZ" id="Wjj-iZ-9uy"/>
                                     <outlet property="raidNameLabel" destination="rQ0-xY-GHm" id="Jhf-8j-Jsh"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Abrelshud_12Cell" id="30D-J9-mI4" customClass="Abrelshud_12TableViewCell" customModule="LoAssistant" customModuleProvider="target">
-                                <rect key="frame" x="20" y="307" width="374" height="41.5"/>
+                                <rect key="frame" x="20" y="354.5" width="374" height="51"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="30D-J9-mI4" id="uPW-Hm-W5e">
-                                    <rect key="frame" x="0.0" y="0.0" width="374" height="41.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="51"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아브렐슈드 1-2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H2w-Wd-kVo">
-                                            <rect key="frame" x="20" y="11" width="103" height="19.5"/>
+                                            <rect key="frame" x="20" y="11" width="103" height="29"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="IZs-ht-K5I">
-                                            <rect key="frame" x="261" y="5" width="93" height="32.5"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="93" id="WHP-T6-V6G"/>
-                                                <constraint firstAttribute="height" constant="31" id="iwd-Kj-h7m"/>
-                                            </constraints>
-                                            <segments>
-                                                <segment title="-"/>
-                                                <segment title="1"/>
-                                                <segment title="2"/>
-                                            </segments>
-                                            <connections>
-                                                <action selector="checkGate:" destination="30D-J9-mI4" eventType="valueChanged" id="luF-oa-TcV"/>
-                                            </connections>
-                                        </segmentedControl>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="WMD-tE-sEe">
+                                            <rect key="frame" x="287" y="5" width="67" height="41"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="eSB-xk-hTa">
+                                                    <rect key="frame" x="0.0" y="0.0" width="28" height="41"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 관문" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAw-dv-vdU">
+                                                            <rect key="frame" x="0.0" y="0.0" width="28" height="13.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FB5-Lk-oip">
+                                                            <rect key="frame" x="0.0" y="13.5" width="28" height="27.5"/>
+                                                            <color key="tintColor" systemColor="systemPinkColor"/>
+                                                            <state key="normal" image="circle" catalog="system">
+                                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
+                                                            </state>
+                                                            <state key="selected" image="checkmark.circle.fill" catalog="system"/>
+                                                            <connections>
+                                                                <action selector="gate1ButtonTapped:" destination="30D-J9-mI4" eventType="touchUpInside" id="fqb-zJ-ABo"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="RwM-KG-gQ0">
+                                                    <rect key="frame" x="38" y="0.0" width="29" height="41"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 관문" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pvK-PK-exQ">
+                                                            <rect key="frame" x="0.0" y="0.0" width="29" height="13.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DaK-9n-Rb9">
+                                                            <rect key="frame" x="0.0" y="13.5" width="29" height="27.5"/>
+                                                            <color key="tintColor" systemColor="systemPinkColor"/>
+                                                            <state key="normal" image="circle" catalog="system">
+                                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
+                                                            </state>
+                                                            <state key="selected" image="checkmark.circle.fill" catalog="system"/>
+                                                            <connections>
+                                                                <action selector="gate2ButtonTapped:" destination="30D-J9-mI4" eventType="touchUpInside" id="Jbf-1z-Jpz"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="IZs-ht-K5I" secondAttribute="trailing" constant="20" id="6rR-95-Dho"/>
+                                        <constraint firstAttribute="bottom" secondItem="WMD-tE-sEe" secondAttribute="bottom" constant="5" id="1V9-Je-IWi"/>
                                         <constraint firstItem="H2w-Wd-kVo" firstAttribute="leading" secondItem="uPW-Hm-W5e" secondAttribute="leadingMargin" id="FTd-yO-KQv"/>
+                                        <constraint firstAttribute="trailing" secondItem="WMD-tE-sEe" secondAttribute="trailing" constant="20" id="Nr5-hM-3CA"/>
                                         <constraint firstItem="H2w-Wd-kVo" firstAttribute="top" secondItem="uPW-Hm-W5e" secondAttribute="topMargin" id="aEE-ih-Mdg"/>
                                         <constraint firstItem="H2w-Wd-kVo" firstAttribute="bottom" secondItem="uPW-Hm-W5e" secondAttribute="bottomMargin" id="fp8-6c-yUq"/>
-                                        <constraint firstAttribute="bottom" secondItem="IZs-ht-K5I" secondAttribute="bottom" constant="5" id="xfy-St-S2O"/>
-                                        <constraint firstItem="IZs-ht-K5I" firstAttribute="top" secondItem="uPW-Hm-W5e" secondAttribute="top" constant="5" id="yDD-St-UO8"/>
+                                        <constraint firstItem="WMD-tE-sEe" firstAttribute="top" secondItem="uPW-Hm-W5e" secondAttribute="top" constant="5" id="gNm-3s-dhY"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="geteSegment" destination="IZs-ht-K5I" id="Wtd-EV-3PQ"/>
+                                    <outlet property="gate1Button" destination="FB5-Lk-oip" id="hj7-s5-ghp"/>
+                                    <outlet property="gate2Button" destination="DaK-9n-Rb9" id="F3R-f2-eMu"/>
                                     <outlet property="raidNameLabel" destination="H2w-Wd-kVo" id="4Hb-jT-Jtf"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Abrelshud_34Cell" id="w1t-Ea-je1" customClass="Abrelshud_34TableViewCell" customModule="LoAssistant" customModuleProvider="target">
-                                <rect key="frame" x="20" y="348.5" width="374" height="41.5"/>
+                                <rect key="frame" x="20" y="405.5" width="374" height="51"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="w1t-Ea-je1" id="Dnf-dq-o3A">
-                                    <rect key="frame" x="0.0" y="0.0" width="374" height="41.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="51"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아브렐슈드 3-4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kkj-6C-NRv">
-                                            <rect key="frame" x="20" y="11" width="107" height="19.5"/>
+                                            <rect key="frame" x="20" y="11" width="106.5" height="29"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="iiA-A6-sZo">
-                                            <rect key="frame" x="261" y="5" width="93" height="32.5"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="93" id="oqk-1l-Hk2"/>
-                                                <constraint firstAttribute="height" constant="31" id="yFD-6e-tNz"/>
-                                            </constraints>
-                                            <segments>
-                                                <segment title="-"/>
-                                                <segment title="3"/>
-                                                <segment title="4"/>
-                                            </segments>
-                                            <connections>
-                                                <action selector="checkGate:" destination="w1t-Ea-je1" eventType="valueChanged" id="M5r-ab-7Og"/>
-                                            </connections>
-                                        </segmentedControl>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3zx-9T-xbV">
+                                            <rect key="frame" x="285" y="5" width="69" height="41"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xtC-Tr-jWv">
+                                                    <rect key="frame" x="0.0" y="0.0" width="29.5" height="41"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 관문" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZU-CW-0gr">
+                                                            <rect key="frame" x="0.0" y="0.0" width="29.5" height="13.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LHW-Pn-6JS">
+                                                            <rect key="frame" x="0.0" y="13.5" width="29.5" height="27.5"/>
+                                                            <color key="tintColor" systemColor="systemPinkColor"/>
+                                                            <state key="normal" image="circle" catalog="system">
+                                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
+                                                            </state>
+                                                            <state key="selected" image="checkmark.circle.fill" catalog="system"/>
+                                                            <connections>
+                                                                <action selector="gate3ButtonTapped:" destination="w1t-Ea-je1" eventType="touchUpInside" id="SK5-mN-9iR"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="N1f-0K-8Xm">
+                                                    <rect key="frame" x="39.5" y="0.0" width="29.5" height="41"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4 관문" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQN-0A-XzD">
+                                                            <rect key="frame" x="0.0" y="0.0" width="29.5" height="13.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="beO-dm-4B2">
+                                                            <rect key="frame" x="0.0" y="13.5" width="29.5" height="27.5"/>
+                                                            <color key="tintColor" systemColor="systemPinkColor"/>
+                                                            <state key="normal" image="circle" catalog="system">
+                                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
+                                                            </state>
+                                                            <state key="selected" image="checkmark.circle.fill" catalog="system"/>
+                                                            <connections>
+                                                                <action selector="gate4ButtonTapped:" destination="w1t-Ea-je1" eventType="touchUpInside" id="hw8-bH-7D2"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="iiA-A6-sZo" secondAttribute="bottom" constant="5" id="1eD-Ty-K3f"/>
+                                        <constraint firstItem="3zx-9T-xbV" firstAttribute="top" secondItem="Dnf-dq-o3A" secondAttribute="top" constant="5" id="Fvm-WE-wZw"/>
+                                        <constraint firstAttribute="trailing" secondItem="3zx-9T-xbV" secondAttribute="trailing" constant="20" id="RT1-Qu-xX7"/>
                                         <constraint firstItem="kkj-6C-NRv" firstAttribute="top" secondItem="Dnf-dq-o3A" secondAttribute="topMargin" id="aeg-Sr-ICW"/>
                                         <constraint firstItem="kkj-6C-NRv" firstAttribute="leading" secondItem="Dnf-dq-o3A" secondAttribute="leadingMargin" id="fOg-ZN-vdP"/>
-                                        <constraint firstAttribute="trailing" secondItem="iiA-A6-sZo" secondAttribute="trailing" constant="20" id="p8z-5T-qPP"/>
+                                        <constraint firstAttribute="bottom" secondItem="3zx-9T-xbV" secondAttribute="bottom" constant="5" id="lOP-kT-JbV"/>
                                         <constraint firstItem="kkj-6C-NRv" firstAttribute="bottom" secondItem="Dnf-dq-o3A" secondAttribute="bottomMargin" id="r6m-bf-Iyb"/>
-                                        <constraint firstItem="iiA-A6-sZo" firstAttribute="top" secondItem="Dnf-dq-o3A" secondAttribute="top" constant="5" id="rxO-g4-Xxk"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="geteSegment" destination="iiA-A6-sZo" id="03c-Tf-TFG"/>
+                                    <outlet property="gate1Button" destination="LHW-Pn-6JS" id="6WH-E7-wPI"/>
+                                    <outlet property="gate2Button" destination="beO-dm-4B2" id="pi3-lm-PjV"/>
                                     <outlet property="raidNameLabel" destination="kkj-6C-NRv" id="CZI-6z-Tn8"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Abrelshud_56Cell" id="ytE-xy-Nxj" customClass="Abrelshud_56TableViewCell" customModule="LoAssistant" customModuleProvider="target">
-                                <rect key="frame" x="20" y="390" width="374" height="41.5"/>
+                                <rect key="frame" x="20" y="456.5" width="374" height="51"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ytE-xy-Nxj" id="HAP-5x-6Yb">
-                                    <rect key="frame" x="0.0" y="0.0" width="374" height="41.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="51"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아브렐슈드 5-6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Va8-P8-ZgU">
-                                            <rect key="frame" x="20" y="11" width="106" height="19.5"/>
+                                            <rect key="frame" x="20" y="11" width="106" height="29"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ebc-6r-jYw">
-                                            <rect key="frame" x="261" y="5" width="93" height="32.5"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="31" id="7qs-QP-wFx"/>
-                                                <constraint firstAttribute="width" constant="93" id="KNg-y6-E32"/>
-                                            </constraints>
-                                            <segments>
-                                                <segment title="-"/>
-                                                <segment title="5"/>
-                                                <segment title="6"/>
-                                            </segments>
-                                            <connections>
-                                                <action selector="checkGate:" destination="ytE-xy-Nxj" eventType="valueChanged" id="oZv-uv-F9n"/>
-                                            </connections>
-                                        </segmentedControl>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="z22-8N-Qwu">
+                                            <rect key="frame" x="285" y="5" width="69" height="41"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Aws-0X-0K1">
+                                                    <rect key="frame" x="0.0" y="0.0" width="29.5" height="41"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 관문" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KTY-r7-IUf">
+                                                            <rect key="frame" x="0.0" y="0.0" width="29.5" height="13.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yHd-WZ-Tis">
+                                                            <rect key="frame" x="0.0" y="13.5" width="29.5" height="27.5"/>
+                                                            <color key="tintColor" systemColor="systemPinkColor"/>
+                                                            <state key="normal" image="circle" catalog="system">
+                                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
+                                                            </state>
+                                                            <state key="selected" image="checkmark.circle.fill" catalog="system"/>
+                                                            <connections>
+                                                                <action selector="gate5ButtonTapped:" destination="ytE-xy-Nxj" eventType="touchUpInside" id="nYu-GH-gVh"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Vgb-cX-OdH">
+                                                    <rect key="frame" x="39.5" y="0.0" width="29.5" height="41"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6 관문" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="81l-sr-vEe">
+                                                            <rect key="frame" x="0.0" y="0.0" width="29.5" height="13.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VLc-qL-iiG">
+                                                            <rect key="frame" x="0.0" y="13.5" width="29.5" height="27.5"/>
+                                                            <color key="tintColor" systemColor="systemPinkColor"/>
+                                                            <state key="normal" image="circle" catalog="system">
+                                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
+                                                            </state>
+                                                            <state key="selected" image="checkmark.circle.fill" catalog="system"/>
+                                                            <connections>
+                                                                <action selector="gate6ButtonTapped:" destination="ytE-xy-Nxj" eventType="touchUpInside" id="AOw-p8-ltG"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="Va8-P8-ZgU" firstAttribute="bottom" secondItem="HAP-5x-6Yb" secondAttribute="bottomMargin" id="1wQ-zd-Gr7"/>
+                                        <constraint firstAttribute="trailing" secondItem="z22-8N-Qwu" secondAttribute="trailing" constant="20" id="4CK-G2-dX2"/>
                                         <constraint firstItem="Va8-P8-ZgU" firstAttribute="leading" secondItem="HAP-5x-6Yb" secondAttribute="leadingMargin" id="PYg-NH-ucz"/>
-                                        <constraint firstAttribute="trailing" secondItem="Ebc-6r-jYw" secondAttribute="trailing" constant="20" id="d7m-h3-4jo"/>
-                                        <constraint firstItem="Ebc-6r-jYw" firstAttribute="top" secondItem="HAP-5x-6Yb" secondAttribute="top" constant="5" id="iaR-Mu-jLM"/>
+                                        <constraint firstItem="z22-8N-Qwu" firstAttribute="top" secondItem="HAP-5x-6Yb" secondAttribute="top" constant="5" id="ouR-X9-tZi"/>
                                         <constraint firstItem="Va8-P8-ZgU" firstAttribute="top" secondItem="HAP-5x-6Yb" secondAttribute="topMargin" id="qGE-Pz-eEJ"/>
-                                        <constraint firstAttribute="bottom" secondItem="Ebc-6r-jYw" secondAttribute="bottom" constant="5" id="r4D-U2-XMG"/>
+                                        <constraint firstAttribute="bottom" secondItem="z22-8N-Qwu" secondAttribute="bottom" constant="5" id="xm5-fY-77E"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="geteSegment" destination="Ebc-6r-jYw" id="A5v-b5-YFt"/>
+                                    <outlet property="gate5Button" destination="yHd-WZ-Tis" id="bVL-RI-qBn"/>
+                                    <outlet property="gate6Button" destination="VLc-qL-iiG" id="hnC-VV-YbC"/>
                                     <outlet property="raidNameLabel" destination="Va8-P8-ZgU" id="r45-ls-l9N"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="IlliakanCell" id="2h0-7G-isx" customClass="IlliakanTableViewCell" customModule="LoAssistant" customModuleProvider="target">
-                                <rect key="frame" x="20" y="431.5" width="374" height="41.5"/>
+                                <rect key="frame" x="20" y="507.5" width="374" height="51"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2h0-7G-isx" id="IPn-B5-QSr">
-                                    <rect key="frame" x="0.0" y="0.0" width="374" height="41.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="51"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="일리아칸" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wa1-Q8-kQC">
-                                            <rect key="frame" x="20" y="11" width="59" height="19.5"/>
+                                            <rect key="frame" x="20" y="11" width="59" height="29"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="K7L-hp-9lP">
-                                            <rect key="frame" x="230" y="5" width="124" height="32.5"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="124" id="PoF-oy-qwv"/>
-                                                <constraint firstAttribute="height" constant="31" id="voD-hy-lPt"/>
-                                            </constraints>
-                                            <segments>
-                                                <segment title="-"/>
-                                                <segment title="1"/>
-                                                <segment title="2"/>
-                                                <segment title="3"/>
-                                            </segments>
-                                            <connections>
-                                                <action selector="checkGate:" destination="2h0-7G-isx" eventType="valueChanged" id="Osr-FJ-0Cu"/>
-                                            </connections>
-                                        </segmentedControl>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="JIb-vK-NTa">
+                                            <rect key="frame" x="247.5" y="5" width="106.5" height="41"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ApP-zj-HAN">
+                                                    <rect key="frame" x="0.0" y="0.0" width="28" height="41"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 관문" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pmv-kY-b89">
+                                                            <rect key="frame" x="0.0" y="0.0" width="28" height="13.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="54s-av-aNC">
+                                                            <rect key="frame" x="0.0" y="13.5" width="28" height="27.5"/>
+                                                            <color key="tintColor" systemColor="systemPinkColor"/>
+                                                            <state key="normal" image="circle" catalog="system">
+                                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
+                                                            </state>
+                                                            <state key="selected" image="checkmark.circle.fill" catalog="system"/>
+                                                            <connections>
+                                                                <action selector="gate1ButtonTapped:" destination="2h0-7G-isx" eventType="touchUpInside" id="aXm-3G-4I4"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="DhW-SE-WAU">
+                                                    <rect key="frame" x="38" y="0.0" width="29" height="41"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 관문" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9lT-ca-PVF">
+                                                            <rect key="frame" x="0.0" y="0.0" width="29" height="13.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CDL-FJ-byb">
+                                                            <rect key="frame" x="0.0" y="13.5" width="29" height="27.5"/>
+                                                            <color key="tintColor" systemColor="systemPinkColor"/>
+                                                            <state key="normal" image="circle" catalog="system">
+                                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
+                                                            </state>
+                                                            <state key="selected" image="checkmark.circle.fill" catalog="system"/>
+                                                            <connections>
+                                                                <action selector="gate2ButtonTapped:" destination="2h0-7G-isx" eventType="touchUpInside" id="A8I-NA-TcQ"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wDt-6D-xRI">
+                                                    <rect key="frame" x="77" y="0.0" width="29.5" height="41"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 관문" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Jq-aK-cJB">
+                                                            <rect key="frame" x="0.0" y="0.0" width="29.5" height="13.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k1q-IT-5VO">
+                                                            <rect key="frame" x="0.0" y="13.5" width="29.5" height="27.5"/>
+                                                            <color key="tintColor" systemColor="systemPinkColor"/>
+                                                            <state key="normal" image="circle" catalog="system">
+                                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
+                                                            </state>
+                                                            <state key="selected" image="checkmark.circle.fill" catalog="system"/>
+                                                            <connections>
+                                                                <action selector="gate3ButtonTapped:" destination="2h0-7G-isx" eventType="touchUpInside" id="m96-sa-6kg"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="K7L-hp-9lP" secondAttribute="bottom" constant="5" id="0XS-IG-K2n"/>
                                         <constraint firstItem="wa1-Q8-kQC" firstAttribute="bottom" secondItem="IPn-B5-QSr" secondAttribute="bottomMargin" id="Hge-eA-Asi"/>
                                         <constraint firstItem="wa1-Q8-kQC" firstAttribute="top" secondItem="IPn-B5-QSr" secondAttribute="topMargin" id="Kur-zF-s8D"/>
-                                        <constraint firstItem="K7L-hp-9lP" firstAttribute="top" secondItem="IPn-B5-QSr" secondAttribute="top" constant="5" id="cwo-Pv-p6i"/>
+                                        <constraint firstItem="JIb-vK-NTa" firstAttribute="top" secondItem="IPn-B5-QSr" secondAttribute="top" constant="5" id="g6m-RA-iUc"/>
                                         <constraint firstItem="wa1-Q8-kQC" firstAttribute="leading" secondItem="IPn-B5-QSr" secondAttribute="leadingMargin" id="wER-Ai-c5M"/>
-                                        <constraint firstAttribute="trailing" secondItem="K7L-hp-9lP" secondAttribute="trailing" constant="20" id="yRM-pq-VDw"/>
+                                        <constraint firstAttribute="trailing" secondItem="JIb-vK-NTa" secondAttribute="trailing" constant="20" id="xzH-CI-cJ1"/>
+                                        <constraint firstAttribute="bottom" secondItem="JIb-vK-NTa" secondAttribute="bottom" constant="5" id="ymf-Yd-nEX"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="geteSegment" destination="K7L-hp-9lP" id="QnC-TW-3M4"/>
+                                    <outlet property="gate1Button" destination="54s-av-aNC" id="1jZ-aN-2gQ"/>
+                                    <outlet property="gate2Button" destination="CDL-FJ-byb" id="nGU-GE-4UD"/>
+                                    <outlet property="gate3Button" destination="k1q-IT-5VO" id="8Yc-4f-4Ls"/>
                                     <outlet property="raidNameLabel" destination="wa1-Q8-kQC" id="izI-6L-rqT"/>
                                 </connections>
                             </tableViewCell>
@@ -1976,6 +2362,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="circle" catalog="system" width="128" height="121"/>
         <image name="gearshape" catalog="system" width="128" height="121"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1991,6 +2379,9 @@
         </systemColor>
         <systemColor name="systemGroupedBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
