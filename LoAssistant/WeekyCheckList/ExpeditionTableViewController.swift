@@ -40,33 +40,53 @@ class ExpeditionTableViewController: UITableViewController {
 //        cell.charLevelLabel.text = "Lv." + String(self.checkList[indexPath.section].char_level)
         let className: String = getEngClassName(kor: self.checkList[indexPath.row].char_class)
         cell.charClassImage.image = UIImage(named: className)
-        cell.selectionStyle = .none
+        
+        if self.checkList[indexPath.row].earnGold == true {
+            cell.accessoryType = .checkmark
+            cell.charNameLabel.textColor = UIColor.link
+        }
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let cell = tableView.cellForRow(at: indexPath as IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        if let cell = tableView.cellForRow(at: indexPath as IndexPath) as? ExpeditionTableViewCell {
             
-            if self.checkList[indexPath.row].changeability == true {
-                let alert = UIAlertController(title: "체크 해제 불가", message: "이 캐릭터는 이미 골드 획득을 완료했습니다\n체크리스트를 확인해 주세요", preferredStyle: UIAlertController.Style.alert)
-                let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
-                            
-                }
-                alert.addAction(okAction)
-                self.present(alert, animated: false, completion: nil)
-                
+            if cell.accessoryType == .checkmark {
+                cell.accessoryType = .none
+                // 체크 해제
+                cell.charNameLabel.textColor = UIColor.label
+                self.checkList[indexPath.row].earnGold = false
             } else {
-                if cell.accessoryType == .checkmark {
-                    cell.accessoryType = .none
-                    // 체크 해제
-                    self.checkList[indexPath.row].earnGold = false
-                } else {
-                    cell.accessoryType = .checkmark
-                    // 체크
-                    self.checkList[indexPath.row].earnGold = true
-                }
+                cell.accessoryType = .checkmark
+                // 체크
+                cell.charNameLabel.textColor = UIColor.link
+                self.checkList[indexPath.row].earnGold = true
             }
+            let encoder = JSONEncoder()
+            if let encoded = try? encoder.encode(self.checkList) {
+                UserDefaults.standard.setValue(encoded, forKey: "CharacterList")
+            }
+//            if self.checkList[indexPath.row].changeability == true {
+//                let alert = UIAlertController(title: "체크 해제 불가", message: "이 캐릭터는 이미 골드 획득을 완료했습니다\n체크리스트를 확인해 주세요", preferredStyle: UIAlertController.Style.alert)
+//                let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+//
+//                }
+//                alert.addAction(okAction)
+//                self.present(alert, animated: false, completion: nil)
+//
+//            } else {
+//                if cell.accessoryType == .checkmark {
+//                    cell.accessoryType = .none
+//                    // 체크 해제
+//                    self.checkList[indexPath.row].earnGold = false
+//                } else {
+//                    cell.accessoryType = .checkmark
+//                    // 체크
+//                    self.checkList[indexPath.row].earnGold = true
+//                }
+//            }
             
         }
     }
@@ -114,6 +134,7 @@ class ExpeditionTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
     func getEngClassName(kor: String) -> String {
         if kor == "기상술사" {
             return "aeromancer"

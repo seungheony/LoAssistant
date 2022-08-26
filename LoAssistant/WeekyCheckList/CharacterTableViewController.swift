@@ -111,14 +111,20 @@ class CharacterTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let InfoCell = tableView.dequeueReusableCell(withIdentifier: "InfoCell", for: indexPath) as? InfoTableViewCell
+        let InfoCell = tableView.dequeueReusableCell(withIdentifier: "InfoCell", for: indexPath) as! InfoTableViewCell
         if indexPath.section % 2 == 0 {
             if indexPath.row == 0 {
-                InfoCell!.charNameLabel.text = self.checkList[indexPath.section/2].char_name
-                InfoCell!.charLevelLabel.text = "Lv." + String(self.checkList[indexPath.section/2].char_level)
+                InfoCell.charNameLabel.text = self.checkList[indexPath.section/2].char_name
+                
+                InfoCell.charLevelLabel.text = "Lv." + String(self.checkList[indexPath.section/2].char_level)
+                
                 let className: String = getEngClassName(kor: self.checkList[indexPath.section/2].char_class)
-                InfoCell!.charClassImage.image = UIImage(named: className)
-                return InfoCell!
+                InfoCell.charClassImage.image = UIImage(named: className)
+                
+                if self.checkList[indexPath.section/2].earnGold == true {
+                    InfoCell.charNameLabel.textColor = UIColor.link
+                }
+                return InfoCell
             }
         }
         return setCheckListCell(index: indexPath)
