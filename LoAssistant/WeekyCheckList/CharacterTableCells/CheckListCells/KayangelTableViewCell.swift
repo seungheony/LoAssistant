@@ -8,7 +8,9 @@
 import UIKit
 
 class KayangelTableViewCell: UITableViewCell {
-
+    
+    var level: Float = 0.0
+    
     @IBOutlet weak var raidNameLabel: UILabel!
     @IBOutlet weak var geteSegment: UISegmentedControl!
     
@@ -17,12 +19,22 @@ class KayangelTableViewCell: UITableViewCell {
             raidNameLabel.attributedText = raidNameLabel.text?.strikeThrough()
         } else {
             raidNameLabel.attributedText = raidNameLabel.text?.removeStrikeThrough()
+            if level >= 1580 {
+                raidNameLabel.attributedText = raidNameLabel.text?.setRaidNameAtAttributesStr(add: "하드-3")
+            } else if level >= 1560 {
+                raidNameLabel.attributedText = raidNameLabel.text?.setRaidNameAtAttributesStr(add: "하드-2")
+            } else if level >= 1520 {
+                raidNameLabel.attributedText = raidNameLabel.text?.setRaidNameAtAttributesStr(add: "하드-1")
+            } else {
+                raidNameLabel.attributedText = raidNameLabel.text?.setRaidNameAtAttributesStr(add: "노말")
+            }
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

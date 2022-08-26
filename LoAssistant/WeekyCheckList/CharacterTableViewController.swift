@@ -195,244 +195,268 @@ class CharacterTableViewController: UITableViewController {
         if index.section % 2 == 0 {
             if level >= 1600 {
                 if index.row == 1 {
-                    let IlliakanCell = tableView.dequeueReusableCell(withIdentifier: "IlliakanCell", for: index) as! IlliakanTableViewCell
-                    return IlliakanCell
+                    return get_illiakanCell(level: level, index: index)
                 } else if index.row == 2 {
-                    let Abrelshud_12Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_12Cell", for: index) as! Abrelshud_12TableViewCell
-                    return Abrelshud_12Cell
+                    return get_abrelshud_12Cell(level: level, index: index)
                 } else if index.row == 3 {
-                    let Abrelshud_34Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_34Cell", for: index) as! Abrelshud_34TableViewCell
-                    return Abrelshud_34Cell
+                    return get_abrelshud_34Cell(level: level, index: index)
                 } else if index.row == 4 {
-                    let Abrelshud_56Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_56Cell", for: index) as! Abrelshud_56TableViewCell
-                    return Abrelshud_56Cell
+                    return get_abrelshud_56Cell(level: level, index: index)
                 } else if index.row == 5 {
-                    let Kouku_SatonCell = tableView.dequeueReusableCell(withIdentifier: "Kouku_SatonCell", for: index) as! Kouku_SatonTableViewCell
-                    return Kouku_SatonCell
+                    return get_kouku_satonCell(index: index)
                 } else if index.row == 6 {
-                    let BiackissCell = tableView.dequeueReusableCell(withIdentifier: "BiackissCell", for: index) as! BiackissTableViewCell
-                    return BiackissCell
+                    return get_biackissCell(level: level, index: index)
                 } else if index.row == 7 {
-                    let ValtanCell = tableView.dequeueReusableCell(withIdentifier: "ValtanCell", for: index) as! ValtanTableViewCell
-                    return ValtanCell
+                    return get_valtanCell(level: level, index: index)
                 }
             } else if level >= 1580 {
                 if index.row == 1 {
-                    let IlliakanCell = tableView.dequeueReusableCell(withIdentifier: "IlliakanCell", for: index) as! IlliakanTableViewCell
-                    return IlliakanCell
+                    return get_illiakanCell(level: level, index: index)
                 } else if index.row == 2 {
-                    let Abrelshud_12Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_12Cell", for: index) as! Abrelshud_12TableViewCell
-                    return Abrelshud_12Cell
+                    return get_abrelshud_12Cell(level: level, index: index)
                 } else if index.row == 3 {
-                    let Abrelshud_34Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_34Cell", for: index) as! Abrelshud_34TableViewCell
-                    return Abrelshud_34Cell
+                    return get_abrelshud_34Cell(level: level, index: index)
                 } else if index.row == 4 {
-                    let Abrelshud_56Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_56Cell", for: index) as! Abrelshud_56TableViewCell
-                    return Abrelshud_56Cell
+                    return get_abrelshud_56Cell(level: level, index: index)
                 } else if index.row == 5 {
-                    let Kouku_SatonCell = tableView.dequeueReusableCell(withIdentifier: "Kouku_SatonCell", for: index) as! Kouku_SatonTableViewCell
-                    return Kouku_SatonCell
+                    return get_kouku_satonCell(index: index)
                 } else if index.row == 6 {
-                    let BiackissCell = tableView.dequeueReusableCell(withIdentifier: "BiackissCell", for: index) as! BiackissTableViewCell
-                    return BiackissCell
+                    return get_biackissCell(level: level, index: index)
                 } else if index.row == 7 {
-                    let ValtanCell = tableView.dequeueReusableCell(withIdentifier: "ValtanCell", for: index) as! ValtanTableViewCell
-                    return ValtanCell
+                    return get_valtanCell(level: level, index: index)
                 }
             } else if level >= 1560 {
                 if index.row == 1 {
-                    let Abrelshud_12Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_12Cell", for: index) as! Abrelshud_12TableViewCell
-                    return Abrelshud_12Cell
+                    return get_abrelshud_12Cell(level: level, index: index)
                 } else if index.row == 2 {
-                    let Abrelshud_34Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_34Cell", for: index) as! Abrelshud_34TableViewCell
-                    return Abrelshud_34Cell
+                    return get_abrelshud_34Cell(level: level, index: index)
                 } else if index.row == 3 {
-                    let Abrelshud_56Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_56Cell", for: index) as! Abrelshud_56TableViewCell
-                    return Abrelshud_56Cell
+                    return get_abrelshud_56Cell(level: level, index: index)
                 } else if index.row == 4 {
-                    let Kouku_SatonCell = tableView.dequeueReusableCell(withIdentifier: "Kouku_SatonCell", for: index) as! Kouku_SatonTableViewCell
-                    return Kouku_SatonCell
+                    return get_kouku_satonCell(index: index)
                 } else if index.row == 5 {
-                    let BiackissCell = tableView.dequeueReusableCell(withIdentifier: "BiackissCell", for: index) as! BiackissTableViewCell
-                    return BiackissCell
+                    return get_biackissCell(level: level, index: index)
                 } else if index.row == 6 {
-                    let ValtanCell = tableView.dequeueReusableCell(withIdentifier: "ValtanCell", for: index) as! ValtanTableViewCell
-                    return ValtanCell
+                    return get_valtanCell(level: level, index: index)
                 }
             } else if level >= 1550 {
                 if index.row == 1 {
-                    let Abrelshud_12Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_12Cell", for: index) as! Abrelshud_12TableViewCell
-                    return Abrelshud_12Cell
+                    return get_abrelshud_12Cell(level: level, index: index)
                 } else if index.row == 2 {
-                    let Abrelshud_34Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_34Cell", for: index) as! Abrelshud_34TableViewCell
-                    return Abrelshud_34Cell
+                    return get_abrelshud_34Cell(level: level, index: index)
                 } else if index.row == 3 {
-                    let Abrelshud_56Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_56Cell", for: index) as! Abrelshud_56TableViewCell
-                    return Abrelshud_56Cell
+                    return get_abrelshud_56Cell(level: level, index: index)
                 } else if index.row == 4 {
-                    let Kouku_SatonCell = tableView.dequeueReusableCell(withIdentifier: "Kouku_SatonCell", for: index) as! Kouku_SatonTableViewCell
-                    return Kouku_SatonCell
+                    return get_kouku_satonCell(index: index)
                 } else if index.row == 5 {
-                    let BiackissCell = tableView.dequeueReusableCell(withIdentifier: "BiackissCell", for: index) as! BiackissTableViewCell
-                    return BiackissCell
+                    return get_biackissCell(level: level, index: index)
                 } else if index.row == 6 {
-                    let ValtanCell = tableView.dequeueReusableCell(withIdentifier: "ValtanCell", for: index) as! ValtanTableViewCell
-                    return ValtanCell
+                    return get_valtanCell(level: level, index: index)
                 }
             } else if level >= 1540 {
                 if index.row == 1 {
-                    let Abrelshud_12Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_12Cell", for: index) as! Abrelshud_12TableViewCell
-                    return Abrelshud_12Cell
+                    return get_abrelshud_12Cell(level: level, index: index)
                 } else if index.row == 2 {
-                    let Abrelshud_34Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_34Cell", for: index) as! Abrelshud_34TableViewCell
-                    return Abrelshud_34Cell
+                    return get_abrelshud_34Cell(level: level, index: index)
                 } else if index.row == 3 {
-                    let Abrelshud_56Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_56Cell", for: index) as! Abrelshud_56TableViewCell
-                    return Abrelshud_56Cell
+                    return get_abrelshud_56Cell(level: level, index: index)
                 } else if index.row == 4 {
-                    let Kouku_SatonCell = tableView.dequeueReusableCell(withIdentifier: "Kouku_SatonCell", for: index) as! Kouku_SatonTableViewCell
-                    return Kouku_SatonCell
+                    return get_kouku_satonCell(index: index)
                 } else if index.row == 5 {
-                    let BiackissCell = tableView.dequeueReusableCell(withIdentifier: "BiackissCell", for: index) as! BiackissTableViewCell
-                    return BiackissCell
+                    return get_biackissCell(level: level, index: index)
                 } else if index.row == 6 {
-                    let ValtanCell = tableView.dequeueReusableCell(withIdentifier: "ValtanCell", for: index) as! ValtanTableViewCell
-                    return ValtanCell
+                    return get_valtanCell(level: level, index: index)
                 }
             } else if level >= 1520 {
                 if index.row == 1 {
-                    let Abrelshud_12Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_12Cell", for: index) as! Abrelshud_12TableViewCell
-                    return Abrelshud_12Cell
+                    return get_abrelshud_12Cell(level: level, index: index)
                 } else if index.row == 2 {
-                    let Abrelshud_34Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_34Cell", for: index) as! Abrelshud_34TableViewCell
-                    return Abrelshud_34Cell
+                    return get_abrelshud_34Cell(level: level, index: index)
                 } else if index.row == 3 {
-                    let Abrelshud_56Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_56Cell", for: index) as! Abrelshud_56TableViewCell
-                    return Abrelshud_56Cell
+                    return get_abrelshud_56Cell(level: level, index: index)
                 } else if index.row == 4 {
-                    let Kouku_SatonCell = tableView.dequeueReusableCell(withIdentifier: "Kouku_SatonCell", for: index) as! Kouku_SatonTableViewCell
-                    return Kouku_SatonCell
+                    return get_kouku_satonCell(index: index)
                 } else if index.row == 5 {
-                    let BiackissCell = tableView.dequeueReusableCell(withIdentifier: "BiackissCell", for: index) as! BiackissTableViewCell
-                    return BiackissCell
+                    return get_biackissCell(level: level, index: index)
                 } else if index.row == 6 {
-                    let ValtanCell = tableView.dequeueReusableCell(withIdentifier: "ValtanCell", for: index) as! ValtanTableViewCell
-                    return ValtanCell
+                    return get_valtanCell(level: level, index: index)
                 }
             } else if level >= 1500 {
                 if index.row == 1 {
-                    let Abrelshud_12Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_12Cell", for: index) as! Abrelshud_12TableViewCell
-                    return Abrelshud_12Cell
+                    return get_abrelshud_12Cell(level: level, index: index)
                 } else if index.row == 2 {
-                    let Abrelshud_34Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_34Cell", for: index) as! Abrelshud_34TableViewCell
-                    return Abrelshud_34Cell
+                    return get_abrelshud_34Cell(level: level, index: index)
                 } else if index.row == 3 {
-                    let Kouku_SatonCell = tableView.dequeueReusableCell(withIdentifier: "Kouku_SatonCell", for: index) as! Kouku_SatonTableViewCell
-                    return Kouku_SatonCell
+                    return get_kouku_satonCell(index: index)
                 } else if index.row == 4 {
-                    let BiackissCell = tableView.dequeueReusableCell(withIdentifier: "BiackissCell", for: index) as! BiackissTableViewCell
-                    return BiackissCell
+                    return get_biackissCell(level: level, index: index)
                 } else if index.row == 5 {
-                    let ValtanCell = tableView.dequeueReusableCell(withIdentifier: "ValtanCell", for: index) as! ValtanTableViewCell
-                    return ValtanCell
+                    return get_valtanCell(level: level, index: index)
                 }
             } else if level >= 1490 {
                 if index.row == 1 {
-                    let Abrelshud_12Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_12Cell", for: index) as! Abrelshud_12TableViewCell
-                    return Abrelshud_12Cell
+                    return get_abrelshud_12Cell(level: level, index: index)
                 } else if index.row == 2 {
-                    let Kouku_SatonCell = tableView.dequeueReusableCell(withIdentifier: "Kouku_SatonCell", for: index) as! Kouku_SatonTableViewCell
-                    return Kouku_SatonCell
+                    return get_kouku_satonCell(index: index)
                 } else if index.row == 3 {
-                    let BiackissCell = tableView.dequeueReusableCell(withIdentifier: "BiackissCell", for: index) as! BiackissTableViewCell
-                    return BiackissCell
+                    return get_biackissCell(level: level, index: index)
                 } else if index.row == 4 {
-                    let ValtanCell = tableView.dequeueReusableCell(withIdentifier: "ValtanCell", for: index) as! ValtanTableViewCell
-                    return ValtanCell
+                    return get_valtanCell(level: level, index: index)
                 }
             } else if level >= 1475 {
                 if index.row == 1 {
-                    let Kouku_SatonCell = tableView.dequeueReusableCell(withIdentifier: "Kouku_SatonCell", for: index) as! Kouku_SatonTableViewCell
-                    return Kouku_SatonCell
+                    return get_kouku_satonCell(index: index)
                 } else if index.row == 2 {
-                    let BiackissCell = tableView.dequeueReusableCell(withIdentifier: "BiackissCell", for: index) as! BiackissTableViewCell
-                    return BiackissCell
+                    return get_biackissCell(level: level, index: index)
                 } else if index.row == 3 {
-                    let ValtanCell = tableView.dequeueReusableCell(withIdentifier: "ValtanCell", for: index) as! ValtanTableViewCell
-                    return ValtanCell
+                    return get_valtanCell(level: level, index: index)
                 }
             } else if level >= 1460 {
                 if index.row == 1 {
-                    let BiackissCell = tableView.dequeueReusableCell(withIdentifier: "BiackissCell", for: index) as! BiackissTableViewCell
-                    return BiackissCell
+                    return get_biackissCell(level: level, index: index)
                 } else if index.row == 2 {
-                    let ValtanCell = tableView.dequeueReusableCell(withIdentifier: "ValtanCell", for: index) as! ValtanTableViewCell
-                    return ValtanCell
+                    return get_valtanCell(level: level, index: index)
                 }
             } else if level >= 1445 {
                 if index.row == 1 {
-                    let ValtanCell = tableView.dequeueReusableCell(withIdentifier: "ValtanCell", for: index) as! ValtanTableViewCell
-                    return ValtanCell
+                    return get_valtanCell(level: level, index: index)
                 } else if index.row == 2 {
-                    let BiackissCell = tableView.dequeueReusableCell(withIdentifier: "BiackissCell", for: index) as! BiackissTableViewCell
-                    return BiackissCell
+                    return get_biackissCell(level: level, index: index)
                 }
             } else if level >= 1430 {
                 if index.row == 1 {
-                    let BiackissCell = tableView.dequeueReusableCell(withIdentifier: "BiackissCell", for: index) as! BiackissTableViewCell
-                    return BiackissCell
+                    return get_biackissCell(level: level, index: index)
                 } else if index.row == 2 {
-                    let ValtanCell = tableView.dequeueReusableCell(withIdentifier: "ValtanCell", for: index) as! ValtanTableViewCell
-                    return ValtanCell
+                    return get_valtanCell(level: level, index: index)
                 }
             } else if level >= 1415 {
                 if index.row == 1 {
-                    let ValtanCell = tableView.dequeueReusableCell(withIdentifier: "ValtanCell", for: index) as! ValtanTableViewCell
-                    return ValtanCell
+                    return get_valtanCell(level: level, index: index)
                 }
             }
         // 어비스
         } else {
             if level >= 1580 {
                 if index.row == 0 {
-                    let KayangelCell = tableView.dequeueReusableCell(withIdentifier: "KayangelCell", for: index) as! KayangelTableViewCell
-                    return KayangelCell
+                    return get_kayangelCell(level: level, index: index)
                 } else if index.row == 1 {
-                    let ArgosCell = tableView.dequeueReusableCell(withIdentifier: "ArgosCell", for: index) as! ArgosTableViewCell
-                    return ArgosCell
+                    return get_argosCell(index: index)
                 }
             } else if level >= 1560 {
                 if index.row == 0 {
-                    let KayangelCell = tableView.dequeueReusableCell(withIdentifier: "KayangelCell", for: index) as! KayangelTableViewCell
-                    return KayangelCell
+                    return get_kayangelCell(level: level, index: index)
                 } else if index.row == 1 {
-                    let ArgosCell = tableView.dequeueReusableCell(withIdentifier: "ArgosCell", for: index) as! ArgosTableViewCell
-                    return ArgosCell
+                    return get_argosCell(index: index)
                 }
             } else if level >= 1520 {
                 if index.row == 0 {
-                    let KayangelCell = tableView.dequeueReusableCell(withIdentifier: "KayangelCell", for: index) as! KayangelTableViewCell
-                    return KayangelCell
+                    return get_kayangelCell(level: level, index: index)
                 } else if index.row == 1 {
-                    let ArgosCell = tableView.dequeueReusableCell(withIdentifier: "ArgosCell", for: index) as! ArgosTableViewCell
-                    return ArgosCell
+                    return get_argosCell(index: index)
                 }
             } else if level >= 1475 {
                 if index.row == 0 {
-                    let KayangelCell = tableView.dequeueReusableCell(withIdentifier: "KayangelCell", for: index) as! KayangelTableViewCell
-                    return KayangelCell
+                    return get_kayangelCell(level: level, index: index)
                 } else if index.row == 1 {
-                    let ArgosCell = tableView.dequeueReusableCell(withIdentifier: "ArgosCell", for: index) as! ArgosTableViewCell
-                    return ArgosCell
+                    return get_argosCell(index: index)
                 }
             } else if level >= 1370 {
                 if index.row == 0 {
-                    let ArgosCell = tableView.dequeueReusableCell(withIdentifier: "ArgosCell", for: index) as! ArgosTableViewCell
-                    return ArgosCell
+                    return get_argosCell(index: index)
                 }
             }
         }
         return UITableViewCell()
+    }
+    
+    func get_illiakanCell(level: Float, index: IndexPath) -> IlliakanTableViewCell {
+        let illiakanCell = tableView.dequeueReusableCell(withIdentifier: "IlliakanCell", for: index) as! IlliakanTableViewCell
+        illiakanCell.level = level
+        
+        if level >= 1600 {
+            illiakanCell.raidNameLabel.attributedText = illiakanCell.raidNameLabel.text?.setRaidNameAtAttributesStr(add: "하드")
+        } else {
+            illiakanCell.raidNameLabel.attributedText = illiakanCell.raidNameLabel.text?.setRaidNameAtAttributesStr(add: "노말")
+        }
+        return illiakanCell
+    }
+    func get_abrelshud_12Cell(level: Float, index: IndexPath) -> Abrelshud_12TableViewCell {
+        let abrelshud_12Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_12Cell", for: index) as! Abrelshud_12TableViewCell
+        abrelshud_12Cell.level = level
+        
+        if level >= 1540 {
+            abrelshud_12Cell.raidNameLabel.attributedText = abrelshud_12Cell.raidNameLabel.text?.setRaidNameAtAttributesStr(add: "하드")
+        } else {
+            abrelshud_12Cell.raidNameLabel.attributedText = abrelshud_12Cell.raidNameLabel.text?.setRaidNameAtAttributesStr(add: "노말")
+        }
+        return abrelshud_12Cell
+    }
+    func get_abrelshud_34Cell(level: Float, index: IndexPath) -> Abrelshud_34TableViewCell {
+        let abrelshud_34Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_34Cell", for: index) as! Abrelshud_34TableViewCell
+        abrelshud_34Cell.level = level
+        
+        if level >= 1550 {
+            abrelshud_34Cell.raidNameLabel.attributedText = abrelshud_34Cell.raidNameLabel.text?.setRaidNameAtAttributesStr(add: "하드")
+        } else {
+            abrelshud_34Cell.raidNameLabel.attributedText = abrelshud_34Cell.raidNameLabel.text?.setRaidNameAtAttributesStr(add: "노말")
+        }
+        return abrelshud_34Cell
+    }
+    func get_abrelshud_56Cell(level: Float, index: IndexPath) -> Abrelshud_56TableViewCell {
+        let abrelshud_56Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_56Cell", for: index) as! Abrelshud_56TableViewCell
+        abrelshud_56Cell.level = level
+        if level >= 1560 {
+            abrelshud_56Cell.raidNameLabel.attributedText = abrelshud_56Cell.raidNameLabel.text?.setRaidNameAtAttributesStr(add: "하드")
+        } else {
+            abrelshud_56Cell.raidNameLabel.attributedText = abrelshud_56Cell.raidNameLabel.text?.setRaidNameAtAttributesStr(add: "노말")
+        }
+        return abrelshud_56Cell
+    }
+    func get_kouku_satonCell(index: IndexPath) -> Kouku_SatonTableViewCell {
+        let kouku_satonCell = tableView.dequeueReusableCell(withIdentifier: "Kouku_SatonCell", for: index) as! Kouku_SatonTableViewCell
+        return kouku_satonCell
+    }
+    func get_biackissCell(level: Float, index: IndexPath) -> BiackissTableViewCell {
+        let biackissCell = tableView.dequeueReusableCell(withIdentifier: "BiackissCell", for: index) as! BiackissTableViewCell
+        biackissCell.level = level
+        
+        if level >= 1460 {
+            biackissCell.raidNameLabel.attributedText = biackissCell.raidNameLabel.text?.setRaidNameAtAttributesStr(add: "하드")
+        } else {
+            biackissCell.raidNameLabel.attributedText = biackissCell.raidNameLabel.text?.setRaidNameAtAttributesStr(add: "노말")
+        }
+        return biackissCell
+    }
+    func get_valtanCell(level: Float, index: IndexPath) -> ValtanTableViewCell {
+        let valtanCell = tableView.dequeueReusableCell(withIdentifier: "ValtanCell", for: index) as! ValtanTableViewCell
+        valtanCell.level = level
+
+        if level >= 1445 {
+            valtanCell.raidNameLabel.attributedText = valtanCell.raidNameLabel.text?.setRaidNameAtAttributesStr(add: "하드")
+        } else {
+            valtanCell.raidNameLabel.attributedText = valtanCell.raidNameLabel.text?.setRaidNameAtAttributesStr(add: "노말")
+        }
+        return valtanCell
+    }
+    
+    func get_kayangelCell(level: Float, index: IndexPath) -> KayangelTableViewCell {
+        let kayangelCell = tableView.dequeueReusableCell(withIdentifier: "KayangelCell", for: index) as! KayangelTableViewCell
+        kayangelCell.level = level
+        
+        if level >= 1580 {
+            kayangelCell.raidNameLabel.attributedText = kayangelCell.raidNameLabel.text?.setRaidNameAtAttributesStr(add: "하드-3")
+        } else if level >= 1560 {
+            kayangelCell.raidNameLabel.attributedText = kayangelCell.raidNameLabel.text?.setRaidNameAtAttributesStr(add: "하드-2")
+        } else if level >= 1520 {
+            kayangelCell.raidNameLabel.attributedText = kayangelCell.raidNameLabel.text?.setRaidNameAtAttributesStr(add: "하드-1")
+        } else {
+            kayangelCell.raidNameLabel.attributedText = kayangelCell.raidNameLabel.text?.setRaidNameAtAttributesStr(add: "노말")
+        }
+        return kayangelCell
+    }
+    func get_argosCell(index: IndexPath) -> ArgosTableViewCell {
+        let argosCell = tableView.dequeueReusableCell(withIdentifier: "ArgosCell", for: index) as! ArgosTableViewCell
+        return argosCell
     }
     
     func getEngClassName(kor: String) -> String {

@@ -8,6 +8,8 @@
 import UIKit
 
 class Abrelshud_12TableViewCell: UITableViewCell {
+    
+    var level: Float = 0.0
 
     @IBOutlet weak var raidNameLabel: UILabel!
     @IBOutlet weak var geteSegment: UISegmentedControl!
@@ -17,12 +19,18 @@ class Abrelshud_12TableViewCell: UITableViewCell {
             raidNameLabel.attributedText = raidNameLabel.text?.strikeThrough()
         } else {
             raidNameLabel.attributedText = raidNameLabel.text?.removeStrikeThrough()
+            if level >= 1540 {
+                raidNameLabel.attributedText = raidNameLabel.text?.setRaidNameAtAttributesStr(add: "하드")
+            } else {
+                raidNameLabel.attributedText = raidNameLabel.text?.setRaidNameAtAttributesStr(add: "노말")
+            }
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
