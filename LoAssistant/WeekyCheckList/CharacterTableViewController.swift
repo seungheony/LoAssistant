@@ -122,7 +122,7 @@ class CharacterTableViewController: UITableViewController {
                 InfoCell.charClassImage.image = UIImage(named: className)
                 
                 if self.checkList[indexPath.section/2].earnGold == true {
-                    InfoCell.charNameLabel.textColor = UIColor.systemPink
+                    InfoCell.charNameLabel.textColor = UIColor.link
                 }
                 return InfoCell
             }
@@ -145,6 +145,11 @@ class CharacterTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        return nil
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -532,7 +537,7 @@ class CharacterTableViewController: UITableViewController {
     }
 }
 extension CharacterTableViewController: GateButtonTappedDelegate {
-    func gateButtonTapped() {
-        <#code#>
+    func gateButtonTapped(gateNum: Int) {
+        print("button tapped")
     }
 }

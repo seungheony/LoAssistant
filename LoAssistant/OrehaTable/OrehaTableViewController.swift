@@ -225,6 +225,18 @@ class OrehaTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         if indexPath.section == 0 {
             return nil
+        } else if indexPath.section == 3 {
+            if indexPath.row == 1 {
+                return nil
+            }
+        } else if indexPath.section == 4 {
+            if indexPath.row == 1 {
+                return nil
+            }
+        } else if indexPath.section == 5 {
+            if indexPath.row == 1 {
+                return nil
+            }
         } else if indexPath.section == 6 {
             return nil
         }

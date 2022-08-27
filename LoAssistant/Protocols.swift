@@ -8,5 +8,5 @@
 import Foundation
 
 protocol GateButtonTappedDelegate {
-    func gateButtonTapped()
+    func gateButtonTapped(gateNum: Int)
 }

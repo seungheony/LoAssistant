@@ -45,7 +45,7 @@ class ExpeditionTableViewController: UITableViewController {
         if self.checkList[indexPath.row].earnGold == true {
             counter += 1
             cell.accessoryType = .checkmark
-            cell.charNameLabel.textColor = UIColor.systemPink
+            cell.charNameLabel.textColor = UIColor.link
             print(counter)
         }
         
@@ -72,7 +72,7 @@ class ExpeditionTableViewController: UITableViewController {
                 } else {
                     counter += 1
                     cell.accessoryType = .checkmark
-                    cell.charNameLabel.textColor = UIColor.systemPink
+                    cell.charNameLabel.textColor = UIColor.link
                     self.checkList[indexPath.row].earnGold = true
                 }
             }

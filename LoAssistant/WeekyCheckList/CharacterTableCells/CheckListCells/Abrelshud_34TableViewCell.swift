@@ -52,9 +52,20 @@ class Abrelshud_34TableViewCell: UITableViewCell {
     }
     
     @IBAction func gate3ButtonTapped(_ sender: Any) {
-        delegate?.gateButtonTapped()
+        gate4Button.isSelected = false
+        gate3Button.isSelected = !gate3Button.isSelected
+        
+        if gate3Button.isSelected == true {
+            delegate?.gateButtonTapped(gateNum: 1)
+        }
     }
     @IBAction func gate4ButtonTapped(_ sender: Any) {
+        gate3Button.isSelected = true
+        gate4Button.isSelected = !gate4Button.isSelected
+        
+        if gate4Button.isSelected == true {
+            delegate?.gateButtonTapped(gateNum: 2)
+        }
     }
     
     @objc private func didChangeValue(segment: UISegmentedControl) {
