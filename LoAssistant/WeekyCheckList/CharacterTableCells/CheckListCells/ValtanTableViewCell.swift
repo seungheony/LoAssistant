@@ -12,12 +12,11 @@ class ValtanTableViewCell: UITableViewCell {
     var level: Float = 0.0
     var charIndex: Int = Int()
     
-    var delegate: GateButtonTappedDelegate?
+    var delegate: CheckButtonTappedDelegate?
     
     @IBOutlet weak var raidNameLabel: UILabel!
     
     @IBOutlet weak var gate1Button: UIButton!
-    @IBOutlet weak var gate2Button: UIButton!
     
 //    @IBAction func checkGate(_ sender: UISegmentedControl) {
 //        
@@ -35,49 +34,12 @@ class ValtanTableViewCell: UITableViewCell {
     }
     
     @IBAction func gate1ButtonTapped(_ sender: Any) {
-        gate2Button.isSelected = false
         gate1Button.isSelected = !gate1Button.isSelected
-        
+        print("valtan")
         if gate1Button.isSelected == true {
-            delegate?.gateButtonTapped(gateNum: 1)
-        }
-    }
-    @IBAction func gate2ButtonTapped(_ sender: Any) {
-        gate1Button.isSelected = true
-        gate2Button.isSelected = !gate2Button.isSelected
-        
-        if gate2Button.isSelected == true {
-            delegate?.gateButtonTapped(gateNum: 2)
-        }
-    }
-    @objc private func didChangeValue(segment: UISegmentedControl) {
-        DispatchQueue.global().sync {
-            var checkList: [CheckList] = [CheckList]()
-            
-            if let savedData = UserDefaults.standard.object(forKey: "CharacterList") as? Data {
-                let decoder = JSONDecoder()
-                if let savedObject = try? decoder.decode([CheckList].self, from: savedData) {
-                    checkList = savedObject
-                }
-            }
-            
-            checkList[self.charIndex].valtan = segment.selectedSegmentIndex
-            print("\(self.charIndex) : \(checkList[self.charIndex].valtan)")
-            
-            let encoder = JSONEncoder()
-            if let encoded = try? encoder.encode(checkList) {
-                UserDefaults.standard.setValue(encoded, forKey: "CharacterList")
-            }
-            if segment.selectedSegmentIndex == 2 {
-                raidNameLabel.attributedText = raidNameLabel.text?.strikeThrough()
-            } else {
-                raidNameLabel.attributedText = raidNameLabel.text?.removeStrikeThrough()
-                if level >= 1445 {
-                    raidNameLabel.attributedText = raidNameLabel.text?.setRaidNameAtAttributesStr(add: "하드")
-                } else {
-                    raidNameLabel.attributedText = raidNameLabel.text?.setRaidNameAtAttributesStr(add: "노말")
-                }
-            }
+            delegate?.checkButtonTapped(gateNum: 1, raidName: raidNameLabel.text!, charIndex: charIndex)
+        } else {
+            delegate?.checkButtonTapped(gateNum: 0, raidName: raidNameLabel.text!, charIndex: charIndex)
         }
     }
 }

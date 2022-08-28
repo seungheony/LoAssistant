@@ -32,7 +32,8 @@ extension String {
         let raidName: String = self + " " + add
         let attributedStr = NSMutableAttributedString(string: raidName)
         
-        let font = UIFont.systemFont(ofSize: 12)
+        let font = UIFont.systemFont(ofSize: 11
+        )
         attributedStr.addAttribute(.font, value: font, range: (raidName as NSString).range(of: add))
         
         if add.contains("하드") {

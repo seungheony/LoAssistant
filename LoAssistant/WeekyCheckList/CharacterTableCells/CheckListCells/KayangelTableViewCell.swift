@@ -11,7 +11,7 @@ class KayangelTableViewCell: UITableViewCell {
     
     var level: Float = 0.0
     var charIndex: Int = Int()
-    var delegate: GateButtonTappedDelegate?
+    var delegate: CheckButtonTappedDelegate?
     
     @IBOutlet weak var raidNameLabel: UILabel!
     @IBOutlet weak var gate1Button: UIButton!
@@ -59,7 +59,7 @@ class KayangelTableViewCell: UITableViewCell {
         gate1Button.isSelected = !gate1Button.isSelected
         
         if gate1Button.isSelected == true {
-            delegate?.gateButtonTapped(gateNum: 1)
+            delegate?.checkButtonTapped(gateNum: 1, raidName: raidNameLabel.text!, charIndex: charIndex)
         }
     }
     @IBAction func gate2ButtonTapped(_ sender: Any) {
@@ -67,7 +67,7 @@ class KayangelTableViewCell: UITableViewCell {
         gate2Button.isSelected = !gate2Button.isSelected
         
         if gate2Button.isSelected == true {
-            delegate?.gateButtonTapped(gateNum: 2)
+            delegate?.checkButtonTapped(gateNum: 2, raidName: raidNameLabel.text!, charIndex: charIndex)
         }
     }
     

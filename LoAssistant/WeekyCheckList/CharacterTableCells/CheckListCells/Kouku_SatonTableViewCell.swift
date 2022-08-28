@@ -11,13 +11,10 @@ class Kouku_SatonTableViewCell: UITableViewCell {
     
     var charIndex: Int = Int()
     
-    var delegate: GateButtonTappedDelegate?
+    var delegate: CheckButtonTappedDelegate?
     
     @IBOutlet weak var raidNameLabel: UILabel!
-    
     @IBOutlet weak var gate1Button: UIButton!
-    @IBOutlet weak var gate2Button: UIButton!
-    @IBOutlet weak var gate3Button: UIButton!
     
 //    @IBAction func checkGate(_ sender: UISegmentedControl) {
 //        print(self.checkList)
@@ -49,56 +46,13 @@ class Kouku_SatonTableViewCell: UITableViewCell {
     }
     
     @IBAction func gate1ButtonTapped(_ sender: Any) {
-        gate2Button.isSelected = false
-        gate3Button.isSelected = false
         gate1Button.isSelected = !gate1Button.isSelected
         
         if gate1Button.isSelected == true {
-            delegate?.gateButtonTapped(gateNum: 1)
+            delegate?.checkButtonTapped(gateNum: 1, raidName: raidNameLabel.text!, charIndex: charIndex)
+        } else {
+            delegate?.checkButtonTapped(gateNum: 0, raidName: raidNameLabel.text!, charIndex: charIndex)
         }
-    }
-    @IBAction func gate2ButtonTapped(_ sender: Any) {
-        gate1Button.isSelected = true
-        gate3Button.isSelected = false
-        gate2Button.isSelected = !gate2Button.isSelected
-        
-        if gate2Button.isSelected == true {
-            delegate?.gateButtonTapped(gateNum: 2)
-        }
-    }
-    @IBAction func gate3ButtonTapped(_ sender: Any) {
-        gate1Button.isSelected = true
-        gate2Button.isSelected = true
-        gate3Button.isSelected = !gate3Button.isSelected
-        
-        if gate2Button.isSelected == true {
-            delegate?.gateButtonTapped(gateNum: 3)
-        }
-    }
-    
-    @objc private func didChangeValue(segment: UISegmentedControl) {
-        DispatchQueue.global().sync {
-            var checkList: [CheckList] = [CheckList]()
-            
-            if let savedData = UserDefaults.standard.object(forKey: "CharacterList") as? Data {
-                let decoder = JSONDecoder()
-                if let savedObject = try? decoder.decode([CheckList].self, from: savedData) {
-                    checkList = savedObject
-                }
-            }
-            
-            checkList[self.charIndex].kouku_saton = segment.selectedSegmentIndex
-            print("\(self.charIndex) : \(checkList[self.charIndex].kouku_saton)")
-            
-            let encoder = JSONEncoder()
-            if let encoded = try? encoder.encode(checkList) {
-                UserDefaults.standard.setValue(encoded, forKey: "CharacterList")
-            }
-            if segment.selectedSegmentIndex == 2 {
-                raidNameLabel.attributedText = raidNameLabel.text?.strikeThrough()
-            } else {
-                raidNameLabel.attributedText = raidNameLabel.text?.removeStrikeThrough()
-            }
-        }
+
     }
 }

@@ -42,12 +42,10 @@
 		21E7460F28B71A1700A80772 /* ValtanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E7460E28B71A1700A80772 /* ValtanTableViewCell.swift */; };
 		21E7461128B71A3500A80772 /* BiackissTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E7461028B71A3500A80772 /* BiackissTableViewCell.swift */; };
 		21E7461328B71A4F00A80772 /* Kouku_SatonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E7461228B71A4F00A80772 /* Kouku_SatonTableViewCell.swift */; };
-		21E7461528B71A5E00A80772 /* Abrelshud_12TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E7461428B71A5E00A80772 /* Abrelshud_12TableViewCell.swift */; };
+		21E7461528B71A5E00A80772 /* AbrelshudTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E7461428B71A5E00A80772 /* AbrelshudTableViewCell.swift */; };
 		21E7461728B71A6900A80772 /* IlliakanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E7461628B71A6900A80772 /* IlliakanTableViewCell.swift */; };
 		21E7461928B71ABA00A80772 /* KayangelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E7461828B71ABA00A80772 /* KayangelTableViewCell.swift */; };
 		21E7461B28B71AF800A80772 /* ArgosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E7461A28B71AF800A80772 /* ArgosTableViewCell.swift */; };
-		21E7462128B71D3C00A80772 /* Abrelshud_56TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E7462028B71D3C00A80772 /* Abrelshud_56TableViewCell.swift */; };
-		21E7462328B71D4000A80772 /* Abrelshud_34TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E7462228B71D4000A80772 /* Abrelshud_34TableViewCell.swift */; };
 		61BA331DEBE831395B0C22BF /* Pods_LoAssistant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA7F514429EF161DE676C3FB /* Pods_LoAssistant.framework */; };
 		86D3408F29F0C97CFBCEF021 /* Pods_LoAssistant_LoAssistantUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9972C500D97A3431C13E5BF9 /* Pods_LoAssistant_LoAssistantUITests.framework */; };
 /* End PBXBuildFile section */
@@ -109,12 +107,10 @@
 		21E7460E28B71A1700A80772 /* ValtanTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValtanTableViewCell.swift; sourceTree = "<group>"; };
 		21E7461028B71A3500A80772 /* BiackissTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiackissTableViewCell.swift; sourceTree = "<group>"; };
 		21E7461228B71A4F00A80772 /* Kouku_SatonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kouku_SatonTableViewCell.swift; sourceTree = "<group>"; };
-		21E7461428B71A5E00A80772 /* Abrelshud_12TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Abrelshud_12TableViewCell.swift; sourceTree = "<group>"; };
+		21E7461428B71A5E00A80772 /* AbrelshudTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbrelshudTableViewCell.swift; sourceTree = "<group>"; };
 		21E7461628B71A6900A80772 /* IlliakanTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IlliakanTableViewCell.swift; sourceTree = "<group>"; };
 		21E7461828B71ABA00A80772 /* KayangelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KayangelTableViewCell.swift; sourceTree = "<group>"; };
 		21E7461A28B71AF800A80772 /* ArgosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArgosTableViewCell.swift; sourceTree = "<group>"; };
-		21E7462028B71D3C00A80772 /* Abrelshud_56TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Abrelshud_56TableViewCell.swift; sourceTree = "<group>"; };
-		21E7462228B71D4000A80772 /* Abrelshud_34TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Abrelshud_34TableViewCell.swift; sourceTree = "<group>"; };
 		5370F4672AC34A627B8FB3ED /* Pods-LoAssistantTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoAssistantTests.debug.xcconfig"; path = "Target Support Files/Pods-LoAssistantTests/Pods-LoAssistantTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9972C500D97A3431C13E5BF9 /* Pods_LoAssistant_LoAssistantUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LoAssistant_LoAssistantUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CA49C1B43D2A17E9F8D8636 /* Pods_LoAssistantTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LoAssistantTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -283,9 +279,7 @@
 				21E7460E28B71A1700A80772 /* ValtanTableViewCell.swift */,
 				21E7461028B71A3500A80772 /* BiackissTableViewCell.swift */,
 				21E7461228B71A4F00A80772 /* Kouku_SatonTableViewCell.swift */,
-				21E7461428B71A5E00A80772 /* Abrelshud_12TableViewCell.swift */,
-				21E7462228B71D4000A80772 /* Abrelshud_34TableViewCell.swift */,
-				21E7462028B71D3C00A80772 /* Abrelshud_56TableViewCell.swift */,
+				21E7461428B71A5E00A80772 /* AbrelshudTableViewCell.swift */,
 				21E7461628B71A6900A80772 /* IlliakanTableViewCell.swift */,
 				21E7461828B71ABA00A80772 /* KayangelTableViewCell.swift */,
 				21E7461A28B71AF800A80772 /* ArgosTableViewCell.swift */,
@@ -567,8 +561,7 @@
 				103E53BD2848E205001199A9 /* OrehaTableViewController.swift in Sources */,
 				21E7460F28B71A1700A80772 /* ValtanTableViewCell.swift in Sources */,
 				1E2BC8B628A4FEB400170EAD /* CharacterTableViewController.swift in Sources */,
-				21E7462128B71D3C00A80772 /* Abrelshud_56TableViewCell.swift in Sources */,
-				21E7461528B71A5E00A80772 /* Abrelshud_12TableViewCell.swift in Sources */,
+				21E7461528B71A5E00A80772 /* AbrelshudTableViewCell.swift in Sources */,
 				21E7461128B71A3500A80772 /* BiackissTableViewCell.swift in Sources */,
 				212D3E6D28B8C053009A1E1E /* Protocols.swift in Sources */,
 				2107F22B28B4C705005605F5 /* ExpeditionTableViewController.swift in Sources */,
@@ -584,7 +577,6 @@
 				10F6461E27EB2F8500E51BBB /* AppDelegate.swift in Sources */,
 				210961E728485A6800FDBC60 /* PriceTableViewCell.swift in Sources */,
 				21E7461928B71ABA00A80772 /* KayangelTableViewCell.swift in Sources */,
-				21E7462328B71D4000A80772 /* Abrelshud_34TableViewCell.swift in Sources */,
 				10F6462027EB2F8500E51BBB /* SceneDelegate.swift in Sources */,
 				1E52D85C2893CBB3002ED70E /* PheonViewDataService.swift in Sources */,
 				210961E428485A0700FDBC60 /* PriceTableViewController.swift in Sources */,
@@ -779,7 +771,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.72;
+				MARKETING_VERSION = 0.73;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Seungheon-Kim.LoAssistant";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -809,7 +801,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.72;
+				MARKETING_VERSION = 0.73;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Seungheon-Kim.LoAssistant";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

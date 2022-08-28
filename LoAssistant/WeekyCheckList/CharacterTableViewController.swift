@@ -50,19 +50,19 @@ class CharacterTableViewController: UITableViewController {
         // 군단장
         if section % 2 == 0 {
             if level >= 1600 {
-                return 8
-            } else if level >= 1580 {
-                return 8
-            } else if level >= 1560 {
-                return 7
-            } else if level >= 1550 {
-                return 7
-            } else if level >= 1540 {
-                return 7
-            } else if level >= 1520 {
-                return 7
-            } else if level >= 1500 {
                 return 6
+            } else if level >= 1580 {
+                return 6
+            } else if level >= 1560 {
+                return 5
+            } else if level >= 1550 {
+                return 5
+            } else if level >= 1540 {
+                return 5
+            } else if level >= 1520 {
+                return 5
+            } else if level >= 1500 {
+                return 5
             } else if level >= 1490 {
                 return 5
             } else if level >= 1475 {
@@ -141,6 +141,13 @@ class CharacterTableViewController: UITableViewController {
         }
         self.tableView.reloadData()
     }
+    override func viewWillDisappear(_ animated: Bool) {
+        print("view will disappear")
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(self.checkList) {
+            UserDefaults.standard.setValue(encoded, forKey: "CharacterList")
+        }
+    }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -202,105 +209,79 @@ class CharacterTableViewController: UITableViewController {
                 if index.row == 1 {
                     return get_illiakanCell(level: level, index: index)
                 } else if index.row == 2 {
-                    return get_abrelshud_12Cell(level: level, index: index)
+                    return get_abrelshudCell(level: level, index: index)
                 } else if index.row == 3 {
-                    return get_abrelshud_34Cell(level: level, index: index)
-                } else if index.row == 4 {
-                    return get_abrelshud_56Cell(level: level, index: index)
-                } else if index.row == 5 {
                     return get_kouku_satonCell(index: index)
-                } else if index.row == 6 {
+                } else if index.row == 4 {
                     return get_biackissCell(level: level, index: index)
-                } else if index.row == 7 {
+                } else if index.row == 5 {
                     return get_valtanCell(level: level, index: index)
                 }
             } else if level >= 1580 {
                 if index.row == 1 {
                     return get_illiakanCell(level: level, index: index)
                 } else if index.row == 2 {
-                    return get_abrelshud_12Cell(level: level, index: index)
+                    return get_abrelshudCell(level: level, index: index)
                 } else if index.row == 3 {
-                    return get_abrelshud_34Cell(level: level, index: index)
-                } else if index.row == 4 {
-                    return get_abrelshud_56Cell(level: level, index: index)
-                } else if index.row == 5 {
                     return get_kouku_satonCell(index: index)
-                } else if index.row == 6 {
+                } else if index.row == 4 {
                     return get_biackissCell(level: level, index: index)
-                } else if index.row == 7 {
+                } else if index.row == 5 {
                     return get_valtanCell(level: level, index: index)
                 }
             } else if level >= 1560 {
                 if index.row == 1 {
-                    return get_abrelshud_12Cell(level: level, index: index)
+                    return get_abrelshudCell(level: level, index: index)
                 } else if index.row == 2 {
-                    return get_abrelshud_34Cell(level: level, index: index)
-                } else if index.row == 3 {
-                    return get_abrelshud_56Cell(level: level, index: index)
-                } else if index.row == 4 {
                     return get_kouku_satonCell(index: index)
-                } else if index.row == 5 {
+                } else if index.row == 3 {
                     return get_biackissCell(level: level, index: index)
-                } else if index.row == 6 {
+                } else if index.row == 4 {
                     return get_valtanCell(level: level, index: index)
                 }
             } else if level >= 1550 {
                 if index.row == 1 {
-                    return get_abrelshud_12Cell(level: level, index: index)
+                    return get_abrelshudCell(level: level, index: index)
                 } else if index.row == 2 {
-                    return get_abrelshud_34Cell(level: level, index: index)
-                } else if index.row == 3 {
-                    return get_abrelshud_56Cell(level: level, index: index)
-                } else if index.row == 4 {
                     return get_kouku_satonCell(index: index)
-                } else if index.row == 5 {
+                } else if index.row == 3 {
                     return get_biackissCell(level: level, index: index)
-                } else if index.row == 6 {
+                } else if index.row == 4 {
                     return get_valtanCell(level: level, index: index)
                 }
             } else if level >= 1540 {
                 if index.row == 1 {
-                    return get_abrelshud_12Cell(level: level, index: index)
+                    return get_abrelshudCell(level: level, index: index)
                 } else if index.row == 2 {
-                    return get_abrelshud_34Cell(level: level, index: index)
-                } else if index.row == 3 {
-                    return get_abrelshud_56Cell(level: level, index: index)
-                } else if index.row == 4 {
                     return get_kouku_satonCell(index: index)
-                } else if index.row == 5 {
+                } else if index.row == 3 {
                     return get_biackissCell(level: level, index: index)
-                } else if index.row == 6 {
+                } else if index.row == 4 {
                     return get_valtanCell(level: level, index: index)
                 }
             } else if level >= 1520 {
                 if index.row == 1 {
-                    return get_abrelshud_12Cell(level: level, index: index)
+                    return get_abrelshudCell(level: level, index: index)
                 } else if index.row == 2 {
-                    return get_abrelshud_34Cell(level: level, index: index)
-                } else if index.row == 3 {
-                    return get_abrelshud_56Cell(level: level, index: index)
-                } else if index.row == 4 {
                     return get_kouku_satonCell(index: index)
-                } else if index.row == 5 {
+                } else if index.row == 3 {
                     return get_biackissCell(level: level, index: index)
-                } else if index.row == 6 {
+                } else if index.row == 4 {
                     return get_valtanCell(level: level, index: index)
                 }
             } else if level >= 1500 {
                 if index.row == 1 {
-                    return get_abrelshud_12Cell(level: level, index: index)
+                    return get_abrelshudCell(level: level, index: index)
                 } else if index.row == 2 {
-                    return get_abrelshud_34Cell(level: level, index: index)
-                } else if index.row == 3 {
                     return get_kouku_satonCell(index: index)
-                } else if index.row == 4 {
+                } else if index.row == 3 {
                     return get_biackissCell(level: level, index: index)
-                } else if index.row == 5 {
+                } else if index.row == 4 {
                     return get_valtanCell(level: level, index: index)
                 }
             } else if level >= 1490 {
                 if index.row == 1 {
-                    return get_abrelshud_12Cell(level: level, index: index)
+                    return get_abrelshudCell(level: level, index: index)
                 } else if index.row == 2 {
                     return get_kouku_satonCell(index: index)
                 } else if index.row == 3 {
@@ -379,6 +360,9 @@ class CharacterTableViewController: UITableViewController {
         illiakanCell.level = level
         illiakanCell.charIndex = index.section/2
         illiakanCell.delegate = self
+        if self.checkList[index.section/2].illiakan == true {
+            illiakanCell.gate1Button.isSelected = true
+        }
         
         if level >= 1600 {
             illiakanCell.raidNameLabel.attributedText = illiakanCell.raidNameLabel.text?.setRaidNameAtAttributesStr(add: "하드")
@@ -387,8 +371,8 @@ class CharacterTableViewController: UITableViewController {
         }
         return illiakanCell
     }
-    func get_abrelshud_12Cell(level: Float, index: IndexPath) -> Abrelshud_12TableViewCell {
-        let abrelshud_12Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_12Cell", for: index) as! Abrelshud_12TableViewCell
+    func get_abrelshudCell(level: Float, index: IndexPath) -> AbrelshudTableViewCell {
+        let abrelshud_12Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_12Cell", for: index) as! AbrelshudTableViewCell
         abrelshud_12Cell.level = level
         abrelshud_12Cell.charIndex = index.section/2
         abrelshud_12Cell.delegate = self
@@ -399,32 +383,6 @@ class CharacterTableViewController: UITableViewController {
             abrelshud_12Cell.raidNameLabel.attributedText = abrelshud_12Cell.raidNameLabel.text?.setRaidNameAtAttributesStr(add: "노말")
         }
         return abrelshud_12Cell
-    }
-    func get_abrelshud_34Cell(level: Float, index: IndexPath) -> Abrelshud_34TableViewCell {
-        let abrelshud_34Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_34Cell", for: index) as! Abrelshud_34TableViewCell
-        abrelshud_34Cell.level = level
-        abrelshud_34Cell.charIndex = index.section/2
-        abrelshud_34Cell.delegate = self
-        
-        if level >= 1550 {
-            abrelshud_34Cell.raidNameLabel.attributedText = abrelshud_34Cell.raidNameLabel.text?.setRaidNameAtAttributesStr(add: "하드")
-        } else {
-            abrelshud_34Cell.raidNameLabel.attributedText = abrelshud_34Cell.raidNameLabel.text?.setRaidNameAtAttributesStr(add: "노말")
-        }
-        return abrelshud_34Cell
-    }
-    func get_abrelshud_56Cell(level: Float, index: IndexPath) -> Abrelshud_56TableViewCell {
-        let abrelshud_56Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_56Cell", for: index) as! Abrelshud_56TableViewCell
-        abrelshud_56Cell.level = level
-        abrelshud_56Cell.charIndex = index.section/2
-        abrelshud_56Cell.delegate = self
-        
-        if level >= 1560 {
-            abrelshud_56Cell.raidNameLabel.attributedText = abrelshud_56Cell.raidNameLabel.text?.setRaidNameAtAttributesStr(add: "하드")
-        } else {
-            abrelshud_56Cell.raidNameLabel.attributedText = abrelshud_56Cell.raidNameLabel.text?.setRaidNameAtAttributesStr(add: "노말")
-        }
-        return abrelshud_56Cell
     }
     func get_kouku_satonCell(index: IndexPath) -> Kouku_SatonTableViewCell {
         let kouku_satonCell = tableView.dequeueReusableCell(withIdentifier: "Kouku_SatonCell", for: index) as! Kouku_SatonTableViewCell
@@ -536,8 +494,30 @@ class CharacterTableViewController: UITableViewController {
         return ""
     }
 }
-extension CharacterTableViewController: GateButtonTappedDelegate {
-    func gateButtonTapped(gateNum: Int) {
-        print("button tapped")
+extension CharacterTableViewController: CheckButtonTappedDelegate {
+    func checkButtonTapped(gateNum: Int, raidName: String, charIndex: Int) {
+        
+        var isChecked: Bool = false
+        if gateNum == 1 {
+            isChecked = true
+        }
+        
+        if raidName.contains("아르고스") {
+            self.checkList[charIndex].argos = isChecked
+        } else if raidName.contains("카양겔") {
+            self.checkList[charIndex].kayangel = gateNum
+        } else if raidName.contains("일리아칸") {
+            self.checkList[charIndex].illiakan = isChecked
+        } else if raidName.contains("아브렐슈드") {
+            self.checkList[charIndex].abrelshud = gateNum
+        } else if raidName.contains("쿠크세이튼") {
+            self.checkList[charIndex].kouku_saton = isChecked
+        } else if raidName.contains("비아키스") {
+            self.checkList[charIndex].biakiss = isChecked
+        } else if raidName.contains("발탄") {
+            self.checkList[charIndex].valtan = isChecked
+        }
+        print("index: \(charIndex)")
+        print(self.checkList)
     }
 }

@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol GateButtonTappedDelegate {
-    func gateButtonTapped(gateNum: Int)
+protocol CheckButtonTappedDelegate {
+    func checkButtonTapped(gateNum: Int, raidName: String, charIndex: Int)
 }
