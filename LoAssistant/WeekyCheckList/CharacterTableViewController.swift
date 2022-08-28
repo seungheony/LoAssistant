@@ -360,6 +360,7 @@ class CharacterTableViewController: UITableViewController {
         illiakanCell.level = level
         illiakanCell.charIndex = index.section/2
         illiakanCell.delegate = self
+        illiakanCell.gate1Button.isSelected = false
         if self.checkList[index.section/2].illiakan == true {
             illiakanCell.gate1Button.isSelected = true
         }
@@ -372,43 +373,72 @@ class CharacterTableViewController: UITableViewController {
         return illiakanCell
     }
     func get_abrelshudCell(level: Float, index: IndexPath) -> AbrelshudTableViewCell {
-        let abrelshud_12Cell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_12Cell", for: index) as! AbrelshudTableViewCell
-        abrelshud_12Cell.level = level
-        abrelshud_12Cell.charIndex = index.section/2
-        abrelshud_12Cell.delegate = self
+        let abrelshudCell = tableView.dequeueReusableCell(withIdentifier: "Abrelshud_12Cell", for: index) as! AbrelshudTableViewCell
+        abrelshudCell.level = level
+        abrelshudCell.charIndex = index.section/2
+        abrelshudCell.delegate = self
+        
+        abrelshudCell.gate12Button.isSelected = false
+        abrelshudCell.gate34Button.isSelected = false
+        abrelshudCell.gate56Button.isSelected = false
+        
+        if self.checkList[index.section/2].abrelshud >= 1 {
+            abrelshudCell.gate12Button.isSelected = true
+            if self.checkList[index.section/2].abrelshud >= 2 {
+                abrelshudCell.gate34Button.isSelected = true
+                if self.checkList[index.section/2].abrelshud == 3 {
+                    abrelshudCell.gate56Button.isSelected = true
+                }
+            }
+        }
         
         if level >= 1540 {
-            abrelshud_12Cell.raidNameLabel.attributedText = abrelshud_12Cell.raidNameLabel.text?.setRaidNameAtAttributesStr(add: "하드")
+            abrelshudCell.raidNameLabel.attributedText = abrelshudCell.raidNameLabel.text?.setRaidNameAtAttributesStr(add: "하드")
         } else {
-            abrelshud_12Cell.raidNameLabel.attributedText = abrelshud_12Cell.raidNameLabel.text?.setRaidNameAtAttributesStr(add: "노말")
+            abrelshudCell.raidNameLabel.attributedText = abrelshudCell.raidNameLabel.text?.setRaidNameAtAttributesStr(add: "노말")
         }
-        return abrelshud_12Cell
+        return abrelshudCell
     }
     func get_kouku_satonCell(index: IndexPath) -> Kouku_SatonTableViewCell {
         let kouku_satonCell = tableView.dequeueReusableCell(withIdentifier: "Kouku_SatonCell", for: index) as! Kouku_SatonTableViewCell
         kouku_satonCell.charIndex = index.section/2
         kouku_satonCell.delegate = self
         
+        kouku_satonCell.gate1Button.isSelected = false
+        if self.checkList[index.section/2].kouku_saton == true {
+            kouku_satonCell.gate1Button.isSelected = true
+        }
+        
         return kouku_satonCell
     }
     func get_biackissCell(level: Float, index: IndexPath) -> BiackissTableViewCell {
-        let biackissCell = tableView.dequeueReusableCell(withIdentifier: "BiackissCell", for: index) as! BiackissTableViewCell
-        biackissCell.level = level
-        biackissCell.charIndex = index.section/2
-        biackissCell.delegate = self
+        let biakissCell = tableView.dequeueReusableCell(withIdentifier: "BiackissCell", for: index) as! BiackissTableViewCell
+        biakissCell.level = level
+        biakissCell.charIndex = index.section/2
+        biakissCell.delegate = self
+        
+        biakissCell.gate1Button.isSelected = false
+        if self.checkList[index.section/2].biakiss == true {
+            biakissCell.gate1Button.isSelected = true
+        }
         
         if level >= 1460 {
-            biackissCell.raidNameLabel.attributedText = biackissCell.raidNameLabel.text?.setRaidNameAtAttributesStr(add: "하드")
+            biakissCell.raidNameLabel.attributedText = biakissCell.raidNameLabel.text?.setRaidNameAtAttributesStr(add: "하드")
         } else {
-            biackissCell.raidNameLabel.attributedText = biackissCell.raidNameLabel.text?.setRaidNameAtAttributesStr(add: "노말")
+            biakissCell.raidNameLabel.attributedText = biakissCell.raidNameLabel.text?.setRaidNameAtAttributesStr(add: "노말")
         }
-        return biackissCell
+        return biakissCell
     }
     func get_valtanCell(level: Float, index: IndexPath) -> ValtanTableViewCell {
         let valtanCell = tableView.dequeueReusableCell(withIdentifier: "ValtanCell", for: index) as! ValtanTableViewCell
         valtanCell.level = level
         valtanCell.charIndex = index.section/2
         valtanCell.delegate = self
+        
+        valtanCell.gate1Button.isSelected = false
+        if self.checkList[index.section/2].valtan == true {
+            valtanCell.gate1Button.isSelected = true
+        }
         
         if level >= 1445 {
             valtanCell.raidNameLabel.attributedText = valtanCell.raidNameLabel.text?.setRaidNameAtAttributesStr(add: "하드")
@@ -423,6 +453,16 @@ class CharacterTableViewController: UITableViewController {
         kayangelCell.level = level
         kayangelCell.charIndex = index.section/2
         kayangelCell.delegate = self
+        
+        kayangelCell.gate1Button.isSelected = false
+        kayangelCell.gate2Button.isSelected = false
+        
+        if self.checkList[index.section/2].kayangel >= 1 {
+            kayangelCell.gate1Button.isSelected = true
+            if self.checkList[index.section/2].kayangel == 2 {
+                kayangelCell.gate2Button.isSelected = true
+            }
+        }
         
         if level >= 1580 {
             kayangelCell.raidNameLabel.attributedText = kayangelCell.raidNameLabel.text?.setRaidNameAtAttributesStr(add: "하드-3")
@@ -439,6 +479,11 @@ class CharacterTableViewController: UITableViewController {
         let argosCell = tableView.dequeueReusableCell(withIdentifier: "ArgosCell", for: index) as! ArgosTableViewCell
         argosCell.charIndex = index.section/2
         argosCell.delegate = self
+        
+        argosCell.checkButton.isSelected = false
+        if self.checkList[index.section/2].argos == true {
+            argosCell.checkButton.isSelected = true
+        }
         
         return argosCell
     }
@@ -498,7 +543,7 @@ extension CharacterTableViewController: CheckButtonTappedDelegate {
     func checkButtonTapped(gateNum: Int, raidName: String, charIndex: Int) {
         
         var isChecked: Bool = false
-        if gateNum == 1 {
+        if gateNum >= 1 {
             isChecked = true
         }
         

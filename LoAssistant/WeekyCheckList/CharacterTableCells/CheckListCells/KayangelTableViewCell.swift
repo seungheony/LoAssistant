@@ -70,39 +70,4 @@ class KayangelTableViewCell: UITableViewCell {
             delegate?.checkButtonTapped(gateNum: 2, raidName: raidNameLabel.text!, charIndex: charIndex)
         }
     }
-    
-    @objc private func didChangeValue(segment: UISegmentedControl) {
-        DispatchQueue.global().sync {
-            var checkList: [CheckList] = [CheckList]()
-            
-            if let savedData = UserDefaults.standard.object(forKey: "CharacterList") as? Data {
-                let decoder = JSONDecoder()
-                if let savedObject = try? decoder.decode([CheckList].self, from: savedData) {
-                    checkList = savedObject
-                }
-            }
-            
-            checkList[self.charIndex].kayangel = segment.selectedSegmentIndex
-            print("\(self.charIndex) : \(checkList[self.charIndex].kayangel)")
-            
-            let encoder = JSONEncoder()
-            if let encoded = try? encoder.encode(checkList) {
-                UserDefaults.standard.setValue(encoded, forKey: "CharacterList")
-            }
-            if segment.selectedSegmentIndex == 2 {
-                raidNameLabel.attributedText = raidNameLabel.text?.strikeThrough()
-            } else {
-                raidNameLabel.attributedText = raidNameLabel.text?.removeStrikeThrough()
-                if level >= 1580 {
-                    raidNameLabel.attributedText = raidNameLabel.text?.setRaidNameAtAttributesStr(add: "하드-3")
-                } else if level >= 1560 {
-                    raidNameLabel.attributedText = raidNameLabel.text?.setRaidNameAtAttributesStr(add: "하드-2")
-                } else if level >= 1520 {
-                    raidNameLabel.attributedText = raidNameLabel.text?.setRaidNameAtAttributesStr(add: "하드-1")
-                } else {
-                    raidNameLabel.attributedText = raidNameLabel.text?.setRaidNameAtAttributesStr(add: "노말")
-                }
-            }
-        }
-    }
 }
