@@ -140,7 +140,7 @@ class CharacterTableViewController: UITableViewController {
         
         let date = dateFormatter.date(from: day ?? "1998년12월17일 00시00분00초")
         
-        if Date().isPast(fromDate: date ?? Date()) {
+        if Date().isPast(fromDate: date ?? Date()) && checkList.count >= 1 {
             for i in 0...checkList.count-1 {
                 checkList[i].argos = false
                 checkList[i].kayangel = 0
