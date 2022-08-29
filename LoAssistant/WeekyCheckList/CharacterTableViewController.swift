@@ -133,6 +133,27 @@ class CharacterTableViewController: UITableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         print("view will appear")
+        let day = UserDefaults.standard.string(forKey: "InitializeDay")
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy년MM월dd일 HH시mm분ss초"
+        dateFormatter.locale = Locale(identifier: "ko")
+        
+        let date = dateFormatter.date(from: day ?? "1998년12월17일 00시00분00초")
+        
+        if Date().isPast(fromDate: date ?? Date()) {
+            for i in 0...checkList.count-1 {
+                checkList[i].argos = false
+                checkList[i].kayangel = 0
+                
+                checkList[i].valtan = false
+                checkList[i].biakiss = false
+                checkList[i].kouku_saton = false
+                checkList[i].abrelshud = 0
+                checkList[i].illiakan = false
+            }
+        }
+        
+        
         if let savedData = UserDefaults.standard.object(forKey: "CharacterList") as? Data {
             let decoder = JSONDecoder()
             if let savedObject = try? decoder.decode([CheckList].self, from: savedData) {
@@ -143,6 +164,7 @@ class CharacterTableViewController: UITableViewController {
     }
     override func viewWillDisappear(_ animated: Bool) {
         print("view will disappear")
+        set_initializeCheckList()
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(self.checkList) {
             UserDefaults.standard.setValue(encoded, forKey: "CharacterList")
@@ -539,6 +561,38 @@ class CharacterTableViewController: UITableViewController {
             return "wardancer"
         }
         return ""
+    }
+    
+    func set_initializeCheckList() {
+        var today = Date()
+        let dateFormatter = DateFormatter() // Date 포맷 객체 선언
+        dateFormatter.locale = Locale(identifier: "ko") // 한국 지정
+        dateFormatter.dateFormat = "E"
+        let day_of_the_week = dateFormatter.string(from: today)
+        
+        dateFormatter.dateFormat = "HH"
+        let hour = Int(dateFormatter.string(from: today))
+        
+        if (day_of_the_week == "수") && (hour! < 6) {
+            // 당일 오전 6시로 설정
+            dateFormatter.dateFormat = "yyyy년MM월dd일 06시00분00초"
+            let day = dateFormatter.string(from: today)
+            UserDefaults.standard.setValue(day, forKey: "InitializeDay")
+            
+        } else {
+            while true {
+                
+                today = Calendar.current.date(byAdding: .day, value: 1, to: today) ?? Date()
+                dateFormatter.dateFormat = "E"
+                if dateFormatter.string(from: today) == "수" {
+                    dateFormatter.dateFormat = "yyyy년MM월dd일 06시00분00초"
+                    let day = dateFormatter.string(from: today)
+                    print(day)
+                    UserDefaults.standard.setValue(day, forKey: "InitializeDay")
+                    break
+                }
+            }
+        }
     }
 }
 extension CharacterTableViewController: CheckButtonTappedDelegate {

@@ -141,15 +141,13 @@ class CharacterSettingTableViewController: UITableViewController, UITextFieldDel
     
     func getData() {
         LoadingHUD.show()
-        if UserDefaults.standard.string(forKey: "CharacterName") == charName.text {
-            // 체크리스트 구조체 업데이트
-            LoadingHUD.hide()
-        } else {
+        if UserDefaults.standard.string(forKey: "CharacterName") != charName.text {
             // 체크리스트 구조체 생성
             let userInfoURL = "https://lostarkapi.ga/userinfo/" + charName.text!
             parseCaracterData(url: userInfoURL) { (data) in
                 if data["Result"].stringValue == "Failed" {
                     print(data["Reason"].stringValue);
+                    LoadingHUD.hide()
                 } else {
                     print(data["CharacterList"].count)
                     for i in 0...data["CharacterList"].count-1 {
