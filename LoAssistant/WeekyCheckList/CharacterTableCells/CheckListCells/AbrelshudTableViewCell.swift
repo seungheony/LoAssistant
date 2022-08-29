@@ -54,10 +54,13 @@ class AbrelshudTableViewCell: UITableViewCell {
     
     @IBAction func gate12ButtonTapped(_ sender: Any) {
         gate34Button.isSelected = false
+        gate56Button.isSelected = false
         gate12Button.isSelected = !gate12Button.isSelected
         
         if gate12Button.isSelected == true {
             delegate?.checkButtonTapped(gateNum: 1, raidName: raidNameLabel.text!, charIndex: charIndex)
+        } else {
+            delegate?.checkButtonTapped(gateNum: 0, raidName: raidNameLabel.text!, charIndex: charIndex)
         }
     }
     @IBAction func gate34ButtonTapped(_ sender: Any) {
@@ -65,8 +68,10 @@ class AbrelshudTableViewCell: UITableViewCell {
         gate56Button.isSelected = false
         gate34Button.isSelected = !gate34Button.isSelected
         
-        if gate56Button.isSelected == true {
+        if gate34Button.isSelected == true {
             delegate?.checkButtonTapped(gateNum: 2, raidName: raidNameLabel.text!, charIndex: charIndex)
+        } else if gate12Button.isSelected == true {
+            delegate?.checkButtonTapped(gateNum: 1, raidName: raidNameLabel.text!, charIndex: charIndex)
         }
     }
     @IBAction func gate56ButtonTapped(_ sender: Any) {
@@ -76,6 +81,8 @@ class AbrelshudTableViewCell: UITableViewCell {
         
         if gate56Button.isSelected == true {
             delegate?.checkButtonTapped(gateNum: 3, raidName: raidNameLabel.text!, charIndex: charIndex)
+        } else if gate34Button.isSelected == true {
+            delegate?.checkButtonTapped(gateNum: 2, raidName: raidNameLabel.text!, charIndex: charIndex)
         }
     }
 }

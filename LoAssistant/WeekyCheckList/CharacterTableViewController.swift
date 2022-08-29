@@ -382,7 +382,9 @@ class CharacterTableViewController: UITableViewController {
         abrelshudCell.gate34Button.isSelected = false
         abrelshudCell.gate56Button.isSelected = false
         
+        print(self.checkList[index.section/2].abrelshud)
         if self.checkList[index.section/2].abrelshud >= 1 {
+            print(self.checkList[index.section/2].abrelshud)
             abrelshudCell.gate12Button.isSelected = true
             if self.checkList[index.section/2].abrelshud >= 2 {
                 abrelshudCell.gate34Button.isSelected = true
@@ -541,6 +543,8 @@ class CharacterTableViewController: UITableViewController {
 }
 extension CharacterTableViewController: CheckButtonTappedDelegate {
     func checkButtonTapped(gateNum: Int, raidName: String, charIndex: Int) {
+        
+        print(gateNum)
         
         var isChecked: Bool = false
         if gateNum >= 1 {

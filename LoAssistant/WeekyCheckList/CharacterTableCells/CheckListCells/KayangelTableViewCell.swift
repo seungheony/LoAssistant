@@ -60,6 +60,8 @@ class KayangelTableViewCell: UITableViewCell {
         
         if gate1Button.isSelected == true {
             delegate?.checkButtonTapped(gateNum: 1, raidName: raidNameLabel.text!, charIndex: charIndex)
+        } else {
+            delegate?.checkButtonTapped(gateNum: 0, raidName: raidNameLabel.text!, charIndex: charIndex)
         }
     }
     @IBAction func gate2ButtonTapped(_ sender: Any) {
@@ -68,6 +70,8 @@ class KayangelTableViewCell: UITableViewCell {
         
         if gate2Button.isSelected == true {
             delegate?.checkButtonTapped(gateNum: 2, raidName: raidNameLabel.text!, charIndex: charIndex)
+        } else if gate1Button.isSelected == true {
+            delegate?.checkButtonTapped(gateNum: 1, raidName: raidNameLabel.text!, charIndex: charIndex)
         }
     }
 }
