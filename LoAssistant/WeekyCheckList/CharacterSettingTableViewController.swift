@@ -124,7 +124,7 @@ class CharacterSettingTableViewController: UITableViewController, UITextFieldDel
     */
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        getData()
+        getCharacterData()
         textField.resignFirstResponder()
         return true
     }
@@ -135,14 +135,13 @@ class CharacterSettingTableViewController: UITableViewController, UITextFieldDel
     }
     
     @objc func dismissKeyboard() {
-        getData()
+        getCharacterData()
         view.endEditing(true)
     }
     
-    func getData() {
+    func getCharacterData() {
         LoadingHUD.show()
         if UserDefaults.standard.string(forKey: "CharacterName") != charName.text {
-            // 체크리스트 구조체 생성
             let userInfoURL = "https://lostarkapi.ga/userinfo/" + charName.text!
             parseCaracterData(url: userInfoURL) { (data) in
                 if data["Result"].stringValue == "Failed" {
@@ -172,6 +171,9 @@ class CharacterSettingTableViewController: UITableViewController, UITextFieldDel
                     UserDefaults.standard.set(self.charName.text, forKey: "CharacterName")
                 }
             }
+        } else {
+            // 저장된 이름과 같은 경우
+            LoadingHUD.hide()
         }
     }
 }
