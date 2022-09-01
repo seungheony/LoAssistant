@@ -51,7 +51,10 @@ class OrehaTableViewController: UITableViewController {
         self.setRefreshControl()
 
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tableView.reloadData()
+    }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -74,7 +77,7 @@ class OrehaTableViewController: UITableViewController {
         } else if section == 5 {
             return 2
         } else if section == 6 {
-            return 1
+            return 3
         }
         return 0
     }
@@ -122,7 +125,6 @@ class OrehaTableViewController: UITableViewController {
             if indexPath.row == 0 {
                 orehaCell.orehaImage.image = UIImage(named: imageList[3])
                 orehaCell.orehaNameLabel.text = itemList[3]
-//                orehaCell.timeTakenLabel.text = getTimeTaken(item: 0)
                 if firstLoad == false {
                     print("_____________________inter")
                     orehaCell.orehaPriceLabel.text = String(Int(get_intermediatePrice())) + " G"
@@ -138,7 +140,6 @@ class OrehaTableViewController: UITableViewController {
             if indexPath.row == 0 {
                 orehaCell.orehaImage.image = UIImage(named: imageList[4])
                 orehaCell.orehaNameLabel.text = itemList[4]
-//                orehaCell.timeTakenLabel.text = getTimeTaken(item: 1)
                 if firstLoad == false {
                     print("_____________________adv")
                     orehaCell.orehaPriceLabel.text = String(Int(get_advancedPrice())) + " G"
@@ -154,7 +155,6 @@ class OrehaTableViewController: UITableViewController {
             if indexPath.row == 0 {
                 orehaCell.orehaImage.image = UIImage(named: imageList[5])
                 orehaCell.orehaNameLabel.text = itemList[5]
-//                orehaCell.timeTakenLabel.text = getTimeTaken(item: 1)
                 if firstLoad == false {
                     print("_____________________upper")
                     orehaCell.orehaPriceLabel.text = String(Int(get_uppermostPrice())) + " G"
@@ -190,9 +190,26 @@ class OrehaTableViewController: UITableViewController {
 //        }
         else if indexPath.section == 6 {
             let timerCell = tableView.dequeueReusableCell(withIdentifier: "TimerCell", for: indexPath) as! TimerTableViewCell
+            var item = ""
+            
             if indexPath.row == 0 {
-                return timerCell
+                item = "중급"
+            } else if indexPath.row == 1 {
+                item = "상급"
+            } else if indexPath.row == 2 {
+                item = "최상급"
             }
+            if UserDefaults.standard.bool(forKey: item + "타이머") == true {
+                timerCell.expectedTime = UserDefaults.standard.object(forKey: item + "제작완료시간") as! Date?
+                timerCell.timerButton.isSelected = true
+                timerCell.timerButton.setTitle("타이머 초기화", for: .normal)
+                timerCell.startTiemr(item: item)
+            } else {
+                timerCell.timerButton.setTitle(item + " 제작 시작", for: .normal)
+                timerCell.remainedTimeLabel.text = getTimeTaken(item: item)
+            }
+            timerCell.item = item
+            timerCell.expectedTimeStr = getTimeTaken(item: item)
             return timerCell
         }
         return ingredientCell
@@ -383,7 +400,7 @@ extension OrehaTableViewController {
         return Int(get_uppermostPrice()) - commission
     }
     
-    func getTimeTaken(item: Int) -> String {
+    func getTimeTaken(item: String) -> String {
         var reduction = 0.0
         
         reduction += Double(truncating: UserDefaults.standard.bool(forKey: "노동요") as NSNumber)
@@ -393,7 +410,7 @@ extension OrehaTableViewController {
         let 제작공방 = Double(UserDefaults.standard.integer(forKey: "제작공방")/2)
         reduction += 제작공방 * 0.5
         
-        if item == 0 {
+        if item == "중급" {
             let inter_time = Int(45 * 60 * (100-reduction) / 100) * 10
             let expectedTime = Date(timeIntervalSinceNow: TimeInterval(inter_time))
             let currentDate = Date()
@@ -405,9 +422,9 @@ extension OrehaTableViewController {
             //그러고도 남은 초
             let seconds = secondsLeft % 60 % 60
             
-            return "제작 시간 \(hours):\(minutes):\(seconds)"
+            return "\(hours)시간 \(minutes)분 \(seconds)초"
             
-        } else if item == 1 {
+        } else if item == "상급" {
             let adv_time = Int(60 * 60 * (100-reduction) / 100) * 10
             let expectedTime = Date(timeIntervalSinceNow: TimeInterval(adv_time))
             let currentDate = Date()
@@ -419,9 +436,9 @@ extension OrehaTableViewController {
             //그러고도 남은 초
             let seconds = secondsLeft % 60 % 60
             
-            return "제작 시간 \(hours):\(minutes):\(seconds)"
+            return "\(hours)시간 \(minutes)분 \(seconds)초"
             
-        } else if item == 2 {
+        } else if item == "최상급" {
             let adv_time = Int(75 * 60 * (100-reduction) / 100) * 10
             let expectedTime = Date(timeIntervalSinceNow: TimeInterval(adv_time))
             let currentDate = Date()
@@ -433,7 +450,7 @@ extension OrehaTableViewController {
             //그러고도 남은 초
             let seconds = secondsLeft % 60 % 60
             
-            return "제작 시간 \(hours):\(minutes):\(seconds)"
+            return "\(hours)시간 \(minutes)분 \(seconds)초"
         }
         return ""
     }

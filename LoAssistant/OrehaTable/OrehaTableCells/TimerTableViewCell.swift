@@ -15,50 +15,34 @@ class TimerTableViewCell: UITableViewCell {
     var timer: Timer?
     var expectedTime: Date?
     
-    @IBOutlet weak var interTimerButton: UIButton!
-    @IBOutlet weak var advTimerButton: UIButton!
+    var item: String?
+    var expectedTimeStr: String?
     
-    @IBAction func interTimerTapped(_ sender: Any) {
-        if interTimerButton.isSelected == false {
-            self.interTimerButton.isSelected = true
-            self.advTimerButton.isEnabled = false
-            self.interTimerButton.setTitle("타이머 재설정", for: .normal)
-            UserDefaults.standard.set("inter", forKey: "isSettedTimer")
-            
-            self.setTimer(item: "inter")
-            self.startTiemr(item: "inter")
-            self.authorizeTimer(item: "inter")
-            
-        } else {
-            interTimerButton.isSelected = false
-            advTimerButton.isEnabled = true
-            UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-            UserDefaults.standard.set("none", forKey: "isSettedTimer")
-            timer?.invalidate()
-            interTimerButton.setTitle("중급 제작 시작", for: .normal)
-            advTimerButton.setTitle("상급 제작 시작", for: .normal)
-            
+    @IBOutlet weak var timeStateLabel: UILabel!
+    @IBOutlet weak var timerButton: UIButton!
+    @IBOutlet weak var remainedTimeLabel: UILabel!
+    
+    @IBAction func timerButtonTapped(_ sender: Any) {
+        timerButton.isSelected = !timerButton.isSelected
+        timerButton.setTitle("타이머 초기화", for: .normal)
+        guard let itemStr = item else {
+            return
         }
-    }
-    @IBAction func advTimerTapped(_ sender: Any) {
-        if advTimerButton.isSelected == false {
-            self.advTimerButton.isSelected = true
-            self.interTimerButton.isEnabled = false
-            self.advTimerButton.setTitle("타이머 재설정", for: .normal)
-            UserDefaults.standard.set("adv", forKey: "isSettedTimer")
-            
-            self.setTimer(item: "adv")
-            self.startTiemr(item: "adv")
-            self.authorizeTimer(item: "adv")
-            
-        } else {
-            advTimerButton.isSelected = false
-            interTimerButton.isEnabled = true
+        if timerButton.isSelected == true {
+            UserDefaults.standard.set(true, forKey: itemStr + "타이머")
+            remainedTimeLabel.textColor = UIColor.label
+            self.setTimer(item: itemStr)
+            self.startTiemr(item: itemStr)
+            self.authorizeTimer(item: itemStr)
+        }
+        else {
             UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-            UserDefaults.standard.set("none", forKey: "isSettedTimer")
             timer?.invalidate()
-            advTimerButton.setTitle("상급 제작 시작", for: .normal)
-            interTimerButton.setTitle("중급 제작 시작", for: .normal)
+            
+            UserDefaults.standard.set(false, forKey: itemStr + "타이머")
+            remainedTimeLabel.textColor = UIColor.secondaryLabel
+            timerButton.setTitle(itemStr + " 제작 시작", for: .normal)
+            remainedTimeLabel.text = expectedTimeStr
         }
     }
     
@@ -66,33 +50,12 @@ class TimerTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-//        UNUserNotificationCenter.current().getNotificationSettings { settings in
-//            if settings.authorizationStatus != UNAuthorizationStatus.authorized {
-//                DispatchQueue.main.async {
-//                    self.interTimerButton.setTitle("사용 불가", for: .normal)
-//                    self.advTimerButton.setTitle("알림 허용 필요", for: .normal)
-//
-//                    self.interTimerButton.isEnabled = false
-//                    self.advTimerButton.isEnabled = false
-//                }
-//            }
-//        }
-        interTimerButton.setTitle("중급 제작 시작", for: .normal)
-        advTimerButton.setTitle("상급 제작 시작", for: .normal)
-        
         // 여기서부터 앱 재부팅 후 타이머 출력 구현
         if UserDefaults.standard.string(forKey: "isSettedTimer") == "inter" {
             expectedTime = UserDefaults.standard.object(forKey: "제작완료시간") as! Date
-            interTimerButton.isSelected = true
-            advTimerButton.isEnabled = false
-            interTimerButton.setTitle("타이머 재설정", for: .normal)
+            timerButton.isSelected = true
+            timerButton.setTitle("타이머 재설정", for: .normal)
             startTiemr(item: "inter")
-        } else if UserDefaults.standard.string(forKey: "isSettedTimer") == "adv" {
-            expectedTime = UserDefaults.standard.object(forKey: "제작완료시간") as! Date
-            advTimerButton.isSelected = true
-            interTimerButton.isEnabled = false
-            advTimerButton.setTitle("타이머 재설정", for: .normal)
-            startTiemr(item: "adv")
         }
         
     }
@@ -108,18 +71,12 @@ extension TimerTableViewCell {
     func authorizeTimer(item: String) {
         let calendar = Calendar.current
         var date = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: self.expectedTime!)
+        
         let nContent = UNMutableNotificationContent() // 로컬알림에 대한 속성 설정 가능
-        if item == "inter" {
-            nContent.title = "제작 완료"
-            nContent.subtitle = "중급 오레하 융화 재료"
-
-        } else if item == "adv" {
-            nContent.title = "제작 완료"
-            nContent.subtitle = "상급 오레하 융화 재료"
-            
-        }
+        nContent.title = "제작 완료"
+        nContent.subtitle = item + " 오레하 융화 재료"
         nContent.sound = UNNotificationSound.default
-        print(date)
+
         // 알림 발송 조건 객체
         let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: false)
         // 알림 요청 객체
@@ -144,17 +101,11 @@ extension TimerTableViewCell {
 
             //남은 시간(초)가 0보다 크면
             if self.secondsLeft > 0 {
-                if item == "inter" {
-                    self.advTimerButton.setTitle("중급 제작중\n남은 시간: \(hours):\(minutes):\(seconds)", for: .normal)
-                } else if item == "adv" {
-                    self.interTimerButton.setTitle("상급 제작중\n남은 시간: \(hours):\(minutes):\(seconds)", for: .normal)
-                }
+                self.remainedTimeLabel.text = "\(hours)시간 \(minutes)분  \(seconds)초"
+                self.timeStateLabel.text = "남은 시간"
+                
             } else {
-                if item == "inter" {
-                    self.advTimerButton.setTitle("중급 제작 완료", for: .normal)
-                } else if item == "adv" {
-                    self.interTimerButton.setTitle("상급 제작 완료", for: .normal)
-                }
+                self.remainedTimeLabel.text = "제작 완료"
             }
         })
     }
@@ -167,15 +118,17 @@ extension TimerTableViewCell {
         let 제작공방 = Double(UserDefaults.standard.integer(forKey: "제작공방")/2)
         reduction += 제작공방 * 0.5
         
-        if item == "inter" {
+        if item == "중급" {
             let inter_time = Int(45 * 60 * (100-reduction) / 100) * 10
             expectedTime = Date(timeIntervalSinceNow: TimeInterval(inter_time))
-            UserDefaults.standard.set(expectedTime, forKey: "제작완료시간")
-        } else if item == "adv" {
+        } else if item == "상급" {
             let adv_time = Int(60 * 60 * (100-reduction) / 100) * 10
             expectedTime = Date(timeIntervalSinceNow: TimeInterval(adv_time))
-            UserDefaults.standard.set(expectedTime, forKey: "제작완료시간")
+        } else if item == "최상급" {
+            let adv_time = Int(75 * 60 * (100-reduction) / 100) * 10
+            expectedTime = Date(timeIntervalSinceNow: TimeInterval(adv_time))
         }
+        UserDefaults.standard.set(expectedTime, forKey: item + "제작완료시간")
         reduction = 0
     }
 }
