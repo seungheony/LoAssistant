@@ -52,8 +52,10 @@ class IlliakanTableViewCell: UITableViewCell {
         gate1Button.isSelected = !gate1Button.isSelected
         print("illiakan")
         if gate1Button.isSelected == true {
+            print("selected")
             delegate?.checkButtonTapped(gateNum: 1, raidName: raidNameLabel.text!, charIndex: charIndex)
         } else {
+            print("deselected")
             delegate?.checkButtonTapped(gateNum: 0, raidName: raidNameLabel.text!, charIndex: charIndex)
         }
     }

@@ -388,9 +388,22 @@ class CharacterTableViewController: UITableViewController {
         illiakanCell.level = level
         illiakanCell.charIndex = index.section/2
         illiakanCell.delegate = self
+        
+        print("illiakan is Selected : \(illiakanCell.gate1Button.isSelected)")
+        
         illiakanCell.gate1Button.isSelected = false
         if self.checkList[index.section/2].illiakan == true {
             illiakanCell.gate1Button.isSelected = true
+        }
+        
+        illiakanCell.gate1Button.isEnabled = true
+        if illiakanCell.gate1Button.isSelected == false {
+            print("illiakan is not Selected")
+            if self.checkList[index.section/2].counter == 3 {
+                illiakanCell.gate1Button.isEnabled = false
+            } else if self.checkList[index.section/2].counter == 2 {
+                illiakanCell.gate1Button.isEnabled = true
+            }
         }
         
         if level >= 1600 {
@@ -422,6 +435,22 @@ class CharacterTableViewController: UITableViewController {
             }
         }
         
+        abrelshudCell.gate12Button.isEnabled = true
+        abrelshudCell.gate34Button.isEnabled = true
+        abrelshudCell.gate56Button.isEnabled = true
+        
+        if abrelshudCell.gate12Button.isSelected == false {
+            if self.checkList[index.section/2].counter == 3 {
+                abrelshudCell.gate12Button.isEnabled = false
+                abrelshudCell.gate34Button.isEnabled = false
+                abrelshudCell.gate56Button.isEnabled = false
+            } else if self.checkList[index.section/2].counter == 2 {
+                abrelshudCell.gate12Button.isEnabled = true
+                abrelshudCell.gate34Button.isEnabled = true
+                abrelshudCell.gate56Button.isEnabled = true
+            }
+        }
+        
         if level >= 1540 {
             abrelshudCell.raidNameLabel.attributedText = abrelshudCell.raidNameLabel.text?.setRaidNameAtAttributesStr(add: "하드")
         } else {
@@ -439,6 +468,15 @@ class CharacterTableViewController: UITableViewController {
             kouku_satonCell.gate1Button.isSelected = true
         }
         
+        kouku_satonCell.gate1Button.isEnabled = true
+        if kouku_satonCell.gate1Button.isSelected == false {
+            if self.checkList[index.section/2].counter == 3 {
+                kouku_satonCell.gate1Button.isEnabled = false
+            } else if self.checkList[index.section/2].counter == 2 {
+                kouku_satonCell.gate1Button.isEnabled = true
+            }
+        }
+        
         return kouku_satonCell
     }
     func get_biackissCell(level: Float, index: IndexPath) -> BiackissTableViewCell {
@@ -450,6 +488,15 @@ class CharacterTableViewController: UITableViewController {
         biakissCell.gate1Button.isSelected = false
         if self.checkList[index.section/2].biakiss == true {
             biakissCell.gate1Button.isSelected = true
+        }
+        
+        biakissCell.gate1Button.isEnabled = true
+        if biakissCell.gate1Button.isSelected == false {
+            if self.checkList[index.section/2].counter == 3 {
+                biakissCell.gate1Button.isEnabled = false
+            } else if self.checkList[index.section/2].counter == 2 {
+                biakissCell.gate1Button.isEnabled = true
+            }
         }
         
         if level >= 1460 {
@@ -468,6 +515,15 @@ class CharacterTableViewController: UITableViewController {
         valtanCell.gate1Button.isSelected = false
         if self.checkList[index.section/2].valtan == true {
             valtanCell.gate1Button.isSelected = true
+        }
+        
+        valtanCell.gate1Button.isEnabled = true
+        if valtanCell.gate1Button.isSelected == false {
+            if self.checkList[index.section/2].counter == 3 {
+                valtanCell.gate1Button.isEnabled = false
+            } else if self.checkList[index.section/2].counter == 2 {
+                valtanCell.gate1Button.isEnabled = true
+            }
         }
         
         if level >= 1445 {
@@ -604,7 +660,7 @@ class CharacterTableViewController: UITableViewController {
 extension CharacterTableViewController: CheckButtonTappedDelegate {
     func checkButtonTapped(gateNum: Int, raidName: String, charIndex: Int) {
         
-        print(gateNum)
+        self.checkList[charIndex].counter = 0
         
         var isChecked: Bool = false
         if gateNum >= 1 {
@@ -626,6 +682,27 @@ extension CharacterTableViewController: CheckButtonTappedDelegate {
         } else if raidName.contains("발탄") {
             self.checkList[charIndex].valtan = isChecked
         }
+        
+        if self.checkList[charIndex].illiakan == true {
+            self.checkList[charIndex].counter += 1
+        }
+        if self.checkList[charIndex].abrelshud >= 1 {
+            self.checkList[charIndex].counter += 1
+        }
+        if self.checkList[charIndex].kouku_saton == true {
+            self.checkList[charIndex].counter += 1
+        }
+        if self.checkList[charIndex].biakiss == true {
+            self.checkList[charIndex].counter += 1
+        }
+        if self.checkList[charIndex].valtan == true {
+            self.checkList[charIndex].counter += 1
+        }
+        
+        if self.checkList[charIndex].counter >= 2 {
+            self.tableView.reloadData()
+        }
+        print("counter = \(self.checkList[charIndex].counter)")
         print("index: \(charIndex)")
         print(self.checkList)
     }
