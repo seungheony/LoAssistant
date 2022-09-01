@@ -302,7 +302,7 @@ extension OrehaTableViewController {
                                     self.uppermost_oreha = data
                                     print(data["Result"].stringValue)
                                     print("-- 세팅 끝 --")
-                                    
+                                    self.firstLoad = false
                                     self.calculator()
                                 }
                             }
@@ -513,7 +513,7 @@ extension OrehaTableViewController {
     }
     
     @objc func pullToRefresh(_ sender: Any) {
-        self.firstLoad = false
+        
         startParse()
     }
 }
