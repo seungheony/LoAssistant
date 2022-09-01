@@ -48,6 +48,8 @@ class OrehaTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        LoadingHUD.show()
+        startParse()
         self.setRefreshControl()
 
     }
@@ -262,9 +264,53 @@ class OrehaTableViewController: UITableViewController {
 }
 
 extension OrehaTableViewController {
-    func setPrice() {
-        calculator()
-        tableView.refreshControl?.endRefreshing()
+    
+    func startParse() {
+        // 테이블뷰에 입력되는 데이터를 갱신한다.
+        DispatchQueue.global().sync { [self] in
+            print("_____________________refresh")
+            parseMarketData(url: self.marketURL[0]) { (data) in
+                self.ancient = data
+                print(data["Result"].stringValue)
+                if data["Result"].stringValue == "Failed" {
+                    let alert = UIAlertController(title: "오류 발생", message: data["Reason"].stringValue, preferredStyle: UIAlertController.Style.alert)
+                    let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                                
+                    }
+                    alert.addAction(okAction)
+                    self.present(alert, animated: false, completion: nil)
+                    self.tableView.refreshControl?.endRefreshing()
+                } else {
+                    DispatchQueue.global().sync {
+                        self.parseMarketData(url: self.marketURL[1]) { (data) in
+                            self.rare = data
+                            print(data["Result"].stringValue)
+                        }
+                        self.parseMarketData(url: self.marketURL[2]) { (data) in
+                            self.oreha = data
+                            print(data["Result"].stringValue)
+                        }
+                        self.parseMarketData(url: self.marketURL[3]) { (data) in
+                            self.intermediate_oreha = data
+                            print(data["Result"].stringValue)
+                            
+                            self.parseMarketData(url: self.marketURL[4]) { (data) in
+                                self.advanced_oreha = data
+                                print(data["Result"].stringValue)
+                                
+                                self.parseMarketData(url: self.marketURL[5]) { (data) in
+                                    self.uppermost_oreha = data
+                                    print(data["Result"].stringValue)
+                                    print("-- 세팅 끝 --")
+                                    
+                                    self.calculator()
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
     
     func calculator() {
@@ -327,6 +373,8 @@ extension OrehaTableViewController {
         print(uppermostProfit)
         upperExtraProfit = String((get_upperSalePrice()*15)) + " G"
 
+        LoadingHUD.hide()
+        tableView.refreshControl?.endRefreshing()
         self.tableView.reloadData()
     }
     
@@ -465,52 +513,8 @@ extension OrehaTableViewController {
     }
     
     @objc func pullToRefresh(_ sender: Any) {
-
-        // 테이블뷰에 입력되는 데이터를 갱신한다.
-        DispatchQueue.global().sync { [self] in
-            print("_____________________refresh")
-            parseMarketData(url: self.marketURL[0]) { (data) in
-                self.ancient = data
-                print(data["Result"].stringValue)
-                if data["Result"].stringValue == "Failed" {
-                    let alert = UIAlertController(title: "오류 발생", message: data["Reason"].stringValue, preferredStyle: UIAlertController.Style.alert)
-                    let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
-                                
-                    }
-                    alert.addAction(okAction)
-                    self.present(alert, animated: false, completion: nil)
-                    self.tableView.refreshControl?.endRefreshing()
-                } else {
-                    DispatchQueue.global().sync {
-                        self.parseMarketData(url: self.marketURL[1]) { (data) in
-                            self.rare = data
-                            print(data["Result"].stringValue)
-                        }
-                        self.parseMarketData(url: self.marketURL[2]) { (data) in
-                            self.oreha = data
-                            print(data["Result"].stringValue)
-                        }
-                        self.parseMarketData(url: self.marketURL[3]) { (data) in
-                            self.intermediate_oreha = data
-                            print(data["Result"].stringValue)
-                            
-                            self.parseMarketData(url: self.marketURL[4]) { (data) in
-                                self.advanced_oreha = data
-                                print(data["Result"].stringValue)
-                                
-                                self.parseMarketData(url: self.marketURL[5]) { (data) in
-                                    self.uppermost_oreha = data
-                                    print(data["Result"].stringValue)
-                                    print("-- 세팅 끝 --")
-                                    self.firstLoad = false
-                                    self.setPrice()
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        self.firstLoad = false
+        startParse()
     }
 }
 
