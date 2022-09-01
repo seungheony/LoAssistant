@@ -34,6 +34,7 @@ class TimerTableViewCell: UITableViewCell {
             self.setTimer(item: itemStr)
             self.startTiemr(item: itemStr)
             self.authorizeTimer(item: itemStr)
+            
         }
         else {
             UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
@@ -51,12 +52,12 @@ class TimerTableViewCell: UITableViewCell {
         // Initialization code
         
         // 여기서부터 앱 재부팅 후 타이머 출력 구현
-        if UserDefaults.standard.string(forKey: "isSettedTimer") == "inter" {
-            expectedTime = UserDefaults.standard.object(forKey: "제작완료시간") as! Date
-            timerButton.isSelected = true
-            timerButton.setTitle("타이머 재설정", for: .normal)
-            startTiemr(item: "inter")
-        }
+//        if UserDefaults.standard.string(forKey: "isSettedTimer") == "inter" {
+//            expectedTime = UserDefaults.standard.object(forKey: "제작완료시간") as! Date
+//            timerButton.isSelected = true
+//            timerButton.setTitle("타이머 재설정", for: .normal)
+//            startTiemr(item: "inter")
+//        }
         
     }
 
@@ -70,7 +71,7 @@ class TimerTableViewCell: UITableViewCell {
 extension TimerTableViewCell {
     func authorizeTimer(item: String) {
         let calendar = Calendar.current
-        var date = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: self.expectedTime!)
+        let date = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: self.expectedTime!)
         
         let nContent = UNMutableNotificationContent() // 로컬알림에 대한 속성 설정 가능
         nContent.title = "제작 완료"
@@ -89,7 +90,7 @@ extension TimerTableViewCell {
         let currentDate = Date()
         secondsLeft = Int((expectedTime?.timeIntervalSince(currentDate))!)
         //1초마다 타이머 반복 실행
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (t) in
+        timer = Timer.init(timeInterval: 1, repeats: true, block: { (t) in
             //남은 시간(초)에서 1초 빼기
             self.secondsLeft -= 1
             // 남은 시간
@@ -108,6 +109,26 @@ extension TimerTableViewCell {
                 self.remainedTimeLabel.text = "제작 완료"
             }
         })
+        RunLoop.current.add(timer!, forMode: .common)
+//        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (t) in
+//            //남은 시간(초)에서 1초 빼기
+//            self.secondsLeft -= 1
+//            // 남은 시간
+//            let hours = self.secondsLeft / 60 / 60
+//            //남은 분
+//            let minutes = self.secondsLeft / 60 % 60
+//            //그러고도 남은 초
+//            let seconds = self.secondsLeft % 60 % 60
+//
+//            //남은 시간(초)가 0보다 크면
+//            if self.secondsLeft > 0 {
+//                self.remainedTimeLabel.text = "\(hours)시간 \(minutes)분  \(seconds)초"
+//                self.timeStateLabel.text = "남은 시간"
+//                
+//            } else {
+//                self.remainedTimeLabel.text = "제작 완료"
+//            }
+//        })
     }
     
     func setTimer(item: String) {

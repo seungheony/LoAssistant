@@ -55,7 +55,7 @@ class OrehaTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.tableView.reloadData()
+
     }
     // MARK: - Table view data source
 
@@ -201,12 +201,14 @@ class OrehaTableViewController: UITableViewController {
             } else if indexPath.row == 2 {
                 item = "최상급"
             }
+            timerCell.timer?.invalidate()
             if UserDefaults.standard.bool(forKey: item + "타이머") == true {
                 timerCell.expectedTime = UserDefaults.standard.object(forKey: item + "제작완료시간") as! Date?
                 timerCell.timerButton.isSelected = true
                 timerCell.timerButton.setTitle("타이머 초기화", for: .normal)
                 timerCell.startTiemr(item: item)
             } else {
+                timerCell.timerButton.isEnabled = false
                 timerCell.timerButton.setTitle(item + " 제작 시작", for: .normal)
                 timerCell.remainedTimeLabel.text = getTimeTaken(item: item)
             }
