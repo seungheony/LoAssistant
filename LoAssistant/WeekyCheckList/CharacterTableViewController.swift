@@ -7,6 +7,7 @@
 
 import UIKit
 import SwiftyJSON
+import Alamofire
 
 class CharacterTableViewController: UITableViewController {
     
@@ -14,6 +15,8 @@ class CharacterTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setRefreshControl()
+        
         if let savedData = UserDefaults.standard.object(forKey: "CharacterList") as? Data {
             let decoder = JSONDecoder()
             if let savedObject = try? decoder.decode([CheckList].self, from: savedData) {
@@ -705,5 +708,83 @@ extension CharacterTableViewController: CheckButtonTappedDelegate {
         print("counter = \(self.checkList[charIndex].counter)")
         print("index: \(charIndex)")
         print(self.checkList)
+    }
+}
+
+extension CharacterTableViewController {
+    
+    func setRefreshControl() {
+        tableView.refreshControl = UIRefreshControl()
+        tableView.refreshControl?.addTarget(self, action: #selector(pullToRefresh(_:)), for: .valueChanged)
+    }
+    
+    @objc func pullToRefresh(_ sender: Any) {
+        getCharacterData()
+    }
+    
+    func updateCheckList(newList: [CheckList]) {
+        for i in 0...self.checkList.count-1 {
+            if let index = newList.firstIndex(where: { $0.char_name == self.checkList[i].char_name }) {
+                self.checkList[i].char_level = newList[index].char_level
+            }
+        }
+    }
+    
+    func getCharacterData() {
+        var checkList = [CheckList]()
+        
+        guard let charName = UserDefaults.standard.string(forKey: "CharacterName") else {
+            // 저장된 캐릭터 이름이 없는 경우
+            return
+        }
+        let userInfoURL = "https://lostarkapi.ga/userinfo/" + charName
+        parseCaracterData(url: userInfoURL) { (data) in
+            if data["Result"].stringValue == "Failed" {
+                print(data["Reason"].stringValue);
+                LoadingHUD.hide()
+            } else {
+                for i in 0...data["CharacterList"].count-1 {
+                    let char_name = data["CharacterList"][i]["Name"].stringValue
+                    
+                    let levelString = data["CharacterList"][i]["Level"].stringValue
+                    let startIdx:String.Index = levelString.index(levelString.startIndex, offsetBy: 3)
+                    let char_level: Float = Float(levelString[startIdx...].components(separatedBy: [","]).joined())!
+                    
+                    let char_class = data["CharacterList"][i]["Class"].stringValue
+                    
+                    let list: CheckList = CheckList(earnGold: false, counter: 0, char_name: char_name, char_level: char_level, char_class: char_class, argos: false, valtan: false, biakiss: false, kouku_saton: false, kayangel: 0, abrelshud: 0, illiakan: false)
+                    checkList.append(list)
+                }
+                
+//                let encoder = JSONEncoder()
+//                if let encoded = try? encoder.encode(self.checkList) {
+//                    UserDefaults.standard.setValue(encoded, forKey: "CharacterList")
+//                }
+                self.updateCheckList(newList: checkList)
+                
+                self.tableView.refreshControl?.endRefreshing()
+                self.tableView.reloadData()
+            }
+        }
+        return
+    }
+    
+    func parseCaracterData(url: String, handler: @escaping (JSON) -> Void) {
+        let request = AF.request(encodeURL(url: url))
+        request.responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                handler(JSON(value))
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func encodeURL(url: String) -> URL{
+        let encodedStr = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        let encodedURL = URL(string: encodedStr)!
+        
+        return encodedURL
     }
 }
