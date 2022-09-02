@@ -44,7 +44,7 @@ class CharacterSettingTableViewController: UITableViewController, UITextFieldDel
         if section == 0 {
             return 2
         }
-        return 2
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
@@ -62,6 +62,14 @@ class CharacterSettingTableViewController: UITableViewController, UITextFieldDel
         if indexPath.section == 0 {
             if indexPath.row == 1 {
                 guard let nextVC = self.storyboard?.instantiateViewController(identifier: "ExpeditionSetting") as? ExpeditionTableViewController else {
+                    return
+                }
+                self.navigationController?.pushViewController(nextVC, animated: true)
+            }
+        }
+        if indexPath.section == 1 {
+            if indexPath.row == 0 {
+                guard let nextVC = self.storyboard?.instantiateViewController(identifier: "CheckListSetting") as? CheckListSettingTableViewController else {
                     return
                 }
                 self.navigationController?.pushViewController(nextVC, animated: true)

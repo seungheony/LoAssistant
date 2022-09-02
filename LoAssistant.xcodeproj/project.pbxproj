@@ -36,6 +36,7 @@
 		212D3E6D28B8C053009A1E1E /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212D3E6C28B8C053009A1E1E /* Protocols.swift */; };
 		212D3E6F28BC55DD009A1E1E /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212D3E6E28BC55DD009A1E1E /* DateHelper.swift */; };
 		212D3E7128BC92FD009A1E1E /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212D3E7028BC92FD009A1E1E /* Date.swift */; };
+		216FE6F428C1F2AF00C6EA08 /* CheckListSettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216FE6F328C1F2AF00C6EA08 /* CheckListSettingTableViewController.swift */; };
 		217FF48C28ADBAAD0012B949 /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217FF48B28ADBAAD0012B949 /* InfoTableViewCell.swift */; };
 		217FF49028ADBF6B0012B949 /* CharacterSettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217FF48F28ADBF6B0012B949 /* CharacterSettingTableViewController.swift */; };
 		217FF49228AE357F0012B949 /* CheckListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217FF49128AE357F0012B949 /* CheckListData.swift */; };
@@ -102,6 +103,7 @@
 		212D3E6C28B8C053009A1E1E /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		212D3E6E28BC55DD009A1E1E /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		212D3E7028BC92FD009A1E1E /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		216FE6F328C1F2AF00C6EA08 /* CheckListSettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListSettingTableViewController.swift; sourceTree = "<group>"; };
 		217FF48B28ADBAAD0012B949 /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
 		217FF48F28ADBF6B0012B949 /* CharacterSettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSettingTableViewController.swift; sourceTree = "<group>"; };
 		217FF49128AE357F0012B949 /* CheckListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListData.swift; sourceTree = "<group>"; };
@@ -217,8 +219,7 @@
 			children = (
 				217FF48A28ADBA7B0012B949 /* CharacterTableCells */,
 				1E2BC8B528A4FEB400170EAD /* CharacterTableViewController.swift */,
-				217FF48F28ADBF6B0012B949 /* CharacterSettingTableViewController.swift */,
-				2107F22A28B4C705005605F5 /* ExpeditionTableViewController.swift */,
+				216FE6F228C1F27D00C6EA08 /* CheckListSettingViews */,
 				1E2BC8B728A4FF8300170EAD /* CharacterDataService.swift */,
 				217FF49128AE357F0012B949 /* CheckListData.swift */,
 			);
@@ -264,6 +265,16 @@
 				1E52D85B2893CBB3002ED70E /* PheonViewDataService.swift */,
 			);
 			path = PheonTable;
+			sourceTree = "<group>";
+		};
+		216FE6F228C1F27D00C6EA08 /* CheckListSettingViews */ = {
+			isa = PBXGroup;
+			children = (
+				217FF48F28ADBF6B0012B949 /* CharacterSettingTableViewController.swift */,
+				2107F22A28B4C705005605F5 /* ExpeditionTableViewController.swift */,
+				216FE6F328C1F2AF00C6EA08 /* CheckListSettingTableViewController.swift */,
+			);
+			path = CheckListSettingViews;
 			sourceTree = "<group>";
 		};
 		217FF48A28ADBA7B0012B949 /* CharacterTableCells */ = {
@@ -553,6 +564,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21E7461B28B71AF800A80772 /* ArgosTableViewCell.swift in Sources */,
+				216FE6F428C1F2AF00C6EA08 /* CheckListSettingTableViewController.swift in Sources */,
 				10AFD09827EDF058004CFAFB /* MainTableViewController.swift in Sources */,
 				103E53B228459141001199A9 /* OrehaSettingViewController.swift in Sources */,
 				217FF49028ADBF6B0012B949 /* CharacterSettingTableViewController.swift in Sources */,
