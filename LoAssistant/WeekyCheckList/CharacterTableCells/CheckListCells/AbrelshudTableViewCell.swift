@@ -15,6 +15,8 @@ class AbrelshudTableViewCell: UITableViewCell {
     
     @IBOutlet weak var raidNameLabel: UILabel!
     
+    @IBOutlet weak var gate12Label: UILabel!
+    @IBOutlet weak var gate34Label: UILabel!
     @IBOutlet weak var lastGateLabel: UILabel!
     
     @IBOutlet weak var gate12Button: UIButton!

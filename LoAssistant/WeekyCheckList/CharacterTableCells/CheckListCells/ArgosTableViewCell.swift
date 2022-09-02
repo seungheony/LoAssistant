@@ -16,6 +16,9 @@ class ArgosTableViewCell: UITableViewCell {
     @IBOutlet weak var phase1Button: UIButton!
     @IBOutlet weak var phase2Button: UIButton!
     @IBOutlet weak var phase3Button: UIButton!
+    
+    @IBOutlet weak var phase1Label: UILabel!
+    @IBOutlet weak var phase2Label: UILabel!
     @IBOutlet weak var lastPhaseLabel: UILabel!
     
 //    @IBAction func checkGate(_ sender: UISegmentedControl) {

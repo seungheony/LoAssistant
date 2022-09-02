@@ -14,10 +14,13 @@ class KayangelTableViewCell: UITableViewCell {
     var delegate: CheckButtonTappedDelegate?
     
     @IBOutlet weak var raidNameLabel: UILabel!
+    
     @IBOutlet weak var gate1Button: UIButton!
     @IBOutlet weak var gate2Button: UIButton!
     
-//    @IBAction func checkGate(_ sender: UISegmentedControl) {
+    @IBOutlet weak var gate1Label: UILabel!
+    @IBOutlet weak var gate2Label: UILabel!
+    //    @IBAction func checkGate(_ sender: UISegmentedControl) {
 //        
 //        self.checkList![self.charIndex].kayangel = sender.selectedSegmentIndex
 //        print("\(self.charIndex) : \(self.checkList![self.charIndex].kayangel)")

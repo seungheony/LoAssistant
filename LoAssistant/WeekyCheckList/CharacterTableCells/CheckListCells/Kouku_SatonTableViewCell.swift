@@ -18,6 +18,9 @@ class Kouku_SatonTableViewCell: UITableViewCell {
     @IBOutlet weak var gate1Button: UIButton!
     @IBOutlet weak var gate2Button: UIButton!
     @IBOutlet weak var gate3Button: UIButton!
+    
+    @IBOutlet weak var gate1Label: UILabel!
+    @IBOutlet weak var gate2Label: UILabel!
     @IBOutlet weak var lastGateLabel: UILabel!
     
 //    @IBAction func checkGate(_ sender: UISegmentedControl) {
