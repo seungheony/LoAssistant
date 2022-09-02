@@ -15,6 +15,9 @@ class IlliakanTableViewCell: UITableViewCell {
     
     @IBOutlet weak var raidNameLabel: UILabel!
     
+    @IBOutlet weak var lastGateLabel: UILabel!
+    @IBOutlet weak var gate1Button: UIButton!
+    @IBOutlet weak var gate2Button: UIButton!
     @IBOutlet weak var gate3Button: UIButton!
     
 //    @IBAction func checkGate(_ sender: UISegmentedControl) {
@@ -49,14 +52,38 @@ class IlliakanTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     @IBAction func gate1ButtonTapped(_ sender: Any) {
-        gate3Button.isSelected = !gate3Button.isSelected
-        print("illiakan")
-        if gate3Button.isSelected == true {
-            print("selected")
-            delegate?.checkButtonTapped(gateNum: 3, raidName: raidNameLabel.text!, charIndex: charIndex)
+        gate2Button.isSelected = false
+        gate3Button.isSelected = false
+        gate1Button.isSelected = !gate1Button.isSelected
+        
+        if gate1Button.isSelected == true {
+            delegate?.checkButtonTapped(gateNum: 1, raidName: raidNameLabel.text!, charIndex: charIndex)
         } else {
-            print("deselected")
             delegate?.checkButtonTapped(gateNum: 0, raidName: raidNameLabel.text!, charIndex: charIndex)
+        }
+    }
+    
+    @IBAction func gate2ButtonTapped(_ sender: Any) {
+        gate1Button.isSelected = true
+        gate3Button.isSelected = false
+        gate2Button.isSelected = !gate2Button.isSelected
+        
+        if gate2Button.isSelected == true {
+            delegate?.checkButtonTapped(gateNum: 2, raidName: raidNameLabel.text!, charIndex: charIndex)
+        } else if gate1Button.isSelected == true {
+            delegate?.checkButtonTapped(gateNum: 1, raidName: raidNameLabel.text!, charIndex: charIndex)
+        }
+    }
+    
+    @IBAction func gate3ButtonTapped(_ sender: Any) {
+        gate1Button.isSelected = true
+        gate2Button.isSelected = true
+        gate3Button.isSelected = !gate3Button.isSelected
+        
+        if gate3Button.isSelected == true {
+            delegate?.checkButtonTapped(gateNum: 3, raidName: raidNameLabel.text!, charIndex: charIndex)
+        } else if gate2Button.isSelected == true {
+            delegate?.checkButtonTapped(gateNum: 2, raidName: raidNameLabel.text!, charIndex: charIndex)
         }
     }
 }

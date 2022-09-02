@@ -392,19 +392,32 @@ class CharacterTableViewController: UITableViewController {
         illiakanCell.charIndex = index.section/2
         illiakanCell.delegate = self
         
-        print("illiakan is Selected : \(illiakanCell.gate3Button.isSelected)")
-        
+        illiakanCell.gate1Button.isSelected = false
+        illiakanCell.gate2Button.isSelected = false
         illiakanCell.gate3Button.isSelected = false
-        if self.checkList[index.section/2].illiakan == 3 {
-            illiakanCell.gate3Button.isSelected = true
+        
+        if self.checkList[index.section/2].illiakan >= 1 {
+            illiakanCell.gate1Button.isSelected = true
+            if self.checkList[index.section/2].illiakan >= 2 {
+                illiakanCell.gate2Button.isSelected = true
+                if self.checkList[index.section/2].illiakan == 3 {
+                    illiakanCell.gate3Button.isSelected = true
+                }
+            }
         }
         
+        illiakanCell.gate1Button.isEnabled = true
+        illiakanCell.gate2Button.isEnabled = true
         illiakanCell.gate3Button.isEnabled = true
-        if illiakanCell.gate3Button.isSelected == false {
-            print("illiakan is not Selected")
+        
+        if illiakanCell.gate1Button.isSelected == false {
             if self.checkList[index.section/2].counter == 3 {
+                illiakanCell.gate1Button.isEnabled = false
+                illiakanCell.gate2Button.isEnabled = false
                 illiakanCell.gate3Button.isEnabled = false
             } else if self.checkList[index.section/2].counter == 2 {
+                illiakanCell.gate1Button.isEnabled = true
+                illiakanCell.gate2Button.isEnabled = true
                 illiakanCell.gate3Button.isEnabled = true
             }
         }
@@ -426,9 +439,7 @@ class CharacterTableViewController: UITableViewController {
         abrelshudCell.gate34Button.isSelected = false
         abrelshudCell.gate56Button.isSelected = false
         
-        print(self.checkList[index.section/2].abrelshud)
         if self.checkList[index.section/2].abrelshud >= 1 {
-            print(self.checkList[index.section/2].abrelshud)
             abrelshudCell.gate12Button.isSelected = true
             if self.checkList[index.section/2].abrelshud >= 2 {
                 abrelshudCell.gate34Button.isSelected = true
@@ -441,6 +452,8 @@ class CharacterTableViewController: UITableViewController {
         abrelshudCell.gate12Button.isEnabled = true
         abrelshudCell.gate34Button.isEnabled = true
         abrelshudCell.gate56Button.isEnabled = true
+        
+        // 레벨에 따라 관문 비활성화
         if self.checkList[index.section/2].char_level < 1520 {
             abrelshudCell.gate56Button.isEnabled = false
             if self.checkList[index.section/2].char_level < 1500 {
@@ -478,16 +491,32 @@ class CharacterTableViewController: UITableViewController {
         kouku_satonCell.charIndex = index.section/2
         kouku_satonCell.delegate = self
         
+        kouku_satonCell.gate1Button.isSelected = false
+        kouku_satonCell.gate2Button.isSelected = false
         kouku_satonCell.gate3Button.isSelected = false
-        if self.checkList[index.section/2].kouku_saton == 3 {
-            kouku_satonCell.gate3Button.isSelected = true
+        
+        if self.checkList[index.section/2].kouku_saton >= 1 {
+            kouku_satonCell.gate1Button.isSelected = true
+            if self.checkList[index.section/2].kouku_saton >= 2 {
+                kouku_satonCell.gate2Button.isSelected = true
+                if self.checkList[index.section/2].kouku_saton == 3 {
+                    kouku_satonCell.gate3Button.isSelected = true
+                }
+            }
         }
         
+        kouku_satonCell.gate1Button.isEnabled = true
+        kouku_satonCell.gate2Button.isEnabled = true
         kouku_satonCell.gate3Button.isEnabled = true
-        if kouku_satonCell.gate3Button.isSelected == false {
+        
+        if kouku_satonCell.gate1Button.isSelected == false {
             if self.checkList[index.section/2].counter == 3 {
+                kouku_satonCell.gate1Button.isEnabled = false
+                kouku_satonCell.gate2Button.isEnabled = false
                 kouku_satonCell.gate3Button.isEnabled = false
             } else if self.checkList[index.section/2].counter == 2 {
+                kouku_satonCell.gate1Button.isEnabled = true
+                kouku_satonCell.gate2Button.isEnabled = true
                 kouku_satonCell.gate3Button.isEnabled = true
             }
         }
@@ -500,16 +529,32 @@ class CharacterTableViewController: UITableViewController {
         biakissCell.charIndex = index.section/2
         biakissCell.delegate = self
         
+        biakissCell.gate1Button.isSelected = false
+        biakissCell.gate2Button.isSelected = false
         biakissCell.gate3Button.isSelected = false
-        if self.checkList[index.section/2].biakiss == 3 {
-            biakissCell.gate3Button.isSelected = true
+        
+        if self.checkList[index.section/2].biakiss >= 1 {
+            biakissCell.gate1Button.isSelected = true
+            if self.checkList[index.section/2].biakiss >= 2 {
+                biakissCell.gate2Button.isSelected = true
+                if self.checkList[index.section/2].biakiss == 3 {
+                    biakissCell.gate3Button.isSelected = true
+                }
+            }
         }
         
+        biakissCell.gate1Button.isEnabled = true
+        biakissCell.gate2Button.isEnabled = true
         biakissCell.gate3Button.isEnabled = true
-        if biakissCell.gate3Button.isSelected == false {
+        
+        if biakissCell.gate1Button.isSelected == false {
             if self.checkList[index.section/2].counter == 3 {
+                biakissCell.gate1Button.isEnabled = false
+                biakissCell.gate2Button.isEnabled = false
                 biakissCell.gate3Button.isEnabled = false
             } else if self.checkList[index.section/2].counter == 2 {
+                biakissCell.gate1Button.isEnabled = true
+                biakissCell.gate2Button.isEnabled = true
                 biakissCell.gate3Button.isEnabled = true
             }
         }
@@ -527,16 +572,26 @@ class CharacterTableViewController: UITableViewController {
         valtanCell.charIndex = index.section/2
         valtanCell.delegate = self
         
+        valtanCell.gate1Button.isSelected = false
         valtanCell.gate2Button.isSelected = false
-        if self.checkList[index.section/2].valtan == 2 {
-            valtanCell.gate2Button.isSelected = true
+        
+        if self.checkList[index.section/2].valtan >= 1 {
+            valtanCell.gate1Button.isSelected = true
+            if self.checkList[index.section/2].valtan == 2 {
+                valtanCell.gate2Button.isSelected = true
+                
+            }
         }
         
+        valtanCell.gate1Button.isEnabled = true
         valtanCell.gate2Button.isEnabled = true
-        if valtanCell.gate2Button.isSelected == false {
+        
+        if valtanCell.gate1Button.isSelected == false {
             if self.checkList[index.section/2].counter == 3 {
+                valtanCell.gate1Button.isEnabled = false
                 valtanCell.gate2Button.isEnabled = false
             } else if self.checkList[index.section/2].counter == 2 {
+                valtanCell.gate1Button.isEnabled = true
                 valtanCell.gate2Button.isEnabled = true
             }
         }
@@ -581,9 +636,18 @@ class CharacterTableViewController: UITableViewController {
         argosCell.charIndex = index.section/2
         argosCell.delegate = self
         
+        argosCell.phase1Button.isSelected = false
+        argosCell.phase2Button.isSelected = false
         argosCell.phase3Button.isSelected = false
-        if self.checkList[index.section/2].argos == 3 {
-            argosCell.phase3Button.isSelected = true
+        
+        if self.checkList[index.section/2].argos >= 1 {
+            argosCell.phase1Button.isSelected = true
+            if self.checkList[index.section/2].argos >= 2 {
+                argosCell.phase2Button.isSelected = true
+                if self.checkList[index.section/2].argos == 3 {
+                    argosCell.phase3Button.isSelected = true
+                }
+            }
         }
         
         return argosCell

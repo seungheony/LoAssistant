@@ -16,6 +16,8 @@ class ValtanTableViewCell: UITableViewCell {
     
     @IBOutlet weak var raidNameLabel: UILabel!
     
+    @IBOutlet weak var lastGateLabel: UILabel!
+    @IBOutlet weak var gate1Button: UIButton!
     @IBOutlet weak var gate2Button: UIButton!
     
 //    @IBAction func checkGate(_ sender: UISegmentedControl) {
@@ -32,15 +34,26 @@ class ValtanTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
     @IBAction func gate1ButtonTapped(_ sender: Any) {
+        gate2Button.isSelected = false
+        gate1Button.isSelected = !gate1Button.isSelected
+
+        if gate1Button.isSelected == true {
+            delegate?.checkButtonTapped(gateNum: 1, raidName: raidNameLabel.text!, charIndex: charIndex)
+        } else {
+            delegate?.checkButtonTapped(gateNum: 0, raidName: raidNameLabel.text!, charIndex: charIndex)
+        }
+    }
+    
+    @IBAction func gate2ButtonTapped(_ sender: Any) {
+        gate1Button.isSelected = true
         gate2Button.isSelected = !gate2Button.isSelected
-        print("valtan")
+        
         if gate2Button.isSelected == true {
             print("selected")
             delegate?.checkButtonTapped(gateNum: 2, raidName: raidNameLabel.text!, charIndex: charIndex)
         } else {
-            delegate?.checkButtonTapped(gateNum: 0, raidName: raidNameLabel.text!, charIndex: charIndex)
+            delegate?.checkButtonTapped(gateNum: 1, raidName: raidNameLabel.text!, charIndex: charIndex)
         }
     }
 }

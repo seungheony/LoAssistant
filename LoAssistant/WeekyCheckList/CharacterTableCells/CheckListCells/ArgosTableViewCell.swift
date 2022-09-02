@@ -13,7 +13,10 @@ class ArgosTableViewCell: UITableViewCell {
     var delegate: CheckButtonTappedDelegate?
     
     @IBOutlet weak var raidNameLabel: UILabel!
+    @IBOutlet weak var phase1Button: UIButton!
+    @IBOutlet weak var phase2Button: UIButton!
     @IBOutlet weak var phase3Button: UIButton!
+    @IBOutlet weak var lastPhaseLabel: UILabel!
     
 //    @IBAction func checkGate(_ sender: UISegmentedControl) {
 //        
@@ -43,15 +46,41 @@ class ArgosTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    @IBAction func gate1ButtonTapped(_ sender: Any) {
+    @IBAction func phase1ButtonTapped(_ sender: Any) {
+        phase2Button.isSelected = false
+        phase3Button.isSelected = false
+        phase1Button.isSelected = !phase1Button.isSelected
+        
+        if phase1Button.isSelected == true {
+            delegate?.checkButtonTapped(gateNum: 1, raidName: raidNameLabel.text!, charIndex: charIndex)
+        } else {
+            delegate?.checkButtonTapped(gateNum: 0, raidName: raidNameLabel.text!, charIndex: charIndex)
+        }
+    }
+    
+    @IBAction func phase2ButtonTapped(_ sender: Any) {
+        phase1Button.isSelected = true
+        phase3Button.isSelected = false
+        phase2Button.isSelected = !phase2Button.isSelected
+        
+        if phase2Button.isSelected == true {
+            delegate?.checkButtonTapped(gateNum: 2, raidName: raidNameLabel.text!, charIndex: charIndex)
+        } else if phase1Button.isSelected == true {
+            delegate?.checkButtonTapped(gateNum: 1, raidName: raidNameLabel.text!, charIndex: charIndex)
+        }
+    }
+    
+    @IBAction func phase3ButtonTapped(_ sender: Any) {
+        phase1Button.isSelected = true
+        phase2Button.isSelected = true
         phase3Button.isSelected = !phase3Button.isSelected
         
         if phase3Button.isSelected == true {
             delegate?.checkButtonTapped(gateNum: 3, raidName: raidNameLabel.text!, charIndex: charIndex)
-        } else {
-            delegate?.checkButtonTapped(gateNum: 0, raidName: raidNameLabel.text!, charIndex: charIndex)
+        } else if phase2Button.isSelected == true {
+            delegate?.checkButtonTapped(gateNum: 2, raidName: raidNameLabel.text!, charIndex: charIndex)
         }
-
     }
+    
     
 }
