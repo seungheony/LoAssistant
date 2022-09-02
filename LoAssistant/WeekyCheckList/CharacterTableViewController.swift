@@ -441,6 +441,12 @@ class CharacterTableViewController: UITableViewController {
         abrelshudCell.gate12Button.isEnabled = true
         abrelshudCell.gate34Button.isEnabled = true
         abrelshudCell.gate56Button.isEnabled = true
+        if self.checkList[index.section/2].char_level < 1520 {
+            abrelshudCell.gate56Button.isEnabled = false
+            if self.checkList[index.section/2].char_level < 1500 {
+                abrelshudCell.gate34Button.isEnabled = false
+            }
+        }
         
         if abrelshudCell.gate12Button.isSelected == false {
             if self.checkList[index.section/2].counter == 3 {
