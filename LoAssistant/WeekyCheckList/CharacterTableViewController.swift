@@ -396,11 +396,18 @@ class CharacterTableViewController: UITableViewController {
         illiakanCell.gate2Button.isSelected = false
         illiakanCell.gate3Button.isSelected = false
         
+        illiakanCell.gate1Label.isHidden = false
+        illiakanCell.gate2Label.isHidden = false
+        illiakanCell.lastGateLabel.isHidden = false
+        
         if self.checkList[index.section/2].illiakan >= 1 {
+            illiakanCell.gate1Label.isHidden = true
             illiakanCell.gate1Button.isSelected = true
             if self.checkList[index.section/2].illiakan >= 2 {
+                illiakanCell.gate2Label.isHidden = true
                 illiakanCell.gate2Button.isSelected = true
                 if self.checkList[index.section/2].illiakan == 3 {
+                    illiakanCell.lastGateLabel.isHidden = true
                     illiakanCell.gate3Button.isSelected = true
                 }
             }
@@ -439,11 +446,18 @@ class CharacterTableViewController: UITableViewController {
         abrelshudCell.gate34Button.isSelected = false
         abrelshudCell.gate56Button.isSelected = false
         
+        abrelshudCell.gate12Label.isHidden = false
+        abrelshudCell.gate34Label.isHidden = false
+        abrelshudCell.lastGateLabel.isHidden = false
+        
         if self.checkList[index.section/2].abrelshud >= 1 {
+            abrelshudCell.gate12Label.isHidden = true
             abrelshudCell.gate12Button.isSelected = true
             if self.checkList[index.section/2].abrelshud >= 2 {
+                abrelshudCell.gate34Label.isHidden = true
                 abrelshudCell.gate34Button.isSelected = true
                 if self.checkList[index.section/2].abrelshud == 3 {
+                    abrelshudCell.lastGateLabel.isHidden = true
                     abrelshudCell.gate56Button.isSelected = true
                 }
             }
@@ -495,11 +509,18 @@ class CharacterTableViewController: UITableViewController {
         kouku_satonCell.gate2Button.isSelected = false
         kouku_satonCell.gate3Button.isSelected = false
         
+        kouku_satonCell.gate1Label.isHidden = false
+        kouku_satonCell.gate2Label.isHidden = false
+        kouku_satonCell.lastGateLabel.isHidden = false
+        
         if self.checkList[index.section/2].kouku_saton >= 1 {
+            kouku_satonCell.gate1Label.isHidden = true
             kouku_satonCell.gate1Button.isSelected = true
             if self.checkList[index.section/2].kouku_saton >= 2 {
+                kouku_satonCell.gate2Label.isHidden = true
                 kouku_satonCell.gate2Button.isSelected = true
                 if self.checkList[index.section/2].kouku_saton == 3 {
+                    kouku_satonCell.lastGateLabel.isHidden = true
                     kouku_satonCell.gate3Button.isSelected = true
                 }
             }
@@ -533,11 +554,18 @@ class CharacterTableViewController: UITableViewController {
         biakissCell.gate2Button.isSelected = false
         biakissCell.gate3Button.isSelected = false
         
+        biakissCell.gate1Label.isHidden = false
+        biakissCell.gate2Label.isHidden = false
+        biakissCell.lastGateLabel.isHidden = false
+        
         if self.checkList[index.section/2].biakiss >= 1 {
+            biakissCell.gate1Label.isHidden = true
             biakissCell.gate1Button.isSelected = true
             if self.checkList[index.section/2].biakiss >= 2 {
+                biakissCell.gate2Label.isHidden = true
                 biakissCell.gate2Button.isSelected = true
                 if self.checkList[index.section/2].biakiss == 3 {
+                    biakissCell.lastGateLabel.isHidden = true
                     biakissCell.gate3Button.isSelected = true
                 }
             }
@@ -575,11 +603,15 @@ class CharacterTableViewController: UITableViewController {
         valtanCell.gate1Button.isSelected = false
         valtanCell.gate2Button.isSelected = false
         
+        valtanCell.gate1Label.isHidden = false
+        valtanCell.lastGateLabel.isHidden = false
+        
         if self.checkList[index.section/2].valtan >= 1 {
+            valtanCell.gate1Label.isHidden = true
             valtanCell.gate1Button.isSelected = true
             if self.checkList[index.section/2].valtan == 2 {
+                valtanCell.lastGateLabel.isHidden = true
                 valtanCell.gate2Button.isSelected = true
-                
             }
         }
         
@@ -613,9 +645,14 @@ class CharacterTableViewController: UITableViewController {
         kayangelCell.gate1Button.isSelected = false
         kayangelCell.gate2Button.isSelected = false
         
+        kayangelCell.gate1Label.isHidden = false
+        kayangelCell.gate2Label.isHidden = false
+        
         if self.checkList[index.section/2].kayangel >= 1 {
+            kayangelCell.gate1Label.isHidden = true
             kayangelCell.gate1Button.isSelected = true
             if self.checkList[index.section/2].kayangel == 2 {
+                kayangelCell.gate2Label.isHidden = true
                 kayangelCell.gate2Button.isSelected = true
             }
         }
@@ -640,11 +677,18 @@ class CharacterTableViewController: UITableViewController {
         argosCell.phase2Button.isSelected = false
         argosCell.phase3Button.isSelected = false
         
+        argosCell.phase1Label.isHidden = false
+        argosCell.phase2Label.isHidden = false
+        argosCell.lastPhaseLabel.isHidden = false
+        
         if self.checkList[index.section/2].argos >= 1 {
+            argosCell.phase1Label.isHidden = true
             argosCell.phase1Button.isSelected = true
             if self.checkList[index.section/2].argos >= 2 {
+                argosCell.phase2Label.isHidden = true
                 argosCell.phase2Button.isSelected = true
                 if self.checkList[index.section/2].argos == 3 {
+                    argosCell.lastPhaseLabel.isHidden = true
                     argosCell.phase3Button.isSelected = true
                 }
             }
@@ -778,9 +822,11 @@ extension CharacterTableViewController: CheckButtonTappedDelegate {
             self.checkList[charIndex].counter += 1
         }
         
-        if self.checkList[charIndex].counter >= 2 {
-            self.tableView.reloadData()
-        }
+//        if self.checkList[charIndex].counter >= 2 {
+//            self.tableView.reloadData()
+//        }
+        self.tableView.reloadData()
+        
         print("counter = \(self.checkList[charIndex].counter)")
         print("index: \(charIndex)")
         print(self.checkList)
