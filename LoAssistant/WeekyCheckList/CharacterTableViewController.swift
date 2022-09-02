@@ -146,14 +146,14 @@ class CharacterTableViewController: UITableViewController {
         print("is past? : \(Date().isPast(fromDate: date ?? Date()))")
         if Date().isPast(fromDate: date ?? Date()) && checkList.count >= 1 {
             for i in 0...checkList.count-1 {
-                checkList[i].argos = false
+                checkList[i].argos = 0
                 checkList[i].kayangel = 0
                 
-                checkList[i].valtan = false
-                checkList[i].biakiss = false
-                checkList[i].kouku_saton = false
+                checkList[i].valtan = 0
+                checkList[i].biakiss = 0
+                checkList[i].kouku_saton = 0
                 checkList[i].abrelshud = 0
-                checkList[i].illiakan = false
+                checkList[i].illiakan = 0
             }
             let encoder = JSONEncoder()
             if let encoded = try? encoder.encode(self.checkList) {
@@ -392,20 +392,20 @@ class CharacterTableViewController: UITableViewController {
         illiakanCell.charIndex = index.section/2
         illiakanCell.delegate = self
         
-        print("illiakan is Selected : \(illiakanCell.gate1Button.isSelected)")
+        print("illiakan is Selected : \(illiakanCell.gate3Button.isSelected)")
         
-        illiakanCell.gate1Button.isSelected = false
-        if self.checkList[index.section/2].illiakan == true {
-            illiakanCell.gate1Button.isSelected = true
+        illiakanCell.gate3Button.isSelected = false
+        if self.checkList[index.section/2].illiakan == 3 {
+            illiakanCell.gate3Button.isSelected = true
         }
         
-        illiakanCell.gate1Button.isEnabled = true
-        if illiakanCell.gate1Button.isSelected == false {
+        illiakanCell.gate3Button.isEnabled = true
+        if illiakanCell.gate3Button.isSelected == false {
             print("illiakan is not Selected")
             if self.checkList[index.section/2].counter == 3 {
-                illiakanCell.gate1Button.isEnabled = false
+                illiakanCell.gate3Button.isEnabled = false
             } else if self.checkList[index.section/2].counter == 2 {
-                illiakanCell.gate1Button.isEnabled = true
+                illiakanCell.gate3Button.isEnabled = true
             }
         }
         
@@ -478,17 +478,17 @@ class CharacterTableViewController: UITableViewController {
         kouku_satonCell.charIndex = index.section/2
         kouku_satonCell.delegate = self
         
-        kouku_satonCell.gate1Button.isSelected = false
-        if self.checkList[index.section/2].kouku_saton == true {
-            kouku_satonCell.gate1Button.isSelected = true
+        kouku_satonCell.gate3Button.isSelected = false
+        if self.checkList[index.section/2].kouku_saton == 3 {
+            kouku_satonCell.gate3Button.isSelected = true
         }
         
-        kouku_satonCell.gate1Button.isEnabled = true
-        if kouku_satonCell.gate1Button.isSelected == false {
+        kouku_satonCell.gate3Button.isEnabled = true
+        if kouku_satonCell.gate3Button.isSelected == false {
             if self.checkList[index.section/2].counter == 3 {
-                kouku_satonCell.gate1Button.isEnabled = false
+                kouku_satonCell.gate3Button.isEnabled = false
             } else if self.checkList[index.section/2].counter == 2 {
-                kouku_satonCell.gate1Button.isEnabled = true
+                kouku_satonCell.gate3Button.isEnabled = true
             }
         }
         
@@ -500,17 +500,17 @@ class CharacterTableViewController: UITableViewController {
         biakissCell.charIndex = index.section/2
         biakissCell.delegate = self
         
-        biakissCell.gate1Button.isSelected = false
-        if self.checkList[index.section/2].biakiss == true {
-            biakissCell.gate1Button.isSelected = true
+        biakissCell.gate3Button.isSelected = false
+        if self.checkList[index.section/2].biakiss == 3 {
+            biakissCell.gate3Button.isSelected = true
         }
         
-        biakissCell.gate1Button.isEnabled = true
-        if biakissCell.gate1Button.isSelected == false {
+        biakissCell.gate3Button.isEnabled = true
+        if biakissCell.gate3Button.isSelected == false {
             if self.checkList[index.section/2].counter == 3 {
-                biakissCell.gate1Button.isEnabled = false
+                biakissCell.gate3Button.isEnabled = false
             } else if self.checkList[index.section/2].counter == 2 {
-                biakissCell.gate1Button.isEnabled = true
+                biakissCell.gate3Button.isEnabled = true
             }
         }
         
@@ -527,17 +527,17 @@ class CharacterTableViewController: UITableViewController {
         valtanCell.charIndex = index.section/2
         valtanCell.delegate = self
         
-        valtanCell.gate1Button.isSelected = false
-        if self.checkList[index.section/2].valtan == true {
-            valtanCell.gate1Button.isSelected = true
+        valtanCell.gate2Button.isSelected = false
+        if self.checkList[index.section/2].valtan == 2 {
+            valtanCell.gate2Button.isSelected = true
         }
         
-        valtanCell.gate1Button.isEnabled = true
-        if valtanCell.gate1Button.isSelected == false {
+        valtanCell.gate2Button.isEnabled = true
+        if valtanCell.gate2Button.isSelected == false {
             if self.checkList[index.section/2].counter == 3 {
-                valtanCell.gate1Button.isEnabled = false
+                valtanCell.gate2Button.isEnabled = false
             } else if self.checkList[index.section/2].counter == 2 {
-                valtanCell.gate1Button.isEnabled = true
+                valtanCell.gate2Button.isEnabled = true
             }
         }
         
@@ -581,9 +581,9 @@ class CharacterTableViewController: UITableViewController {
         argosCell.charIndex = index.section/2
         argosCell.delegate = self
         
-        argosCell.checkButton.isSelected = false
-        if self.checkList[index.section/2].argos == true {
-            argosCell.checkButton.isSelected = true
+        argosCell.phase3Button.isSelected = false
+        if self.checkList[index.section/2].argos == 3 {
+            argosCell.phase3Button.isSelected = true
         }
         
         return argosCell
@@ -683,34 +683,34 @@ extension CharacterTableViewController: CheckButtonTappedDelegate {
         }
         
         if raidName.contains("아르고스") {
-            self.checkList[charIndex].argos = isChecked
+            self.checkList[charIndex].argos = gateNum
         } else if raidName.contains("카양겔") {
             self.checkList[charIndex].kayangel = gateNum
         } else if raidName.contains("일리아칸") {
-            self.checkList[charIndex].illiakan = isChecked
+            self.checkList[charIndex].illiakan = gateNum
         } else if raidName.contains("아브렐슈드") {
             self.checkList[charIndex].abrelshud = gateNum
         } else if raidName.contains("쿠크세이튼") {
-            self.checkList[charIndex].kouku_saton = isChecked
+            self.checkList[charIndex].kouku_saton = gateNum
         } else if raidName.contains("비아키스") {
-            self.checkList[charIndex].biakiss = isChecked
+            self.checkList[charIndex].biakiss = gateNum
         } else if raidName.contains("발탄") {
-            self.checkList[charIndex].valtan = isChecked
+            self.checkList[charIndex].valtan = gateNum
         }
         
-        if self.checkList[charIndex].illiakan == true {
+        if self.checkList[charIndex].illiakan >= 1 {
             self.checkList[charIndex].counter += 1
         }
         if self.checkList[charIndex].abrelshud >= 1 {
             self.checkList[charIndex].counter += 1
         }
-        if self.checkList[charIndex].kouku_saton == true {
+        if self.checkList[charIndex].kouku_saton >= 1 {
             self.checkList[charIndex].counter += 1
         }
-        if self.checkList[charIndex].biakiss == true {
+        if self.checkList[charIndex].biakiss >= 1 {
             self.checkList[charIndex].counter += 1
         }
-        if self.checkList[charIndex].valtan == true {
+        if self.checkList[charIndex].valtan >= 1 {
             self.checkList[charIndex].counter += 1
         }
         
@@ -764,7 +764,7 @@ extension CharacterTableViewController {
                     
                     let char_class = data["CharacterList"][i]["Class"].stringValue
                     
-                    let list: CheckList = CheckList(earnGold: false, counter: 0, char_name: char_name, char_level: char_level, char_class: char_class, argos: false, valtan: false, biakiss: false, kouku_saton: false, kayangel: 0, abrelshud: 0, illiakan: false)
+                    let list: CheckList = CheckList(earnGold: false, counter: 0, char_name: char_name, char_level: char_level, char_class: char_class, argos: 0, valtan: 0, biakiss: 0, kouku_saton: 0, kayangel: 0, abrelshud: 0, illiakan: 0)
                     checkList.append(list)
                 }
                 

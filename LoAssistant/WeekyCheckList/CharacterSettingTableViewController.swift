@@ -158,7 +158,7 @@ class CharacterSettingTableViewController: UITableViewController, UITextFieldDel
                         
                         let char_class = data["CharacterList"][i]["Class"].stringValue
                         
-                        let list: CheckList = CheckList(earnGold: false, counter: 0, char_name: char_name, char_level: char_level, char_class: char_class, argos: false, valtan: false, biakiss: false, kouku_saton: false, kayangel: 0, abrelshud: 0, illiakan: false)
+                        let list: CheckList = CheckList(earnGold: false, counter: 0, char_name: char_name, char_level: char_level, char_class: char_class, argos: 0, valtan: 0, biakiss: 0, kouku_saton: 0, kayangel: 0, abrelshud: 0, illiakan: 0)
                         self.checkList.append(list)
                     }
                     print(self.checkList)

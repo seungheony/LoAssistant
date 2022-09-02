@@ -13,7 +13,7 @@ class ArgosTableViewCell: UITableViewCell {
     var delegate: CheckButtonTappedDelegate?
     
     @IBOutlet weak var raidNameLabel: UILabel!
-    @IBOutlet weak var checkButton: UIButton!
+    @IBOutlet weak var phase3Button: UIButton!
     
 //    @IBAction func checkGate(_ sender: UISegmentedControl) {
 //        
@@ -44,10 +44,10 @@ class ArgosTableViewCell: UITableViewCell {
     }
     
     @IBAction func gate1ButtonTapped(_ sender: Any) {
-        checkButton.isSelected = !checkButton.isSelected
+        phase3Button.isSelected = !phase3Button.isSelected
         
-        if checkButton.isSelected == true {
-            delegate?.checkButtonTapped(gateNum: 1, raidName: raidNameLabel.text!, charIndex: charIndex)
+        if phase3Button.isSelected == true {
+            delegate?.checkButtonTapped(gateNum: 3, raidName: raidNameLabel.text!, charIndex: charIndex)
         } else {
             delegate?.checkButtonTapped(gateNum: 0, raidName: raidNameLabel.text!, charIndex: charIndex)
         }

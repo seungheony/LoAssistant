@@ -15,11 +15,11 @@ struct CheckList: Codable {
     var char_level: Float
     var char_class: String
     
-    var argos: Bool
-    var valtan: Bool
-    var biakiss: Bool
-    var kouku_saton: Bool
+    var argos: Int
+    var valtan: Int
+    var biakiss: Int
+    var kouku_saton: Int
     var kayangel: Int
     var abrelshud: Int
-    var illiakan: Bool
+    var illiakan: Int
 }
