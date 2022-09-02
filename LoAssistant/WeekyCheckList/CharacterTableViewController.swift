@@ -125,7 +125,7 @@ class CharacterTableViewController: UITableViewController {
                 InfoCell.charClassImage.image = UIImage(named: className)
                 
                 if self.checkList[indexPath.section/2].earnGold == true {
-                    InfoCell.charNameLabel.textColor = UIColor.link
+                    InfoCell.earnGoldImage.image = UIImage(named: "gold")
                 }
                 return InfoCell
             }

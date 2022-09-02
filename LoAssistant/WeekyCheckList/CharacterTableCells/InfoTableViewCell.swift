@@ -12,6 +12,7 @@ class InfoTableViewCell: UITableViewCell {
     @IBOutlet weak var charNameLabel: UILabel!
     @IBOutlet weak var charClassImage: UIImageView!
     @IBOutlet weak var charLevelLabel: UILabel!
+    @IBOutlet weak var earnGoldImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
