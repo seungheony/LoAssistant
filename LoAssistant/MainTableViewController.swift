@@ -25,16 +25,15 @@ class MainTableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         if indexPath.section == 0 {
             if indexPath.row == 0 {
+                guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "OrehaTable") else {
+                    return
+                }
+                self.navigationController?.pushViewController(nextVC, animated: true)
+            } else if indexPath.row == 1 {
                 guard let nextVC = self.storyboard?.instantiateViewController(identifier: "PheonView") as? PheonViewController else {
                     return
                 }
                 nextVC.crystal = self.crystal
-                self.navigationController?.pushViewController(nextVC, animated: true)
-            }
-            else if indexPath.row == 1 {
-                guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "OrehaTable") else {
-                    return
-                }
                 self.navigationController?.pushViewController(nextVC, animated: true)
             }
         }
