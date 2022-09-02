@@ -27,7 +27,7 @@ class LoadingHUD {
         let loadingLabel = UILabel(frame: CGRect.init(x: 0, y: 0, width: 100, height: 100))
         loadingLabel.text = "Loading ..."
         loadingLabel.font = UIFont.boldSystemFont(ofSize: 20)
-        loadingLabel.textColor = .black
+        loadingLabel.textColor = .label
         
         if let window = UIApplication.shared.keyWindow {
             window.addSubview(backgroundView)

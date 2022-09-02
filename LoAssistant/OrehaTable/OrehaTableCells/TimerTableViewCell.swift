@@ -39,7 +39,7 @@ class TimerTableViewCell: UITableViewCell {
         else {
             UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
             timer?.invalidate()
-            
+            timeStateLabel.text = "재작 시간"
             UserDefaults.standard.set(false, forKey: itemStr + "타이머")
             remainedTimeLabel.textColor = UIColor.secondaryLabel
             timerButton.setTitle(itemStr + " 제작 시작", for: .normal)
@@ -50,15 +50,7 @@ class TimerTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
-        // 여기서부터 앱 재부팅 후 타이머 출력 구현
-//        if UserDefaults.standard.string(forKey: "isSettedTimer") == "inter" {
-//            expectedTime = UserDefaults.standard.object(forKey: "제작완료시간") as! Date
-//            timerButton.isSelected = true
-//            timerButton.setTitle("타이머 재설정", for: .normal)
-//            startTiemr(item: "inter")
-//        }
-        
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -103,7 +95,7 @@ extension TimerTableViewCell {
             //남은 시간(초)가 0보다 크면
             if self.secondsLeft > 0 {
                 self.remainedTimeLabel.text = "\(hours)시간 \(minutes)분  \(seconds)초"
-                self.timeStateLabel.text = "남은 시간"
+                self.timeStateLabel.text = item + " 제작중"
                 
             } else {
                 self.remainedTimeLabel.text = "제작 완료"

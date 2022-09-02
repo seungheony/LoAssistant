@@ -67,30 +67,35 @@ class OrehaTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if section == 0 {
-            if firstLoad == true {
-                return 1
-            }
-        } else if section == 1 {
             return 3
+        } else if section == 1 {
+            return 2
+        } else if section == 2 {
+            return 2
         } else if section == 3 {
             return 2
         } else if section == 4 {
-            return 2
-        } else if section == 5 {
-            return 2
-        } else if section == 6 {
             return 3
         }
         return 0
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 1 {
+        if section == 0 {
             return "고고학 재료 시세"
-        } else if section == 3 {
-            return "순수익 계산 결과"
-        } else if section == 6 {
+        } else if section == 1 {
+            return "순수익 계산 결과\n아래로 당겨서 시세를 업데이트하세요"
+        } else if section == 4 {
             return "제작 완료 알리미"
+        }
+        return ""
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        if section == 0 {
+            return "아이템을 눌러 자세한 시세를 확인하세요"
+        } else if section == 4 {
+            return "알림센터에서 알림을 받기 위해서 'LoAssistant'의 알림 권한을 '허용'으로 설정해 주세요"
         }
         return ""
     }
@@ -100,17 +105,17 @@ class OrehaTableViewController: UITableViewController {
         let orehaCell = tableView.dequeueReusableCell(withIdentifier: "OrehaCell", for: indexPath) as! OrehaTableViewCell
         let resultCell = tableView.dequeueReusableCell(withIdentifier: "ResultCell", for: indexPath) as! ResultTableViewCell
         
-        if firstLoad == true {
-            if indexPath.section == 0 {
-                let howToUseCell = tableView.dequeueReusableCell(withIdentifier: "HowToUseCell", for: indexPath) as! HowToUseTableViewCell
-                if indexPath.row == 0 {
-                    return howToUseCell
-                }
-                return howToUseCell
-            }
-        }
+//        if firstLoad == true {
+//            if indexPath.section == 0 {
+//                let howToUseCell = tableView.dequeueReusableCell(withIdentifier: "HowToUseCell", for: indexPath) as! HowToUseTableViewCell
+//                if indexPath.row == 0 {
+//                    return howToUseCell
+//                }
+//                return howToUseCell
+//            }
+//        }
         
-        if indexPath.section == 1 {
+        if indexPath.section == 0 {
             ingredientCell.itemImage.image = UIImage(named: imageList[indexPath.row])
             ingredientCell.itemLabel.text = itemList[indexPath.row]
             if firstLoad == false {
@@ -123,7 +128,7 @@ class OrehaTableViewController: UITableViewController {
                 }
             }
             return ingredientCell
-        } else if indexPath.section == 3 {
+        } else if indexPath.section == 1 {
             if indexPath.row == 0 {
                 orehaCell.orehaImage.image = UIImage(named: imageList[3])
                 orehaCell.orehaNameLabel.text = itemList[3]
@@ -138,7 +143,7 @@ class OrehaTableViewController: UITableViewController {
                 resultCell.extraProfit.text = interExtraProfit
                 return resultCell
             }
-        } else if indexPath.section == 4 {
+        } else if indexPath.section == 2 {
             if indexPath.row == 0 {
                 orehaCell.orehaImage.image = UIImage(named: imageList[4])
                 orehaCell.orehaNameLabel.text = itemList[4]
@@ -153,7 +158,7 @@ class OrehaTableViewController: UITableViewController {
                 resultCell.extraProfit.text = advExtraProfit
                 return resultCell
             }
-        } else if indexPath.section == 5 {
+        } else if indexPath.section == 3 {
             if indexPath.row == 0 {
                 orehaCell.orehaImage.image = UIImage(named: imageList[5])
                 orehaCell.orehaNameLabel.text = itemList[5]
@@ -190,7 +195,7 @@ class OrehaTableViewController: UITableViewController {
 //            }
 //            return resultCell
 //        }
-        else if indexPath.section == 6 {
+        else if indexPath.section == 4 {
             let timerCell = tableView.dequeueReusableCell(withIdentifier: "TimerCell", for: indexPath) as! TimerTableViewCell
             var item = ""
             
@@ -203,12 +208,13 @@ class OrehaTableViewController: UITableViewController {
             }
             timerCell.timer?.invalidate()
             if UserDefaults.standard.bool(forKey: item + "타이머") == true {
+                timerCell.remainedTimeLabel.textColor = UIColor.label
+                timerCell.timeStateLabel.text = item + " 제작중"
                 timerCell.expectedTime = UserDefaults.standard.object(forKey: item + "제작완료시간") as! Date?
                 timerCell.timerButton.isSelected = true
                 timerCell.timerButton.setTitle("타이머 초기화", for: .normal)
                 timerCell.startTiemr(item: item)
             } else {
-                timerCell.timerButton.isEnabled = false
                 timerCell.timerButton.setTitle(item + " 제작 시작", for: .normal)
                 timerCell.remainedTimeLabel.text = getTimeTaken(item: item)
             }
@@ -221,7 +227,7 @@ class OrehaTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if !firstLoad {
-            if indexPath.section == 1 {
+            if indexPath.section == 0 {
                 guard let nextVC = self.storyboard?.instantiateViewController(identifier: "PriceTable") as? PriceTableViewController else {return}
                 nextVC.isMaterial = true
                 nextVC.ancient = ancient
@@ -231,7 +237,7 @@ class OrehaTableViewController: UITableViewController {
             }
 
             if indexPath.row == 0 {
-                if indexPath.section >= 3 && indexPath.section <= 5 {
+                if indexPath.section >= 1 && indexPath.section <= 3 {
                     guard let nextVC = self.storyboard?.instantiateViewController(identifier: "PriceTable") as? PriceTableViewController else {return}
                     nextVC.intermediate_oreha = intermediate_oreha
                     nextVC.advanced_oreha = advanced_oreha
@@ -244,21 +250,19 @@ class OrehaTableViewController: UITableViewController {
         
     }
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        if indexPath.section == 0 {
-            return nil
+        if indexPath.section == 1 {
+            if indexPath.row == 1 {
+                return nil
+            }
+        } else if indexPath.section == 2 {
+            if indexPath.row == 1 {
+                return nil
+            }
         } else if indexPath.section == 3 {
             if indexPath.row == 1 {
                 return nil
             }
         } else if indexPath.section == 4 {
-            if indexPath.row == 1 {
-                return nil
-            }
-        } else if indexPath.section == 5 {
-            if indexPath.row == 1 {
-                return nil
-            }
-        } else if indexPath.section == 6 {
             return nil
         }
         return indexPath
