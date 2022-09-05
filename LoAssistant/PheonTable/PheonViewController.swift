@@ -26,8 +26,7 @@ class PheonViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        LoadingHUD.show()
+    
         parseCrystalData(url: crystalURL) { (data) in
             if data["Result"].stringValue == "Failed" {
                 // 실패 시
@@ -37,12 +36,10 @@ class PheonViewController: UIViewController {
                 }
                 alert.addAction(okAction)
                 self.present(alert, animated: false, completion: nil)
-                LoadingHUD.hide()
                 
             } else {
                 self.crystal = Double(data["Buy"].stringValue)!
             }
-            LoadingHUD.hide()
         }
         pheonAmount.keyboardType = .numberPad
         pheonAmount.endEditing(true)
