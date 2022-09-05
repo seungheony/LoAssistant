@@ -18,6 +18,7 @@ class ValtanTableViewCell: UITableViewCell {
     
     @IBOutlet weak var gate1Label: UILabel!
     @IBOutlet weak var lastGateLabel: UILabel!
+    
     @IBOutlet weak var gate1Button: UIButton!
     @IBOutlet weak var gate2Button: UIButton!
     
@@ -50,11 +51,20 @@ class ValtanTableViewCell: UITableViewCell {
         gate1Button.isSelected = true
         gate2Button.isSelected = !gate2Button.isSelected
         
-        if gate2Button.isSelected == true {
-            print("selected")
-            delegate?.checkButtonTapped(gateNum: 2, raidName: raidNameLabel.text!, charIndex: charIndex)
+        if UserDefaults.standard.bool(forKey: "valtanSwitch") {
+            if gate2Button.isSelected == true {
+                delegate?.checkButtonTapped(gateNum: 2, raidName: raidNameLabel.text!, charIndex: charIndex)
+            } else {
+                gate1Button.isSelected = false
+                delegate?.checkButtonTapped(gateNum: 0, raidName: raidNameLabel.text!, charIndex: charIndex)
+            }
         } else {
-            delegate?.checkButtonTapped(gateNum: 1, raidName: raidNameLabel.text!, charIndex: charIndex)
+            if gate2Button.isSelected == true {
+                delegate?.checkButtonTapped(gateNum: 2, raidName: raidNameLabel.text!, charIndex: charIndex)
+            } else {
+                delegate?.checkButtonTapped(gateNum: 1, raidName: raidNameLabel.text!, charIndex: charIndex)
+            }
         }
+        
     }
 }

@@ -40,7 +40,10 @@ class ArgosTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
+        if UserDefaults.standard.bool(forKey: "argosSwitch") {
+            phase1Button.isHidden = true
+            phase2Button.isHidden = true
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -78,10 +81,20 @@ class ArgosTableViewCell: UITableViewCell {
         phase2Button.isSelected = true
         phase3Button.isSelected = !phase3Button.isSelected
         
-        if phase3Button.isSelected == true {
-            delegate?.checkButtonTapped(gateNum: 3, raidName: raidNameLabel.text!, charIndex: charIndex)
-        } else if phase2Button.isSelected == true {
-            delegate?.checkButtonTapped(gateNum: 2, raidName: raidNameLabel.text!, charIndex: charIndex)
+        if UserDefaults.standard.bool(forKey: "argosSwitch") {
+            if phase3Button.isSelected == true {
+                delegate?.checkButtonTapped(gateNum: 3, raidName: raidNameLabel.text!, charIndex: charIndex)
+            } else if phase2Button.isSelected == true {
+                phase2Button.isSelected = false
+                phase1Button.isSelected = false
+                delegate?.checkButtonTapped(gateNum: 0, raidName: raidNameLabel.text!, charIndex: charIndex)
+            }
+        } else {
+            if phase3Button.isSelected == true {
+                delegate?.checkButtonTapped(gateNum: 3, raidName: raidNameLabel.text!, charIndex: charIndex)
+            } else if phase2Button.isSelected == true {
+                delegate?.checkButtonTapped(gateNum: 2, raidName: raidNameLabel.text!, charIndex: charIndex)
+            }
         }
     }
     

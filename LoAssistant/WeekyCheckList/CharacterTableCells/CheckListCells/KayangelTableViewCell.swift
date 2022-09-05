@@ -48,7 +48,6 @@ class KayangelTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -71,10 +70,19 @@ class KayangelTableViewCell: UITableViewCell {
         gate1Button.isSelected = true
         gate2Button.isSelected = !gate2Button.isSelected
         
-        if gate2Button.isSelected == true {
-            delegate?.checkButtonTapped(gateNum: 2, raidName: raidNameLabel.text!, charIndex: charIndex)
-        } else if gate1Button.isSelected == true {
-            delegate?.checkButtonTapped(gateNum: 1, raidName: raidNameLabel.text!, charIndex: charIndex)
+        if UserDefaults.standard.bool(forKey: "kayangelSwitch") {
+            if gate2Button.isSelected == true {
+                delegate?.checkButtonTapped(gateNum: 2, raidName: raidNameLabel.text!, charIndex: charIndex)
+            } else {
+                gate1Button.isSelected = false
+                delegate?.checkButtonTapped(gateNum: 0, raidName: raidNameLabel.text!, charIndex: charIndex)
+            }
+        } else {
+            if gate2Button.isSelected == true {
+                delegate?.checkButtonTapped(gateNum: 2, raidName: raidNameLabel.text!, charIndex: charIndex)
+            } else {
+                delegate?.checkButtonTapped(gateNum: 1, raidName: raidNameLabel.text!, charIndex: charIndex)
+            }
         }
     }
 }

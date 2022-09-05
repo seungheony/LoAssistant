@@ -83,10 +83,20 @@ class IlliakanTableViewCell: UITableViewCell {
         gate2Button.isSelected = true
         gate3Button.isSelected = !gate3Button.isSelected
         
-        if gate3Button.isSelected == true {
-            delegate?.checkButtonTapped(gateNum: 3, raidName: raidNameLabel.text!, charIndex: charIndex)
-        } else if gate2Button.isSelected == true {
-            delegate?.checkButtonTapped(gateNum: 2, raidName: raidNameLabel.text!, charIndex: charIndex)
+        if UserDefaults.standard.bool(forKey: "illiakanSwitch") {
+            if gate3Button.isSelected == true {
+                delegate?.checkButtonTapped(gateNum: 3, raidName: raidNameLabel.text!, charIndex: charIndex)
+            } else if gate2Button.isSelected == true {
+                gate1Button.isSelected = false
+                gate2Button.isSelected = false
+                delegate?.checkButtonTapped(gateNum: 0, raidName: raidNameLabel.text!, charIndex: charIndex)
+            }
+        } else {
+            if gate3Button.isSelected == true {
+                delegate?.checkButtonTapped(gateNum: 3, raidName: raidNameLabel.text!, charIndex: charIndex)
+            } else if gate2Button.isSelected == true {
+                delegate?.checkButtonTapped(gateNum: 2, raidName: raidNameLabel.text!, charIndex: charIndex)
+            }
         }
     }
 }

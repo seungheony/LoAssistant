@@ -83,10 +83,20 @@ class AbrelshudTableViewCell: UITableViewCell {
         gate34Button.isSelected = true
         gate56Button.isSelected = !gate56Button.isSelected
         
-        if gate56Button.isSelected == true {
-            delegate?.checkButtonTapped(gateNum: 3, raidName: raidNameLabel.text!, charIndex: charIndex)
-        } else if gate34Button.isSelected == true {
-            delegate?.checkButtonTapped(gateNum: 2, raidName: raidNameLabel.text!, charIndex: charIndex)
+        if UserDefaults.standard.bool(forKey: "abrelshudSwitch") {
+            if gate56Button.isSelected == true {
+                delegate?.checkButtonTapped(gateNum: 3, raidName: raidNameLabel.text!, charIndex: charIndex)
+            } else if gate34Button.isSelected == true {
+                gate12Button.isSelected = false
+                gate34Button.isSelected = false
+                delegate?.checkButtonTapped(gateNum: 0, raidName: raidNameLabel.text!, charIndex: charIndex)
+            }
+        } else {
+            if gate56Button.isSelected == true {
+                delegate?.checkButtonTapped(gateNum: 3, raidName: raidNameLabel.text!, charIndex: charIndex)
+            } else if gate34Button.isSelected == true {
+                delegate?.checkButtonTapped(gateNum: 2, raidName: raidNameLabel.text!, charIndex: charIndex)
+            }
         }
     }
 }

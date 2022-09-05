@@ -396,9 +396,24 @@ class CharacterTableViewController: UITableViewController {
         illiakanCell.gate2Button.isSelected = false
         illiakanCell.gate3Button.isSelected = false
         
+        illiakanCell.gate1Button.isHidden = false
+        illiakanCell.gate2Button.isHidden = false
         illiakanCell.gate1Label.isHidden = false
         illiakanCell.gate2Label.isHidden = false
         illiakanCell.lastGateLabel.isHidden = false
+        
+        if UserDefaults.standard.bool(forKey: "illiakanSwitch") {
+            
+            illiakanCell.gate1Button.isHidden = true
+            illiakanCell.gate2Button.isHidden = true
+            
+            illiakanCell.gate1Label.isHidden = true
+            illiakanCell.gate2Label.isHidden = true
+            illiakanCell.lastGateLabel.isHidden = true
+            if self.checkList[index.section/2].illiakan >= 1 && self.checkList[index.section/2].illiakan <= 2 {
+                self.checkList[index.section/2].illiakan = 3
+            }
+        }
         
         if self.checkList[index.section/2].illiakan >= 1 {
             illiakanCell.gate1Label.isHidden = true
@@ -446,9 +461,24 @@ class CharacterTableViewController: UITableViewController {
         abrelshudCell.gate34Button.isSelected = false
         abrelshudCell.gate56Button.isSelected = false
         
+        abrelshudCell.gate12Button.isHidden = false
+        abrelshudCell.gate34Button.isHidden = false
         abrelshudCell.gate12Label.isHidden = false
         abrelshudCell.gate34Label.isHidden = false
         abrelshudCell.lastGateLabel.isHidden = false
+        
+        if UserDefaults.standard.bool(forKey: "abrelshudSwitch") {
+            abrelshudCell.gate12Button.isHidden = true
+            abrelshudCell.gate34Button.isHidden = true
+            
+            abrelshudCell.gate12Label.isHidden = true
+            abrelshudCell.gate34Label.isHidden = true
+            abrelshudCell.lastGateLabel.isHidden = true
+            
+            if self.checkList[index.section/2].abrelshud >= 1 && self.checkList[index.section/2].abrelshud <= 2 {
+                self.checkList[index.section/2].abrelshud = 3
+            }
+        }
         
         if self.checkList[index.section/2].abrelshud >= 1 {
             abrelshudCell.gate12Label.isHidden = true
@@ -509,9 +539,23 @@ class CharacterTableViewController: UITableViewController {
         kouku_satonCell.gate2Button.isSelected = false
         kouku_satonCell.gate3Button.isSelected = false
         
+        kouku_satonCell.gate1Button.isHidden = false
+        kouku_satonCell.gate2Button.isHidden = false
         kouku_satonCell.gate1Label.isHidden = false
         kouku_satonCell.gate2Label.isHidden = false
         kouku_satonCell.lastGateLabel.isHidden = false
+        
+        if UserDefaults.standard.bool(forKey: "kouku_satonSwitch") {
+            kouku_satonCell.gate1Button.isHidden = true
+            kouku_satonCell.gate2Button.isHidden = true
+            
+            kouku_satonCell.gate1Label.isHidden = true
+            kouku_satonCell.gate2Label.isHidden = true
+            kouku_satonCell.lastGateLabel.isHidden = true
+            if self.checkList[index.section/2].kouku_saton >= 1 && self.checkList[index.section/2].kouku_saton <= 2 {
+                self.checkList[index.section/2].kouku_saton = 3
+            }
+        }
         
         if self.checkList[index.section/2].kouku_saton >= 1 {
             kouku_satonCell.gate1Label.isHidden = true
@@ -554,9 +598,23 @@ class CharacterTableViewController: UITableViewController {
         biakissCell.gate2Button.isSelected = false
         biakissCell.gate3Button.isSelected = false
         
+        biakissCell.gate1Button.isHidden = false
+        biakissCell.gate2Button.isHidden = false
         biakissCell.gate1Label.isHidden = false
         biakissCell.gate2Label.isHidden = false
         biakissCell.lastGateLabel.isHidden = false
+        
+        if UserDefaults.standard.bool(forKey: "biakissSwitch") {
+            biakissCell.gate1Button.isHidden = true
+            biakissCell.gate2Button.isHidden = true
+            
+            biakissCell.gate1Label.isHidden = true
+            biakissCell.gate2Label.isHidden = true
+            biakissCell.lastGateLabel.isHidden = true
+            if self.checkList[index.section/2].biakiss >= 1 && self.checkList[index.section/2].biakiss <= 2 {
+                self.checkList[index.section/2].biakiss = 3
+            }
+        }
         
         if self.checkList[index.section/2].biakiss >= 1 {
             biakissCell.gate1Label.isHidden = true
@@ -603,8 +661,19 @@ class CharacterTableViewController: UITableViewController {
         valtanCell.gate1Button.isSelected = false
         valtanCell.gate2Button.isSelected = false
         
+        valtanCell.gate1Button.isHidden = false
         valtanCell.gate1Label.isHidden = false
         valtanCell.lastGateLabel.isHidden = false
+        
+        if UserDefaults.standard.bool(forKey: "valtanSwitch") {
+            valtanCell.gate1Button.isHidden = true
+            
+            valtanCell.gate1Label.isHidden = true
+            valtanCell.lastGateLabel.isHidden = true
+            if self.checkList[index.section/2].valtan == 1 {
+                self.checkList[index.section/2].valtan = 2
+            }
+        }
         
         if self.checkList[index.section/2].valtan >= 1 {
             valtanCell.gate1Label.isHidden = true
@@ -645,8 +714,20 @@ class CharacterTableViewController: UITableViewController {
         kayangelCell.gate1Button.isSelected = false
         kayangelCell.gate2Button.isSelected = false
         
+        kayangelCell.gate1Button.isHidden = false
         kayangelCell.gate1Label.isHidden = false
         kayangelCell.gate2Label.isHidden = false
+        
+        if UserDefaults.standard.bool(forKey: "kayangelSwitch") {
+            kayangelCell.gate1Button.isHidden = true
+            
+            kayangelCell.gate1Label.isHidden = true
+            kayangelCell.gate2Label.isHidden = true
+            
+            if self.checkList[index.section/2].kayangel == 1 {
+                self.checkList[index.section/2].kayangel = 2
+            }
+        }
         
         if self.checkList[index.section/2].kayangel >= 1 {
             kayangelCell.gate1Label.isHidden = true
@@ -677,9 +758,24 @@ class CharacterTableViewController: UITableViewController {
         argosCell.phase2Button.isSelected = false
         argosCell.phase3Button.isSelected = false
         
+        argosCell.phase1Button.isHidden = false
+        argosCell.phase2Button.isHidden = false
         argosCell.phase1Label.isHidden = false
         argosCell.phase2Label.isHidden = false
         argosCell.lastPhaseLabel.isHidden = false
+        
+        if UserDefaults.standard.bool(forKey: "argosSwitch") {
+            argosCell.phase1Button.isHidden = true
+            argosCell.phase2Button.isHidden = true
+            
+            argosCell.phase1Label.isHidden = true
+            argosCell.phase2Label.isHidden = true
+            argosCell.lastPhaseLabel.isHidden = true
+            
+            if self.checkList[index.section/2].argos >= 1 && self.checkList[index.section/2].argos <= 2 {
+                self.checkList[index.section/2].argos = 3
+            }
+        }
         
         if self.checkList[index.section/2].argos >= 1 {
             argosCell.phase1Label.isHidden = true
