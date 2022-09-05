@@ -52,25 +52,25 @@ class CheckListSettingTableViewController: UITableViewController {
     }
 
     @IBAction func toggleArgos(_ sender: UISwitch) {
-        UserDefaults.standard.set(sender.isOn, forKey: "argosSwitch")
+        UserDefaults.standard.set(!sender.isOn, forKey: "argosSwitch")
     }
     @IBAction func toggleKayangel(_ sender: UISwitch) {
-        UserDefaults.standard.set(sender.isOn, forKey: "kayangelSwitch")
+        UserDefaults.standard.set(!sender.isOn, forKey: "kayangelSwitch")
     }
     
     @IBAction func toggleValtan(_ sender: UISwitch) {
-        UserDefaults.standard.set(sender.isOn, forKey: "valtanSwitch")
+        UserDefaults.standard.set(!sender.isOn, forKey: "valtanSwitch")
     }
     @IBAction func toggleBiakiss(_ sender: UISwitch) {
-        UserDefaults.standard.set(sender.isOn, forKey: "biakissSwitch")
+        UserDefaults.standard.set(!sender.isOn, forKey: "biakissSwitch")
     }
     @IBAction func toggleKouku_saton(_ sender: UISwitch) {
-        UserDefaults.standard.set(sender.isOn, forKey: "kouku_satonSwitch")
+        UserDefaults.standard.set(!sender.isOn, forKey: "kouku_satonSwitch")
     }
     @IBAction func toggleAbrelshud(_ sender: UISwitch) {
-        UserDefaults.standard.set(sender.isOn, forKey: "abrelshudSwitch")
+        UserDefaults.standard.set(!sender.isOn, forKey: "abrelshudSwitch")
     }
     @IBAction func toggleIlliakan(_ sender: UISwitch) {
-        UserDefaults.standard.set(sender.isOn, forKey: "illiakanSwitch")
+        UserDefaults.standard.set(!sender.isOn, forKey: "illiakanSwitch")
     }
 }
