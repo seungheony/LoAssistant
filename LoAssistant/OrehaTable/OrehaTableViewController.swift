@@ -84,7 +84,7 @@ class OrehaTableViewController: UITableViewController {
         if section == 0 {
             return "고고학 재료 시세"
         } else if section == 1 {
-            return "순수익 계산 결과\n아래로 당겨서 시세를 업데이트하세요"
+            return "아래로 당겨서 순수익 계산 결과를 업데이트하세요"
         } else if section == 4 {
             return "제작 완료 알리미"
         }

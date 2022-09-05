@@ -958,8 +958,12 @@ extension CharacterTableViewController {
         let userInfoURL = "https://lostarkapi.ga/userinfo/" + charName
         parseCaracterData(url: userInfoURL) { (data) in
             if data["Result"].stringValue == "Failed" {
-                print(data["Reason"].stringValue);
-                LoadingHUD.hide()
+                let alert = UIAlertController(title: "오류", message: "원정대 데이터를 가져올 수 없습니다", preferredStyle: UIAlertController.Style.alert)
+                let okAction = UIAlertAction(title: "확인", style: .default) { (action) in
+                    // ok Action
+                }
+                alert.addAction(okAction)
+                self.present(alert, animated: false, completion: nil)
             } else {
                 for i in 0...data["CharacterList"].count-1 {
                     let char_name = data["CharacterList"][i]["Name"].stringValue

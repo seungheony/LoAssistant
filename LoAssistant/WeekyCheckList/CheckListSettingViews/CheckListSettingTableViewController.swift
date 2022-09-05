@@ -23,14 +23,14 @@ class CheckListSettingTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.argosSwitch.isOn = UserDefaults.standard.bool(forKey: "argosSwitch")
-        self.kayangelSwitch.isOn = UserDefaults.standard.bool(forKey: "kayangelSwitch")
+        self.argosSwitch.isOn = !UserDefaults.standard.bool(forKey: "argosSwitch")
+        self.kayangelSwitch.isOn = !UserDefaults.standard.bool(forKey: "kayangelSwitch")
         
-        self.valtanSwitch.isOn = UserDefaults.standard.bool(forKey: "valtanSwitch")
-        self.biakissSwitch.isOn = UserDefaults.standard.bool(forKey: "biakissSwitch")
-        self.kouku_satonSwitch.isOn = UserDefaults.standard.bool(forKey: "kouku_satonSwitch")
-        self.abrelshudSwitch.isOn = UserDefaults.standard.bool(forKey: "abrelshudSwitch")
-        self.illiakanSwitch.isOn = UserDefaults.standard.bool(forKey: "illiakanSwitch")
+        self.valtanSwitch.isOn = !UserDefaults.standard.bool(forKey: "valtanSwitch")
+        self.biakissSwitch.isOn = !UserDefaults.standard.bool(forKey: "biakissSwitch")
+        self.kouku_satonSwitch.isOn = !UserDefaults.standard.bool(forKey: "kouku_satonSwitch")
+        self.abrelshudSwitch.isOn = !UserDefaults.standard.bool(forKey: "abrelshudSwitch")
+        self.illiakanSwitch.isOn = !UserDefaults.standard.bool(forKey: "illiakanSwitch")
 
     }
 
@@ -49,6 +49,10 @@ class CheckListSettingTableViewController: UITableViewController {
             return 5
         }
         return 0
+    }
+    
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        return nil
     }
 
     @IBAction func toggleArgos(_ sender: UISwitch) {
