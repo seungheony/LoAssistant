@@ -277,11 +277,11 @@ extension OrehaTableViewController {
             print("_____________________refresh")
             parseMarketData(url: self.marketURL[0]) { (data) in
                 self.ancient = data
-                print(data["Result"].stringValue)
+                
                 if data["Result"].stringValue == "Failed" {
                     let alert = UIAlertController(title: "오류 발생", message: data["Reason"].stringValue, preferredStyle: UIAlertController.Style.alert)
-                    let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
-                                
+                    let okAction = UIAlertAction(title: "확인", style: .default) { (action) in
+                        self.navigationController?.popViewController(animated: true)
                     }
                     alert.addAction(okAction)
                     self.present(alert, animated: false, completion: nil)

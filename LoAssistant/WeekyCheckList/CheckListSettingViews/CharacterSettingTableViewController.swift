@@ -153,7 +153,12 @@ class CharacterSettingTableViewController: UITableViewController, UITextFieldDel
             let userInfoURL = "https://lostarkapi.ga/userinfo/" + charName.text!
             parseCaracterData(url: userInfoURL) { (data) in
                 if data["Result"].stringValue == "Failed" {
-                    print(data["Reason"].stringValue);
+                    let alert = UIAlertController(title: "오류", message: "원정대 데이터를 가져올 수 없습니다", preferredStyle: UIAlertController.Style.alert)
+                    let okAction = UIAlertAction(title: "확인", style: .default) { (action) in
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                    alert.addAction(okAction)
+                    self.present(alert, animated: false, completion: nil)
                     LoadingHUD.hide()
                 } else {
                     print(data["CharacterList"].count)
