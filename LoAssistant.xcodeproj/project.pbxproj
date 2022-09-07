@@ -27,7 +27,6 @@
 		1E2BC8B828A4FF8400170EAD /* CharacterDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2BC8B728A4FF8300170EAD /* CharacterDataService.swift */; };
 		1E422008289CBAA80080C7E5 /* TimerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E422007289CBAA80080C7E5 /* TimerTableViewCell.swift */; };
 		1E52D85C2893CBB3002ED70E /* PheonViewDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52D85B2893CBB3002ED70E /* PheonViewDataService.swift */; };
-		1EE94AF7289B9ED6006E3963 /* LoadingHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE94AF6289B9ED6006E3963 /* LoadingHUD.swift */; };
 		2107F22B28B4C705005605F5 /* ExpeditionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107F22A28B4C705005605F5 /* ExpeditionTableViewController.swift */; };
 		2107F22D28B4C71B005605F5 /* ExpeditionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107F22C28B4C71B005605F5 /* ExpeditionTableViewCell.swift */; };
 		210961E428485A0700FDBC60 /* PriceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210961E328485A0700FDBC60 /* PriceTableViewController.swift */; };
@@ -37,6 +36,7 @@
 		212D3E6F28BC55DD009A1E1E /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212D3E6E28BC55DD009A1E1E /* DateHelper.swift */; };
 		212D3E7128BC92FD009A1E1E /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212D3E7028BC92FD009A1E1E /* Date.swift */; };
 		216FE6F428C1F2AF00C6EA08 /* CheckListSettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216FE6F328C1F2AF00C6EA08 /* CheckListSettingTableViewController.swift */; };
+		216FE6F828C8506900C6EA08 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216FE6F728C8506900C6EA08 /* LoadingIndicator.swift */; };
 		217FF48C28ADBAAD0012B949 /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217FF48B28ADBAAD0012B949 /* InfoTableViewCell.swift */; };
 		217FF49028ADBF6B0012B949 /* CharacterSettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217FF48F28ADBF6B0012B949 /* CharacterSettingTableViewController.swift */; };
 		217FF49228AE357F0012B949 /* CheckListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217FF49128AE357F0012B949 /* CheckListData.swift */; };
@@ -94,7 +94,6 @@
 		1E2BC8B728A4FF8300170EAD /* CharacterDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDataService.swift; sourceTree = "<group>"; };
 		1E422007289CBAA80080C7E5 /* TimerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerTableViewCell.swift; sourceTree = "<group>"; };
 		1E52D85B2893CBB3002ED70E /* PheonViewDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PheonViewDataService.swift; sourceTree = "<group>"; };
-		1EE94AF6289B9ED6006E3963 /* LoadingHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingHUD.swift; sourceTree = "<group>"; };
 		2107F22A28B4C705005605F5 /* ExpeditionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpeditionTableViewController.swift; sourceTree = "<group>"; };
 		2107F22C28B4C71B005605F5 /* ExpeditionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpeditionTableViewCell.swift; sourceTree = "<group>"; };
 		210961E328485A0700FDBC60 /* PriceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceTableViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +103,7 @@
 		212D3E6E28BC55DD009A1E1E /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		212D3E7028BC92FD009A1E1E /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		216FE6F328C1F2AF00C6EA08 /* CheckListSettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListSettingTableViewController.swift; sourceTree = "<group>"; };
+		216FE6F728C8506900C6EA08 /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
 		217FF48B28ADBAAD0012B949 /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
 		217FF48F28ADBF6B0012B949 /* CharacterSettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSettingTableViewController.swift; sourceTree = "<group>"; };
 		217FF49128AE357F0012B949 /* CheckListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListData.swift; sourceTree = "<group>"; };
@@ -184,7 +184,7 @@
 				10F6461D27EB2F8500E51BBB /* AppDelegate.swift */,
 				10F6461F27EB2F8500E51BBB /* SceneDelegate.swift */,
 				10AFD09727EDF058004CFAFB /* MainTableViewController.swift */,
-				1EE94AF6289B9ED6006E3963 /* LoadingHUD.swift */,
+				216FE6F728C8506900C6EA08 /* LoadingIndicator.swift */,
 				10036DCF28B7865B00C65E49 /* StringExtention.swift */,
 				212D3E6C28B8C053009A1E1E /* Protocols.swift */,
 				212D3E6E28BC55DD009A1E1E /* DateHelper.swift */,
@@ -580,8 +580,8 @@
 				21E7461528B71A5E00A80772 /* AbrelshudTableViewCell.swift in Sources */,
 				21E7461128B71A3500A80772 /* BiackissTableViewCell.swift in Sources */,
 				212D3E6D28B8C053009A1E1E /* Protocols.swift in Sources */,
+				216FE6F828C8506900C6EA08 /* LoadingIndicator.swift in Sources */,
 				2107F22B28B4C705005605F5 /* ExpeditionTableViewController.swift in Sources */,
-				1EE94AF7289B9ED6006E3963 /* LoadingHUD.swift in Sources */,
 				21E7461728B71A6900A80772 /* IlliakanTableViewCell.swift in Sources */,
 				21E7460C28B5E37300A80772 /* OrehaTableViewCell.swift in Sources */,
 				21096263284A01DB00FDBC60 /* ResultTableViewCell.swift in Sources */,
@@ -787,7 +787,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.92;
+				MARKETING_VERSION = 0.93;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Seungheon-Kim.LoAssistant";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -817,7 +817,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.92;
+				MARKETING_VERSION = 0.93;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Seungheon-Kim.LoAssistant";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

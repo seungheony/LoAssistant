@@ -148,7 +148,9 @@ class CharacterSettingTableViewController: UITableViewController, UITextFieldDel
     }
     
     func getCharacterData() {
-        LoadingHUD.show()
+        LoadingIndicator.showLoading()
+        print(UserDefaults.standard.string(forKey: "CharacterName"))
+        print(charName.text)
         if UserDefaults.standard.string(forKey: "CharacterName") != charName.text {
             let userInfoURL = "https://lostarkapi.ga/userinfo/" + charName.text!
             parseCaracterData(url: userInfoURL) { (data) in
@@ -159,7 +161,7 @@ class CharacterSettingTableViewController: UITableViewController, UITextFieldDel
                     }
                     alert.addAction(okAction)
                     self.present(alert, animated: false, completion: nil)
-                    LoadingHUD.hide()
+                    LoadingIndicator.hideLoading()
                 } else {
                     print(data["CharacterList"].count)
                     for i in 0...data["CharacterList"].count-1 {
@@ -180,13 +182,22 @@ class CharacterSettingTableViewController: UITableViewController, UITextFieldDel
                     if let encoded = try? encoder.encode(self.checkList) {
                         UserDefaults.standard.setValue(encoded, forKey: "CharacterList")
                     }
-                    LoadingHUD.hide()
+                    LoadingIndicator.hideLoading()
                     UserDefaults.standard.set(self.charName.text, forKey: "CharacterName")
+                    print("-------------")
+                    print(UserDefaults.standard.string(forKey: "CharacterName"))
+                    if let savedData = UserDefaults.standard.object(forKey: "CharacterList") as? Data {
+                        let decoder = JSONDecoder()
+                        if let savedObject = try? decoder.decode([CheckList].self, from: savedData) {
+                            print(savedObject)
+                        }
+                    }
+                    print("-------------")
                 }
             }
         } else {
             // 저장된 이름과 같은 경우
-            LoadingHUD.hide()
+            LoadingIndicator.hideLoading()
         }
     }
 }

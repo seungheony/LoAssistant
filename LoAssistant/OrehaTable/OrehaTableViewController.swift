@@ -48,7 +48,7 @@ class OrehaTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        LoadingHUD.show()
+        LoadingIndicator.showLoading()
         startParse()
         self.setRefreshControl()
 
@@ -409,7 +409,7 @@ extension OrehaTableViewController {
         print(uppermostProfit)
         upperExtraProfit = String((get_upperSalePrice()*15)) + " G"
 
-        LoadingHUD.hide()
+        LoadingIndicator.hideLoading()
         tableView.refreshControl?.endRefreshing()
         self.tableView.reloadData()
     }

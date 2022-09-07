@@ -137,6 +137,14 @@ class CharacterTableViewController: UITableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         print("view will appear")
+        
+        if let savedData = UserDefaults.standard.object(forKey: "CharacterList") as? Data {
+            let decoder = JSONDecoder()
+            if let savedObject = try? decoder.decode([CheckList].self, from: savedData) {
+                self.checkList = savedObject
+            }
+        }
+        
         let day = UserDefaults.standard.string(forKey: "InitializeDay")
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy년MM월dd일 HH시mm분ss초"
