@@ -272,6 +272,7 @@ class OrehaTableViewController: UITableViewController {
 extension OrehaTableViewController {
     
     func startParse() {
+        var counter =  0
         // 테이블뷰에 입력되는 데이터를 갱신한다.
         DispatchQueue.global().sync { [self] in
             print("_____________________refresh")
@@ -287,31 +288,55 @@ extension OrehaTableViewController {
                     self.present(alert, animated: false, completion: nil)
                     self.tableView.refreshControl?.endRefreshing()
                 } else {
-                    DispatchQueue.global().sync {
-                        self.parseMarketData(url: self.marketURL[1]) { (data) in
-                            self.rare = data
-                            print(data["Result"].stringValue)
+                    self.parseMarketData(url: self.marketURL[1]) { (data) in
+                        self.rare = data
+                        counter += 1
+                        print(data["Result"].stringValue)
+                        
+                        if counter == 5 {
+                            self.firstLoad = false
+                            self.calculator()
                         }
-                        self.parseMarketData(url: self.marketURL[2]) { (data) in
-                            self.oreha = data
-                            print(data["Result"].stringValue)
+                    }
+                    self.parseMarketData(url: self.marketURL[2]) { (data) in
+                        self.oreha = data
+                        counter += 1
+                        print(data["Result"].stringValue)
+                        
+                        if counter == 5 {
+                            self.firstLoad = false
+                            self.calculator()
                         }
-                        self.parseMarketData(url: self.marketURL[3]) { (data) in
-                            self.intermediate_oreha = data
-                            print(data["Result"].stringValue)
-                            
-                            self.parseMarketData(url: self.marketURL[4]) { (data) in
-                                self.advanced_oreha = data
-                                print(data["Result"].stringValue)
-                                
-                                self.parseMarketData(url: self.marketURL[5]) { (data) in
-                                    self.uppermost_oreha = data
-                                    print(data["Result"].stringValue)
-                                    print("-- 세팅 끝 --")
-                                    self.firstLoad = false
-                                    self.calculator()
-                                }
-                            }
+                    }
+                    self.parseMarketData(url: self.marketURL[3]) { (data) in
+                        self.intermediate_oreha = data
+                        counter += 1
+                        print(data["Result"].stringValue)
+                        
+                        if counter == 5 {
+                            self.firstLoad = false
+                            self.calculator()
+                        }
+                    }
+                    self.parseMarketData(url: self.marketURL[4]) { (data) in
+                        self.advanced_oreha = data
+                        counter += 1
+                        print(data["Result"].stringValue)
+                        
+                        if counter == 5 {
+                            self.firstLoad = false
+                            self.calculator()
+                        }
+                    }
+                    self.parseMarketData(url: self.marketURL[5]) { (data) in
+                        self.uppermost_oreha = data
+                        counter += 1
+                        print(data["Result"].stringValue)
+                        print("-- 세팅 끝 --")
+                        
+                        if counter == 5 {
+                            self.firstLoad = false
+                            self.calculator()
                         }
                     }
                 }
