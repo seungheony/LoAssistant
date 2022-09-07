@@ -217,9 +217,9 @@
 		1E2BC8B428A4FE8F00170EAD /* WeekyCheckList */ = {
 			isa = PBXGroup;
 			children = (
+				216FE6F228C1F27D00C6EA08 /* CheckListSettingViews */,
 				217FF48A28ADBA7B0012B949 /* CharacterTableCells */,
 				1E2BC8B528A4FEB400170EAD /* CharacterTableViewController.swift */,
-				216FE6F228C1F27D00C6EA08 /* CheckListSettingViews */,
 				1E2BC8B728A4FF8300170EAD /* CharacterDataService.swift */,
 				217FF49128AE357F0012B949 /* CheckListData.swift */,
 			);
