@@ -294,6 +294,7 @@ extension OrehaTableViewController {
                         print(data["Result"].stringValue)
                         
                         if counter == 5 {
+                            print("-- start calculation --")
                             self.firstLoad = false
                             self.calculator()
                         }
@@ -304,6 +305,7 @@ extension OrehaTableViewController {
                         print(data["Result"].stringValue)
                         
                         if counter == 5 {
+                            print("-- start calculation --")
                             self.firstLoad = false
                             self.calculator()
                         }
@@ -314,6 +316,7 @@ extension OrehaTableViewController {
                         print(data["Result"].stringValue)
                         
                         if counter == 5 {
+                            print("-- start calculation --")
                             self.firstLoad = false
                             self.calculator()
                         }
@@ -324,6 +327,7 @@ extension OrehaTableViewController {
                         print(data["Result"].stringValue)
                         
                         if counter == 5 {
+                            print("-- start calculation --")
                             self.firstLoad = false
                             self.calculator()
                         }
@@ -335,6 +339,7 @@ extension OrehaTableViewController {
                         print("-- 세팅 끝 --")
                         
                         if counter == 5 {
+                            print("-- start calculation --")
                             self.firstLoad = false
                             self.calculator()
                         }
@@ -425,46 +430,58 @@ extension OrehaTableViewController {
     }
     
     func get_intermediatePrice() -> Double {
-        if self.intermediate_oreha["Pricechart"].array!.count == 1 {
-            let price: Double = Double(self.intermediate_oreha["Pricechart"].array![0]["Price"].stringValue)!
-            return price
+        var price: Double = 0.0
+        let countOfItem = self.intermediate_oreha["Pricechart"].array!.count
+        let standard = Int(truncating: UserDefaults.standard.float(forKey: "중급기준") as NSNumber) * 1000
+        
+        if countOfItem == 1 {
+            price = Double(self.intermediate_oreha["Pricechart"].array![0]["Price"].stringValue)!
         } else {
-            if Int(self.intermediate_oreha["Pricechart"].array![0]["Amount"].stringValue) ?? 0 < (Int(truncating: UserDefaults.standard.float(forKey: "중급기준") as NSNumber) * 1000) {
-                let price: Double = Double(self.intermediate_oreha["Pricechart"].array![1]["Price"].stringValue)!
-                return price
-            } else {
-                let price: Double = Double(self.intermediate_oreha["Pricechart"].array![0]["Price"].stringValue)!
-                return price
+            for i in 0...countOfItem-1 {
+                let amount = self.intermediate_oreha["Pricechart"].array![i]["Amount"].stringValue.components(separatedBy: [","]).joined()
+                if Int(amount)! >= standard {
+                    price = Double(self.intermediate_oreha["Pricechart"].array![i]["Price"].stringValue)!
+                    break
+                }
             }
         }
+        return price
     }
     func get_advancedPrice() -> Double {
-        if self.advanced_oreha["Pricechart"].array!.count == 1 {
-            let price: Double = Double(self.advanced_oreha["Pricechart"].array![0]["Price"].stringValue)!
-            return price
+        var price: Double = 0.0
+        let countOfItem = self.advanced_oreha["Pricechart"].array!.count
+        let standard = Int(truncating: UserDefaults.standard.float(forKey: "상급기준") as NSNumber) * 1000
+        
+        if countOfItem == 1 {
+            price = Double(self.advanced_oreha["Pricechart"].array![0]["Price"].stringValue)!
         } else {
-            if Int(self.advanced_oreha["Pricechart"].array![0]["Amount"].stringValue) ?? 0 < (Int(truncating: UserDefaults.standard.float(forKey: "상급기준") as NSNumber) * 1000) {
-                let price: Double = Double(self.advanced_oreha["Pricechart"].array![1]["Price"].stringValue)!
-                return price
-            } else {
-                let price: Double = Double(self.advanced_oreha["Pricechart"].array![0]["Price"].stringValue)!
-                return price
+            for i in 0...countOfItem-1 {
+                let amount = self.advanced_oreha["Pricechart"].array![i]["Amount"].stringValue.components(separatedBy: [","]).joined()
+                if Int(amount)! >= standard {
+                    price = Double(self.advanced_oreha["Pricechart"].array![i]["Price"].stringValue)!
+                    break
+                }
             }
         }
+        return price
     }
     func get_uppermostPrice() -> Double {
-        if self.uppermost_oreha["Pricechart"].array!.count == 1 {
-            let price: Double = Double(self.uppermost_oreha["Pricechart"].array![0]["Price"].stringValue)!
-            return price
+        var price: Double = 0.0
+        let countOfItem = self.uppermost_oreha["Pricechart"].array!.count
+        let standard = Int(truncating: UserDefaults.standard.float(forKey: "최상급기준") as NSNumber) * 1000
+        
+        if countOfItem == 1 {
+            price = Double(self.uppermost_oreha["Pricechart"].array![0]["Price"].stringValue)!
         } else {
-            if Int(self.uppermost_oreha["Pricechart"].array![0]["Amount"].stringValue) ?? 0 < (Int(truncating: UserDefaults.standard.float(forKey: "최상급기준") as NSNumber) * 1000) {
-                let price: Double = Double(self.uppermost_oreha["Pricechart"].array![1]["Price"].stringValue)!
-                return price
-            } else {
-                let price: Double = Double(self.uppermost_oreha["Pricechart"].array![0]["Price"].stringValue)!
-                return price
+            for i in 0...countOfItem-1 {
+                let amount = self.uppermost_oreha["Pricechart"].array![i]["Amount"].stringValue.components(separatedBy: [","]).joined()
+                if Int(amount)! >= standard {
+                    price = Double(self.uppermost_oreha["Pricechart"].array![i]["Price"].stringValue)!
+                    break
+                }
             }
         }
+        return price
     }
     func get_interSalePrice() -> Int {
         let commission = Int(ceil(get_intermediatePrice() * 0.05))
