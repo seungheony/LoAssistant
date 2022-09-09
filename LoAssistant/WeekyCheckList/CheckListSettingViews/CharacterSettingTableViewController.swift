@@ -137,9 +137,11 @@ class CharacterSettingTableViewController: UITableViewController, UITextFieldDel
         return true
     }
     func hideKeyboardWhenTappedAround() {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(CharacterSettingTableViewController.dismissKeyboard))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
+        if charName.text == "" {
+            let tap = UITapGestureRecognizer(target: self, action: #selector(CharacterSettingTableViewController.dismissKeyboard))
+            tap.cancelsTouchesInView = false
+            view.addGestureRecognizer(tap)
+        }
     }
     
     @objc func dismissKeyboard() {
@@ -149,8 +151,6 @@ class CharacterSettingTableViewController: UITableViewController, UITextFieldDel
     
     func getCharacterData() {
         LoadingIndicator.showLoading()
-        print(UserDefaults.standard.string(forKey: "CharacterName"))
-        print(charName.text)
         if UserDefaults.standard.string(forKey: "CharacterName") != charName.text {
             let userInfoURL = "https://lostarkapi.ga/userinfo/" + charName.text!
             parseCaracterData(url: userInfoURL) { (data) in
@@ -163,7 +163,7 @@ class CharacterSettingTableViewController: UITableViewController, UITextFieldDel
                     self.present(alert, animated: false, completion: nil)
                     LoadingIndicator.hideLoading()
                 } else {
-                    print(data["CharacterList"].count)
+                    
                     for i in 0...data["CharacterList"].count-1 {
                         let char_name = data["CharacterList"][i]["Name"].stringValue
                         
@@ -176,23 +176,13 @@ class CharacterSettingTableViewController: UITableViewController, UITextFieldDel
                         let list: CheckList = CheckList(earnGold: false, counter: 0, char_name: char_name, char_level: char_level, char_class: char_class, argos: 0, valtan: 0, biakiss: 0, kouku_saton: 0, kayangel: 0, abrelshud: 0, illiakan: 0)
                         self.checkList.append(list)
                     }
-                    print(self.checkList)
-                    
                     let encoder = JSONEncoder()
                     if let encoded = try? encoder.encode(self.checkList) {
                         UserDefaults.standard.setValue(encoded, forKey: "CharacterList")
                     }
-                    LoadingIndicator.hideLoading()
                     UserDefaults.standard.set(self.charName.text, forKey: "CharacterName")
-                    print("-------------")
-                    print(UserDefaults.standard.string(forKey: "CharacterName"))
-                    if let savedData = UserDefaults.standard.object(forKey: "CharacterList") as? Data {
-                        let decoder = JSONDecoder()
-                        if let savedObject = try? decoder.decode([CheckList].self, from: savedData) {
-                            print(savedObject)
-                        }
-                    }
-                    print("-------------")
+                    
+                    LoadingIndicator.hideLoading()
                 }
             }
         } else {
