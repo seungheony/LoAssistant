@@ -150,7 +150,7 @@ class CharacterSettingTableViewController: UITableViewController, UITextFieldDel
     }
     
     func getCharacterData() {
-        LoadingIndicator.showLoading()
+        LoadingIndicator.showLoadingAtKeyBoard()
         if UserDefaults.standard.string(forKey: "CharacterName") != charName.text {
             let userInfoURL = "https://lostarkapi.ga/userinfo/" + charName.text!
             parseCaracterData(url: userInfoURL) { (data) in

@@ -274,75 +274,73 @@ extension OrehaTableViewController {
     func startParse() {
         var counter =  0
         // 테이블뷰에 입력되는 데이터를 갱신한다.
-        DispatchQueue.global().sync { [self] in
-            print("_____________________refresh")
-            parseMarketData(url: self.marketURL[0]) { (data) in
-                self.ancient = data
-                
-                if data["Result"].stringValue == "Failed" {
-                    let alert = UIAlertController(title: "오류 발생", message: data["Reason"].stringValue, preferredStyle: UIAlertController.Style.alert)
-                    let okAction = UIAlertAction(title: "확인", style: .default) { (action) in
-                        self.navigationController?.popViewController(animated: true)
+        print("_____________________refresh")
+        parseMarketData(url: self.marketURL[0]) { (data) in
+            self.ancient = data
+            
+            if data["Result"].stringValue == "Failed" {
+                let alert = UIAlertController(title: "오류 발생", message: data["Reason"].stringValue, preferredStyle: UIAlertController.Style.alert)
+                let okAction = UIAlertAction(title: "확인", style: .default) { (action) in
+                    self.navigationController?.popViewController(animated: true)
+                }
+                alert.addAction(okAction)
+                self.present(alert, animated: false, completion: nil)
+                self.tableView.refreshControl?.endRefreshing()
+            } else {
+                self.parseMarketData(url: self.marketURL[1]) { (data) in
+                    self.rare = data
+                    counter += 1
+                    print(data["Result"].stringValue)
+                    
+                    if counter == 5 {
+                        print("-- start calculation --")
+                        self.firstLoad = false
+                        self.calculator()
                     }
-                    alert.addAction(okAction)
-                    self.present(alert, animated: false, completion: nil)
-                    self.tableView.refreshControl?.endRefreshing()
-                } else {
-                    self.parseMarketData(url: self.marketURL[1]) { (data) in
-                        self.rare = data
-                        counter += 1
-                        print(data["Result"].stringValue)
-                        
-                        if counter == 5 {
-                            print("-- start calculation --")
-                            self.firstLoad = false
-                            self.calculator()
-                        }
+                }
+                self.parseMarketData(url: self.marketURL[2]) { (data) in
+                    self.oreha = data
+                    counter += 1
+                    print(data["Result"].stringValue)
+                    
+                    if counter == 5 {
+                        print("-- start calculation --")
+                        self.firstLoad = false
+                        self.calculator()
                     }
-                    self.parseMarketData(url: self.marketURL[2]) { (data) in
-                        self.oreha = data
-                        counter += 1
-                        print(data["Result"].stringValue)
-                        
-                        if counter == 5 {
-                            print("-- start calculation --")
-                            self.firstLoad = false
-                            self.calculator()
-                        }
+                }
+                self.parseMarketData(url: self.marketURL[3]) { (data) in
+                    self.intermediate_oreha = data
+                    counter += 1
+                    print(data["Result"].stringValue)
+                    
+                    if counter == 5 {
+                        print("-- start calculation --")
+                        self.firstLoad = false
+                        self.calculator()
                     }
-                    self.parseMarketData(url: self.marketURL[3]) { (data) in
-                        self.intermediate_oreha = data
-                        counter += 1
-                        print(data["Result"].stringValue)
-                        
-                        if counter == 5 {
-                            print("-- start calculation --")
-                            self.firstLoad = false
-                            self.calculator()
-                        }
+                }
+                self.parseMarketData(url: self.marketURL[4]) { (data) in
+                    self.advanced_oreha = data
+                    counter += 1
+                    print(data["Result"].stringValue)
+                    
+                    if counter == 5 {
+                        print("-- start calculation --")
+                        self.firstLoad = false
+                        self.calculator()
                     }
-                    self.parseMarketData(url: self.marketURL[4]) { (data) in
-                        self.advanced_oreha = data
-                        counter += 1
-                        print(data["Result"].stringValue)
-                        
-                        if counter == 5 {
-                            print("-- start calculation --")
-                            self.firstLoad = false
-                            self.calculator()
-                        }
-                    }
-                    self.parseMarketData(url: self.marketURL[5]) { (data) in
-                        self.uppermost_oreha = data
-                        counter += 1
-                        print(data["Result"].stringValue)
-                        print("-- 세팅 끝 --")
-                        
-                        if counter == 5 {
-                            print("-- start calculation --")
-                            self.firstLoad = false
-                            self.calculator()
-                        }
+                }
+                self.parseMarketData(url: self.marketURL[5]) { (data) in
+                    self.uppermost_oreha = data
+                    counter += 1
+                    print(data["Result"].stringValue)
+                    print("-- 세팅 끝 --")
+                    
+                    if counter == 5 {
+                        print("-- start calculation --")
+                        self.firstLoad = false
+                        self.calculator()
                     }
                 }
             }
