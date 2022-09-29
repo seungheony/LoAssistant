@@ -156,8 +156,8 @@ class CharacterSettingTableViewController: UITableViewController, UITextFieldDel
             parseCaracterData(url: userInfoURL) { (data) in
                 if data["Result"].stringValue == "Failed" {
                     let alert = UIAlertController(title: "오류", message: "원정대 데이터를 가져올 수 없습니다", preferredStyle: UIAlertController.Style.alert)
-                    let okAction = UIAlertAction(title: "확인", style: .default) { (action) in
-                        self.navigationController?.popViewController(animated: true)
+                    let okAction = UIAlertAction(title: "확인", style: .default) { [self] (action) in
+                        charName.text = UserDefaults.standard.string(forKey: "CharacterName")
                     }
                     alert.addAction(okAction)
                     self.present(alert, animated: false, completion: nil)
