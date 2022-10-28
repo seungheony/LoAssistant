@@ -163,26 +163,37 @@ class CharacterSettingTableViewController: UITableViewController, UITextFieldDel
                     self.present(alert, animated: false, completion: nil)
                     LoadingIndicator.hideLoading()
                 } else {
-                    
-                    for i in 0...data["CharacterList"].count-1 {
-                        let char_name = data["CharacterList"][i]["Name"].stringValue
-                        
-                        let levelString = data["CharacterList"][i]["Level"].stringValue
-                        let startIdx:String.Index = levelString.index(levelString.startIndex, offsetBy: 3)
-                        let char_level: Float = Float(levelString[startIdx...].components(separatedBy: [","]).joined())!
-                        
-                        let char_class = data["CharacterList"][i]["Class"].stringValue
-                        
-                        let list: CheckList = CheckList(earnGold: false, counter: 0, char_name: char_name, char_level: char_level, char_class: char_class, argos: 0, valtan: 0, biakiss: 0, kouku_saton: 0, kayangel: 0, abrelshud: 0, illiakan: 0)
-                        self.checkList.append(list)
+                    // 캐릭터가 0개일 경우
+                    if data["CharacterList"].count == 0 {
+                        let alert = UIAlertController(title: "오류", message: "원정대 데이터를 가져올 수 없습니다", preferredStyle: UIAlertController.Style.alert)
+                        let okAction = UIAlertAction(title: "확인", style: .default) { [self] (action) in
+                            charName.text = UserDefaults.standard.string(forKey: "CharacterName")
+                        }
+                        alert.addAction(okAction)
+                        self.present(alert, animated: false, completion: nil)
+                        LoadingIndicator.hideLoading()
                     }
-                    let encoder = JSONEncoder()
-                    if let encoded = try? encoder.encode(self.checkList) {
-                        UserDefaults.standard.setValue(encoded, forKey: "CharacterList")
+                    else {
+                        for i in 0...data["CharacterList"].count-1 {
+                            let char_name = data["CharacterList"][i]["Name"].stringValue
+                            
+                            let levelString = data["CharacterList"][i]["Level"].stringValue
+                            let startIdx:String.Index = levelString.index(levelString.startIndex, offsetBy: 3)
+                            let char_level: Float = Float(levelString[startIdx...].components(separatedBy: [","]).joined())!
+                            
+                            let char_class = data["CharacterList"][i]["Class"].stringValue
+                            
+                            let list: CheckList = CheckList(earnGold: false, counter: 0, char_name: char_name, char_level: char_level, char_class: char_class, argos: 0, valtan: 0, biakiss: 0, kouku_saton: 0, kayangel: 0, abrelshud: 0, illiakan: 0)
+                            self.checkList.append(list)
+                        }
+                        let encoder = JSONEncoder()
+                        if let encoded = try? encoder.encode(self.checkList) {
+                            UserDefaults.standard.setValue(encoded, forKey: "CharacterList")
+                        }
+                        UserDefaults.standard.set(self.charName.text, forKey: "CharacterName")
+                        
+                        LoadingIndicator.hideLoading()
                     }
-                    UserDefaults.standard.set(self.charName.text, forKey: "CharacterName")
-                    
-                    LoadingIndicator.hideLoading()
                 }
             }
         } else {
