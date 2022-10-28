@@ -51,6 +51,7 @@ class OrehaTableViewController: UITableViewController {
         LoadingIndicator.showLoading()
         startParse()
         self.setRefreshControl()
+        requestNotificationPermission()
 
     }
     
@@ -561,6 +562,17 @@ extension OrehaTableViewController {
     @objc func pullToRefresh(_ sender: Any) {
         
         startParse()
+    }
+    
+    // 알림 센터 권한 요구 메소드
+    func requestNotificationPermission() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge], completionHandler: {didAllow,Error in
+            if didAllow {
+                print("Push: 권한 허용")
+            } else {
+                print("Push: 권한 거부")
+            }
+        })
     }
 }
 

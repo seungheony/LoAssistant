@@ -29,9 +29,7 @@
 		</dict>
 	</dict>
 	<key>UIBackgroundModes</key>
-	<array>
-		<string>audio</string>
-	</array>
+	<array/>
 	<key>supported</key>
 	<string></string>
 </dict>
