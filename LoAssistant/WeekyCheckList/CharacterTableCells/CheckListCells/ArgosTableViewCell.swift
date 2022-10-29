@@ -20,22 +20,6 @@ class ArgosTableViewCell: UITableViewCell {
     @IBOutlet weak var phase1Label: UILabel!
     @IBOutlet weak var phase2Label: UILabel!
     @IBOutlet weak var lastPhaseLabel: UILabel!
-    
-//    @IBAction func checkGate(_ sender: UISegmentedControl) {
-//        
-//        self.checkList![self.charIndex].argos = sender.selectedSegmentIndex
-//        print("\(self.charIndex) : \(self.checkList![self.charIndex].argos)")
-//        
-//        let encoder = JSONEncoder()
-//        if let encoded = try? encoder.encode(self.checkList) {
-//            UserDefaults.standard.setValue(encoded, forKey: "CharacterList")
-//        }
-//        if sender.selectedSegmentIndex == 3 {
-//            raidNameLabel.attributedText = raidNameLabel.text?.strikeThrough()
-//        } else {
-//            raidNameLabel.attributedText = raidNameLabel.text?.removeStrikeThrough()
-//        }
-//    }
 
     override func awakeFromNib() {
         super.awakeFromNib()

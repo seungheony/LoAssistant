@@ -23,27 +23,6 @@ class AbrelshudTableViewCell: UITableViewCell {
     @IBOutlet weak var gate34Button: UIButton!
     @IBOutlet weak var gate56Button: UIButton!
     
-//    @IBAction func checkGate(_ sender: UISegmentedControl) {
-//        
-//        self.checkList![self.charIndex].abrelshud_12 = sender.selectedSegmentIndex
-//        print("\(self.charIndex) : \(self.checkList![self.charIndex].abrelshud_12)")
-//        
-//        let encoder = JSONEncoder()
-//        if let encoded = try? encoder.encode(self.checkList) {
-//            UserDefaults.standard.setValue(encoded, forKey: "CharacterList")
-//        }
-//        if sender.selectedSegmentIndex == 2 {
-//            raidNameLabel.attributedText = raidNameLabel.text?.strikeThrough()
-//        } else {
-//            raidNameLabel.attributedText = raidNameLabel.text?.removeStrikeThrough()
-//            if level >= 1540 {
-//                raidNameLabel.attributedText = raidNameLabel.text?.setRaidNameAtAttributesStr(add: "하드")
-//            } else {
-//                raidNameLabel.attributedText = raidNameLabel.text?.setRaidNameAtAttributesStr(add: "노말")
-//            }
-//        }
-//    }
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

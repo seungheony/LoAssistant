@@ -136,7 +136,6 @@ class CharacterTableViewController: UITableViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        print("view will appear")
         
         if let savedData = UserDefaults.standard.object(forKey: "CharacterList") as? Data {
             let decoder = JSONDecoder()
@@ -151,8 +150,7 @@ class CharacterTableViewController: UITableViewController {
         dateFormatter.locale = Locale(identifier: "ko")
         
         let date = dateFormatter.date(from: day ?? "1998년12월17일 00시00분00초")
-        print(date)
-        print("is past? : \(Date().isPast(fromDate: date ?? Date()))")
+        
         if Date().isPast(fromDate: date ?? Date()) && checkList.count >= 1 {
             for i in 0...checkList.count-1 {
                 checkList[i].argos = 0
@@ -169,19 +167,10 @@ class CharacterTableViewController: UITableViewController {
         if let encoded = try? encoder.encode(self.checkList) {
             UserDefaults.standard.setValue(encoded, forKey: "CharacterList")
         }
-        print(self.checkList)
-        
-        
-//        if let savedData = UserDefaults.standard.object(forKey: "CharacterList") as? Data {
-//            let decoder = JSONDecoder()
-//            if let savedObject = try? decoder.decode([CheckList].self, from: savedData) {
-//                self.checkList = savedObject
-//            }
-//        }
+
         self.tableView.reloadData()
     }
     override func viewWillDisappear(_ animated: Bool) {
-        print("view will disappear")
         set_initializeCheckList()
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(self.checkList) {
@@ -932,10 +921,7 @@ extension CharacterTableViewController: CheckButtonTappedDelegate {
 //            self.tableView.reloadData()
 //        }
         self.tableView.reloadData()
-        
-        print("counter = \(self.checkList[charIndex].counter)")
-        print("index: \(charIndex)")
-        print(self.checkList)
+
     }
 }
 

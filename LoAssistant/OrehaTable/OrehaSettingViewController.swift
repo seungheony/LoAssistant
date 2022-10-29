@@ -137,19 +137,4 @@ class OrehaSettingViewController: UITableViewController {
         self.minUpperOreha.text = String(Int(UserDefaults.standard.float(forKey: "최상급기준")) * 1000) + "개"
     }
 
-    // MARK: - Table view data source
-
-//  pop Action
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillDisappear(animated)
-//
-//        if self.isMovingFromParent {
-//            guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "OrehaTable") as? OrehaTableViewController else {
-//                return
-//            }
-//            uvc.setting = self.setting!
-//            print(uvc.setting.self)
-//        }
-//    }
-
 }

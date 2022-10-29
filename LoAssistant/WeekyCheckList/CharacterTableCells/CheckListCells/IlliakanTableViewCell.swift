@@ -23,27 +23,6 @@ class IlliakanTableViewCell: UITableViewCell {
     @IBOutlet weak var gate2Button: UIButton!
     @IBOutlet weak var gate3Button: UIButton!
     
-//    @IBAction func checkGate(_ sender: UISegmentedControl) {
-//        
-//        self.checkList![self.charIndex].illiakan = sender.selectedSegmentIndex
-//        print("\(self.charIndex) : \(self.checkList![self.charIndex].illiakan)")
-//        
-//        let encoder = JSONEncoder()
-//        if let encoded = try? encoder.encode(self.checkList) {
-//            UserDefaults.standard.setValue(encoded, forKey: "CharacterList")
-//        }
-//        if sender.selectedSegmentIndex == 3 {
-//            raidNameLabel.attributedText = raidNameLabel.text?.strikeThrough()
-//        } else {
-//            raidNameLabel.attributedText = raidNameLabel.text?.removeStrikeThrough()
-//            if level >= 1600 {
-//                raidNameLabel.attributedText = raidNameLabel.text?.setRaidNameAtAttributesStr(add: "하드")
-//            } else {
-//                raidNameLabel.attributedText = raidNameLabel.text?.setRaidNameAtAttributesStr(add: "노말")
-//            }
-//        }
-//    }
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

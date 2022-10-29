@@ -46,7 +46,6 @@ class ExpeditionTableViewController: UITableViewController {
             counter += 1
             cell.accessoryType = .checkmark
             cell.charNameLabel.textColor = UIColor.link
-            print(counter)
         }
         
         return cell

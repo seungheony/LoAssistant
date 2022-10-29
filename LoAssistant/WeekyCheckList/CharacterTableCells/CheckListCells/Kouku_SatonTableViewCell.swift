@@ -23,23 +23,6 @@ class Kouku_SatonTableViewCell: UITableViewCell {
     @IBOutlet weak var gate2Label: UILabel!
     @IBOutlet weak var lastGateLabel: UILabel!
     
-//    @IBAction func checkGate(_ sender: UISegmentedControl) {
-//        print(self.checkList)
-//        self.checkList![self.charIndex].kouku_saton = sender.selectedSegmentIndex
-//        print("\(self.charIndex) : \(self.checkList![self.charIndex].kouku_saton)")
-//        
-//        print(self.checkList)
-//        let encoder = JSONEncoder()
-//        if let encoded = try? encoder.encode(self.checkList) {
-//            UserDefaults.standard.setValue(encoded, forKey: "CharacterList")
-//        }
-//        if sender.selectedSegmentIndex == 3 {
-//            raidNameLabel.attributedText = raidNameLabel.text?.strikeThrough()
-//        } else {
-//            raidNameLabel.attributedText = raidNameLabel.text?.removeStrikeThrough()
-//        }
-//    }
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

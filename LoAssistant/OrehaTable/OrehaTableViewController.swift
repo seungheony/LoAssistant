@@ -49,7 +49,7 @@ class OrehaTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         LoadingIndicator.showLoading()
-        startParse()
+        parseItemData()
         self.setRefreshControl()
         requestNotificationPermission()
 
@@ -134,7 +134,6 @@ class OrehaTableViewController: UITableViewController {
                 orehaCell.orehaImage.image = UIImage(named: imageList[3])
                 orehaCell.orehaNameLabel.text = itemList[3]
                 if firstLoad == false {
-                    print("_____________________inter")
                     orehaCell.orehaPriceLabel.text = String(Int(get_intermediatePrice())) + " G"
                 }
             return orehaCell
@@ -149,7 +148,6 @@ class OrehaTableViewController: UITableViewController {
                 orehaCell.orehaImage.image = UIImage(named: imageList[4])
                 orehaCell.orehaNameLabel.text = itemList[4]
                 if firstLoad == false {
-                    print("_____________________adv")
                     orehaCell.orehaPriceLabel.text = String(Int(get_advancedPrice())) + " G"
                 }
                 return orehaCell
@@ -164,7 +162,6 @@ class OrehaTableViewController: UITableViewController {
                 orehaCell.orehaImage.image = UIImage(named: imageList[5])
                 orehaCell.orehaNameLabel.text = itemList[5]
                 if firstLoad == false {
-                    print("_____________________upper")
                     orehaCell.orehaPriceLabel.text = String(Int(get_uppermostPrice())) + " G"
                 }
                 return orehaCell
@@ -272,10 +269,9 @@ class OrehaTableViewController: UITableViewController {
 
 extension OrehaTableViewController {
     
-    func startParse() {
+    func parseItemData() {
         var counter =  0
         // 테이블뷰에 입력되는 데이터를 갱신한다.
-        print("_____________________refresh")
         parseMarketData(url: self.marketURL[0]) { (data) in
             self.ancient = data
             
@@ -291,64 +287,53 @@ extension OrehaTableViewController {
                 self.parseMarketData(url: self.marketURL[1]) { (data) in
                     self.rare = data
                     counter += 1
-                    print(data["Result"].stringValue)
                     
                     if counter == 5 {
-                        print("-- start calculation --")
                         self.firstLoad = false
-                        self.calculator()
+                        self.calculateProfit()
                     }
                 }
                 self.parseMarketData(url: self.marketURL[2]) { (data) in
                     self.oreha = data
                     counter += 1
-                    print(data["Result"].stringValue)
                     
                     if counter == 5 {
-                        print("-- start calculation --")
                         self.firstLoad = false
-                        self.calculator()
+                        self.calculateProfit()
                     }
                 }
                 self.parseMarketData(url: self.marketURL[3]) { (data) in
                     self.intermediate_oreha = data
                     counter += 1
-                    print(data["Result"].stringValue)
                     
                     if counter == 5 {
-                        print("-- start calculation --")
                         self.firstLoad = false
-                        self.calculator()
+                        self.calculateProfit()
                     }
                 }
                 self.parseMarketData(url: self.marketURL[4]) { (data) in
                     self.advanced_oreha = data
                     counter += 1
-                    print(data["Result"].stringValue)
                     
                     if counter == 5 {
-                        print("-- start calculation --")
                         self.firstLoad = false
-                        self.calculator()
+                        self.calculateProfit()
                     }
                 }
                 self.parseMarketData(url: self.marketURL[5]) { (data) in
                     self.uppermost_oreha = data
                     counter += 1
-                    print(data["Result"].stringValue)
-                    print("-- 세팅 끝 --")
                     
                     if counter == 5 {
-                        print("-- start calculation --")
                         self.firstLoad = false
-                        self.calculator()
+                        self.calculateProfit()
                     }
                 }
             }
         }
     }
     
-    func calculator() {
+    func calculateProfit() {
         var 설치물: Int = 0
         var 의상: Int = 0
         var 연구: Int = 0
@@ -402,10 +387,7 @@ extension OrehaTableViewController {
         advExtraProfit = String((get_advSalePrice()*20)) + " G"
         
         total_cost = uppermost_materialPrice + uppermost_cost
-        print(total_cost)
-        print(get_upperSalePrice()*15)
         uppermostProfit =  String((((get_upperSalePrice()*15) - total_cost) * 10) * 제작슬롯) + " G"
-        print(uppermostProfit)
         upperExtraProfit = String((get_upperSalePrice()*15)) + " G"
 
         LoadingIndicator.hideLoading()
@@ -561,7 +543,7 @@ extension OrehaTableViewController {
     
     @objc func pullToRefresh(_ sender: Any) {
         
-        startParse()
+        parseItemData()
     }
     
     // 알림 센터 권한 요구 메소드
