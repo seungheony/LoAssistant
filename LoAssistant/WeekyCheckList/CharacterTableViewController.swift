@@ -16,7 +16,6 @@ class CharacterTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setRefreshControl()
-        set_initializeCheckList()
         
         if let savedData = UserDefaults.standard.object(forKey: "CharacterList") as? Data {
             let decoder = JSONDecoder()
@@ -144,34 +143,11 @@ class CharacterTableViewController: UITableViewController {
             }
         }
         
-        let day = UserDefaults.standard.string(forKey: "InitializeDay")
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy년MM월dd일 HH시mm분ss초"
-        dateFormatter.locale = Locale(identifier: "ko")
-        
-        let date = dateFormatter.date(from: day ?? "1998년12월17일 00시00분00초")
-        
-        if Date().isPast(fromDate: date ?? Date()) && checkList.count >= 1 {
-            for i in 0...checkList.count-1 {
-                checkList[i].argos = 0
-                checkList[i].kayangel = 0
-                
-                checkList[i].valtan = 0
-                checkList[i].biakiss = 0
-                checkList[i].kouku_saton = 0
-                checkList[i].abrelshud = 0
-                checkList[i].illiakan = 0
-            }
-        }
-        let encoder = JSONEncoder()
-        if let encoded = try? encoder.encode(self.checkList) {
-            UserDefaults.standard.setValue(encoded, forKey: "CharacterList")
-        }
+        initializeCheckList(date: checkInitializeDate())
 
         self.tableView.reloadData()
     }
     override func viewWillDisappear(_ animated: Bool) {
-        set_initializeCheckList()
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(self.checkList) {
             UserDefaults.standard.setValue(encoded, forKey: "CharacterList")
@@ -842,7 +818,7 @@ class CharacterTableViewController: UITableViewController {
         return ""
     }
     
-    func set_initializeCheckList() {
+    func setInitializeDate() {
         var today = Date()
         let dateFormatter = DateFormatter() // Date 포맷 객체 선언
         dateFormatter.locale = Locale(identifier: "ko") // 한국 지정
@@ -873,6 +849,38 @@ class CharacterTableViewController: UITableViewController {
                 }
             }
         }
+    }
+    
+    func checkInitializeDate() -> Date? {
+        let day = UserDefaults.standard.string(forKey: "InitializeDay")
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy년MM월dd일 HH시mm분ss초"
+        dateFormatter.locale = Locale(identifier: "ko")
+        
+        let date = dateFormatter.date(from: day ?? "1998년12월17일 00시00분00초")
+        
+        return date
+    }
+    
+    func initializeCheckList(date: Date?) {
+        if Date().isPast(fromDate: date ?? Date()) && checkList.count >= 1 {
+            for i in 0...checkList.count-1 {
+                checkList[i].argos = 0
+                checkList[i].kayangel = 0
+                
+                checkList[i].valtan = 0
+                checkList[i].biakiss = 0
+                checkList[i].kouku_saton = 0
+                checkList[i].abrelshud = 0
+                checkList[i].illiakan = 0
+            }
+        }
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(self.checkList) {
+            UserDefaults.standard.setValue(encoded, forKey: "CharacterList")
+        }
+        // 로요일 초기화
+        setInitializeDate()
     }
 }
 extension CharacterTableViewController: CheckButtonTappedDelegate {
@@ -933,7 +941,7 @@ extension CharacterTableViewController {
     }
     
     @objc func pullToRefresh(_ sender: Any) {
-        set_initializeCheckList()
+        
         getCharacterData()
     }
     
