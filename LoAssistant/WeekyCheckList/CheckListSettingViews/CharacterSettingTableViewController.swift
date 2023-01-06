@@ -15,12 +15,14 @@ class CharacterSettingTableViewController: UITableViewController, UITextFieldDel
     @IBOutlet weak var charName: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-//        if let savedData = UserDefaults.standard.object(forKey: "CharacterList") as? Data {
-//            let decoder = JSONDecoder()
-//            if let savedObject = try? decoder.decode([CheckList].self, from: savedData) {
-//                self.checkList = savedObject
-//            }
-//        }
+        if let savedData = UserDefaults.standard.object(forKey: "CharacterList") as? Data {
+            let decoder = JSONDecoder()
+            if let savedObject = try? decoder.decode([CheckList].self, from: savedData) {
+                self.checkList = savedObject
+            }
+        }
+        
+        
         charName.delegate = self
         charName.text = UserDefaults.standard.string(forKey: "CharacterName")
         self.hideKeyboardWhenTappedAround()
@@ -41,10 +43,7 @@ class CharacterSettingTableViewController: UITableViewController, UITextFieldDel
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        if section == 0 {
-            return 2
-        }
-        return 1
+        return 2
     }
     
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
@@ -69,6 +68,10 @@ class CharacterSettingTableViewController: UITableViewController, UITextFieldDel
         }
         if indexPath.section == 1 {
             if indexPath.row == 0 {
+                initializeCheckList()
+                self.showAlert(title: "초기화 성공", message: "모든 캐릭터의 체크리스트가 초기화 되었습니다")
+            }
+            else if indexPath.row == 1 {
                 guard let nextVC = self.storyboard?.instantiateViewController(identifier: "CheckListSetting") as? CheckListSettingTableViewController else {
                     return
                 }
@@ -76,6 +79,26 @@ class CharacterSettingTableViewController: UITableViewController, UITextFieldDel
             }
         }
     }
+    
+    func initializeCheckList() {
+        for i in 0...self.checkList.count-1 {
+            self.checkList[i].argos = 0
+            self.checkList[i].kayangel = 0
+            
+            self.checkList[i].valtan = 0
+            self.checkList[i].biakiss = 0
+            self.checkList[i].kouku_saton = 0
+            self.checkList[i].abrelshud = 0
+            self.checkList[i].illiakan = 0
+            
+            self.checkList[i].counter = 0
+        }
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(self.checkList) {
+            UserDefaults.standard.setValue(encoded, forKey: "CharacterList")
+        }
+    }
+    
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
@@ -200,5 +223,14 @@ class CharacterSettingTableViewController: UITableViewController, UITextFieldDel
             // 저장된 이름과 같은 경우
             LoadingIndicator.hideLoading()
         }
+    }
+    
+    func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "확인", style: .default) { (action) in
+            // action
+        }
+        alert.addAction(okAction)
+        self.present(alert, animated: false, completion: nil)
     }
 }
