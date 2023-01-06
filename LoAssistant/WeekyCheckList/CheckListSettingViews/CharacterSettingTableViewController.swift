@@ -41,10 +41,7 @@ class CharacterSettingTableViewController: UITableViewController, UITextFieldDel
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        if section == 0 {
-            return 2
-        }
-        return 1
+        return 2
     }
     
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
@@ -69,6 +66,9 @@ class CharacterSettingTableViewController: UITableViewController, UITextFieldDel
         }
         if indexPath.section == 1 {
             if indexPath.row == 0 {
+                initializeCheckList()
+            }
+            else if indexPath.row == 1 {
                 guard let nextVC = self.storyboard?.instantiateViewController(identifier: "CheckListSetting") as? CheckListSettingTableViewController else {
                     return
                 }
@@ -76,6 +76,33 @@ class CharacterSettingTableViewController: UITableViewController, UITextFieldDel
             }
         }
     }
+    
+    func initializeCheckList() {
+        var tempCheckList: [CheckList] = []
+        if let savedData = UserDefaults.standard.object(forKey: "CharacterList") as? Data {
+            let decoder = JSONDecoder()
+            if let savedObject = try? decoder.decode([CheckList].self, from: savedData) {
+                tempCheckList = savedObject
+            }
+        }
+        for i in 0...tempCheckList.count-1 {
+            tempCheckList[i].argos = 0
+            tempCheckList[i].kayangel = 0
+            
+            tempCheckList[i].valtan = 0
+            tempCheckList[i].biakiss = 0
+            tempCheckList[i].kouku_saton = 0
+            tempCheckList[i].abrelshud = 0
+            tempCheckList[i].illiakan = 0
+            
+            tempCheckList[i].counter = 0
+        }
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(tempCheckList) {
+            UserDefaults.standard.setValue(encoded, forKey: "CharacterList")
+        }
+    }
+    
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
