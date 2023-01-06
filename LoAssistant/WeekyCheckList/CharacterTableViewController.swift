@@ -941,7 +941,7 @@ extension CharacterTableViewController {
     }
     
     @objc func pullToRefresh(_ sender: Any) {
-        
+        initializeCheckList(date: checkInitializeDate())
         getCharacterData()
     }
     
