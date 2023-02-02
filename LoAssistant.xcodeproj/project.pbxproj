@@ -73,7 +73,7 @@
 		062528949B9FCA96BDEDB6D0 /* Pods-LoAssistant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoAssistant.release.xcconfig"; path = "Target Support Files/Pods-LoAssistant/Pods-LoAssistant.release.xcconfig"; sourceTree = "<group>"; };
 		10036DCF28B7865B00C65E49 /* StringExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtention.swift; sourceTree = "<group>"; };
 		1008CB5A283A1DC9000F6E0B /* MarketDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDataService.swift; sourceTree = "<group>"; };
-		1021B20B284C3EAC00331EA5 /* PheonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PheonViewController.swift; path = LoAssistant/PheonTable/PheonViewController.swift; sourceTree = SOURCE_ROOT; };
+		1021B20B284C3EAC00331EA5 /* PheonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PheonViewController.swift; path = LoAssistant/View/PheonCalc/PheonViewController.swift; sourceTree = SOURCE_ROOT; };
 		103E53B128459141001199A9 /* OrehaSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrehaSettingViewController.swift; sourceTree = "<group>"; };
 		103E53BA2848DD47001199A9 /* IngredientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientTableViewCell.swift; sourceTree = "<group>"; };
 		103E53BC2848E205001199A9 /* OrehaTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrehaTableViewController.swift; sourceTree = "<group>"; };
@@ -178,21 +178,10 @@
 		10F6461C27EB2F8500E51BBB /* LoAssistant */ = {
 			isa = PBXGroup;
 			children = (
-				1E2BC8B428A4FE8F00170EAD /* WeekyCheckList */,
-				210961E92849997D00FDBC60 /* PheonTable */,
-				210961E82849996200FDBC60 /* OrehaTable */,
-				10F6461D27EB2F8500E51BBB /* AppDelegate.swift */,
-				10F6461F27EB2F8500E51BBB /* SceneDelegate.swift */,
-				10AFD09727EDF058004CFAFB /* MainTableViewController.swift */,
-				216FE6F728C8506900C6EA08 /* LoadingIndicator.swift */,
-				10036DCF28B7865B00C65E49 /* StringExtention.swift */,
-				212D3E6C28B8C053009A1E1E /* Protocols.swift */,
-				212D3E6E28BC55DD009A1E1E /* DateHelper.swift */,
-				212D3E7028BC92FD009A1E1E /* Date.swift */,
-				10F6462327EB2F8500E51BBB /* Main.storyboard */,
-				10F6462627EB2F8600E51BBB /* Assets.xcassets */,
-				10F6462827EB2F8600E51BBB /* LaunchScreen.storyboard */,
-				10F6462B27EB2F8600E51BBB /* Info.plist */,
+				2194EA72298B8CB70072EEAE /* View */,
+				2194EA71298B8CAC0072EEAE /* LifeCycle */,
+				2194EA70298B8C950072EEAE /* Resources */,
+				2194EA6F298B8C8A0072EEAE /* Util */,
 			);
 			path = LoAssistant;
 			sourceTree = "<group>";
@@ -212,18 +201,6 @@
 				10F6464027EB2F8600E51BBB /* LoAssistantUITestsLaunchTests.swift */,
 			);
 			path = LoAssistantUITests;
-			sourceTree = "<group>";
-		};
-		1E2BC8B428A4FE8F00170EAD /* WeekyCheckList */ = {
-			isa = PBXGroup;
-			children = (
-				216FE6F228C1F27D00C6EA08 /* CheckListSettingViews */,
-				217FF48A28ADBA7B0012B949 /* CharacterTableCells */,
-				1E2BC8B528A4FEB400170EAD /* CharacterTableViewController.swift */,
-				1E2BC8B728A4FF8300170EAD /* CharacterDataService.swift */,
-				217FF49128AE357F0012B949 /* CheckListData.swift */,
-			);
-			path = WeekyCheckList;
 			sourceTree = "<group>";
 		};
 		1E422006289CBA940080C7E5 /* OrehaTableCells */ = {
@@ -246,27 +223,6 @@
 			path = PriceTable;
 			sourceTree = "<group>";
 		};
-		210961E82849996200FDBC60 /* OrehaTable */ = {
-			isa = PBXGroup;
-			children = (
-				1E422006289CBA940080C7E5 /* OrehaTableCells */,
-				210961E528485A4900FDBC60 /* PriceTable */,
-				103E53BC2848E205001199A9 /* OrehaTableViewController.swift */,
-				103E53B128459141001199A9 /* OrehaSettingViewController.swift */,
-				1008CB5A283A1DC9000F6E0B /* MarketDataService.swift */,
-			);
-			path = OrehaTable;
-			sourceTree = "<group>";
-		};
-		210961E92849997D00FDBC60 /* PheonTable */ = {
-			isa = PBXGroup;
-			children = (
-				1021B20B284C3EAC00331EA5 /* PheonViewController.swift */,
-				1E52D85B2893CBB3002ED70E /* PheonViewDataService.swift */,
-			);
-			path = PheonTable;
-			sourceTree = "<group>";
-		};
 		216FE6F228C1F27D00C6EA08 /* CheckListSettingViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -285,6 +241,90 @@
 				2107F22C28B4C71B005605F5 /* ExpeditionTableViewCell.swift */,
 			);
 			path = CharacterTableCells;
+			sourceTree = "<group>";
+		};
+		2194EA6F298B8C8A0072EEAE /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				216FE6F728C8506900C6EA08 /* LoadingIndicator.swift */,
+				10036DCF28B7865B00C65E49 /* StringExtention.swift */,
+				212D3E6C28B8C053009A1E1E /* Protocols.swift */,
+				212D3E6E28BC55DD009A1E1E /* DateHelper.swift */,
+				212D3E7028BC92FD009A1E1E /* Date.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		2194EA70298B8C950072EEAE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				10F6462327EB2F8500E51BBB /* Main.storyboard */,
+				10F6462627EB2F8600E51BBB /* Assets.xcassets */,
+				10F6462827EB2F8600E51BBB /* LaunchScreen.storyboard */,
+				10F6462B27EB2F8600E51BBB /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		2194EA71298B8CAC0072EEAE /* LifeCycle */ = {
+			isa = PBXGroup;
+			children = (
+				10F6461D27EB2F8500E51BBB /* AppDelegate.swift */,
+				10F6461F27EB2F8500E51BBB /* SceneDelegate.swift */,
+			);
+			path = LifeCycle;
+			sourceTree = "<group>";
+		};
+		2194EA72298B8CB70072EEAE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2194EA76298B8CFF0072EEAE /* Main */,
+				2194EA75298B8CF80072EEAE /* PheonCalc */,
+				2194EA74298B8CEB0072EEAE /* OrehaCalc */,
+				2194EA73298B8CD90072EEAE /* WeeklyCheckList */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2194EA73298B8CD90072EEAE /* WeeklyCheckList */ = {
+			isa = PBXGroup;
+			children = (
+				216FE6F228C1F27D00C6EA08 /* CheckListSettingViews */,
+				217FF48A28ADBA7B0012B949 /* CharacterTableCells */,
+				1E2BC8B528A4FEB400170EAD /* CharacterTableViewController.swift */,
+				1E2BC8B728A4FF8300170EAD /* CharacterDataService.swift */,
+				217FF49128AE357F0012B949 /* CheckListData.swift */,
+			);
+			path = WeeklyCheckList;
+			sourceTree = "<group>";
+		};
+		2194EA74298B8CEB0072EEAE /* OrehaCalc */ = {
+			isa = PBXGroup;
+			children = (
+				1E422006289CBA940080C7E5 /* OrehaTableCells */,
+				210961E528485A4900FDBC60 /* PriceTable */,
+				103E53BC2848E205001199A9 /* OrehaTableViewController.swift */,
+				103E53B128459141001199A9 /* OrehaSettingViewController.swift */,
+				1008CB5A283A1DC9000F6E0B /* MarketDataService.swift */,
+			);
+			path = OrehaCalc;
+			sourceTree = "<group>";
+		};
+		2194EA75298B8CF80072EEAE /* PheonCalc */ = {
+			isa = PBXGroup;
+			children = (
+				1021B20B284C3EAC00331EA5 /* PheonViewController.swift */,
+				1E52D85B2893CBB3002ED70E /* PheonViewDataService.swift */,
+			);
+			path = PheonCalc;
+			sourceTree = "<group>";
+		};
+		2194EA76298B8CFF0072EEAE /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				10AFD09727EDF058004CFAFB /* MainTableViewController.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		21E7460D28B7195400A80772 /* CheckListCells */ = {
