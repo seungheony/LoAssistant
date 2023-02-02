@@ -10,7 +10,7 @@
 		0940C46B513ECCAC5C2D15B9 /* Pods_LoAssistantTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CA49C1B43D2A17E9F8D8636 /* Pods_LoAssistantTests.framework */; };
 		10036DD028B7865B00C65E49 /* StringExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10036DCF28B7865B00C65E49 /* StringExtention.swift */; };
 		1008CB5B283A1DC9000F6E0B /* MarketDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1008CB5A283A1DC9000F6E0B /* MarketDataService.swift */; };
-		1021B20C284C3EAC00331EA5 /* PheonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1021B20B284C3EAC00331EA5 /* PheonViewController.swift */; };
+		1021B20C284C3EAC00331EA5 /* PheonCalcViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1021B20B284C3EAC00331EA5 /* PheonCalcViewController.swift */; };
 		103E53B228459141001199A9 /* OrehaSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103E53B128459141001199A9 /* OrehaSettingViewController.swift */; };
 		103E53BB2848DD47001199A9 /* IngredientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103E53BA2848DD47001199A9 /* IngredientTableViewCell.swift */; };
 		103E53BD2848E205001199A9 /* OrehaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103E53BC2848E205001199A9 /* OrehaTableViewController.swift */; };
@@ -26,7 +26,6 @@
 		1E2BC8B628A4FEB400170EAD /* CharacterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2BC8B528A4FEB400170EAD /* CharacterTableViewController.swift */; };
 		1E2BC8B828A4FF8400170EAD /* CharacterDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2BC8B728A4FF8300170EAD /* CharacterDataService.swift */; };
 		1E422008289CBAA80080C7E5 /* TimerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E422007289CBAA80080C7E5 /* TimerTableViewCell.swift */; };
-		1E52D85C2893CBB3002ED70E /* PheonViewDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52D85B2893CBB3002ED70E /* PheonViewDataService.swift */; };
 		2107F22B28B4C705005605F5 /* ExpeditionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107F22A28B4C705005605F5 /* ExpeditionTableViewController.swift */; };
 		2107F22D28B4C71B005605F5 /* ExpeditionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107F22C28B4C71B005605F5 /* ExpeditionTableViewCell.swift */; };
 		210961E428485A0700FDBC60 /* PriceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210961E328485A0700FDBC60 /* PriceTableViewController.swift */; };
@@ -42,6 +41,8 @@
 		217FF49228AE357F0012B949 /* CheckListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217FF49128AE357F0012B949 /* CheckListData.swift */; };
 		2194EA78298B8E0A0072EEAE /* MainViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2194EA77298B8E0A0072EEAE /* MainViewReactor.swift */; };
 		2194EA7A298B8E240072EEAE /* ViewList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2194EA79298B8E240072EEAE /* ViewList.swift */; };
+		2194EA7C298B909B0072EEAE /* BundleConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2194EA7B298B909B0072EEAE /* BundleConstant.swift */; };
+		2194EA7E298B90C40072EEAE /* PheonCalcReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2194EA7D298B90C40072EEAE /* PheonCalcReactor.swift */; };
 		21E7460C28B5E37300A80772 /* OrehaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E7460B28B5E37300A80772 /* OrehaTableViewCell.swift */; };
 		21E7460F28B71A1700A80772 /* ValtanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E7460E28B71A1700A80772 /* ValtanTableViewCell.swift */; };
 		21E7461128B71A3500A80772 /* BiackissTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E7461028B71A3500A80772 /* BiackissTableViewCell.swift */; };
@@ -75,7 +76,7 @@
 		062528949B9FCA96BDEDB6D0 /* Pods-LoAssistant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoAssistant.release.xcconfig"; path = "Target Support Files/Pods-LoAssistant/Pods-LoAssistant.release.xcconfig"; sourceTree = "<group>"; };
 		10036DCF28B7865B00C65E49 /* StringExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtention.swift; sourceTree = "<group>"; };
 		1008CB5A283A1DC9000F6E0B /* MarketDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDataService.swift; sourceTree = "<group>"; };
-		1021B20B284C3EAC00331EA5 /* PheonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PheonViewController.swift; path = LoAssistant/View/PheonCalc/PheonViewController.swift; sourceTree = SOURCE_ROOT; };
+		1021B20B284C3EAC00331EA5 /* PheonCalcViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PheonCalcViewController.swift; path = LoAssistant/View/PheonCalc/PheonCalcViewController.swift; sourceTree = SOURCE_ROOT; };
 		103E53B128459141001199A9 /* OrehaSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrehaSettingViewController.swift; sourceTree = "<group>"; };
 		103E53BA2848DD47001199A9 /* IngredientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientTableViewCell.swift; sourceTree = "<group>"; };
 		103E53BC2848E205001199A9 /* OrehaTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrehaTableViewController.swift; sourceTree = "<group>"; };
@@ -95,7 +96,6 @@
 		1E2BC8B528A4FEB400170EAD /* CharacterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewController.swift; sourceTree = "<group>"; };
 		1E2BC8B728A4FF8300170EAD /* CharacterDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDataService.swift; sourceTree = "<group>"; };
 		1E422007289CBAA80080C7E5 /* TimerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerTableViewCell.swift; sourceTree = "<group>"; };
-		1E52D85B2893CBB3002ED70E /* PheonViewDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PheonViewDataService.swift; sourceTree = "<group>"; };
 		2107F22A28B4C705005605F5 /* ExpeditionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpeditionTableViewController.swift; sourceTree = "<group>"; };
 		2107F22C28B4C71B005605F5 /* ExpeditionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpeditionTableViewCell.swift; sourceTree = "<group>"; };
 		210961E328485A0700FDBC60 /* PriceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceTableViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +111,8 @@
 		217FF49128AE357F0012B949 /* CheckListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListData.swift; sourceTree = "<group>"; };
 		2194EA77298B8E0A0072EEAE /* MainViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewReactor.swift; sourceTree = "<group>"; };
 		2194EA79298B8E240072EEAE /* ViewList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewList.swift; sourceTree = "<group>"; };
+		2194EA7B298B909B0072EEAE /* BundleConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleConstant.swift; sourceTree = "<group>"; };
+		2194EA7D298B90C40072EEAE /* PheonCalcReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PheonCalcReactor.swift; sourceTree = "<group>"; };
 		21E7460B28B5E37300A80772 /* OrehaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrehaTableViewCell.swift; sourceTree = "<group>"; };
 		21E7460E28B71A1700A80772 /* ValtanTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValtanTableViewCell.swift; sourceTree = "<group>"; };
 		21E7461028B71A3500A80772 /* BiackissTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiackissTableViewCell.swift; sourceTree = "<group>"; };
@@ -317,8 +319,9 @@
 		2194EA75298B8CF80072EEAE /* PheonCalc */ = {
 			isa = PBXGroup;
 			children = (
-				1021B20B284C3EAC00331EA5 /* PheonViewController.swift */,
-				1E52D85B2893CBB3002ED70E /* PheonViewDataService.swift */,
+				1021B20B284C3EAC00331EA5 /* PheonCalcViewController.swift */,
+				2194EA7B298B909B0072EEAE /* BundleConstant.swift */,
+				2194EA7D298B90C40072EEAE /* PheonCalcReactor.swift */,
 			);
 			path = PheonCalc;
 			sourceTree = "<group>";
@@ -616,6 +619,7 @@
 				103E53B228459141001199A9 /* OrehaSettingViewController.swift in Sources */,
 				217FF49028ADBF6B0012B949 /* CharacterSettingTableViewController.swift in Sources */,
 				1E422008289CBAA80080C7E5 /* TimerTableViewCell.swift in Sources */,
+				2194EA7C298B909B0072EEAE /* BundleConstant.swift in Sources */,
 				217FF49228AE357F0012B949 /* CheckListData.swift in Sources */,
 				217FF48C28ADBAAD0012B949 /* InfoTableViewCell.swift in Sources */,
 				103E53BB2848DD47001199A9 /* IngredientTableViewCell.swift in Sources */,
@@ -633,16 +637,16 @@
 				21E7461728B71A6900A80772 /* IlliakanTableViewCell.swift in Sources */,
 				21E7460C28B5E37300A80772 /* OrehaTableViewCell.swift in Sources */,
 				21096263284A01DB00FDBC60 /* ResultTableViewCell.swift in Sources */,
-				1021B20C284C3EAC00331EA5 /* PheonViewController.swift in Sources */,
+				1021B20C284C3EAC00331EA5 /* PheonCalcViewController.swift in Sources */,
 				21E7461328B71A4F00A80772 /* Kouku_SatonTableViewCell.swift in Sources */,
 				212D3E7128BC92FD009A1E1E /* Date.swift in Sources */,
 				10036DD028B7865B00C65E49 /* StringExtention.swift in Sources */,
 				1E2BC8B828A4FF8400170EAD /* CharacterDataService.swift in Sources */,
+				2194EA7E298B90C40072EEAE /* PheonCalcReactor.swift in Sources */,
 				10F6461E27EB2F8500E51BBB /* AppDelegate.swift in Sources */,
 				210961E728485A6800FDBC60 /* PriceTableViewCell.swift in Sources */,
 				21E7461928B71ABA00A80772 /* KayangelTableViewCell.swift in Sources */,
 				10F6462027EB2F8500E51BBB /* SceneDelegate.swift in Sources */,
-				1E52D85C2893CBB3002ED70E /* PheonViewDataService.swift in Sources */,
 				210961E428485A0700FDBC60 /* PriceTableViewController.swift in Sources */,
 				1008CB5B283A1DC9000F6E0B /* MarketDataService.swift in Sources */,
 			);

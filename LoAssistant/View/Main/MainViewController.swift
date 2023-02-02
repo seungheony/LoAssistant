@@ -9,6 +9,8 @@ import UIKit
 import ReactorKit
 import RxCocoa
 import RxSwift
+import Alamofire
+import SwiftyJSON
 
 final class MainViewController: UITableViewController, StoryboardView {
     
@@ -38,11 +40,12 @@ final class MainViewController: UITableViewController, StoryboardView {
         reactor.state
             .map { $0.nextView }
             .distinctUntilChanged()
-            .bind(onNext: { self.pushNextViewController(nextView: $0) })
+            // State.nextView의 값이 변경될 때마다 pushNextView룰 살행한다.
+            .bind(onNext: pushNextView)
             .disposed(by: disposeBag)
     }
     
-    private func pushNextViewController(nextView: ViewList) {
+    private func pushNextView(nextView: ViewList) {
         switch nextView {
         case .mainView:
             print("push main view")
@@ -53,11 +56,11 @@ final class MainViewController: UITableViewController, StoryboardView {
 //            nextVC.reactor = OrehaCalcReactor
             self.navigationController?.pushViewController(nextVC, animated: true)
         case .pheonCalcView:
-            guard let nextVC = self.storyboard?.instantiateViewController(identifier: "PheonView") as? PheonViewController else {
+            guard let nextVC = self.storyboard?.instantiateViewController(identifier: "PheonView") as? PheonCalcViewController else {
                 return
             }
             self.navigationController?.pushViewController(nextVC, animated: true)
-//            nextVC.reactor = PheonCalcReactor
+            nextVC.reactor = PheonCalcReactor(initialState: PheonCalcReactor.State(numOfPheon: 0, goldPerCrystal: "", crystalData: JSON(), isCalculable: false, constant: .bundleOf100))
         case .weeklyCheckListView:
             guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "Character Table") else {
                 return
