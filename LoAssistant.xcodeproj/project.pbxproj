@@ -14,7 +14,7 @@
 		103E53B228459141001199A9 /* OrehaSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103E53B128459141001199A9 /* OrehaSettingViewController.swift */; };
 		103E53BB2848DD47001199A9 /* IngredientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103E53BA2848DD47001199A9 /* IngredientTableViewCell.swift */; };
 		103E53BD2848E205001199A9 /* OrehaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103E53BC2848E205001199A9 /* OrehaTableViewController.swift */; };
-		10AFD09827EDF058004CFAFB /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AFD09727EDF058004CFAFB /* MainTableViewController.swift */; };
+		10AFD09827EDF058004CFAFB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AFD09727EDF058004CFAFB /* MainViewController.swift */; };
 		10F6461E27EB2F8500E51BBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F6461D27EB2F8500E51BBB /* AppDelegate.swift */; };
 		10F6462027EB2F8500E51BBB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F6461F27EB2F8500E51BBB /* SceneDelegate.swift */; };
 		10F6462527EB2F8500E51BBB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10F6462327EB2F8500E51BBB /* Main.storyboard */; };
@@ -40,6 +40,8 @@
 		217FF48C28ADBAAD0012B949 /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217FF48B28ADBAAD0012B949 /* InfoTableViewCell.swift */; };
 		217FF49028ADBF6B0012B949 /* CharacterSettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217FF48F28ADBF6B0012B949 /* CharacterSettingTableViewController.swift */; };
 		217FF49228AE357F0012B949 /* CheckListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217FF49128AE357F0012B949 /* CheckListData.swift */; };
+		2194EA78298B8E0A0072EEAE /* MainViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2194EA77298B8E0A0072EEAE /* MainViewReactor.swift */; };
+		2194EA7A298B8E240072EEAE /* ViewList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2194EA79298B8E240072EEAE /* ViewList.swift */; };
 		21E7460C28B5E37300A80772 /* OrehaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E7460B28B5E37300A80772 /* OrehaTableViewCell.swift */; };
 		21E7460F28B71A1700A80772 /* ValtanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E7460E28B71A1700A80772 /* ValtanTableViewCell.swift */; };
 		21E7461128B71A3500A80772 /* BiackissTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E7461028B71A3500A80772 /* BiackissTableViewCell.swift */; };
@@ -77,7 +79,7 @@
 		103E53B128459141001199A9 /* OrehaSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrehaSettingViewController.swift; sourceTree = "<group>"; };
 		103E53BA2848DD47001199A9 /* IngredientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientTableViewCell.swift; sourceTree = "<group>"; };
 		103E53BC2848E205001199A9 /* OrehaTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrehaTableViewController.swift; sourceTree = "<group>"; };
-		10AFD09727EDF058004CFAFB /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
+		10AFD09727EDF058004CFAFB /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		10F6461A27EB2F8500E51BBB /* LoAssistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoAssistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10F6461D27EB2F8500E51BBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10F6461F27EB2F8500E51BBB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +109,8 @@
 		217FF48B28ADBAAD0012B949 /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
 		217FF48F28ADBF6B0012B949 /* CharacterSettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSettingTableViewController.swift; sourceTree = "<group>"; };
 		217FF49128AE357F0012B949 /* CheckListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListData.swift; sourceTree = "<group>"; };
+		2194EA77298B8E0A0072EEAE /* MainViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewReactor.swift; sourceTree = "<group>"; };
+		2194EA79298B8E240072EEAE /* ViewList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewList.swift; sourceTree = "<group>"; };
 		21E7460B28B5E37300A80772 /* OrehaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrehaTableViewCell.swift; sourceTree = "<group>"; };
 		21E7460E28B71A1700A80772 /* ValtanTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValtanTableViewCell.swift; sourceTree = "<group>"; };
 		21E7461028B71A3500A80772 /* BiackissTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiackissTableViewCell.swift; sourceTree = "<group>"; };
@@ -322,7 +326,9 @@
 		2194EA76298B8CFF0072EEAE /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				10AFD09727EDF058004CFAFB /* MainTableViewController.swift */,
+				10AFD09727EDF058004CFAFB /* MainViewController.swift */,
+				2194EA77298B8E0A0072EEAE /* MainViewReactor.swift */,
+				2194EA79298B8E240072EEAE /* ViewList.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -605,7 +611,8 @@
 			files = (
 				21E7461B28B71AF800A80772 /* ArgosTableViewCell.swift in Sources */,
 				216FE6F428C1F2AF00C6EA08 /* CheckListSettingTableViewController.swift in Sources */,
-				10AFD09827EDF058004CFAFB /* MainTableViewController.swift in Sources */,
+				2194EA78298B8E0A0072EEAE /* MainViewReactor.swift in Sources */,
+				10AFD09827EDF058004CFAFB /* MainViewController.swift in Sources */,
 				103E53B228459141001199A9 /* OrehaSettingViewController.swift in Sources */,
 				217FF49028ADBF6B0012B949 /* CharacterSettingTableViewController.swift in Sources */,
 				1E422008289CBAA80080C7E5 /* TimerTableViewCell.swift in Sources */,
@@ -622,6 +629,7 @@
 				212D3E6D28B8C053009A1E1E /* Protocols.swift in Sources */,
 				216FE6F828C8506900C6EA08 /* LoadingIndicator.swift in Sources */,
 				2107F22B28B4C705005605F5 /* ExpeditionTableViewController.swift in Sources */,
+				2194EA7A298B8E240072EEAE /* ViewList.swift in Sources */,
 				21E7461728B71A6900A80772 /* IlliakanTableViewCell.swift in Sources */,
 				21E7460C28B5E37300A80772 /* OrehaTableViewCell.swift in Sources */,
 				21096263284A01DB00FDBC60 /* ResultTableViewCell.swift in Sources */,
@@ -816,7 +824,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = NA26GLX2M2;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = LoAssistant/Info.plist;
+				INFOPLIST_FILE = LoAssistant/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -846,7 +854,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = NA26GLX2M2;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = LoAssistant/Info.plist;
+				INFOPLIST_FILE = LoAssistant/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
