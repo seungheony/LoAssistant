@@ -1,20 +1,53 @@
 PODS:
   - Alamofire (5.6.1)
+  - Differentiator (5.0.0)
+  - ReactorKit (3.2.0):
+    - RxSwift (~> 6.0)
+    - WeakMapTable (~> 1.1)
+  - RxCocoa (6.5.0):
+    - RxRelay (= 6.5.0)
+    - RxSwift (= 6.5.0)
+  - RxDataSources (5.0.0):
+    - Differentiator (~> 5.0)
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
+  - RxRelay (6.5.0):
+    - RxSwift (= 6.5.0)
+  - RxSwift (6.5.0)
   - SwiftyJSON (4.3.0)
+  - WeakMapTable (1.2.0)
 
 DEPENDENCIES:
-  - Alamofire (~> 5.6)
-  - SwiftyJSON (~> 4.0)
+  - Alamofire
+  - ReactorKit
+  - RxCocoa
+  - RxDataSources
+  - RxSwift
+  - SwiftyJSON
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - Differentiator
+    - ReactorKit
+    - RxCocoa
+    - RxDataSources
+    - RxRelay
+    - RxSwift
     - SwiftyJSON
+    - WeakMapTable
 
 SPEC CHECKSUMS:
   Alamofire: 87bd8c952f9a4454320fce00d9cc3de57bcadaf5
+  Differentiator: e8497ceab83c1b10ca233716d547b9af21b9344d
+  ReactorKit: e8b11d6b9c415405f381669b095c154a05b59eca
+  RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
+  RxDataSources: aa47cc1ed6c500fa0dfecac5c979b723542d79cf
+  RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
+  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
+  WeakMapTable: 05c694ce8439a7a9ebabb56187287a63c57673d6
 
-PODFILE CHECKSUM: 3d3dff59a981fc44aafce998f01f583eb49f5958
+PODFILE CHECKSUM: 3533a5034c59bdb4e74ab685aef08850e16d578a
 
 COCOAPODS: 1.11.3

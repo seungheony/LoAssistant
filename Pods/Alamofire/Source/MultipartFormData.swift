@@ -310,6 +310,15 @@ open class MultipartFormData {
     }
 
     // MARK: - Data Encoding
+
+    /// Encodes all appended body parts into a single `Data` value.
+    ///
+    /// - Note: This method will load all the appended body parts into memory all at the same time. This method should
+    ///         only be used when the encoded data will have a small memory footprint. For large data cases, please use
+    ///         the `writeEncodedData(to:))` method.
+    ///
+    /// - Returns: The encoded `Data`, if encoding is successful.
+    /// - Throws:  An `AFError` if encoding encounters an error.
     public func encode() throws -> Data {
         if let bodyPartError = bodyPartError {
             throw bodyPartError
